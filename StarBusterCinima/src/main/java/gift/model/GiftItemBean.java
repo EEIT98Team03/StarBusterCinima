@@ -1,7 +1,5 @@
 package gift.model;
 
-import java.sql.Timestamp;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,7 +15,7 @@ public class GiftItemBean {
 	private String itemCategoryId;
 	private String itemCategoryName;
 	private String itemName;
-	private long unitPrice;
+	private int unitPrice;
 	private String spec;
 	private String itemPhoto;
 	private int isAvailable;
@@ -47,10 +45,10 @@ public class GiftItemBean {
 	public void setItemName(String itemName) {
 		this.itemName = itemName;
 	}
-	public long getUnitPrice() {
+	public int getUnitPrice() {
 		return unitPrice;
 	}
-	public void setUnitPrice(long unitPrice) {
+	public void setUnitPrice(int unitPrice) {
 		this.unitPrice = unitPrice;
 	}
 	public String getSpec() {
