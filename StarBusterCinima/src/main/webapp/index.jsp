@@ -5,8 +5,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=BIG5">
 <title>Insert title here</title>
+<!-- <link rel="stylesheet" type="text/css" href="css/mycss.css"> -->
 </head>
 <body>
-
+	<h3>click here</h3>
 </body>
 </html>
