@@ -1,6 +1,5 @@
 package member.model;
 
-import java.sql.Timestamp;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -23,6 +22,7 @@ public class MemberBean {
 	private String gender;
 	private java.util.Date birthday;
 	private java.sql.Timestamp registTime;
+	private java.sql.Timestamp lastLoginTime;
 	private String filmAdType;
 	private String giftAdType;
 	private String identityStatus;
@@ -30,12 +30,10 @@ public class MemberBean {
 
 	public MemberBean() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public MemberBean(String email, String password, String name, String address, String phoneNumber, String gender,
-			Date birthday, Timestamp registTime, String filmAdType, String giftAdType, String identityStatus,
-			String identityCode) {
+			Date birthday) {
 		super();
 		this.email = email;
 		this.password = password;
@@ -44,19 +42,23 @@ public class MemberBean {
 		this.phoneNumber = phoneNumber;
 		this.gender = gender;
 		this.birthday = birthday;
-		this.registTime = registTime;
-		this.filmAdType = filmAdType;
-		this.giftAdType = giftAdType;
-		this.identityStatus = identityStatus;
-		this.identityCode = identityCode;
 	}
 
 	@Override
 	public String toString() {
 		return "MemberBean [memberId=" + memberId + ", email=" + email + ", password=" + password + ", name=" + name
 				+ ", address=" + address + ", phoneNumber=" + phoneNumber + ", gender=" + gender + ", birthday="
-				+ birthday + ", registTime=" + registTime + ", filmAdType=" + filmAdType + ", giftAdType=" + giftAdType
-				+ ", identityStatus=" + identityStatus + ", identityCode=" + identityCode + "]";
+				+ birthday + ", registTime=" + registTime + ", lastLoginTime=" + lastLoginTime + ", filmAdType="
+				+ filmAdType + ", giftAdType=" + giftAdType + ", identityStatus=" + identityStatus + ", identityCode="
+				+ identityCode + "]";
+	}
+
+	public java.sql.Timestamp getLastLoginTime() {
+		return lastLoginTime;
+	}
+
+	public void setLastLoginTime(java.sql.Timestamp lastLoginTime) {
+		this.lastLoginTime = lastLoginTime;
 	}
 
 	public String getIdentityStatus() {
