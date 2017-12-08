@@ -9,24 +9,40 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "GiftItemList")
+@Table(name = "GiftItem")
 public class GiftItemBean {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private String itemId;
+	private int itemId;
+	public GiftItemBean(int itemId, String itemCategoryId, String itemCategoryName, String itemName, int unitPrice,
+			String spec, String itemPhoto, int isAvailable, Timestamp createdTime) {
+		super();
+		this.itemId = itemId;
+		this.itemCategoryId = itemCategoryId;
+		this.itemCategoryName = itemCategoryName;
+		this.itemName = itemName;
+		this.unitPrice = unitPrice;
+		this.spec = spec;
+		this.itemPhoto = itemPhoto;
+		this.isAvailable = isAvailable;
+		this.createdTime = createdTime;
+	}
+	public GiftItemBean() {
+		super();
+	}
 	private String itemCategoryId;
 	private String itemCategoryName;
 	private String itemName;
-	private long unitPrice;
+	private int unitPrice;
 	private String spec;
 	private String itemPhoto;
 	private int isAvailable;
 	private java.sql.Timestamp createdTime;
 	
-	public String getItemId() {
+	public int getItemId() {
 		return itemId;
 	}
-	public void setItemId(String itemId) {
+	public void setItemId(int itemId) {
 		this.itemId = itemId;
 	}
 	public String getItemCategoryId() {
@@ -47,10 +63,10 @@ public class GiftItemBean {
 	public void setItemName(String itemName) {
 		this.itemName = itemName;
 	}
-	public long getUnitPrice() {
+	public int getUnitPrice() {
 		return unitPrice;
 	}
-	public void setUnitPrice(long unitPrice) {
+	public void setUnitPrice(int unitPrice) {
 		this.unitPrice = unitPrice;
 	}
 	public String getSpec() {
