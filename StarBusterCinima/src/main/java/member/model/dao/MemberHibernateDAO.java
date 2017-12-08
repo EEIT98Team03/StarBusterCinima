@@ -1,7 +1,6 @@
 package member.model.dao;
 
 import java.sql.Timestamp;
-import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -44,17 +43,20 @@ public class MemberHibernateDAO implements MemberDAO {
 
 	@Override
 	public MemberBean update(int memberId, String email, String password, String name, String address,
-			String phoneNumber, String gender, Date birthday, Timestamp registTime, String filmAdType,
-			String giftAdType) {
+			String phoneNumber, String gender, java.sql.Date registration_date, Timestamp registTime, String filmAdType,
+			String giftAdType,String identityStatus,String identityCode) {
 		MemberBean update = this.select(memberId);
 		if (update != null) {
 			update.setEmail(email);
 			update.setPassword(password);
 			update.setName(name);
 			update.setAddress(address);
+			update.setRegistration_date(registration_date);
 			update.setPhoneNumber(phoneNumber);
 			update.setFilmAdType(filmAdType);
 			update.setGiftAdType(giftAdType);
+			update.setIdentityCode(identityCode);
+			update.setIdentityStatus(identityStatus);
 		}
 		return update;
 	}
@@ -67,5 +69,17 @@ public class MemberHibernateDAO implements MemberDAO {
 			return true;
 		}
 		return false;
+	}
+
+	@Override
+	public MemberBean selectEmail(String email) {
+		Query<MemberBean> query = this.session().createQuery("from MemberBean where email = ?", MemberBean.class);
+		query.setParameter(0, email);
+		List<MemberBean> list = query.getResultList();
+		if (list.isEmpty()) {
+			return null;
+		} else {
+			return list.get(0);
+		}
 	}
 }

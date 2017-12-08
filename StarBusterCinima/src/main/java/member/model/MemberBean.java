@@ -1,7 +1,6 @@
 package member.model;
 
-import java.util.Date;
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,7 +19,8 @@ public class MemberBean {
 	private String address;
 	private String phoneNumber;
 	private String gender;
-	private java.util.Date birthday;
+	@Column(name = "birthday")
+	private java.sql.Date registration_date;
 	private java.sql.Timestamp registTime;
 	private java.sql.Timestamp lastLoginTime;
 	private String filmAdType;
@@ -33,7 +33,7 @@ public class MemberBean {
 	}
 
 	public MemberBean(String email, String password, String name, String address, String phoneNumber, String gender,
-			Date birthday) {
+			java.sql.Date birthday) {
 		super();
 		this.email = email;
 		this.password = password;
@@ -41,16 +41,16 @@ public class MemberBean {
 		this.address = address;
 		this.phoneNumber = phoneNumber;
 		this.gender = gender;
-		this.birthday = birthday;
+		this.registration_date = birthday;
 	}
 
 	@Override
 	public String toString() {
 		return "MemberBean [memberId=" + memberId + ", email=" + email + ", password=" + password + ", name=" + name
 				+ ", address=" + address + ", phoneNumber=" + phoneNumber + ", gender=" + gender + ", birthday="
-				+ birthday + ", registTime=" + registTime + ", lastLoginTime=" + lastLoginTime + ", filmAdType="
-				+ filmAdType + ", giftAdType=" + giftAdType + ", identityStatus=" + identityStatus + ", identityCode="
-				+ identityCode + "]";
+				+ registration_date + ", registTime=" + registTime + ", lastLoginTime=" + lastLoginTime
+				+ ", filmAdType=" + filmAdType + ", giftAdType=" + giftAdType + ", identityStatus=" + identityStatus
+				+ ", identityCode=" + identityCode + "]";
 	}
 
 	public java.sql.Timestamp getLastLoginTime() {
@@ -133,12 +133,13 @@ public class MemberBean {
 		this.gender = gender;
 	}
 
-	public java.util.Date getBirthday() {
-		return birthday;
+
+	public java.sql.Date getRegistration_date() {
+		return registration_date;
 	}
 
-	public void setBirthday(java.util.Date birthday) {
-		this.birthday = birthday;
+	public void setRegistration_date(java.sql.Date registration_date) {
+		this.registration_date = registration_date;
 	}
 
 	public java.sql.Timestamp getRegistTime() {
