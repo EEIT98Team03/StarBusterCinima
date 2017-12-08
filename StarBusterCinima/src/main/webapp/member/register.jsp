@@ -158,8 +158,8 @@
                         </div>-->
 					<div class="form-group">
 						<div class="col-xs-offset-3 col-xs-10">
-							<input name="Submit" type="submit" value="Sign Up"
-								class="btn btn-primary">
+							<input name="Submit" type="button" value="Sign Up"
+								class="btn btn-primary" onClick="checkForm();">
 						</div>
 					</div>
 				</form>
@@ -177,15 +177,7 @@
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
 		integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
 		crossorigin="anonymous"></script>
-	<script>
-		$(function(){
-			$('#cpassword').blur(function(){
-				if($('#password').val()!=$('#cpassword').val()){
-					alert('Please confirm your password again');
-				}
-			})
-			
-		})
-	</script>
+	<script type="text/javascript" src="../js/registerCheckForm.js"></script>
+
 </body>
 </html>
