@@ -3,7 +3,17 @@ package films.model;
 import java.sql.Date;
 import java.util.Arrays;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.web.bind.annotation.RequestParam;
+
+@Entity
+@Table(name = "FILM")
 public class FilmBean {
+	@Id
 	private String FilmId;
 	private String FilmName;
 	private String EngName;
@@ -12,7 +22,9 @@ public class FilmBean {
 	private String LengthOfFilm;
 	private String Genre;
 	private String FilmLevel;
+	@DateTimeFormat(pattern="yyyy-MM-dd") 
 	private Date Udate;
+	@DateTimeFormat(pattern="yyyy-MM-dd") 
 	private Date Ddate;
 	private String Director;
 	private String Actor;
@@ -23,6 +35,26 @@ public class FilmBean {
 	private int ScoreRt;
 	private int ScoreMember;
 	private String Language;
+	
+	
+//	public FilmBean(
+//		String filmId,
+//		String filmName,
+//		String engName,
+//		String lengthOfFilm,
+//		String genre,
+//		String filmLevel,
+//		java.sql.Date udate,
+//		java.sql.Date ddate,
+//		String director,
+//		String actor,
+//		String language,
+//		String trailer,
+//		String shortIntro,
+//		String longIntro
+//	) {
+//		
+//	}
 	
 	
 	public String getFilmId() {

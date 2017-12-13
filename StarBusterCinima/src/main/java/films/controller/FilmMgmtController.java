@@ -6,6 +6,7 @@ import java.sql.Date;
 import java.text.SimpleDateFormat;
 
 import org.springframework.beans.propertyeditors.CustomDateEditor;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
@@ -24,15 +25,18 @@ public class FilmMgmtController {
 
 	@InitBinder
 	public void initialize(WebDataBinder webDataBinder) {
-//		webDataBinder.registerCustomEditor(java.util.Date.class, "make",
-//				new CustomDateEditor(new SimpleDateFormat("yyyy-MM-dd"), ));
-//		
-//		webDataBinder.registerCustomEditor(int.class,
-//				new PrimitiveNumberEditor(java.lang.Integer.class, true));
-//		
+		webDataBinder.registerCustomEditor(java.util.Date.class, "udate",
+				new CustomDateEditor(new SimpleDateFormat("yyyy-MM-dd"), true));
+
+		webDataBinder.registerCustomEditor(java.util.Date.class, "ddate",
+				new CustomDateEditor(new SimpleDateFormat("yyyy-MM-dd"), true));
+		
+		webDataBinder.registerCustomEditor(int.class,
+				new PrimitiveNumberEditor(java.lang.Integer.class, true));
+		
 //		webDataBinder.registerCustomEditor(double.class, "price",
 //				new PrimitiveNumberEditor(java.lang.Double.class, true));
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+//		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 //		webDataBinder.PrimitiveNumberEditor(Date.class, new CustomDateEditor(dateFormat, true),2);
 	}
 	
@@ -55,11 +59,21 @@ public class FilmMgmtController {
 	){
 //		@RequestParam("FilmID") String posterLarge,
 //		@RequestParam("FilmID") byte[] posterMedium,
-		System.out.println(filmId+"test");
-		System.out.println(filmName+"test");
-		System.out.println(engName+"test");
-//		System.out.println(udate+"test");
-//		FilmBean insert(FilmBean bean)
+		System.out.println("filmId"+filmId);
+		System.out.println("filmName"+filmName);
+		System.out.println("engName"+engName);
+		System.out.println("lengthOfFilm"+lengthOfFilm);
+		System.out.println("genre"+genre);
+		System.out.println("filmLevel"+filmLevel);
+		System.out.println("udate"+udate);
+		System.out.println("ddate"+ddate);
+		System.out.println("director"+director);
+		System.out.println("actor"+actor);
+		System.out.println("language"+language);
+		System.out.println("trailer"+trailer);
+		System.out.println("shortIntro"+shortIntro);
+		System.out.println("longIntro"+longIntro);
+
 
 		
 		
