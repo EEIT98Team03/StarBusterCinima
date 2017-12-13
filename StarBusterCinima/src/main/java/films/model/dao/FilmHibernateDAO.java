@@ -71,11 +71,10 @@ public class FilmHibernateDAO implements FilmDAO {
 	@Override
 	public FilmBean insert(FilmBean bean) {
 		FilmBean insert = this.selectById(bean.getFilmId());
-		System.out.println(insert);
-//		if (insert == null) {
-//			this.session().save(bean);
-//			return bean;
-//		}
+		if (insert == null) {
+			this.session().save(bean);
+			return bean;
+		}
 		return null;
 	}
 

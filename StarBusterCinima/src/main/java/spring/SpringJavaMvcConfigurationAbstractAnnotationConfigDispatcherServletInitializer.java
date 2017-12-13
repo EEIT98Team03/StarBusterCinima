@@ -15,7 +15,7 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
 import org.springframework.web.servlet.view.XmlViewResolver;
 
 @Configuration
-@ComponentScan(basePackages = { "member.controller", "gift.controller", "booking.controller", "films.controller" })
+@ComponentScan(basePackages = { "member.controller", "gift.controller", "booking.controller", "films.controller" ,"vote.controller"})
 @EnableWebMvc
 public class SpringJavaMvcConfigurationAbstractAnnotationConfigDispatcherServletInitializer
 		extends AbstractAnnotationConfigDispatcherServletInitializer implements WebMvcConfigurer {

@@ -16,5 +16,6 @@
 
 		<mapping class="member.model.MemberBean" />
 		<mapping class="gift.model.GiftItemBean" />
+		<mapping class="vote.model.VoteBean"/>
 	</session-factory>
 </hibernate-configuration>

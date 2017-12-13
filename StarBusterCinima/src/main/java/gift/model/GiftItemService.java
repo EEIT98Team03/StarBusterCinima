@@ -11,6 +11,12 @@ import org.springframework.transaction.annotation.Transactional;
 public class GiftItemService {
 	@Autowired
 	GiftIttemDAO GiftItemDAO;
+	
+
+	public void main(String[] args[]) {
+		System.out.println(	getAllGiftItems());
+	
+	}
 
 //	List<GiftItemBean> getAllGiftItems = new ArrayList<GiftItemBean>();
 //

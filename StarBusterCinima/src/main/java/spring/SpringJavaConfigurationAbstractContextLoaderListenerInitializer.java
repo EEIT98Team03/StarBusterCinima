@@ -22,7 +22,7 @@ import gift.model.GiftItemBean;
 import member.model.MemberBean;
 
 @Configuration
-@ComponentScan(basePackages = { "member.model", "gift.model", "booking.model","films.model"})
+@ComponentScan(basePackages = { "member.model", "gift.model", "booking.model", "vote.model"})
 @EnableTransactionManagement
 public class SpringJavaConfigurationAbstractContextLoaderListenerInitializer extends AbstractContextLoaderInitializer {
 	@Bean
