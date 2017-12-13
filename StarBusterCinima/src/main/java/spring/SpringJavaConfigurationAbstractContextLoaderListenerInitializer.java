@@ -17,11 +17,12 @@ import org.springframework.web.context.AbstractContextLoaderInitializer;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 
+import films.model.FilmBean;
 import gift.model.GiftItemBean;
 import member.model.MemberBean;
 
 @Configuration
-@ComponentScan(basePackages = { "member.model", "gift.model" })
+@ComponentScan(basePackages = { "member.model", "gift.model", "booking.model"})
 @EnableTransactionManagement
 public class SpringJavaConfigurationAbstractContextLoaderListenerInitializer extends AbstractContextLoaderInitializer {
 	@Bean
@@ -43,7 +44,7 @@ public class SpringJavaConfigurationAbstractContextLoaderListenerInitializer ext
 //		.setProperty("hibernate.current_session_context_class", "thread")
 //		.setProperty("hibernate.show_sql", "true")
 		;
-		builder.addAnnotatedClasses(MemberBean.class, GiftItemBean.class);//加入要受hibernate管理的Bean
+		builder.addAnnotatedClasses(MemberBean.class, GiftItemBean.class, FilmBean.class);//加入要受hibernate管理的Bean
 		return builder.buildSessionFactory();
 	}
 	@Bean
