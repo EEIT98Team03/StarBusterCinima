@@ -17,8 +17,8 @@ div {
 	width: 70%
 }
 </style>
-
-
+<!-- http://localhost:8080/jQuerySite/FirstServlet?name=Jack&age=20 -->
+<!-- http://localhost:8080/StarBusterCinima/wishpool/VoteController?FilmID=F -->
 </head>
 <body style="background-color: black">
 
