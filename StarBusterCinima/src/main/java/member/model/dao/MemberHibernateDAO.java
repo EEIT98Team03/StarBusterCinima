@@ -14,6 +14,7 @@ import member.model.MemberDAO;
 
 @Repository
 public class MemberHibernateDAO implements MemberDAO {
+	
 	@Autowired
 	SessionFactory sessionFactory;
 

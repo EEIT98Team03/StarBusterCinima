@@ -20,11 +20,22 @@ public class FilmHibernateDAO implements FilmDAO {
 		return sessionFactory.getCurrentSession();
 	}
 	
+
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+
+
 	@Override
 	public FilmBean selectById(String filmId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
 
 	@Override
 	public FilmBean selectByFilmName(String filmName) {
@@ -32,11 +43,15 @@ public class FilmHibernateDAO implements FilmDAO {
 		return null;
 	}
 
+
+
 	@Override
 	public FilmBean selectByEngName(String engName) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
 
 	@Override
 	public List<FilmBean> selectAll() {
@@ -44,11 +59,15 @@ public class FilmHibernateDAO implements FilmDAO {
 		return null;
 	}
 
+
+
 	@Override
 	public List<FilmBean> selectMovieByGenre(String genre) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
 
 	@Override
 	public List<FilmBean> selectMovieByDirector(String director) {
@@ -56,11 +75,15 @@ public class FilmHibernateDAO implements FilmDAO {
 		return null;
 	}
 
+
+
 	@Override
 	public List<FilmBean> selectMovieByActor(String actor) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
 
 	@Override
 	public List<FilmBean> selectMovieByScore(int score) {
@@ -68,21 +91,23 @@ public class FilmHibernateDAO implements FilmDAO {
 		return null;
 	}
 
+
+
 	@Override
 	public FilmBean insert(FilmBean bean) {
-		FilmBean insert = this.selectById(bean.getFilmId());
-		if (insert == null) {
-			this.session().save(bean);
-			return bean;
-		}
+		// TODO Auto-generated method stub
 		return null;
 	}
+
+
 
 	@Override
 	public boolean delete(int memberId) {
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+
 
 	@Override
 	public FilmBean update(String filmId, String filmName, String engName, String shortIntro, String longIntro,
@@ -91,12 +116,6 @@ public class FilmHibernateDAO implements FilmDAO {
 			String language) {
 		// TODO Auto-generated method stub
 		return null;
-	}
-
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
 	}
 
 

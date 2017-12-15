@@ -14,55 +14,56 @@
 	<h3>請餵我吃很麻煩的資料</h3>
 	<tr>
 	<td>FilmID</td>
-	<td><input type="text" name="FilmID" value="${param.filmid}"></td>
+	<td><input type="text" name="filmId" value="${param.filmId}"></td>
 	</tr>
 	<tr>
 	<td>FilmName中文名稱</td>
-	<td><input type="text" name="FilmName" value="${param.filmname}"></td>
+	<td><input type="text" name="filmName" value="${param.filmName}"></td>
 	</tr>
 	<tr>
 	<td>EngName英文名稱</td>
-	<td><input type="text" name="EngName" value="${param.engname}"></td>
+	<td><input type="text" name="engName" value="${param.engName}"></td>
 	</tr>
 	<tr>
 	<td>LengthOfFilm片長</td>
-	<td><input type="text" name="LengthOfFilm" value="${param.lengthoffilm}"></td>
+	<td><input type="text" name="lengthOfFilm" value="${param.lengthOfFilm}"></td>
 	</tr>
 	<tr>
 	<td>Genre類型</td>
-	<td><input type="text" name="Genre" value="${param.genre}"></td>
+	<td><input type="text" name="genre" value="${param.genre}"></td>
 	</tr>
 	<tr>
 	<td>FilmLevel分級</td>
-	<td><input type="text" name="FilmLevel" value="${param.filmlevel}"></td>
+	<td><input type="text" name="filmLevel" value="${param.filmLevel}"></td>
 	</tr>
 	<tr>
 	<td>Udate上映日期</td>
-	<td><input type="text" name="Udate" value="${param.udate}"></td>
+	<td><input type="text" name="udate" value="${param.udate}"></td>
+	<c:out value='${param.udate}' ></c:out>
 	</tr>
 	<tr>
 	<td>Ddate下檔日期</td>
-	<td><input type="text" name="Ddate" value="${param.ddate}"></td>
+	<td><input type="text" name="ddate" value="${param.ddate}"></td>
 	</tr>
 	<tr>
 	<td>Director導演</td>
-	<td><input type="text" name="Director" value="${param.director}"></td>
+	<td><input type="text" name="director" value="${param.director}"></td>
 	</tr>
 	<tr>
 	<td>Actor演員</td>
-	<td><input type="text" name="Actor" value="${param.actor}"></td>
+	<td><input type="text" name="actor" value="${param.actor}"></td>
 	</tr>
 	
 	
 	<tr>
 	<td>Language語言</td>
-	<td><input type="text" name="Language" value="${param.language}"></td>
+	<td><input type="text" name="language" value="${param.language}"></td>
 	</tr>
 	
 	
 	<tr>
 	<td>Trailer預告片連結</td>
-	<td><input type="text" name="Trailer" value="${param.trailer}"></td>
+	<td><input type="text" name="trailer" value="${param.trailer}"></td>
 	</tr>
 	
 	

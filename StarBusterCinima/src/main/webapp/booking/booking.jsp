@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -43,6 +45,39 @@ html,body{height: 100%;margin:0 auto;}
 </head>
 
 <body>
+<form method="get" action='<c:url value="/booking/booking.controller" />' >
+	<tr>
+		<td><input type="text" name="ticketOrderID" value="${param.filmId}"/></td>
+	</tr>
+	<tr>
+		<td><input type="text" name="ticketOrderID" value="${param.ticketOrderID}"/></td>
+	</tr>
+	<tr>
+		<td><input type="text" name="ticketOrderDate" value="${param.ticketOrderDate}"/></td>
+	</tr>
+	<tr>
+		<td><input type="text" name="ticketOrderAmount" value="${param.ticketOrderAmount}"/></td>
+	</tr>
+	<tr>
+		<td><input type="text" name="memberId" value="${param.memberId}"/></td>
+	</tr>
+	<tr>
+		<td><input type="text" name="filmId" value="${param.filmId}"/></td>
+	</tr>
+	<tr>
+		<td><input type="text" name="ticketState" value="${param.ticketState}"/></td>
+	</tr>
+	<tr>
+		<td><input type="text" name="ticketCount" value="${param.ticketCount}"/></td>
+	</tr>
+	<tr>
+		<td><input type="text" name="seatNumber" value="${param.seatNumber}"/></td>
+	</tr>
+
+	<tr>
+		<td><input type="submit" value="" ></td>
+	</tr>
+</form>
 123
 	<div id="divblack">
 		<div id="between">
