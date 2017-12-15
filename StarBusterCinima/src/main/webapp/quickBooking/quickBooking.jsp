@@ -31,6 +31,7 @@ $(function(){
 	
 	// while (newArr.length > 0) {
 	// 	console.log(newArr.pop() + "<br/>");
+	
 });
 </script>
 </body>
