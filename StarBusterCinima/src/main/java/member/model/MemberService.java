@@ -25,6 +25,7 @@ public class MemberService {
 	// this.allMemberInfo = getMemberList();
 	// System.out.println(allMemberInfo);
 	// }
+	
 
 	@Transactional(readOnly = true)
 	public MemberBean checkLogin(String userEmail, String userPassword) {// 登入驗證

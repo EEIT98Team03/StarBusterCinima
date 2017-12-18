@@ -7,14 +7,31 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Vote")
+@Table(name = "VOTE")
 public class VoteBean {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private String FilmID;
 	private int BallotCount;	
 	private int VoteGoal ;
-	private String VoteStatus ;	
+	private String VoteStatus ;		
 	
+
+	
+	public VoteBean() {
+		super();
+		// TODO Auto-generated constructor stub
+	}	
+	
+	public VoteBean(String filmID, int ballotCount, int voteGoal, String voteStatus) {
+		super();
+		this.FilmID = filmID;
+		this.BallotCount = ballotCount;
+		this.VoteGoal = voteGoal;
+		this.VoteStatus = voteStatus;
+	}
+
+
 	@Override
 	public String toString() {
 		return "VoteBean [FilmID=" + FilmID + ", BallotCount=" + BallotCount + ", VoteGoal=" + VoteGoal
