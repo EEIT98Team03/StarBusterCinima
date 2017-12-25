@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>首頁::StarBuster購物商城</title>
+<title>熱門電影海報::StarBuster購物商城</title>
 <script src="../js/jquery-3.2.1.min.js"></script>
 <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css" href="../css/my.css" />
@@ -54,49 +54,49 @@
 
 		<article style="background-color: white; color: black; padding: 10px; margin-top: 30px;">
 			<div class="product_gallery">
-				<div style="display: block;">找到 27 項商品，共 3 頁</div>
+				<div style="display: block;">找到 10 項商品，共 2 頁</div>
 				<div class="card-group">
 					<div class="card text-white bg-dark mb-3"
 						style="margin: 10px;">
-						<div class="card-header p-3 mb-2 bg-success text-white font-weight-bold">正義聯盟背包</div>
+						<div class="card-header p-3 mb-2 bg-success text-white font-weight-bold">東方快車謀殺案海報</div>
 						<div class="card-body">
 							<a href=''>
-								<img src="../images/Justice_League_backpack.png"
+								<img src="../images/hibao009.png"
 								style="height: 300px; width: 297px;" />
 							</a>
-							<div style="margin-top: 6px; float: right;">特價：$750</div>
+							<div style="margin-top: 6px; float: right;">特價：$310</div>
 						</div>
 						<div class="card-footer bg-transparent border-success" style="text-align: right;">
 							<img src="../images/cart.png" style="vertical-align: middle">
-							<a href='<c:url value="/cart.controller?itemNameHidden=jl-bag2-1" />' id="buttonAddToCartIdHarry1-1" class="btn btn-outline-success">加入購物車</a>
+							<a href='<c:url value="/cart.controller?itemNameHidden=hibao009" />' id="buttonAddToCartIdHarry1-1" class="btn btn-outline-success">加入購物車</a>
 						</div>
 					</div>
 					<div class="card text-white bg-dark mb-3" style="margin: 10px;">
-						<div class="card-header p-3 mb-2 bg-success text-white font-weight-bold">蜘蛛人背包</div>
+						<div class="card-header p-3 mb-2 bg-success text-white font-weight-bold">犯罪心理海報</div>
 						<div class="card-body">
 							<a href=''>
-								<img src="../images/Justice_League_backpack2.png"
+								<img src="../images/hibao008.png"
 								style="height: 300px; width: 297px;" />
 							</a>
-							<div style="margin-top: 6px; float: right;">特價：$750</div>
+							<div style="margin-top: 6px; float: right;">特價：$310</div>
 						</div>
 						<div class="card-footer bg-transparent border-success" style="text-align: right;">
 							<img src="../images/cart.png" style="vertical-align: middle">
-							<a href='<c:url value="/cart.controller?itemNameHidden=spiderman-bag2-1" />' id="buttonAddToCartIdHarry1-2" class="btn btn-outline-success">加入購物車</a>
+							<a href='<c:url value="/cart.controller?itemNameHidden=hibao008" />' id="buttonAddToCartIdHarry1-2" class="btn btn-outline-success">加入購物車</a>
 						</div>
 					</div>
 					<div class="card text-white bg-dark mb-3" style="margin: 10px;">
-						<div class="card-header p-3 mb-2 bg-success text-white font-weight-bold">蝙蝠俠背包</div>
+						<div class="card-header p-3 mb-2 bg-success text-white font-weight-bold">逃出亞馬遜海報</div>
 						<div class="card-body">
 							<a href=''>
-								<img src="../images/Justice_League_backpack3.png"
+								<img src="../images/hibao007.png"
 								style="height: 300px; width: 297px;" />
 							</a>
-							<div style="margin-top: 6px; float: right;">特價：$750</div>
+							<div style="margin-top: 6px; float: right;">特價：$310</div>
 						</div>
 						<div class="card-footer bg-transparent border-success" style="text-align: right;">
 							<img src="../images/cart.png" style="vertical-align: middle">
-							<a href='<c:url value="/cart.controller?itemNameHidden=batman-bag2-2" />' id="buttonAddToCartIdHarry1-3" class="btn btn-outline-success">加入購物車</a>
+							<a href='<c:url value="/cart.controller?itemNameHidden=hibao007" />' id="buttonAddToCartIdHarry1-3" class="btn btn-outline-success">加入購物車</a>
 						</div>
 					</div>
 				</div>
@@ -105,47 +105,47 @@
 				<div class="card-group">
 					<div class="card text-white bg-dark mb-3"
 						style="margin: 10px;">
-						<div class="card-header p-3 mb-2 bg-success text-white font-weight-bold">正義聯盟馬克杯</div>
+						<div class="card-header p-3 mb-2 bg-success text-white font-weight-bold">解憂雜貨店海報</div>
 						<div class="card-body">
 							<a href=''>
-								<img src="../images/Justice_League_mug.png"
+								<img src="../images/hibao006.png"
 								style="height: 300px; width: 297px;" />
 							</a>
-							<div style="margin-top: 6px; float: right;">特價：$300</div>
+							<div style="margin-top: 6px; float: right;">特價：$310</div>
 						</div>
 						<div class="card-footer bg-transparent border-success" style="text-align: right;">
 							<img src="../images/cart.png" style="vertical-align: middle">
-							<a href='<c:url value="/cart.controller?itemNameHidden=jl-mug2-1" />' id="buttonAddToCartIdHarry1-3" class="btn btn-outline-success">加入購物車</a>
+							<a href='<c:url value="/cart.controller?itemNameHidden=hibao006" />' id="buttonAddToCartIdHarry1-3" class="btn btn-outline-success">加入購物車</a>
 						</div>
 					</div>
 					<div class="card text-white bg-dark mb-3"
 						style="margin: 10px;">
-						<div class="card-header p-3 mb-2 bg-success text-white font-weight-bold">正義聯盟卡通版白T</div>
+						<div class="card-header p-3 mb-2 bg-success text-white font-weight-bold">氣象戰海報</div>
 						<div class="card-body">
 							<a href=''>
-								<img src="../images/Justice_League_tshirt.png"
+								<img src="../images/hibao005.png"
 								style="height: 300px; width: 297px;" />
 							</a>
-							<div style="margin-top: 6px; float: right;">特價：$250</div>
+							<div style="margin-top: 6px; float: right;">特價：$310</div>
 						</div>
 						<div class="card-footer bg-transparent border-success" style="text-align: right;">
 							<img src="../images/cart.png" style="vertical-align: middle">
-							<a href='<c:url value="/cart.controller?itemNameHidden=jl-white-t" />' id="buttonAddToCartIdHarry1-3" class="btn btn-outline-success">加入購物車</a>
+							<a href='<c:url value="/cart.controller?itemNameHidden=hibao005" />' id="buttonAddToCartIdHarry1-3" class="btn btn-outline-success">加入購物車</a>
 						</div>
 					</div>
 					<div class="card text-white bg-dark mb-3"
 						style="margin: 10px;">
-						<div class="card-header p-3 mb-2 bg-success text-white font-weight-bold">蝙蝠俠羅賓鑰匙圈</div>
+						<div class="card-header p-3 mb-2 bg-success text-white font-weight-bold">老師你會不會回來海報</div>
 						<div class="card-body">
 							<a href=''>
-								<img src="../images/robin_keychain.png"
+								<img src="../images/hibao004.png"
 								style="height: 300px; width: 297px;" />
 							</a>
-							<div style="margin-top: 6px; float: right;">特價：$150</div>
+							<div style="margin-top: 6px; float: right;">特價：$310</div>
 						</div>
 						<div class="card-footer bg-transparent border-success" style="text-align: right;">
 							<img src="../images/cart.png" style="vertical-align: middle">
-							<a href='<c:url value="/cart.controller?itemNameHidden=robinkey" />' id="buttonAddToCartIdHarry1-3" class="btn btn-outline-success">加入購物車</a>
+							<a href='<c:url value="/cart.controller?itemNameHidden=hibao004" />' id="buttonAddToCartIdHarry1-3" class="btn btn-outline-success">加入購物車</a>
 						</div>
 					</div>
 				</div>
@@ -155,47 +155,47 @@
 				<div class="card-group">
 					<div class="card text-white bg-dark mb-3"
 						style="margin: 10px;">
-						<div class="card-header p-3 mb-2 bg-success text-white font-weight-bold">超人馬克杯</div>
+						<div class="card-header p-3 mb-2 bg-success text-white font-weight-bold">功夫瑜伽海報</div>
 						<div class="card-body">
 							<a href=''>
-								<img src="../images/superman_mug.png"
+								<img src="../images/hibao003.png"
 								style="height: 300px; width: 297px;" />
 							</a>
-							<div style="margin-top: 6px; float: right;">特價：$300</div>
+							<div style="margin-top: 6px; float: right;">特價：$310</div>
 						</div>
 						<div class="card-footer bg-transparent border-success" style="text-align: right;">
 							<img src="../images/cart.png" style="vertical-align: middle">
-							<a href='<c:url value="/cart.controller?itemNameHidden=superman3-1" />' id="buttonAddToCartIdHarry1-3" class="btn btn-outline-success">加入購物車</a>
+							<a href='<c:url value="/cart.controller?itemNameHidden=hibao003" />' id="buttonAddToCartIdHarry1-3" class="btn btn-outline-success">加入購物車</a>
 						</div>
 					</div>
 					<div class="card text-white bg-dark mb-3"
 						style="margin: 10px;">
-						<div class="card-header p-3 mb-2 bg-success text-white font-weight-bold">Q版綠巨人浩克公仔</div>
+						<div class="card-header p-3 mb-2 bg-success text-white font-weight-bold">軍艦島海報</div>
 						<div class="card-body">
 							<a href=''>
-								<img src="../images/qhulk.png"
+								<img src="../images/hibao002.png"
 								style="height: 300px; width: 297px;" />
 							</a>
-							<div style="margin-top: 6px; float: right;">特價：$390</div>
+							<div style="margin-top: 6px; float: right;">特價：$310</div>
 						</div>
 						<div class="card-footer bg-transparent border-success" style="text-align: right;">
 							<img src="../images/cart.png" style="vertical-align: middle">
-							<a href='<c:url value="/cart.controller?itemNameHidden=hulk3-2" />' id="buttonAddToCartIdHarry1-3" class="btn btn-outline-success">加入購物車</a>
+							<a href='<c:url value="/cart.controller?itemNameHidden=hibao002" />' id="buttonAddToCartIdHarry1-3" class="btn btn-outline-success">加入購物車</a>
 						</div>
 					</div>
 					<div class="card text-white bg-dark mb-3"
 						style="margin: 10px;">
-						<div class="card-header p-3 mb-2 bg-success text-white font-weight-bold">變形金剛大黃蜂</div>
+						<div class="card-header p-3 mb-2 bg-success text-white font-weight-bold">拆彈專家海報</div>
 						<div class="card-body">
 							<a href=''>
-								<img src="../images/bigbee.png"
+								<img src="../images/hibao001.png"
 								style="height: 300px; width: 297px;" />
 							</a>
-							<div style="margin-top: 6px; float: right;">特價：$2100</div>
+							<div style="margin-top: 6px; float: right;">特價：$310</div>
 						</div>
 						<div class="card-footer bg-transparent border-success" style="text-align: right;">
 							<img src="../images/cart.png" style="vertical-align: middle">
-							<a href='<c:url value="/cart.controller?itemNameHidden=bigbee3-3" />' id="buttonAddToCartIdHarry1-3" class="btn btn-outline-success">加入購物車</a>
+							<a href='<c:url value="/cart.controller?itemNameHidden=hibao001" />' id="buttonAddToCartIdHarry1-3" class="btn btn-outline-success">加入購物車</a>
 						</div>
 					</div>				
 				</div>

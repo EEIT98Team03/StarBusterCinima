@@ -18,7 +18,9 @@ import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 
 import gift.model.GiftItemBean;
-import member.model.MemberBean;
+import gift.model.OrderHistoryBriefBean;
+import gift.model.OrderHistoryDetailBean;
+import gift.model.PotentialItemListBean;
 
 @Configuration
 @ComponentScan(basePackages = { "member.model", "gift.model" })
@@ -39,11 +41,12 @@ public class SpringJavaConfigurationAbstractContextLoaderListenerInitializer ext
 	@Bean
 	public SessionFactory sessionFactory() {
 		LocalSessionFactoryBuilder builder = new LocalSessionFactoryBuilder(dataSource());
-		builder.setProperty("hibernate.dialect", "org.hibernate.dialect.SQLServerDialect")
+		builder.setProperty("hibernate.dialect", "org.hibernate.dialect.SQLServerDialect");
 //		.setProperty("hibernate.current_session_context_class", "thread")
 //		.setProperty("hibernate.show_sql", "true")
-		;
-		builder.addAnnotatedClasses(MemberBean.class, GiftItemBean.class);//加入要受hibernate管理的Bean
+
+		//加入要受hibernate管理的Bean
+		builder.addAnnotatedClasses( GiftItemBean.class, OrderHistoryBriefBean.class, OrderHistoryDetailBean.class, PotentialItemListBean.class);
 		return builder.buildSessionFactory();
 	}
 	@Bean

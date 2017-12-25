@@ -10,18 +10,19 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class GiftItemService {
 	@Autowired
-	GiftIttemDAO GiftItemDAO;
-
-//	List<GiftItemBean> getAllGiftItems = new ArrayList<GiftItemBean>();
-//
-//	public GiftItemService() {
-//		this.getAllGiftItems = getAllGiftItems();
-//		System.out.println(getAllGiftItems);
-//	}
+	GiftIttemDAO giftItemDAO;
 
 	@Transactional(readOnly = true)
-	public List<GiftItemBean> getAllGiftItems() {
-		return GiftItemDAO.select();
+	public List<GiftItemBean> getGiftItem() {
+		return giftItemDAO.select();
+	}
+	
+	@Transactional(readOnly = true)
+	public GiftItemBean getGiftItem(int itemId) {
+		return giftItemDAO.select(itemId);
 	}
 
+	public GiftItemBean getGiftItem(String itemNameHidden) {
+		return giftItemDAO.select(itemNameHidden);
+	}
 }
