@@ -33,12 +33,12 @@
 			    <button id="buttonGoldMembers" type="submit" class="btn btn-success btn-lg">黃金會員</button>
 		    </div>
 	    </div>
-	    <div style="margin-left: 168px; width: 1080px; height: 1000px; border: 2px solid black;">
-    		<div id="chartTitle" style="width: 90%; margin:10px; color: black; font-size: 1.8em; font-weight: bold;">Bestsellers of Harry Potter Campaign, Dec. 2017</div>
-    		<div id="chartContainer" style="height: 40%; width: 75%; margin:0 auto;"></div>
-    		<div id="detailinfo1" style="margin: 10px auto; color: black; font-size: 1.8em; font-weight: bold;">
+	    <div style="margin-left: 168px; width: 1080px; height: 1200px; border: 2px solid black;">
+    		<div id="chartTitle" style="width: 90%; margin:30px; color: black; font-size: 2em; font-weight: bold;">Bestsellers of Harry Potter Campaign, Dec. 2017</div>
+    		<div id="detailinfo1" style="margin:0 auto; color: black; font-size: 1.6em; font-weight: bold;">
 			</div>
-    		<div id="detailinfo2" style="margin: 10px auto; color: black; font-size: 1.8em; font-weight: bold;">
+    		<div id="chartContainer" style="height: 40%; width: 75%; margin:0 auto;"></div>
+    		<div id="detailinfo2" style="margin-left: 30px; color: black; font-size: 1.6em; font-weight: bold;">
 			</div>			
     	</div>
     </div>
@@ -170,8 +170,8 @@
 				chart.render();
 				percentData = percentData.toString();
 				percentData = percentData.substring(0, 5) + "%";
-				$('#detailinfo1').text("當月消費總金額最多的前10位會員合計貢獻當月營收的" + percentData);
-				$('#detailinfo2').text("");
+				$('#detailinfo1').html("<div style='margin-left: 36px;;'>當月消費總金額最多的前10位會員，合計貢獻當月總營收的 <span style='color: red;'>" + percentData) + "</span></div>";
+				$('#detailinfo2').html("<table class='pure-table' style='font-size: 0.8em;'><thead><td style='min-width: 80px;'>排行</td><td style='min-width: 200px;'>會員</td><td style='min-width: 200px;'>總金額</td></thead><tbody><tr><td>1</td><td></td><td></td></tr><tr><td>2</td><td></td><td></td></tr><tr><td>3</td><td></td><td></td></tr><tr><td>4</td><td></td><td></td></tr><tr><td>5</td><td></td><td></td></tr><tr><td>6</td><td></td><td></td></tr><tr><td>7</td><td></td><td></td></tr><tr><td>8</td><td></td><td></td></tr><tr><td>9</td><td></td><td></td></tr><tr><td>10</td><td></td><td></td></tr></tbody></table>");
 			});
 		});
 	});

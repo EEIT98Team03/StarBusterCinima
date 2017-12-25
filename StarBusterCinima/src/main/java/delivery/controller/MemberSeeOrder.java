@@ -28,16 +28,23 @@ public class MemberSeeOrder extends HttpServlet {
 
 	@SuppressWarnings("unchecked")
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		java.util.Date threeMonthsAgo = DataGenerator.getCurrentTime(-91);
 		String loginUserName = request.getParameter("loginUserName");
 		String loginEmail = request.getParameter("loginEmail");
-		java.util.Date threeMonthsAgo = DataGenerator.getCurrentTime(-91);
-
+		
 		HttpSession session = request.getSession(false);
 		if (session != null) {
+			if (loginUserName == null || loginUserName.isEmpty()) {
+				loginUserName = (String) session.getAttribute("loginUserName");
+			}
+			if (loginEmail == null || loginEmail.isEmpty()) {
+				loginEmail = (String) session.getAttribute("loginEmail");
+			}
+			
 			SessionFactory factory = new Configuration().configure().buildSessionFactory();
 			Session sessionFactory = factory.openSession();
 			Transaction tx = sessionFactory.beginTransaction();
-			List<OrderHistoryBriefBean> resultList = (List<OrderHistoryBriefBean>) sessionFactory.createQuery("from OrderHistoryBriefBean where memberEmail = :loginEmail and purchasedTime > :dateStart")
+			List<OrderHistoryBriefBean> resultList = (List<OrderHistoryBriefBean>) sessionFactory.createQuery("from OrderHistoryBriefBean where memberEmail = :loginEmail and purchasedTime > :dateStart order by purchasedTime desc")
 					.setParameter("loginEmail", loginEmail)
 					.setParameter("dateStart", threeMonthsAgo).getResultList();
 			tx.commit();
