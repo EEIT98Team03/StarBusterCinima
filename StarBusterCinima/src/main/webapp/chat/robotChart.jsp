@@ -14,8 +14,8 @@
 	crossorigin="anonymous">
 <link rel="stylesheet"
 	href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" />
-<link rel="stylesheet" href="../css/bootstrap.min.css">
-<link rel="stylesheet" href="../css/lightbox.css">
+<link rel="stylesheet" href="/StarBusterCinima/css/bootstrap.min.css">
+<link rel="stylesheet" href="/StarBusterCinima/css/lightbox.css">
 <style>
 /* CSS used here will be applied after bootstrap.css 
 Ref: http://www.bootply.com/d8RMa03wW7

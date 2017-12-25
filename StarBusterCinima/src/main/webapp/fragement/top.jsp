@@ -87,11 +87,17 @@ margin-top: 10px;
 /* 下拉選單 */
 
 
+.loginButton{
+text-decoration:none;
+color:white;
+}
 
+ a.loginButton:hover{
+text-decoration:none;
+color:white;
+}
 
-
-
-
+.aa{padding-top:20px;}
 
 
 </style>
@@ -121,34 +127,56 @@ margin-top: 10px;
 			<div class="ehdiv navidiv">精彩活動</div>
 		</div>
 		
-        <c:if test="${empty loginUserInfo}">
-		<div class="col-md-1 navicol">
-			<div class="ehdiv navidiv"><a href='<c:url value="/member/login.jsp"/>'>用戶登入</a></div>
-		</div>
-        </c:if>
+		
+		
+		
+		
+		        <c:if test="${empty loginUserInfo}">
+					<div class="col-md-1 navicol">
+						<div class="ehdiv navidiv"><a class="loginButton" href='<c:url value="/member/login.jsp"/>'>用戶登入</a></div>
+					</div>
+		        </c:if>
+
 
 
 				<c:if test="${not empty loginUserInfo}">
+				
+				
 					<div class="col-md-1 navicol">
-						<div class="ehdiv navidiv">
-							<img
-								src='/StarBusterCinima/image/member/${loginUserInfo.memberId}'
-								style="height: 65px; width: 77px; margin-bottom: 0px; margin-left: 0px; border-radius: 50%;"><br />
+					
+					
+					
+					
+						<div class="ehdiv navidiv  aa" style="">
+						
+						
+					<img src='/StarBusterCinima/image/member/${loginUserInfo.memberId}' style="height:85px; width:100px;margin-bottom: 0px; margin-left: 0px; border-radius: 50%;">
+					<br />
+							
 						</div>
-							<div class="dropdown">
-								<span style="color: white"><strong
-									style="margin: 0px auto; color: white">${loginUserInfo.name}</strong></span>
-								<div class="dropdown-content">
-									<a class="dropdown-toggle btn-lg"
-										href="/StarBusterCinima/member/memberManagement/memberManagement.jsp">會員中心</a>
-									<a class="dropdown-toggle btn-lg"
-										href='<c:url value="/member/logout.jsp"/>'>用戶登出</a>
-								</div>
+						
+						
+						<div class="dropdown" style="display:block;padding-top:10px;padding-bottom:3px">
+							<span style="color: white"><strong style="margin: 0px auto; color: white">${loginUserInfo.name}</strong></span>
+							<div class="dropdown-content" style="margin-left: -12px;">
+								<a style="text-decoration:none;color:white;" class="dropdown-toggle btn-lg" href="/StarBusterCinima/member/memberManagement/memberManagement.jsp">會員中心</a>
+								<a style="text-decoration:none;color:white;" class="dropdown-toggle btn-lg" href='<c:url value="/member/logout.jsp"/>'>用戶登出</a>
 							</div>
-							
-							
+						</div>
+						
+						
+						
+						
 					</div>
+					
+					
+					
+					
 				</c:if>
+				
+				
+				
+				
 			</div>
 	
 	</div>

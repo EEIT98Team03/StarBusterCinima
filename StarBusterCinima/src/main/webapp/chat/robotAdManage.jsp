@@ -233,6 +233,7 @@ body{
 						<option value="首頁輪播">首頁輪播</option>
 						<option value="首頁廣告牆">首頁廣告牆</option>
 						<option value="會員輪播牆">會員輪播牆</option>
+						<option value="首頁外部新聞">首頁外部新聞</option>
 					</select>
 					<label>順序</label>
 					<select id="psequence" name="sequence" >
@@ -302,6 +303,7 @@ body{
 						<option value="首頁輪播">首頁輪播</option>
 						<option value="首頁廣告牆">首頁廣告牆</option>
 						<option value="會員輪播牆">會員輪播牆</option>
+						<option value="首頁外部新聞">首頁外部新聞</option>
 					</select>
 					<label>順序</label>
 					<select id="sequence" name="sequence" >
@@ -402,7 +404,7 @@ body{
 					var column10=$('<td></td>').text(viewCount);
 					var column11=$('<td></td>').text(clickCount);
 					var column12=$('<td></td>').html('<button class="btn btn-warning btn-lg" data-toggle="modal"data-target="#updateAd">編輯</button><button class="btn btn-danger btn-lg" data-toggle="modal" data-target="#deleteAd">刪除</button>');
-					var row=$('<tr></tr>').append([columnIndex],[column1],[column2],[column3],[column4],[column5],[column6],[column7],[column8],[column9],[column10],[column11],[column12])
+					var row=$('<tr></tr>').append([column1],[columnIndex],[column2],[column3],[column4],[column5],[column6],[column7],[column8],[column9],[column10],[column11],[column12])
 					box.append(row);
 				})
 				tbody.html(box);
@@ -415,7 +417,8 @@ body{
 			var confirm = window.confirm("確定要刪除嗎?");
 			if(confirm==true){
 				
-			var id = $(this).parents('tr').find('td:nth-child(0)').text();
+			var id = $(this).parents('tr').find('td:nth-child(1)').text();
+			console.log(id);
 			$.ajax({
 			'type':'delete',
 			'url':'/StarBusterCinima/adManagements/'+id
@@ -431,7 +434,7 @@ body{
 		
 		//update Data begin
 		tbody.on('click','tr>td>:button:nth-child(1)',function(){
-			var id = $(this).parents('tr').find('td:nth-child(2)').text();
+			var id = $(this).parents('tr').find('td:nth-child(1)').text();
 			var type = $(this).parents('tr').find('td:nth-child(3)').text();
 			var title = $(this).parents('tr').find('td:nth-child(4)').text();
 // 			var image = $(this).parents('tr').find('td:nth-child(5)').val(); //不能:()

@@ -18,8 +18,8 @@
 margin:0px;
 padding:0px;
 }
-#FilmWall{width:80%;dispaly:block;margin:0px auto;padding-top:100px}
-#FilmWall2{width:80%;dispaly:block;margin:0px auto;padding-top:100px}
+#FilmWall{width:100%;dispaly:block;margin:0px auto;padding-top:100px}
+#FilmWall2{width:100%;dispaly:block;margin:0px auto;padding-top:100px}
 .container{
 background-color:#3C3C3C;
 width:100%;
@@ -48,6 +48,23 @@ margin:15px;
 	color:white;
 	text-align:left;
 }
+.naviLogo{
+	
+	height:50px;
+}
+.moreDiv{
+font-size:25px;
+color:white;
+text-align:right;
+}
+.moreDiv{
+padding-bottom:10px;	
+}
+.moreDiv a{
+text-decoration:none;
+color:white;
+}
+
 </style>
 </head>
 <body>
@@ -59,39 +76,81 @@ margin:15px;
 	</div>
 	<!-- 輪播     -->
 	</div>
-<!-- 	<div><img class="naviLogo" src="/StarBusterCinima/images/SB03.png"></div> -->
+	
+	
+	
 	<div class="container" >
 		<div id="row1" class="row">
 			<div class="col-sm-1">
 			</div>
-			<div class="col-sm-5">
-				<img class="naviLogo" src="/StarBusterCinima/images/與神同行.jpg">
-				<h3>123</h3>
-				<h3>123</h3>
-			<div class="col-md-1 navicol">
-				<div class="ehdiv navidiv" style="text-align:right">more</div>
+			<div class="col-sm-2">
+				<img style="width:230px;height:60px" class="naviLogo" src="/StarBusterCinima/images/新聞影評.png">
 			</div>
-				
-			</div>
-			<div class="col-sm-5">
-				<img class="naviLogo" src="/StarBusterCinima/images/與神同行.jpg">
-			</div>
-			<div class="col-sm-1">
+			<div class="col-sm-9">
 			</div>
 		</div>
+		
+		
+		<div id="row1" class="row">
+	
+		
+			<div class="col-sm-1">
+			</div>
+			
+			
+			<div class="col-sm-5">
+				<img class="naviLogo" src="/StarBusterCinima/adImages/imageId=1026">
+				<h3>《聖鹿之死》妮可基嫚詮釋為母則強</h3>
+				<div class="moreDiv"><a href="http://app2.atmovies.com.tw/news2/NF1712252948/" target="_blank">► more&nbsp;&nbsp;</a></div>
+			</div>
+			
+			
+			
+			<div class="col-sm-5">
+				<img class="naviLogo" src="/StarBusterCinima/adImages/imageId=1027">
+				<h3>桂綸鎂與張孝全如《史密斯夫婦》相愛相殺</h3>
+				<div class="moreDiv"><a href="http://app2.atmovies.com.tw/news2/NF1712252783/" target="_blank">► more&nbsp;&nbsp;</a></div>
+			</div>
+			
+			
+			
+			<div class="col-sm-1">
+			</div>
+			
+			
+		</div>
+		
+		
 		<div id="row2" class="row">
+		
+		
 			<div class="col-sm-1">
 			</div>
+			
+			
 			<div class="col-sm-5">
-				<img class="naviLogo" src="/StarBusterCinima/images/與神同行.jpg">
+				<img class="naviLogo" src="/StarBusterCinima/adImages/imageId=1028">
+				<h3>法國聖誕電影《黎明的承諾》高中生評選最佳！</h3>
+				<div class="moreDiv"><a href="http://app2.atmovies.com.tw/news2/NF1712257701/" target="_blank">► more&nbsp;&nbsp;</a></div>
 			</div>
+			
+			
+			
 			<div class="col-sm-5">
-				<img class="naviLogo" src="/StarBusterCinima/images/與神同行.jpg">
+				<img class="naviLogo" src="/StarBusterCinima/adImages/imageId=1029">
+				<h3>《羅根》導演參與了《大娛樂家》的重拍執導</h3>
+				<div class="moreDiv"><a href="http://app2.atmovies.com.tw/news2/NF1712229339/" target="_blank">► more&nbsp;&nbsp;</a></div>
 			</div>
+			
+			
+			
 			<div class="col-sm-1">
-
 			</div>
+			
+			
 		</div>
+		
+		
 	</div>
 
 
@@ -103,14 +162,18 @@ margin:15px;
 
 
 
-
-
-
-
-
-
-
-
+<div id="container">
+	<div id="row1" class="row">
+			<div class="col-sm-1">
+			</div>
+			<div class="col-sm-2">
+				<img class="naviLogo" src="/StarBusterCinima/images/最新優惠.png" style="width:230px;height:60px">
+			</div>
+			<div class="col-sm-9">
+				
+			</div>
+	</div>
+</div>	
 	<!-- 頁底促銷廣告 -->
 	<div class="FilmWallBox2">
 	<!-- 輪播     -->
@@ -122,7 +185,7 @@ margin:15px;
 	</div>
 	<!-- 輪播     -->
 	</div>
-	
+
 	
 	
 	<jsp:include page="${pageScope.request.contextPath}/fragement/bot.jsp"></jsp:include>
@@ -140,6 +203,20 @@ margin:15px;
 <!-- 輪播     -->
 <script>
 $(function(){
+	
+	//more  jquery
+	$('.moreDiv').hover(function() {
+		$(this).parent().css({'border-bottom':'6px solid #20B7B7'});
+	// alert("blah");
+	});
+	$('.moreDiv').mouseleave(function() {
+		$(this).parent().css({'border-bottom':'6px solid #3C3C3C'});
+	// alert("blah");
+	});
+	
+	
+	
+	
 	var FilmWall = $('#FilmWall');
 	
 	//記錄點擊首頁輪播牆點擊次數
@@ -183,6 +260,79 @@ $(function(){
 	
 	
 
+	
+	
+	//首頁新聞牆 begin
+// 	$.ajax({
+// 		'type':'get',
+// 		'url':'/StarBusterCinima/adManagements/type=電影,position=首頁輪播'
+// 	}).done(function(datas){
+// 		var length;
+// 		$.each(datas,function(index,value){
+// 			var column=$('<div class="item"></div>').html('<a id='+value.id+' href='+value.url+' title='+value.title+' target="_blank"><img src="/StarBusterCinima/adImages/imageId='+value.id+'" class="img-rounded" style=""/></a>');
+// 			FilmWall.append(column);
+// 			length=index;
+			
+// 			//瀏覽次數
+// 			$.ajax({
+// 				'type':'post',
+// 				'url':'/StarBusterCinima/adManagements/ViewCount='+value.id
+// 			})
+			
+// 		})
+// 		$('#FilmWall').owlCarousel({
+// 			items :length+1,
+// 			loop : true,
+// 			margin :0,
+// 			autoplay : true,
+// 			autoplayTimeout : 1000,
+// 			autoplayHoverPause : true,
+// 			singleItem: true			
+// 		});
+// 	})
+	//首頁新聞牆 end
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	var FilmWall2 = $('#FilmWall2');
 	
