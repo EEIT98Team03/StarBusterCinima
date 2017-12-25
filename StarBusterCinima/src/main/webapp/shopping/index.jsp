@@ -68,7 +68,7 @@
 						</div>
 						<div class="card-footer bg-transparent border-success" style="text-align: right;">
 							<img src="../images/cart.png" style="vertical-align: middle">
-							<a href='<c:url value="/shopping/cart.controller?itemNameHidden=jl-bag2-1" />' id="buttonAddToCartIdHarry1-1" class="btn btn-outline-success">加入購物車</a>
+							<a href='<c:url value="/cart.controller?itemNameHidden=jl-bag2-1" />' id="buttonAddToCartIdHarry1-1" class="btn btn-outline-success">加入購物車</a>
 						</div>
 					</div>
 					<div class="card text-white bg-dark mb-3" style="margin: 10px;">

@@ -41,8 +41,7 @@ public class LoginControllerAdmin extends HttpServlet {
 			session.setAttribute("login_time", new java.util.Date(System.currentTimeMillis()));
 			session.setAttribute("beanDetail", beanDetail);
 			
-			//request.getRequestDispatcher("/shopping/potter.jsp").forward(request, response);
-			response.sendRedirect("shopping/potter.jsp");
+			response.sendRedirect("shopping/index.jsp");
 
 		} catch (Exception e) {
 			throw new RuntimeException(e);

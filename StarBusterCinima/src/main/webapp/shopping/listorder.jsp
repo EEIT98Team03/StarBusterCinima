@@ -109,8 +109,8 @@ $(function(){
 									<td style="text-align: center;">${idx.index + 1}</td>
 									<td>${product.itemName}</td>
 									<td id="productUnitPrice${idx.index + 1}" style="text-align: right;">$${product.unitPrice}</td>
-									<td id="itemQty${idx.index + 1}">
-										<select id="comboBox${idx.index + 1}" class="form-control">
+									<td id="itemQty${idx.index + 1}" height="55">
+										<select id="comboBox${idx.index + 1}" class="form-control" style="height:42px;">
 											<c:forEach begin="0" end="10" varStatus="loop">
 	  											<c:choose>
 	  												<c:when test="${loop.index == 1}">
