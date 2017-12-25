@@ -26,11 +26,6 @@
 		class="org.springframework.web.servlet.view.InternalResourceView">
 		<property name="url" value="/member/identityResult.jsp"></property>
 	</bean>
-
-<!-- 從這裡開始是鹹魚購物商城的view設定 -->
-	<bean id="shopping.success"
-
-
 	<bean id="memberChangeInfo.result"
 		class="org.springframework.web.servlet.view.RedirectView">
 		<property name="url" value="/member/memberManagement/memberManagement.jsp"></property>
@@ -49,6 +44,10 @@
 		<property name="url" value="/adminstrator/adminLogin.jsp"></property>
 	</bean>
 
+	<bean id="shopping.success"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/shopping/test_donot_delete.jsp"></property>
+	</bean>
 	<bean id="order.brief"
 		class="org.springframework.web.servlet.view.InternalResourceView">
 		<property name="url" value="/shopping/listorder.jsp"></property>
@@ -69,7 +68,6 @@
 		class="org.springframework.web.servlet.view.RedirectView">
 		<property name="url" value="shopping/listorder.jsp"></property>
 	</bean>	
-<!-- 鹹魚購物商城的view設定到此結束 -->
 
 
 	<bean id="insert.success"
