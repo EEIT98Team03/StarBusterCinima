@@ -55,6 +55,8 @@ import javax.xml.bind.DatatypeConverter;
 public class CipherUtils {
 //	private static String transformationECB = "AES/ECB/PKCS5Padding";
 	private static String transformationCBC = "AES/CBC/PKCS5Padding";
+	public static final String DEFAULTKEY = "StarBusterCinima";
+	
 	public static String encryptString(String key, String message, byte[] iv)
 			throws NoSuchAlgorithmException, NoSuchPaddingException,
 			InvalidKeyException, IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException {
