@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import gift.model.GiftItemService;
 import member.model.MemberBean;
 import member.model.MemberService;
 import member.model.QuestionRecordBean;
@@ -30,8 +29,6 @@ import smart.model.RobotResponseRecordService;
 @RestController
 @RequestMapping("/smartRobot")
 public class SmartRobotController {
-	@Autowired
-	GiftItemService giftItemService;
 	@Autowired
 	QuestionRecordService questionRecordService;
 	@Autowired
