@@ -13,19 +13,19 @@
 <link rel="stylesheet" type="text/css" href="../css/my.css" />
 </head>
 <body>
-	<% String email = (String) session.getAttribute("email");
+<%-- 	<% String email = (String) session.getAttribute("email");
 	   if (email == null) {%>
-			<%-- <jsp:forward page="/shopping/gloginadmin.jsp"/> --%>
-	<% }%>
+			<jsp:forward page="/shopping/gloginadmin.jsp"/>
+	<% }%> --%>
 	<div class="container">
 		<div class="logo">
 			<img src="../images/logosmall.png">
 		</div>
 	</div>
-	<div class="alert alert-primary" role="alert">
+<%-- 	<div class="alert alert-primary" role="alert">
 		<img src='${picture}' style='width: 48px; margin-left: 20px; margin-right: 20px; float: left;'>
 		<div><h5>Welcome, ${userName}<br />${email}</h5></div>
-	</div>
+	</div> --%>
 	<div class="jumbotron">
 		<div style="dislay: block; float: left;">
 		    <div class="btn-group-vertical mr-2" role="group" aria-label="First group">
