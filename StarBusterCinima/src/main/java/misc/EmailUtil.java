@@ -6,6 +6,7 @@ import javax.activation.DataHandler;
 import javax.activation.FileDataSource;
 import javax.mail.*;
 import javax.mail.internet.*;
+
 //<dependency>
 //<groupId>com.sun.mail</groupId>
 //<artifactId>javax.mail</artifactId>
@@ -26,9 +27,26 @@ public class EmailUtil {
 	private static final String password = "starbustercinima";
 
 	public static void main(String[] args) {
-		String result = EmailUtil.sendEmail("biea326hu@hotmail.com", "identity",
-				"<h1>StarBusterCinima</h1><br><a href='http://yahoo.com.tw'>雅虎奇摩<a/>","D:\\123.jpg");
-		System.out.println(result);
+//		 String result = EmailUtil.sendEmail("x120445166@yahoo.com", "identity",
+//		 "<h1>StarBusterCinima</h1><br><a href='http://yahoo.com.tw'>雅虎奇摩<a/>",null);
+//		System.out.println(EmailUtil.emailAddressAutoAdjustLength("x120445166@yahoo.com.tw"));
+	}
+
+	public static String emailAddressAutoAdjustLength(String email) {
+		StringBuilder builder = new StringBuilder();
+		String[] emailFragement = email.split("@");
+
+		String address = emailFragement[1].toString();
+
+		String[] addressFragement = address.split("\\.");
+		if (addressFragement.length > 2) {
+			builder.append(emailFragement[0] + "@");
+			builder.append(addressFragement[0] + ".");
+			builder.append(addressFragement[1]);
+		}else {
+			builder.append(email);
+		}
+		return builder.toString();
 	}
 
 	public static String sendEmail(String receiver, String subject, String htmlMessage, String imagePath) {
@@ -74,12 +92,12 @@ public class EmailUtil {
 				picturePart.setFileName(fds.getName());
 				picturePart.setHeader("Content-ID", "<image>");
 				email.addBodyPart(picturePart);
-				
+
 			}
 			textPart.setContent(html.toString(), "text/html; charset=UTF-8");
 
 			message.setContent(email);
-			message.addRecipient(Message.RecipientType.TO, new InternetAddress(receiver));
+			message.addRecipient(Message.RecipientType.TO, new InternetAddress(EmailUtil.emailAddressAutoAdjustLength(receiver)));
 			transport.connect();
 			transport.sendMessage(message, message.getRecipients(Message.RecipientType.TO));
 			transport.close();
@@ -97,22 +115,21 @@ public class EmailUtil {
 
 		return "Send Success Cost : " + String.valueOf((end - begin) / 1000 + "second");
 	}
-	
+
 	public static String autoLookupEmailAddress(String email) {
-		String outlookLogin =  "https://outlook.live.com/";
-		String googleLogin = "https://accounts.google.com/";
-		String yahooLogin = "https://login.yahoo.com/";
+		String outlookLogin = "https://outlook.live.com/";
+		String googleLogin = "https://mail.google.com/";
+		String yahooLogin = "https://mail.yahoo.com/";
 		String[] result = email.split("@");
-		System.out.println(result[1]);
-		String emailAddress =  result[1];
-		if(emailAddress!=null&&emailAddress.trim().length()!=0) {
-			if(result[1].startsWith("hotmail") || result[1].startsWith("outlook")) {
+		String emailAddress = result[1];
+		if (emailAddress != null && emailAddress.trim().length() != 0) {
+			if (result[1].startsWith("hotmail") || result[1].startsWith("outlook")) {
 				return outlookLogin;
-			}else if(result[1].startsWith("gmail")){
+			} else if (result[1].startsWith("gmail")) {
 				return googleLogin;
-			}else if(result[1].startsWith("yahoo")) {
+			} else if (result[1].startsWith("yahoo")) {
 				return yahooLogin;
-			}else {
+			} else {
 				return "";
 			}
 		}

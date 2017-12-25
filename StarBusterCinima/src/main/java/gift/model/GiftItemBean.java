@@ -11,11 +11,18 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "GiftItem")
 public class GiftItemBean {
+	@Override
+	public String toString() {
+		return "GiftItemBean [itemId=" + itemId + ", itemCategoryId=" + itemCategoryId + ", itemCategoryName="
+				+ itemCategoryName + ", itemName=" + itemName + ", unitPrice=" + unitPrice + ", spec=" + spec
+				+ ", itemPhoto=" + itemPhoto + ", isFeatured=" + isFeatured + ", isAvailable=" + isAvailable
+				+ ", createdTime=" + createdTime + "]";
+	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int itemId;
 	public GiftItemBean(int itemId, String itemCategoryId, String itemCategoryName, String itemName, int unitPrice,
-			String spec, String itemPhoto, int isAvailable, Timestamp createdTime) {
+			String spec, String itemPhoto, int isFeatured, int isAvailable, Timestamp createdTime) {
 		super();
 		this.itemId = itemId;
 		this.itemCategoryId = itemCategoryId;
@@ -24,6 +31,7 @@ public class GiftItemBean {
 		this.unitPrice = unitPrice;
 		this.spec = spec;
 		this.itemPhoto = itemPhoto;
+		this.isFeatured=isFeatured;
 		this.isAvailable = isAvailable;
 		this.createdTime = createdTime;
 	}
@@ -36,9 +44,16 @@ public class GiftItemBean {
 	private int unitPrice;
 	private String spec;
 	private String itemPhoto;
+	private int isFeatured;
 	private int isAvailable;
 	private java.sql.Timestamp createdTime;
 	
+	public int getIsFeatured() {
+		return isFeatured;
+	}
+	public void setIsFeatured(int isFeatured) {
+		this.isFeatured = isFeatured;
+	}
 	public int getItemId() {
 		return itemId;
 	}
