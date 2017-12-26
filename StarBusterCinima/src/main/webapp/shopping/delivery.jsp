@@ -105,6 +105,9 @@
 						</details>
 					</div>
 				</div>
+				<div style="background-color: white ; color: black; margin-top: 30px; padding: 36px;">
+					<p class="card-text" style=" ">折扣碼：<input type="text" size="16"/></p>
+				</div>
 			</div>
 			<table id="tableOrderSheet" class="pure-table pure-table-bordered"
 				style="margin: 30px auto;">
