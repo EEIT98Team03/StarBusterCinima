@@ -18,17 +18,10 @@ import films.model.FilmBean;
 public class VoteBean {
 	@Id	
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="FilmID")
 	private int FilmID;
 	private int BallotCount;	
 	private int VoteGoal ;
 	private String VoteStatus ;		
-	
-
-	 @PrimaryKeyJoinColumn
-	 @OneToOne(cascade = CascadeType.ALL, optional = false)
-	 FilmBean FBean;
-	
 	public VoteBean() {
 		super();
 		// TODO Auto-generated constructor stub

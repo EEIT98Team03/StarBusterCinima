@@ -52,6 +52,7 @@ public class VoteService {
 		List<Object[]> Bl = voteDAO.selectall();
 		return Bl;
 	}
+	
 	public int[] selectmemberdata(int id){
 		List<Object[]> Bl = voteDAO.SelectMemberData(id);
 		int[] age= {0,0,0,0,0};
@@ -71,9 +72,11 @@ public class VoteService {
 				age[3]++;
 			else if(Bl.get(i)[1].toString().equals("Man"))
 				age[4]++;
-			
-
 	}
 		return age;		
 	}
+	
+	
+	
+	
 }

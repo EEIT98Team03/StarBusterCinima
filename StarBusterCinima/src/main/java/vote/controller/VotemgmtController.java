@@ -10,24 +10,25 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.google.gson.Gson;
+
+import member.model.MemberBean;
 import vote.model.VotemgmtService;
 
 @Controller
-@RequestMapping("/vote/controller/votemgmt.controller")
+@RequestMapping("/wishpool/votemgmt.controller")
 @ResponseBody
 public class VotemgmtController {
 	@Autowired
 	VotemgmtService votemgmtservice;
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
 	
-	@RequestMapping(value = "LoadData1",method = { RequestMethod.GET })
-	public List<Object[]> method1(Model model) {
+	@RequestMapping(value = "LoadData1",method = { RequestMethod.GET },produces = "text/html;charset=UTF-8")
+	public String method1(Model model) {
 		List<Object[]> list = votemgmtservice.loaddata();	
-		return list;
+		
+		Gson J = new Gson();		
+		String jbl = J.toJson(list);
+		return jbl;
 	}
 	
 	@RequestMapping(value = "SelectAllFilmIdAndNameInWishpool",method = { RequestMethod.GET })
@@ -42,19 +43,27 @@ public class VotemgmtController {
 	
 	@RequestMapping(value = "DeleteFilmInWishPool",method = { RequestMethod.GET })
 	public Boolean method3(Model model ,@RequestParam("FilmID") int FilmID) {
-
-		votemgmtservice.DeleteFilmInWishPool(FilmID);
 		
+		votemgmtservice.DeleteFilmInWishPool(FilmID);		
 		return false;
 	}
 	
 	@RequestMapping(value = "InsertFilmIntoWishPool",method = { RequestMethod.GET })
 	public Boolean method4(Model model ,@RequestParam("FilmID")int FilmID,int VoteGoal) {
-		votemgmtservice.InsertFilmIntoWishPool(FilmID, VoteGoal);
 		
+		votemgmtservice.InsertFilmIntoWishPool(FilmID, VoteGoal);		
 		return false;
 	}
 	
+	@RequestMapping(value = "VoteALot",method = { RequestMethod.GET },produces = "text/html;charset=UTF-8")
+	public String method5(Model model ) {
+		
+		List<MemberBean> bean = votemgmtservice.SelectMemberData();
+		Gson J = new Gson();		
+		String jbl = J.toJson(bean);	
+		
+		return jbl;
+	}
 	
 	
 	

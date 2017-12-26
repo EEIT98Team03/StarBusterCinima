@@ -3,6 +3,8 @@ package vote.model;
 import java.sql.Date;
 import java.util.List;
 
+import member.model.MemberBean;
+
 public interface VoteDAO {
 	VoteBean updateBallotCount(VoteBean bean);
 	VoteBean updateVoteStatus(VoteBean bean , String status);	
@@ -15,4 +17,5 @@ public interface VoteDAO {
 	Boolean insert(int filmId, int VoteGoal);
 	List<Object[]> InsertIntoVoteDetail(VotingDetailBean bean);
 	List<Object[]> SelectMemberData(int id);
+	List<MemberBean> SelectMemberData2();
 }

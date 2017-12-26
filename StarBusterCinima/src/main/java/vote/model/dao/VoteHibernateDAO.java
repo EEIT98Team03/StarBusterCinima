@@ -40,7 +40,7 @@ public class VoteHibernateDAO implements VoteDAO {
 	@Override
 	public Boolean insert(int filmId, int VoteGoal) {		
 		FilmBean B = this.session().load(FilmBean.class, filmId);
-		 VoteBean bean = new VoteBean(B.getFilmId(),0,VoteGoal,"none");		
+		 VoteBean bean = new VoteBean(filmId,0,VoteGoal,"none");		
 		System.out.println(B);
 		 this.session().save(bean);
 
@@ -61,6 +61,7 @@ public class VoteHibernateDAO implements VoteDAO {
 		return query.getResultList();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Object[]> selectall() {
 		String Hql = "select v.FilmID , f.filmName , v.BallotCount  , v.VoteGoal from  VoteBean as v INNER JOIN FilmBean as f on v.FilmID = f.filmId "
@@ -75,16 +76,18 @@ public class VoteHibernateDAO implements VoteDAO {
 		return list;
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Object[]> SelectFilmNotInWishPool() {
 
 		String Hql = " select f .filmId , f. filmName from  FilmBean as f  where f.filmId not in (select v.FilmID from VoteBean as v)";
 		// sql = select film.filmname ,filmid from Film where FilmID not in (select	 FilmID from Vote) 
 		Query<Object[]> query = this.session().createQuery(Hql);
 		List<Object[]> list = query.getResultList();
-
-//		for (int i = 0; i < list.size(); i++) {
-//			System.out.println("Element " + i + " :  " + list.get(i)[0] + list.get(i)[1]);
-//		}
+		
+		for (int i = 0; i < list.size(); i++) {
+			System.out.println("Element " + i + " :  " + list.get(i)[0] + list.get(i)[1]);
+			System.out.println("qq");
+		}
 
 		return list;
 	}
@@ -129,6 +132,24 @@ public class VoteHibernateDAO implements VoteDAO {
 		Query<Object[]> query = this.session().createQuery(Hql);
 		query.setParameter("Fid",id);
 		List<Object[]> list = query.getResultList();
+		
+		
+		
+//		for (int i = 0; i < list.size(); i++) {
+//		System.out.println("Element " + i + " :  " + list.get(i)[0] + list.get(i)[1]);
+//	}
+			
+		return list;
+	}
+	
+	@Override
+	public List<MemberBean> SelectMemberData2() {
+		String Hql = "from MemberBean";
+		//select Member.gender , member.birthday from  Member where memberId = ( select MemberID from VoteDetail where FilmID = 100  ) = (select MemberID form VotingDetailBean as vd where vd.FilmID =?)
+		
+		Query<MemberBean> query = this.session().createQuery(Hql);
+		
+		List<MemberBean> list = query.getResultList();
 		
 		
 		

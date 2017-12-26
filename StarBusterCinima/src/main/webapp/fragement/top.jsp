@@ -187,14 +187,14 @@ color:white;
 $(document).ready(function(){
 // 	navi的滑鼠移上去會有藍色底條
 	$('.navicol>div').hover(function() {
-		$(this).parent().css({'border-bottom':'6px solid #20B7B7'});
-	// alert("blah");
-	});
-	$('.navicol>div').mouseleave(function() {
-		$(this).parent().css({'border-bottom':'6px solid #3C3C3C'});
-	// alert("blah");
-	});
-
+		$(this).parent().append($("<div id='SBbar000'></div>").css({'border-bottom':'6px solid #20B7B7'}).css({'width':'0px'}));
+		$('#SBbar000').animate({width:"100%"},100);	
+		// alert("blah");
+	},function() {
+		$('#SBbar000').remove();
+		// alert("blah");
+		}		
+	);
 });
 </script>
 

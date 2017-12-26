@@ -17,11 +17,6 @@ import org.springframework.web.context.AbstractContextLoaderInitializer;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 
-import gift.model.GiftItemBean;
-import gift.model.OrderHistoryBriefBean;
-import gift.model.OrderHistoryDetailBean;
-import gift.model.PotentialItemListBean;
-
 import ad.model.AdRepositoryBean;
 import ad.model.AdRepositoryDataNoImageBean;
 import adminstrator.model.AdministratorBean;
@@ -35,8 +30,7 @@ import smart.model.RobotResponseRecordBean;
 
 
 @Configuration
-@ComponentScan(basePackages = { "member.model", "gift.model", "vote.model", "booking.model","VotingDetailBean"})
-@ComponentScan(basePackages = { "member.model", "gift.model","smart.model","ad.model","adminstrator.model", "booking.model", "vote.model"})
+@ComponentScan(basePackages = { "member.model", "gift.model","smart.model","ad.model","adminstrator.model", "booking.model","VotingDetailBean", "vote.model"})
 @EnableTransactionManagement
 public class SpringJavaConfigurationAbstractContextLoaderListenerInitializer extends AbstractContextLoaderInitializer {
 	@Bean
@@ -56,9 +50,9 @@ public class SpringJavaConfigurationAbstractContextLoaderListenerInitializer ext
 		builder.setProperty("hibernate.dialect", "org.hibernate.dialect.SQLServerDialect");
 //		.setProperty("hibernate.current_session_context_class", "thread")
 //		.setProperty("hibernate.show_sql", "true")		
-		builder.addAnnotatedClasses(MemberBean.class, GiftItemBean.class, FilmBean.class ,VoteBean.class,VotingDetailBean.class);//加入要受hibernate管理的Bean
+		builder.addAnnotatedClasses(MemberBean.class, FilmBean.class ,VoteBean.class,VotingDetailBean.class);//加入要受hibernate管理的Bean
 		//加入要受hibernate管理的Bean
-		builder.addAnnotatedClasses(MemberBean.class, FilmBean.class,QuestionRepositoryBean.class,QuestionRecordBean.class,RobotResponseRecordBean.class,AdRepositoryBean.class,AdRepositoryDataNoImageBean.class,AdministratorBean.class,GiftItemBean.class, OrderHistoryBriefBean.class, OrderHistoryDetailBean.class, PotentialItemListBean.class);//加入要受hibernate管理的Bean
+		builder.addAnnotatedClasses(MemberBean.class, FilmBean.class,QuestionRepositoryBean.class,QuestionRecordBean.class,RobotResponseRecordBean.class,AdRepositoryBean.class,AdRepositoryDataNoImageBean.class,AdministratorBean.class);//加入要受hibernate管理的Bean
 
 		return builder.buildSessionFactory();
 	}

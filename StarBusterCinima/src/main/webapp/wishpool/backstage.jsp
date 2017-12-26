@@ -11,6 +11,11 @@
 <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js'></script>
 <script
 	src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+.VoteSelection01 {
+	width: 1200px;
+}
+</style>
 </head>
 <body>
 	<div class="jumbotron" style="border-radius: 30px;">
@@ -45,7 +50,7 @@
 								<form class="bs-example bs-example-form" role="form">
 									<div class="input-group">
 										<span class="input-group-addon"></span><select class="VoteSelection01"
-											class="input-group-addon" value="電影名稱" style="width: 800px;">
+											class="input-group-addon" value="電影名稱" ">
 										</select>
 									</div>
 									<br>
@@ -72,7 +77,7 @@
 								<form class="bs-example bs-example-form" role="form">
 									<div class="input-group">
 										<span class="input-group-addon"></span>
-										<select class="VoteSelection01" class="input-group-addon" value="電影名稱" style="width: 800px;">										
+										<select class="VoteSelection01" class="input-group-addon" value="電影名稱" ">										
 										</select>
 									</div>							
 									<button type="button" class="btn btn-default" id="sentdeletevote">刪除</button>
@@ -94,7 +99,7 @@
 								<form class="bs-example bs-example-form" role="form">
 									<div class="input-group">
 										<span class="input-group-addon"></span><select class="VoteSelection01"
-											class="input-group-addon" value="電影名稱" style="width: 1200px;">										
+											class="input-group-addon" value="電影名稱" >										
 										</select>
 									</div>
 									<br>
@@ -114,24 +119,25 @@
 						<td>
 							<button type="button" class="btn btn-primary"
 								data-toggle="collapse" data-target="#demo3"
-								style="margin-bottom: 10px;">
-								新增許願池電影 <span class="glyphicon glyphicon-plus"></span>
+								style="margin-bottom: 10px;" id="VoteALot">
+							<span class="glyphicon glyphicon-open"></span>	許願池批量投票 
 							</button>
 
 							<div id="demo3" class="collapse">
 								<form class="bs-example bs-example-form" role="form">
 									<div class="input-group">
-										<span class="input-group-addon"></span><select class="VoteSelection01"
-											class="input-group-addon" value="電影名稱" style="width: 800px;">									
+										<span class="input-group-addon"></span>
+										<select class="VoteSelection01"
+											class="input-group-addon" value="電影名稱" ">									
 										</select>
 									</div>
 									<br>
-									<div class="input-group">
-										<span class="input-group-addon">目標票數</span> <input type="text"
-											class="form-control">
+									<div id="MemberData">
+										
+										
 									</div>
 									<br>
-									<button type="button" class="btn btn-default">原始按钮</button>
+									<button type="button" class="btn btn-default">Go</button>
 								</form>
 							</div>
 						</td>
@@ -147,15 +153,17 @@
 	$(function(){
 		
 		$('#insertvoteitem').click(function(){
+			console.log("aaaa")
 			$.ajax({ //get film data				
-				url: "../../vote/controller/votemgmt.controller/LoadData1",
+				url: "votemgmt.controller/LoadData1",
 				type: "GET", 
 				dataType: "text", 
 				success: function(data) { 
 					//turn data into array
 					r = jQuery.parseJSON(data);	
 					
-					for(var i=0 ; i< r.length ; i++){					
+					for(var i=0 ; i< r.length ; i++){		
+// 						console.log(r[i][0])
 				   		$('.VoteSelection01:eq(0)').append($("<option></option>").attr("value",r[i][0]).text(r[i][1]));
 					}				
 				},
@@ -170,14 +178,12 @@
 	$('#sentinsertvote').click(function(){	
 		console.log("sentinsertvote start")	
 		$.ajax({ //get film data						
-			url: "../../vote/controller/votemgmt.controller/InsertFilmIntoWishPool",
+			url: "votemgmt.controller/InsertFilmIntoWishPool",
 			type: "GET", 
 			dataType: "text", 
 			data:{"FilmID" : $('select :selected').val(),"VoteGoal":"100"},
 			success: function(data) { 
-				//turn json data into array
-			
-				
+				//turn json data into array				
 				console.log("sentinsertvote success")
 			},
 			error: function() { 
@@ -190,21 +196,60 @@
 	$('#sentdeletevote').click(function(){
 		alert("asdf")
 		$.ajax({ //get film data						
-			url: "../../vote/controller/votemgmt.controller/DeleteFilmInWishPool",
+			url: "votemgmt.controller/DeleteFilmInWishPool",
 			type: "GET", 
 			dataType: "text", 
-			data:{"FilmID" : /*$('select :selected').val()*/ "101"},
-			success: function(Jdata) { 
-				//turn json data into array
-				var eachFilm = jQuery.makeArray(Jdata); 						
-				for(var i=0 ; i<Object.keys(Jdata).length ; i++){
-			   			
-				}				
+			data:{"FilmID" : /*$('select :selected').val()*/ "102"},
+			success: function(data) { 
+				//turn json data into array			
 			},
 			error: function() { 
 		  	 	console.log("parse error"); 
 			} 
 		});//end ajax#
+	});
+	
+	$('#VoteALot').click(function(){
+		
+		$.ajax({ //get film data						
+			url: "votemgmt.controller/VoteALot",
+			type: "GET", 
+			dataType: "text", 			
+			success: function(data) { 
+				//turn json data into array				
+				r = jQuery.parseJSON(data);
+				for(var i = 0; i<r.length;i++){
+					console.log(r[i].memberId)
+					$('#MemberData').append("<input type='checkbox'>   "+r[i].name +"   </input>");
+					
+				}
+			},
+			error: function() { 
+		  	 	console.log("parse error"); 
+			} 
+		});//end ajax#
+		$.ajax({ //get film data						
+			url: "vote.controller/selectall",
+			type: "GET", 
+			dataType: "text", 			
+			success: function(data) { 
+				//turn json data into array				
+				r = jQuery.parseJSON(data);
+				for(var i = 0; i<r.length;i++){
+					console.log(r[i])
+					$('.VoteSelection01:eq(3)').append($("<option></option>").attr("value",r[i][0]).text(r[i][1]));
+				}
+			},
+			error: function() { 
+		  	 	console.log("parse error"); 
+			} 
+		});//end ajax#
+		
+		
+		
+		
+		
+		
 	});
 	
 	

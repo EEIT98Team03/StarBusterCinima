@@ -205,9 +205,9 @@ color:white;
 $(function(){
 	
 	//more  jquery
-	$('.moreDiv').hover(function() {
+	$('.moreDiv').formal(function() {
 		$(this).parent().css({'border-bottom':'6px solid #20B7B7'});
-	// alert("blah");
+	alert("blah");
 	});
 	$('.moreDiv').mouseleave(function() {
 		$(this).parent().css({'border-bottom':'6px solid #3C3C3C'});
@@ -292,48 +292,7 @@ $(function(){
 // 	})
 	//首頁新聞牆 end
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+		
 	var FilmWall2 = $('#FilmWall2');
 	
 	//記錄點擊首頁廣告牆點擊次數
