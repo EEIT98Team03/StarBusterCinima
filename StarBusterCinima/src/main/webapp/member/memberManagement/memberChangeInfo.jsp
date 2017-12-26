@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>MemberChangeInfo</title>
 <!-- <link rel="stylesheet" type="text/css" href="/StarBusterCinima/css/bootstrap.min.css"></link> -->
 <link rel="stylesheet" type="text/css" href="/StarBusterCinima/css/home.css"></link>
 <!-- <script src="/StarBusterCinima/js/jquery-3.2.1.min.js"></script> -->

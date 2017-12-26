@@ -41,10 +41,14 @@ public class GiftItemHibernateDAO implements GiftIttemDAO {
 	}
 
 	@Override
-	public GiftItemBean select(String itemNameHidden) {
+	public List<GiftItemBean> select(String itemNameHidden) {
 		Query<GiftItemBean> query = this.session().createQuery("from GiftItemBean where itemNameHidden = :itemNameHidden", GiftItemBean.class);
 		query.setParameter("itemNameHidden", itemNameHidden);
-		return query.list().get(0);
+		List<GiftItemBean> result = query.list();
+		if (result != null && result.size() != 0) {
+			return result;
+		}
+		return null;
 	}
 
 }

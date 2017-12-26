@@ -55,8 +55,8 @@ public class LoginCookieFindUserInfoFilter implements Filter {
 			session.setAttribute("rememberMe", rememberMe);
 			session.setAttribute("user", user);
 			session.setAttribute("password", password);
-			chain.doFilter(request, response);
 		}
+		chain.doFilter(request, response);
 	}
 
 	@Override

@@ -157,7 +157,7 @@ color:white;
 						
 						
 						<div class="dropdown" style="display:block;padding-top:10px;padding-bottom:3px">
-							<span style="color: white"><strong style="margin: 0px auto; color: white">${loginUserInfo.name}</strong></span>
+							<span style="color: white"><strong id="userName" style="margin: 0px auto; color: white">${loginUserInfo.name}</strong></span>
 							<div class="dropdown-content" style="margin-left: -12px;">
 								<a style="text-decoration:none;color:white;" class="dropdown-toggle btn-lg" href="/StarBusterCinima/member/memberManagement/memberManagement.jsp">會員中心</a>
 								<a style="text-decoration:none;color:white;" class="dropdown-toggle btn-lg" href='<c:url value="/member/logout.jsp"/>'>用戶登出</a>
