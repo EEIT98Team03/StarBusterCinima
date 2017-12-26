@@ -20,9 +20,9 @@ import javax.servlet.http.HttpSession;
 import member.model.MemberBean;
 
 @WebFilter(urlPatterns= {"/*"},initParams= {
-		//@WebInitParam(name = "mustLogin1", value = "/shopping/*"), 
+//		@WebInitParam(name = "mustLogin1", value = "/shopping/*"), 
 		@WebInitParam(name = "mustLogin2", value = "/film/*"),
-		@WebInitParam(name = "mustLogin2", value = "/member/memberManagement/*") 
+		@WebInitParam(name = "mustLogin3", value = "/member/memberManagement/*") 
 //		@WebInitParam(name = "mustLogin3", value = "/???/*"),
 //		@WebInitParam(name = "mustLogin4", value = "/???/*")
 })
@@ -55,6 +55,7 @@ public class loginAuthorizationFilter implements Filter {
 			//true if this request has an id for a valid session in the current session context; false otherwise
 			if(mustLogin()) {
 				if(checkLogin()) {
+					chain.doFilter(request, response);
 					//有登入很好繼續使用
 				}else {
 					//沒登入好吧，讓你跳轉至login，兩種情況自願點login登入or原本要看XX結果被跳轉login這邊有夠煩人
@@ -64,14 +65,15 @@ public class loginAuthorizationFilter implements Filter {
 						session.setAttribute("timeOut", "使用逾時，請重新登入");
 					}
 					
-					
 					response.sendRedirect(contextPath+"/member/login.jsp");
+					return;
 				}
 				
-			}else {
-				//不進行跳轉login頁面
+			}else {//不進行跳轉login頁面
+				chain.doFilter(request, response);
 			}
-			chain.doFilter(request, response);
+		}else {
+			throw new ServletException("Request / Response 型態錯誤");
 		}
 	}
 

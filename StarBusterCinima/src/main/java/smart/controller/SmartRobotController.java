@@ -29,6 +29,7 @@ import smart.model.RobotResponseRecordService;
 @RestController
 @RequestMapping("/smartRobot")
 public class SmartRobotController {
+	
 	@Autowired
 	QuestionRecordService questionRecordService;
 	@Autowired
@@ -41,7 +42,6 @@ public class SmartRobotController {
 	public void initialize() {
 
 	}
-
 	@RequestMapping(method = { RequestMethod.GET }, value = { "/{memberId}/{name}/{userMessage}" }, produces = {
 			"application/json" })
 	public List<String> method(@PathVariable String userMessage, @PathVariable int memberId, @PathVariable String name,

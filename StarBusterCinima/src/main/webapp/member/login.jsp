@@ -6,12 +6,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="css/test.css">
-<title>Insert title here</title>
-
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
-	integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
-	crossorigin="anonymous">
+<title>StatBusterCinima::Login::</title>
+<link rel="shortcut icon" type="image/png" href="/StarBusterCinima/images/logo.ico"/>
 <link rel="stylesheet" href="/StarBusterCinima/css/bootstrap.min.css">
 <script
 	src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -173,7 +169,7 @@ video {
 								<span>${errors.login}</span> 
 								
 								<c:if test="${not empty errors.resendEmailMember}">
-								<a href="http://localhost:8080/StarBusterCinima/members/resendEmail=${errors.resendEmailMember}">重發認證信件</a>
+								<a href="/StarBusterCinima/members/resendEmail=${errors.resendEmailMember}">重發認證信件</a>
 								</c:if>
 								<input class="btn btn-lg btn-success btn-block" type="submit" value="Login">
 								<div >

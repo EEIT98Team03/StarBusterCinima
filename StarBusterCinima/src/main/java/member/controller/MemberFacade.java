@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import gift.tool.DataGenerator;
 import member.model.MemberBean;
 import member.model.MemberService;
 import misc.EmailUtil;
@@ -102,6 +103,19 @@ public class MemberFacade {
 		+">更改密碼連結網址</a></p><p></p><p>#請先登入後再點擊信件連結#</p><p>StarBusterCinima星霸影城致上</p>",null);//http://localhost:8080/StarBusterCinima/member/memberManagement/memberChangePasswordForm.jsp
 		return "true";
 		
+	}
+	
+	// 寄送email，傳送訂票資訊
+	@RequestMapping(method = { RequestMethod.GET },value= {"/sendTicktiesInfo/memberId={memberId},info={info}"},produces= {"text/plain;charset=UTF-8"})
+	public String sendTicktiesInfo(@PathVariable int memberId,@PathVariable String info) {
+		MemberBean bean = memberService.getMemberInfoById(memberId);
+		EmailUtil.sendEmail(bean.getEmail(),"會員購買訂票明細","<p>Dear"+bean.getName()+":</p><br/><p>感謝您在 "+new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new java.util.Date())
+		+"提出購買訂票的需求 </p><br/><p>訂票資訊如下:</p><p>"+info+"</p><p>取貨編號:"+DataGenerator.getRandomString(32,true,true).toUpperCase()+
+		"<p>#請攜帶此取貨編號至廳院售票點付款取票，訂購完成後即可取票，為避免耽誤入場時間，請您盡早付款領取。#</p><p>StarBusterCinima星霸影城致上</p>",null);//http://localhost:8080/StarBusterCinima/member/memberManagement/memberChangePasswordForm.jsp
+		
+		
+		
+		return "true";
 	}
 	
 	// 修改會員資料
