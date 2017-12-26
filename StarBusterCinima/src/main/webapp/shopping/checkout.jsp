@@ -24,7 +24,7 @@
 			<ul>
 				<li><a href="index.jsp">首頁</a></li>
 				<li><a href="glogin.jsp">快速登入</a></li>
-				<li><a href="membero.jsp">查訂單</a></li>
+				<li><a href="membero.jsp"></a></li>
 				<li><a href="hibao.jsp">熱門電影海報</a></li>
 				<li><a href="potter.jsp">哈利波特主題館</a></li>
 				<li style="float: right"><a
