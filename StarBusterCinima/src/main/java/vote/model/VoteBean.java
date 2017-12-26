@@ -1,29 +1,40 @@
 package vote.model;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+
+import films.model.FilmBean;
 
 @Entity
 @Table(name = "VOTE")
 public class VoteBean {
-	@Id
+	@Id	
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private String FilmID;
+	@Column(name="FilmID")
+	private int FilmID;
 	private int BallotCount;	
 	private int VoteGoal ;
 	private String VoteStatus ;		
 	
 
+	 @PrimaryKeyJoinColumn
+	 @OneToOne(cascade = CascadeType.ALL, optional = false)
+	 FilmBean FBean;
 	
 	public VoteBean() {
 		super();
 		// TODO Auto-generated constructor stub
 	}	
 	
-	public VoteBean(String filmID, int ballotCount, int voteGoal, String voteStatus) {
+	public VoteBean(int filmID, int ballotCount, int voteGoal, String voteStatus) {
 		super();
 		this.FilmID = filmID;
 		this.BallotCount = ballotCount;
@@ -37,10 +48,10 @@ public class VoteBean {
 		return "VoteBean [FilmID=" + FilmID + ", BallotCount=" + BallotCount + ", VoteGoal=" + VoteGoal
 				+ ", VoteStatus=" + VoteStatus + "]";
 	}
-	public String getFilmID() {
+	public int getFilmID() {
 		return FilmID;
 	}
-	public void setFilmID(String filmID) {
+	public void setFilmID(int filmID) {
 		FilmID = filmID;
 	}
 	public int getBallotCount() {

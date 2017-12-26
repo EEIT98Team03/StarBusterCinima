@@ -14,6 +14,7 @@ import member.model.MemberDAO;
 
 @Repository
 public class MemberHibernateDAO implements MemberDAO {
+	
 	@Autowired
 	SessionFactory sessionFactory;
 
@@ -82,4 +83,6 @@ public class MemberHibernateDAO implements MemberDAO {
 			return list.get(0);
 		}
 	}
+	
+	
 }

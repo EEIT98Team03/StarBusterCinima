@@ -12,6 +12,7 @@ public interface FilmDAO {
 	List<FilmBean> selectMovieByActor(String actor);
 	List<FilmBean> selectMovieByScore(int score);
 	FilmBean insert(FilmBean bean);
+	boolean updateposter(byte[] img,int FilmID);
 	boolean delete(int memberId);
 	
 	FilmBean update(

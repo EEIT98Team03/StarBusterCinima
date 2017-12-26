@@ -1,65 +1,105 @@
 package booking.model;
 
+import java.sql.Date;
 import java.sql.Timestamp;
 
-public class TicketOrderBean {
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-	private String TicketOrderID;
-	private int TicketOrderPrice;
-	private Timestamp TicketOrderDate;
-	private int TicketOrderAmount;
-	private String memberID;
-	private String FilmID;
-	private String FilmName;
+@Entity
+@Table(name = "TICKETORDER")
+public class TicketOrderBean {
 	
-	@Override
-	public String toString() {
-		return "TicketOrderBean [TicketOrderID=" + TicketOrderID + ", TicketOrderPrice=" + TicketOrderPrice
-				+ ", TicketOrderDate=" + TicketOrderDate + ", TicketOrderAmount=" + TicketOrderAmount + ", memberID="
-				+ memberID + ", FilmID=" + FilmID + ", FilmName=" + FilmName + "]";
+	
+	@Id
+	private int ticketOrderID;
+	private Date ticketOrderDate;
+	private int memberID;
+	private int filmID;
+	private String seatNum;
+	private int ticketCount;
+	private int ticketOrderAmount;
+	private int ticketState;
+	public int getTicketOrderID() {
+		return ticketOrderID;
 	}
-	public String getTicketOrderID() {
-		return TicketOrderID;
+	public void setTicketOrderID(int ticketOrderID) {
+		this.ticketOrderID = ticketOrderID;
 	}
-	public void setTicketOrderID(String ticketOrderID) {
-		TicketOrderID = ticketOrderID;
+	public Date getTicketOrderDate() {
+		return ticketOrderDate;
 	}
-	public int getTicketOrderPrice() {
-		return TicketOrderPrice;
+	public void setTicketOrderDate(Date ticketOrderDate) {
+		this.ticketOrderDate = ticketOrderDate;
 	}
-	public void setTicketOrderPrice(int ticketOrderPrice) {
-		TicketOrderPrice = ticketOrderPrice;
-	}
-	public Timestamp getTicketOrderDate() {
-		return TicketOrderDate;
-	}
-	public void setTicketOrderDate(Timestamp ticketOrderDate) {
-		TicketOrderDate = ticketOrderDate;
-	}
-	public int getTicketOrderAmount() {
-		return TicketOrderAmount;
-	}
-	public void setTicketOrderAmount(int ticketOrderAmount) {
-		TicketOrderAmount = ticketOrderAmount;
-	}
-	public String getMemberID() {
+	public int getMemberID() {
 		return memberID;
 	}
-	public void setMemberID(String memberID) {
+	public void setMemberID(int memberID) {
 		this.memberID = memberID;
 	}
-	public String getFilmID() {
-		return FilmID;
+	public int getFilmID() {
+		return filmID;
 	}
-	public void setFilmID(String filmID) {
-		FilmID = filmID;
+	public void setFilmID(int filmID) {
+		this.filmID = filmID;
 	}
-	public String getFilmName() {
-		return FilmName;
+	public String getSeatNum() {
+		return seatNum;
 	}
-	public void setFilmName(String filmName) {
-		FilmName = filmName;
+	public void setSeatNum(String seatNum) {
+		this.seatNum = seatNum;
 	}
+	public int getTicketCount() {
+		return ticketCount;
+	}
+	public void setTicketCount(int ticketCount) {
+		this.ticketCount = ticketCount;
+	}
+	public int getTicketOrderAmount() {
+		return ticketOrderAmount;
+	}
+	public void setTicketOrderAmount(int ticketOrderAmount) {
+		this.ticketOrderAmount = ticketOrderAmount;
+	}
+	public int getTicketState() {
+		return ticketState;
+	}
+	public void setTicketState(int ticketState) {
+		this.ticketState = ticketState;
+	}
+	@Override
+	public String toString() {
+		return "TicketOrderBean [ticketOrderID=" + ticketOrderID + ", ticketOrderDate=" + ticketOrderDate
+				+ ", memberID=" + memberID + ", filmID=" + filmID + ", seatNum=" + seatNum + ", ticketCount="
+				+ ticketCount + ", ticketOrderAmount=" + ticketOrderAmount + ", ticketState=" + ticketState + "]";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+//	private String ticketOrderId;
+//	private Date ticketOrderDate;
+//	private int ticketOrderAmount;
+//	private int memberID;
+//	private String filmId;
+//	private String ticketState;
+//	private int ticketCount;
+//	private String seatNumber;
+	
+	
+	
+	
+
 	
 	
 }
