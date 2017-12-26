@@ -4,7 +4,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Backstage Chart</title>
+<link rel="shortcut icon" type="image/png" href="/StarBusterCinima/images/logo.ico"/>
 <link
 	href="https://fonts.googleapis.com/css?family=Abril+Fatface|Fredoka+One"
 	rel="stylesheet">
@@ -116,7 +117,7 @@ body{
 	
 
 
-	<div style="width:80%;margin:0px auto;">
+	<div style="width:80%;margin:50px auto;">
 		<div id="chartContainer1" style="height: 500px; width:40%;margin-right:300px;float:left"></div>
 		<div id="chartContainer2" style="height: 500px; width:40%;float:none"></div>
 	</div>

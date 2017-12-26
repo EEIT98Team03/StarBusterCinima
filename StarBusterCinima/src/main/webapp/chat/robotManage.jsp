@@ -2,8 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <head>
 <meta charset="utf-8" />
-<title></title>
-
+<title>Backstage InterceptUser</title>
+<link rel="shortcut icon" type="image/png" href="/StarBusterCinima/images/logo.ico"/>
 <link rel="stylesheet" href="../css/lightbox.min.css">
 <link
 	href="https://fonts.googleapis.com/css?family=Abril+Fatface|Fredoka+One"
@@ -142,6 +142,7 @@ body{
 }
 </style>
 <body>
+
 	<!-- Begin Navbar -->
 	<div id="nav">
 		<div class="navbar navbar-inverse navbar-fixed-top" data-spy="affix"

@@ -86,21 +86,21 @@ public class LoginController {
 			String identityStatus = result.getIdentityStatus();
 			if (identityStatus.equals("formal")) {
 				model.addAttribute("loginUserInfo", result);
-//				if (requestURI != null) {
-//					/// StarBusterCinima/shopping/index.jsp(!=0) or /StarBusterCinima/ (==0)
-//					String servletPath = requestURI.substring(request.getContextPath().length());
-//					System.out.println(servletPath);
-//					if (requestURI.length() == 0) {
-//
-//						return "login.success";
-//					} else {
-//						if (requestURI.contains("shopping")) {
-//							return "shopping.success";
-//						} else if (requestURI.contains("film")) {
-//							return "fileView的邏輯名稱";
-//						}
-//					}
-//				}
+				if (requestURI != null) {
+					/// StarBusterCinima/shopping/index.jsp(!=0) or /StarBusterCinima/ (==0)
+					String servletPath = requestURI.substring(request.getContextPath().length());
+					System.out.println(servletPath);
+					if (requestURI.length() == 0) {
+
+						return "login.success";
+					} else {
+						if (requestURI.contains("shopping")) {
+							return "shopping.success";
+						} else if (requestURI.contains("film")) {
+							return "fileView的邏輯名稱";
+						}
+					}
+				}
 				return "login.success";
 			} else {
 				errors.put("login", "登入失敗，未完成信箱驗證");

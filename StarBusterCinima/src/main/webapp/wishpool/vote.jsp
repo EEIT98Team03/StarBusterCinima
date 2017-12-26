@@ -6,6 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<<<<<<< HEAD
 <title>WishPool</title>
 <script src="https://code.jquery.com/jquery-2.0.0.min.js"></script>
 <link rel="stylesheet"
@@ -27,6 +28,17 @@
 *{
 	border:1px solid  red;
 	font-family: Microsoft JhengHei;
+=======
+<title>vote</title>
+<style>
+div {
+	color: white;
+	border-style: solid;
+	border-width: 1px;
+	margin: 10px auto;
+	padding: 10px;
+	width: 70%
+>>>>>>> branch 'master' of https://github.com/EEIT98Team03/StarBusterCinima.git
 }
 #SBLogo {
 	height: 120px;

@@ -4,7 +4,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Backstage AdManagement</title>
+<link rel="shortcut icon" type="image/png" href="/StarBusterCinima/images/logo.ico"/>
 <link
 	href="https://fonts.googleapis.com/css?family=Abril+Fatface|Fredoka+One"
 	rel="stylesheet">
