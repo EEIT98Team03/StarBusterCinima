@@ -8,7 +8,7 @@
 <title>查訂單</title>
 <script src="../js/jquery-3.2.1.min.js"></script>
 <script src="../js/jquery-ui.js"></script>
-<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.4.css" />
 <link rel="stylesheet" type="text/css"
 	href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 <link rel="stylesheet" type="text/css" href="../css/my.css" />

@@ -13,11 +13,11 @@ public class ReportForGoldMembers {
 	@RequestMapping("/ViewGoldMembers")
 	public @ResponseBody String processTableData(){
 		JSONObject jsObj1 = new JSONObject();
-		jsObj1.put("TotalItemsPurchased", 122000);
-		jsObj1.put("MemberEmail", "wuhueifen");
+		jsObj1.put("TotalItemsPurchased", 152000);
+		jsObj1.put("MemberEmail", "hibackpacker");
 		
 		JSONObject jsObj2 = new JSONObject();
-		jsObj2.put("TotalItemsPurchased", 115000);
+		jsObj2.put("TotalItemsPurchased", 125000);
 		jsObj2.put("MemberEmail", "kengyuhotw");
 		
 		JSONObject jsObj3 = new JSONObject();
@@ -25,7 +25,7 @@ public class ReportForGoldMembers {
 		jsObj3.put("MemberEmail", "sarahchun1995");
 		
 		JSONObject jsObj4 = new JSONObject();
-		jsObj4.put("TotalItemsPurchased", 85000);
+		jsObj4.put("TotalItemsPurchased", 99000);
 		jsObj4.put("MemberEmail", "brianhuang0211");
 		
 		JSONObject jsObj5 = new JSONObject();
@@ -45,15 +45,15 @@ public class ReportForGoldMembers {
 		jsObj8.put("MemberEmail", "louisasasak");
 		
 		JSONObject jsObj9 = new JSONObject();
-		jsObj9.put("TotalItemsPurchased", 31000);
+		jsObj9.put("TotalItemsPurchased", 32000);
 		jsObj9.put("MemberEmail", "pjlee");
 		
 		JSONObject jsObj10 = new JSONObject();
-		jsObj10.put("TotalItemsPurchased", 29000);
+		jsObj10.put("TotalItemsPurchased", 31000);
 		jsObj10.put("MemberEmail", "tkyeh2003");
 		
 		JSONObject jsObj11 = new JSONObject();
-		jsObj11.put("TotalItemsPurchased", 5593000);
+		jsObj11.put("TotalItemsPurchased", 5492000);
 		jsObj11.put("MemberEmail", "The rest of members");
 		
 		JSONArray list = new JSONArray();

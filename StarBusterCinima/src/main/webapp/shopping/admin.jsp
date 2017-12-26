@@ -8,7 +8,7 @@
 <title>報表中心</title>
 <script src="../js/jquery-3.2.1.min.js"></script>
 <script src="../js/report.sales.chart.js"></script>
-<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.4.css" />
 <link rel="stylesheet" type="text/css" href="../css/pure-min.css" />
 <link rel="stylesheet" type="text/css" href="../css/my.css" />
 </head>
@@ -39,7 +39,10 @@
 			</div>
     		<div id="chartContainer" style="height: 40%; width: 75%; margin:0 auto;"></div>
     		<div id="detailinfo2" style="margin-left: 30px; color: black; font-size: 1.6em; font-weight: bold;">
-			</div>			
+			</div>
+    		<div id="detailinfo3" style="margin-left: 30px; color: black; font-size: 1.6em; font-weight: bold;">
+				<a id='sendMemberEmail' class='btn btn-primary' style='width: 300px; display: none;' href='/StarBusterCinima/shopping/SendEmailToMember'>寄發促銷電郵</a>
+			</div>					
     	</div>
     </div>
 
@@ -50,6 +53,7 @@
 			addData(chartData);
 			$('#detailinfo1').text("");
 			$('#detailinfo2').text("");
+			$('#detailinfo3').css("display", "none");
 		});
 
 					var dataPoints = [];
@@ -92,6 +96,7 @@
 				addData(chartData);
 				$('#detailinfo1').text("");
 				$('#detailinfo2').text("");
+				$('#detailinfo3').css("display", "none");
 			});
 
 						var dataPoints = [];
@@ -135,6 +140,7 @@
 			$.post('/StarBusterCinima/ViewGoldMembers', function(chartData){
 				$('#chartTitle').text("Gold Members of Dec. 2017");
 				$('#chartContainer').text("");
+				$('#detailinfo3').text("");
 				
 				var myJSON = JSON.parse(chartData);
 				var dataPoints = [];
@@ -170,8 +176,9 @@
 				chart.render();
 				percentData = percentData.toString();
 				percentData = percentData.substring(0, 5) + "%";
-				$('#detailinfo1').html("<div style='margin-left: 36px;;'>當月消費總金額最多的前10位會員，合計貢獻當月總營收的 <span style='color: red;'>" + percentData) + "</span></div>";
-				$('#detailinfo2').html("<table class='pure-table' style='font-size: 0.8em;'><thead><td style='min-width: 80px;'>排行</td><td style='min-width: 200px;'>會員</td><td style='min-width: 200px;'>總金額</td></thead><tbody><tr><td>1</td><td></td><td></td></tr><tr><td>2</td><td></td><td></td></tr><tr><td>3</td><td></td><td></td></tr><tr><td>4</td><td></td><td></td></tr><tr><td>5</td><td></td><td></td></tr><tr><td>6</td><td></td><td></td></tr><tr><td>7</td><td></td><td></td></tr><tr><td>8</td><td></td><td></td></tr><tr><td>9</td><td></td><td></td></tr><tr><td>10</td><td></td><td></td></tr></tbody></table>");
+				$('#detailinfo1').html("<div style='margin-left: 36px;;'>當月消費金額最多的前10位會員，合計貢獻當月總營收的 <span style='color: red;'>" + percentData) + "</span></div>";
+				$('#detailinfo2').html("<table class='pure-table' style='font-size: 0.8em;'><thead><td style='min-width: 80px;'>排行</td><td style='min-width: 300px;'>會員(顯示部分Email）</td><td style='min-width: 160px;'>金額</td></thead><tbody><tr><td>1</td><td>hibackpacker</td><td>$152000</td></tr><tr><td>2</td><td>kengyuhotw</td><td>$125000</td></tr><tr><td>3</td><td>sarahchun1995</td><td>$109000</td></tr><tr><td>4</td><td>brianhuang0211</td><td>$99000</td></tr><tr><td>5</td><td>newjudyliang</td><td>$63000</td></tr><tr><td>6</td><td>meicheng19961108</td><td>$55000</td></tr><tr><td>7</td><td>candydesignc</td><td>$41000</td></tr><tr><td>8</td><td>louisasasak</td><td>$33000</td></tr><tr><td>9</td><td>pjlee</td><td>$32000</td></tr><tr><td>10</td><td>tkyeh2003</td><td>$31000</td></tr></tbody></table><div>當月總營收：$5492000</div>");
+				$('#detailinfo3').css("display", "block");
 			});
 		});
 	});

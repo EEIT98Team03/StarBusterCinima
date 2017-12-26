@@ -24,7 +24,7 @@ public class CartController {
 	@SuppressWarnings("unchecked")
 	@RequestMapping(name = "/cart.controller", method = { RequestMethod.GET, RequestMethod.POST })
 	public String method(HttpSession session, Model model, String itemNameHidden) {
-		//String email = (String) session.getAttribute("email");
+		String email = (String) session.getAttribute("email");
 		GiftItemBean bean = new GiftItemBean();
 		LinkedList<String> itemNameHiddenList = (LinkedList<String>) session.getAttribute("itemNameHiddenList");
 		if (itemNameHidden != null && !itemNameHidden.isEmpty()) {
@@ -45,6 +45,7 @@ public class CartController {
 				cartSet.add(bean);
 			}
 			
+			session.setAttribute("email", email);
 			session.setAttribute("itemNameHiddenList", itemNameHiddenList);
 			session.setAttribute("cartSet", cartSet);
 			session.setAttribute("cartSetSize", cartSet.size());
