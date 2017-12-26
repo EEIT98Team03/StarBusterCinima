@@ -8,7 +8,7 @@
 <title>購物車::StarBuster購物商城</title>
 <script src="../js/jquery-3.2.1.min.js"></script>
 <script src="../js/jquery.tabletojson.min.js"></script>
-<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.4.css" />
 <link rel="stylesheet" type="text/css" href="../css/my.css" />
 <link rel="stylesheet" type="text/css" href="../css/hmenu.css" />
 <link rel="stylesheet" type="text/css" href="../css/pure-min.css" />
