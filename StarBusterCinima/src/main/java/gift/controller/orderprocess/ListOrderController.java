@@ -31,7 +31,7 @@ public class ListOrderController {
 			}
 			return "list.order";
 		}
-		return null;
+		return "cart.homepage.additem.success";
 
 	}
 }

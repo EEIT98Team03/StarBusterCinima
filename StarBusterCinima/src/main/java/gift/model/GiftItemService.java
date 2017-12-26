@@ -23,6 +23,10 @@ public class GiftItemService {
 	}
 
 	public GiftItemBean getGiftItem(String itemNameHidden) {
-		return giftItemDAO.select(itemNameHidden);
+		List<GiftItemBean> bean = giftItemDAO.select(itemNameHidden);
+		if (bean != null) {
+			return bean.get(0);
+		}
+		return null;
 	}
 }

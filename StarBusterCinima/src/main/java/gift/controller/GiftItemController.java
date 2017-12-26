@@ -20,7 +20,6 @@ public class GiftItemController {
 
 	@RequestMapping(method = {RequestMethod.GET, RequestMethod.POST})
 	public String method(Model model) {
-		
 		List<GiftItemBean> allGiftItems = giftItemService.getGiftItem();
 		model.addAttribute("GiftItems", allGiftItems);
 		return "shopping.success";

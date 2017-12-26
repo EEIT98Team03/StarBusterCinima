@@ -24,34 +24,44 @@ public class CartController {
 	@SuppressWarnings("unchecked")
 	@RequestMapping(name = "/cart.controller", method = { RequestMethod.GET, RequestMethod.POST })
 	public String method(HttpSession session, Model model, String itemNameHidden) {
-		//String email = (String) session.getAttribute("email");
+		String email = (String) session.getAttribute("email");
 		GiftItemBean bean = new GiftItemBean();
 		LinkedList<String> itemNameHiddenList = (LinkedList<String>) session.getAttribute("itemNameHiddenList");
-		bean = giftItemService.getGiftItem(itemNameHidden);
-		Set<GiftItemBean> cartSet = (HashSet<GiftItemBean>) session.getAttribute("cartSet");
-		if (cartSet != null && !cartSet.isEmpty()) {
-			if (!itemNameHiddenList.contains(itemNameHidden)) {
+		if (itemNameHidden != null && !itemNameHidden.isEmpty()) {
+			bean = giftItemService.getGiftItem(itemNameHidden);
+		}
+		if (bean != null) {
+			bean = (GiftItemBean) bean;
+			Set<GiftItemBean> cartSet = (HashSet<GiftItemBean>) session.getAttribute("cartSet");
+			if (cartSet != null && !cartSet.isEmpty()) {
+				if (!itemNameHiddenList.contains(itemNameHidden)) {
+					itemNameHiddenList.addLast(itemNameHidden);
+					cartSet.add(bean);
+				}
+			} else {
+				itemNameHiddenList = new LinkedList<String>();
 				itemNameHiddenList.addLast(itemNameHidden);
+				cartSet = new HashSet<GiftItemBean>();
 				cartSet.add(bean);
 			}
-		} else {
-			itemNameHiddenList = new LinkedList<String>();
-			itemNameHiddenList.addLast(itemNameHidden);
-			cartSet = new HashSet<GiftItemBean>();
-			cartSet.add(bean);
+			
+			session.setAttribute("email", email);
+			session.setAttribute("itemNameHiddenList", itemNameHiddenList);
+			session.setAttribute("cartSet", cartSet);
+			session.setAttribute("cartSetSize", cartSet.size());
+			
 		}
-		
-		session.setAttribute("itemNameHiddenList", itemNameHiddenList);
-		session.setAttribute("cartSet", cartSet);
-		session.setAttribute("cartSetSize", cartSet.size());
-		
-		if (itemNameHidden.contains("harry")) {
-			return "cart.additem.success";
-		} else if (itemNameHidden.contains("hibao")) {
-			return "cart.hibao.additem.success";
-		} else {
-			return "cart.homepage.additem.success";
+		if (itemNameHidden != null && !itemNameHidden.isEmpty()) {
+			if (itemNameHidden.contains("harry")) {
+				return "cart.additem.success";
+			} else if (itemNameHidden.contains("hibao")) {
+				return "cart.hibao.additem.success";
+			} else {
+				return "cart.homepage.additem.success";
+			}
 		}
+		return "cart.homepage.additem.success";
+
 	}
 	
 	
