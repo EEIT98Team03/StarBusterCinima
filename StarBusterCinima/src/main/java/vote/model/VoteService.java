@@ -9,8 +9,6 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.nimbusds.openid.connect.sdk.id.PairwiseSubjectIdentifierGenerator;
-
 @Service
 @Transactional
 public class VoteService {

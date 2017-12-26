@@ -1,0 +1,32 @@
+body {
+	background-color: black;
+	color: white;
+}
+
+a href: hover{
+	color: white;
+	text-decoration: none;
+}
+
+.container {
+	width: 1280px;
+	margin: 2px auto;
+	/* border: 1px dashed white; */
+}
+
+.logo {
+	display: block;
+	text-align: center;
+}
+
+.vmenu {
+	float: right;
+}
+
+.itemListTableBegin {
+	margin: 6px;
+	padding: 36px;
+	width: 999px;
+	background-color: white;
+	color: black;
+}

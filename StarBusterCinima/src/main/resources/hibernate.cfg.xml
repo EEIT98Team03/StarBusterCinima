@@ -7,7 +7,6 @@
 		<property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
 
 		<property name="hibernate.connection.url">jdbc:sqlserver://192.168.40.19;database=StarBusterCinima</property>
-		<!--<property name="hibernate.connection.url">jdbc:sqlserver://192.168.40.19;database=StarBusterCinima</property>-->
 		<property name="hibernate.connection.username">sa</property>
 		<property name="hibernate.connection.password">passw0rd</property>
 		<property name="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</property>
@@ -16,7 +15,18 @@
 
 		<mapping class="member.model.MemberBean" />
 		<mapping class="gift.model.GiftItemBean" />
+
+		<mapping class="gift.model.OrderHistoryBriefBean" />
+		<mapping class="gift.model.OrderHistoryDetailBean" />
+		<mapping class="gift.model.PotentialItemListBean" />
+		<mapping class="delivery.controller.OrderFinalCollector" />
+
+		<mapping class="member.model.QuestionRecordBean" />
+		<mapping class="smart.model.QuestionRepositoryBean" />
+		<mapping class="smart.model.RobotResponseRecordBean" />
+		<mapping class="ad.model.AdRepositoryBean" />
+		<mapping class="ad.model.AdRepositoryDataNoImageBean" />
 		<mapping class="vote.model.VoteBean"/>
-		
+
 	</session-factory>
 </hibernate-configuration>
