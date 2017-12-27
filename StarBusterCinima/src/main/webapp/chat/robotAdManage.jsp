@@ -397,7 +397,7 @@ body{
 					var column3=$('<td></td>').text(title);
 // 					var column4=$('<td></td>').html('<img style="width:100px" src="/StarBusterCinima/adManagements/imageId='+id+'">');
 					var column4=$('<td></td>').html('<a class="example-image-link" href="/StarBusterCinima/adImages/imageId='+id+'" data-lightbox="example-set" data-title="'+type+'類  :'+title+'"><img style="width:100px" src="/StarBusterCinima/adImages/imageId='+id+'"></a>');
-					var column5=$('<td></td>').html('<a href="'+url+'" target="_blank">'+url+'</a>');
+					var column5=$('<td></td>').html('<a href="'+url+'" target="_blank">'+url.substring(0,40)+'</a>');
 					var column6=$('<td></td>').text(sequence);
 					var column7=$('<td></td>').text(position);
 					var column8=$('<td></td>').text(status);

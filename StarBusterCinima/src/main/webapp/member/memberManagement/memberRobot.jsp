@@ -115,7 +115,9 @@
 .primary-font{
 	color:black;
 }
-
+.box{
+margin-top:50px
+}
 </style>
 </head>
 <body>
@@ -127,7 +129,7 @@
 	<div class="box">
 <%-- 	<a id="logOut" href='<c:url value="/member/logout.jsp"/>'>用戶登出</a> --%>
 		<div id="boxTitle"
-			style="color: white; font-size: 250%; text-align: center;">會員資料專區</div>
+			style="color: white; font-size: 250%; text-align: center;">會員專區</div>
 		<!-- row -->
 		<div class="row">
 			<!-- col-sm-2 begin -->
@@ -217,7 +219,7 @@
 
 				<div class="container">
 					<c:if test="${not empty loginUserInfo}">
-						<a type="button" data-toggle="collapse" href="#collapseOne"><img
+						<a id="robotImageAelement" type="button" data-toggle="collapse" href="#collapseOne"><img
 							id="robot" src='/StarBusterCinima/images/robot.png'
 							style="height: 65px; width: 77px; margin-bottom: 0px; margin-left: 0px;"></a>
 					</c:if>
@@ -238,7 +240,7 @@
 								</div>
 								<div class="panel-collapse collapse" id="collapseOne">
 									<div class="panel-body">
-										<ul class="chat">
+										<ul id="chatContext" class="chat">
 											<li class="left clearfix">
 												<!-- 									<span class="chat-img pull-left"></span> --> <!-- 										<div class="chat-body clearfix"> -->
 												<div class="header">
@@ -270,7 +272,7 @@
 
 										</ul>
 									</div>
-									<div class="panel-footer">
+									<div id="caht-footer" class="panel-footer">
 										<div class="input-group">
 											<input id="btn-input" type="text"
 												class="form-control input-sm"
@@ -295,9 +297,15 @@
 				<div id="talkBox" style="display:none">
 				<fieldset >
 					<legend style="color:white">Choose your tickets</legend>
-					<p style="color:white;font-size:18px">場次&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;廳次&nbsp;&nbsp;座位&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;付款方式</p>
+					<p style="color:white;font-size:18px">張數&nbsp;&nbsp;&nbsp;場次&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;廳次&nbsp;&nbsp;座位&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;付款方式</p>
 					<div>
 						<form name="ticketsForm">
+							<select name="count" style="color:black">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+							</select>
 							<select name="time" style="color:black">
 								<option value="10:00-12:00">10:00-12:00</option>
 								<option value="12:00-14:00">12:00-14:00</option>
@@ -346,7 +354,7 @@
 								<option value="現場付款">現場付款</option>
 								<option value="信用卡付款">信用卡付款</option>
 							</select>
-							<input style="color:black" type="submit" value="確定" id="ticketSubmit">
+							<input style="color:black" type="button" value="確定" id="ticketSubmit">
 							<input style="color:black" type="button" value="取消" id="ticketCancel">
 						</form>	
 					</div>
@@ -377,9 +385,6 @@
 		</div>
 		<!-- row -->
 
-
-
-
 	</div>
 	<!-- box end -->
 
@@ -387,32 +392,72 @@
 	<jsp:include page="${pageScope.request.contextPath}/fragement/bot.jsp"></jsp:include>
 </body>
 
+
 <script>
 	$(function(){
-		//memberChanPassword	
-		$('#memberChanPassword').click(function(){
-			$.ajax({
-				'type':'get',
-				'url':'/StarBusterCinima/members/resendEmailToChangePassword='+$('#memberId').val()
-			}).done(function(result){
-				alert("寄送成功，請到您的郵件收信");
+			$('#changeMemberInfoButton').click(function(){
+				location.href="http://localhost:8080/StarBusterCinima/member/memberManagement/memberChangeInfo.jsp";
 			})
-			$('#memberChanClose').trigger('click');
-		})
-		
-		
-// 			$('#ticketSubmit').click(function(){
-// 				var formValue=$('.ticketsForm').serialize();
-// 				console.log(formValue);
-// 				console.log("123");
-// 			})
+			$('#memberRobot').click(function(){
+				location.href="http://localhost:8080/StarBusterCinima/member/memberManagement/memberRobot.jsp";
+			})
+			$('#robot').trigger('click');	
+			var chatbtn = $('#btn-chat');
+			var chatClear = $('#btn-clear');
+			var chatbox = $('ul');
+			var flagBox = $('#flagBox');
+			var talkBox = $('#talkBox');
+			var chatSendValue= $('#btn-input');
+			var userController;
+			var robotController;
 			
+			// 幫 a.abgne_gotoheader 加上 click 事件
+			$('a.abgne_gotoheader').click(function(){
+				// 讓捲軸移動到 0 的位置
+// 				$('html, body').scrollTop(0);
+				
+			});
 			
-		var ticketsValue;	
+			//memberChanPassword	
+			$('#memberChanPassword').click(function(){
+				$.ajax({
+					'type':'get',
+					'url':'/StarBusterCinima/members/resendEmailToChangePassword='+$('#memberId').val()
+				}).done(function(result){
+					alert("寄送成功，請到您的郵件收信");
+				})
+				$('#memberChanClose').trigger('click');
+			})
 			
-			//按下確定後 隱藏表單並將資訊給機器人
-			$( "form" ).on("submit",function( event ) {
-  				event.preventDefault();
+			$("input").keydown(function (event) {
+			    if (event.which == 13) {
+			    	chatbtn.trigger('click');
+			    }
+			});
+
+			
+			//chat message clear 
+			chatClear.on('click',function(){
+				chatbox.html('');
+			})
+			
+//chat send button begin!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+chatbtn.on('click',function(){
+			//auto 滑到最底
+			$(".panel-body").animate({ scrollTop: $("#chatContext").height() }, 1200);
+						
+			 
+			//if有內容輸入begin--------------------------------------------------------------------------------------	
+			if(chatSendValue.val()==""){
+				alert('請輸入內容');
+			}else{
+	
+			var ticketsValue;//*****************************
+			//按下確定後 隱藏表單並將資訊給機器人begin----------------------------------------
+			$( "#ticketSubmit" ).click(function( event ) {
+				$(".panel-body").animate({ scrollTop: $("#chatContext").height() }, 1200);
+				event.preventDefault();
+				event.stopImmediatePropagation();
 				var time = $("select[name='time']").val();
 				var room = $("select[name='room']").val();
 				var seatX = $("select[name='seatX']").val();
@@ -430,20 +475,37 @@
 				
 				messageController('robot','Robot','0',"請在下方點選確定或者取消","#D2E9FF");//robot
 				chatbox.append(robotController);
-			//
 				$('#talkCheckBox').css('display','');
 			});
+			//按下確定後 隱藏表單並將資訊給機器人end-------------------------------------------
 			
-			$('#ticketCancel').click(function(){
-				messageController('robot','Robot','0',"取消訂票，感謝你的諮詢","#D2E9FF");//robot
+			//按下取消後 隱藏表單並回覆=>取消訂票，感謝你的諮詢begin---------------------------------------
+			$('#ticketCancel').click(function(event){//步驟一取消
+				$(".panel-body").animate({ scrollTop: $("#chatContext").height() }, 1200);
+				event.preventDefault();
+				event.stopImmediatePropagation();
+				messageController('robot','Robot','0',"取消訂票，感謝您的諮詢","#D2E9FF");//robot
 				chatbox.append(robotController);
 				$('#talkCheckBox').css('display','none');
 				$('#talkBox').css('display','none');
 			})
 			
+			$('#ticketCloseSubmit').click(function(event){//步驟二取消
+				$(".panel-body").animate({ scrollTop: $("#chatContext").height() }, 1200);
+				event.preventDefault();
+				event.stopImmediatePropagation();
+				messageController('robot','Robot','0',"取消訂票，感謝您的諮詢","#D2E9FF");//robot
+				chatbox.append(robotController);
+				$('#talkCheckBox').css('display','none');
+				$('#talkBox').css('display','none');
+			})
+			//按下取消後 隱藏表單並回覆=>取消訂票，感謝你的諮詢end------------------------------------------
 			
-			
-			$('#ticketCheckSubmit').click(function(){
+			//按下確定後 隱藏表單並回覆=>感謝您預訂電影票，詳細訂購資訊將會寄送*Email*至您的信箱，即可現場取票付款begin-------
+			$('#ticketCheckSubmit').click(function(event){
+				$(".panel-body").animate({ scrollTop: $("#chatContext").height() }, 1200);
+				event.preventDefault();
+				event.stopImmediatePropagation();
 				messageController('robot','Robot','0',"感謝您預訂電影票，詳細訂購資訊將會寄送*Email*至您的信箱，即可現場取票付款","#D2E9FF");//robot
 				chatbox.append(robotController);
 				$('#talkCheckBox').css('display','none');
@@ -451,25 +513,17 @@
 				console.log($('#memberId').val());
 				console.log(ticketsValue);
 				
-				
+				//寄送email
 				$.ajax({
 					'type':'get',
 					'url':'/StarBusterCinima/members/sendTicktiesInfo/memberId='+$('#memberId').val()+",info="+ticketsValue
 				}).done(function(result){
 					console.log(result);
 				})
-				
-				
-				
 			})
+			//按下確定後 隱藏表單並回覆=>感謝您預訂電影票，詳細訂購資訊將會寄送*Email*至您的信箱，即可現場取票付款end----------
 			
-			
-			$('#ticketCloseSubmit').click(function(){
-				messageController('robot','Robot','0',"取消訂票，感謝你的諮詢","#D2E9FF");//robot
-				chatbox.append(robotController);
-				$('#talkCheckBox').css('display','none');
-				
-			})
+
 			
 			
 			
@@ -480,234 +534,169 @@
 				location.href="http://localhost:8080/StarBusterCinima/member/memberManagement/memberRobot.jsp";
 			})
 		
-		var chatbtn = $('#btn-chat');
-		var chatClear = $('#btn-clear');
-		var chatbox = $('ul');
-		var flagBox = $('#flagBox');
-		var talkBox = $('#talkBox');
-		var chatSendValue= $('#btn-input');
-		var userController;
-		var robotController;
-		
-		function messageController(character,name,memberId,message,messageColor){
-			var d = new Date();
-    		var time = d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
-			if(character=='user'){
-				
-				userController ='<li id="li" style="background-color:'+messageColor+'" class="right clearfix">'+
-								'<span class="chat-img pull-right">' +
 
-								'<img style="width:50px;height:50px;" src="'+
-
-								'/StarBusterCinima/image/member/'+memberId+
-
-								'" alt="User Avatar" class="img-circle" /></span><div class="chat-body clearfix">'+
-								'<div class="header"><small class=" text-muted">'+
-								'<span class="glyphicon glyphicon-time"></span>'+
-
-								time+
-
-								'</small><strong class="pull-right primary-font">'+
-
-								name+
-
-								'</strong></div><p>'+	
-
-								message+
-
-								'</p></div></li>';
-			}else{
-				
-				robotController = '<li style="background-color:'+messageColor+'" class="left clearfix"><span class="chat-img pull-left">'+
-
-								  '<img style="width:50px;height:50px;" src="'+
-
-								  '/StarBusterCinima/image/member/'+memberId+
-
-
-								  '" alt="User Avatar" class="img-circle" /></span>'+
-								  '<div class="chat-body clearfix"><div class="header"><strong class="primary-font">'+
-
-								  name+
-
-								  '</strong> <small class="pull-right text-muted">'+
-								  '<span class="glyphicon glyphicon-time"></span>'+
-
-								  time+
-
-								  '</small></div><p>'+
-
-
-								  message+
-
-
-								  '</p></div></li>';
-			}
-		}
-			//chat message clear 
-			chatClear.on('click',function(){
-				chatbox.html('');
-			})
 			
 			
 			//製造flag 五隻--------------------判斷對談式問答用
-			var box=$(document.createDocumentFragment());
-			for(var i=1;i<6;i++){//6為變數
-			var flag=$('<input type="text" id="flag'+i+'" value="false" style="display:none">');
-				box.append(flag);
-			}
-			flagBox.html(box);		
-// 			flagBox.on('click',':input:nth-child(1)',function(){
-// 				console.log('123');
-// 			})
-		
-			//chat send button begin
-			chatbtn.on('click',function(){
-			if(chatSendValue.val()==""){
-				alert('請輸入內容');
-			}else{
-				
-				
-			
-
+// 			var box=$(document.createDocumentFragment());
+// 			for(var i=1;i<6;i++){//6為變數
+// 			var flag=$('<input type="text" id="flag'+i+'" value="false" style="display:none">');
+// 				box.append(flag);
+// 			}
+// 			flagBox.html(box);	
+			//關鍵字  明天 訂購  電影 變形金剛
+			//1.收尋明天變形金剛的電影有哪些 時間 場次 有哪些座位 或者無座位無場次無電影上映則取消 flag1
+			//2.確定要訂購的話請輸入確定，過程中可輸入取消停止訂購 flag2
+			//3.確定的話就問要什麼:時間 場次 座位 格式規定 時間=場次=座位= flag3
+			//4.印出使用者輸入的資訊然後再問一次是否確定預購，給予圖片(機器繪圖)or寄送Email flag4
+			//5.然後詢問付款方式，則可選擇要現場付款還是信用卡付款 flag5
 
 			var userMessage = chatSendValue.val(); //使用者輸入訊息
 			var memberId = $('#memberId').val();
 			var name= $('#name').val();
 			var messageColor="";
+			//把匹配到的文字刪除	
+			var temp1=userMessage.replace('明天','');
+			var temp2=temp1.replace('訂購','');
+			var temp3=temp2.replace('電影','');
+				
+			//收尋資料庫有什麼電影 ajax--------------db
+			var array = ['變形金剛','玩命關頭','神力女超人'];
+			//收尋資料庫有什麼電影 ajax--------------db
 			
 			
-			
-			
-			
-			
-			
-			
-			//關鍵字  明天 訂購  電影 變形金剛
-			//1.收尋明天變形金剛的電影有哪些 時間 場次 有哪些座位 或者無座位無場次無電影上映則取消 flag1
-			//2.確定要訂購的話請輸入確定，過程中可輸入取消停止訂購 flag2
-			//3.確定的話就問要什麼:時間 場次 座位 格式規定 時間=場次=座位= flag3
-			//4.印出使用者輸入的資訊然後再問一次是否確定預購，給予圖片(機器繪圖) flag4
-			//5.然後詢問付款方式，則可選擇要現場付款還是信用卡付款 flag5
-			
-			//str.includes("XXX");
 			if(userMessage.includes('明天') && userMessage.includes('訂購') && userMessage.includes('電影')){//if是對談式問答
 				
 			messageController('user',name,memberId,userMessage,"#D2E9FF");//user
 			chatbox.append(userController);
 				
-				
-				var temp1=userMessage.replace('明天','');
-				var temp2=temp1.replace('訂購','');
-				var temp3=temp2.replace('電影','');
-				
-				//收尋資料庫有什麼電影 ajax--------------db
-				var array = ['變形金剛','玩命關頭','神力女超人'];
-				//收尋資料庫有什麼電影 ajax--------------db
+
 				
 					for(var i=0;i<array.length;i++){
-					if(temp3.includes(array[i])){
+						if(temp3.includes(array[i])){
 // 						console.log(array[i]);//匹配到的電影名稱
 						
 						//匹配到的該 條件"電影" 開始收尋有沒有 條件"明天"的，撈出 哪段時間的場 有哪些座位ajax--------------db
 // 						var time=['10:00-12:00','12:00-14:00','14:00-16:00','16:00-18:00','18:00-20:00','20:00-22:00','22:00-24:00'];
 // 						var seat=[{}];
 						//匹配到的該 條件"電影" 開始收尋有沒有 條件"明天"的，撈出 哪段時間的場 有哪些座位ajax--------------db
-						
-						//flag1 給予資訊並詢問是否要確定or取消
-						
-						//匹配到的資訊如下您可在天視窗下勾選選項確定或者取消
-// 						flagBox.on('click',':input:nth-child(1)',function(){
-// 							console.log('123');
-// 						})
-// 						console.log(flagBox.find(':input:nth-child(1)').val());
-// 						if(flagBox.find(':input:nth-child(1)').val()=="false"){
-							
-// 							console.log('123');
-							
-							messageController('robot','Robot','0',"搜尋到訂票電影資訊如下: 您可在聊天視窗下方 進行*購買*或者*取消* ","#D2E9FF");//robot
-							chatbox.append(robotController);//robot 回覆
-							//talkBox 裝箱
-// 							var context=$('<fieldset ><legend style="color:white">Choose your interests</legend><div><input type="checkbox" id="coding" name="interest" value="coding"><label for="coding">Coding</label></div><div><input type="checkbox" id="music" name="interest" value="music"><label for="music">Music</label></div></fieldset>');
-// 							var context=$('<fieldset ><legend style="color:white">確定要訂購嗎?</legend><div><input type="checkbox" id="time" name="" value="'++'"><label for="time">場次</label></div><div><input type="checkbox" id="music" name="interest" value="music"><label for="music">Music</label></div></fieldset>');
-							
-// 							talkBox.html(context);
-							
-							$('#talkBox').css('display','');
-							
-							
-	// 						}else if(flagBox.find(':input:nth-child(2)').val()=="false"){
-	// // 							$('#talkBox').css('display','none');
-	
-	// 							messageController('robot','Robot','0',"請輸入確定或取消","#D2E9FF");//robot
-	// 							chatbox.append(robotController);//robot 回覆
-	
-	
-// 							}else{
-// 								talkBox.empty();
-// 							}
-						
-						
-						
-						
-						
-						
-						
-						
-						
+						messageController('robot','Robot','0',"搜尋到訂票電影資訊如下: 您可在聊天視窗下方 進行*購買*或者*取消* ","#D2E9FF");//robot
+						chatbox.append(robotController);//robot 回覆
+						$('#talkBox').css('display','');
+						}
 					}
-				}
-
 			
-				
-
-
-				
-				
-				
 			}else{//不是對談式問答
-				
-				messageController('user',name,memberId,userMessage,"");//user
-				chatbox.append(userController);
-				
-				$.ajax({
-					'type':'GET',
-					'url':'/StarBusterCinima/smartRobot/'+memberId+'/'+name+'/'+userMessage
-				
-					}).done(function(datas){
-					messageController('robot','Robot','0',datas,messageColor);//robot
-					chatbox.append(robotController);//robot 回覆
-				})
+					messageController('user',name,memberId,userMessage,"");//user
+					chatbox.append(userController);
+					
+					//到restfulController進行處理
+					$.ajax({
+						'type':'GET',
+						'url':'/StarBusterCinima/smartRobot/'+memberId+'/'+name+'/'+userMessage
+						}).done(function(datas){
+						//機器人回覆內容印出
+						messageController('robot','Robot','0',datas,messageColor);//robot
+						chatbox.append(robotController);//robot 回覆
+					})
+			}
+			
+			chatSendValue.val('');//輸入框清除
 			
 			
 			}
-				chatSendValue.val('');//輸入框清除
-				
-				
-				
-				
-			}	
-			})
-			//chat send button end
+			//if有內容輸入end--------------------------------------------------------------------------------------
+			
+})
+//chat send button end  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		
+		
+		
+		
+		//message css function begin --------------------------------------------------------------------------
+		function messageController(character,name,memberId,message,messageColor){
+		var d = new Date();
+		var time = d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+		if(character=='user'){
+			
+			userController ='<li id="li" style="background-color:'+messageColor+'" class="right clearfix">'+
+							'<span class="chat-img pull-right">' +
+
+							'<img style="width:50px;height:50px;" src="'+
+
+							'/StarBusterCinima/image/member/'+memberId+
+
+							'" alt="User Avatar" class="img-circle" /></span><div class="chat-body clearfix">'+
+							'<div class="header"><small class=" text-muted">'+
+							'<span class="glyphicon glyphicon-time"></span>'+
+
+							time+
+
+							'</small><strong class="pull-right primary-font">'+
+
+							name+
+
+							'</strong></div><p>'+	
+
+							message+
+
+							'</p></div></li>';
+			}else{
+			
+			robotController = '<li style="background-color:'+messageColor+'" class="left clearfix"><span class="chat-img pull-left">'+
+
+							  '<img style="width:50px;height:50px;" src="'+
+
+							  '/StarBusterCinima/image/member/'+memberId+
 
 
-	<!-- 
-// 				$.ajax({
-// 					'type':'GET',
-// 					'url':'travel.xml',
-// 					'dataType':'xml'
-// 				}).done(function(datas){
-// 					var docFragment = $(document.createDocumentFragment());
-// 					$(datas).find('Section').each(function(){
-// 						var imgPath = $(this).find('img:first').text();
-// 						var title = $(this).find('img:first').attr("description");
-// 						var img = $("<img />").attr('src',imgPath).addClass('thumb img-responsive img-thumbnail');
-// 						var a = $("<a></a>").attr({'href':imgPath,'data-lightbox':'park','data-title':title}).append(img);
-// 						docFragment.append(a);
-// 					})
-// 					$('#show').html(docFragment);
-// 				})
--->
+							  '" alt="User Avatar" class="img-circle" /></span>'+
+							  '<div class="chat-body clearfix"><div class="header"><strong class="primary-font">'+
+
+							  name+
+
+							  '</strong> <small class="pull-right text-muted">'+
+							  '<span class="glyphicon glyphicon-time"></span>'+
+
+							  time+
+
+							  '</small></div><p>'+
+
+
+							  message+
+
+
+							  '</p></div></li>';
+				}
+			}
+		//message css function end ----------------------------------------------------------------------------	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	})
 	</script>
 

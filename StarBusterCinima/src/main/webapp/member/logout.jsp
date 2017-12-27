@@ -16,6 +16,7 @@
 	<%
 		HttpSession sessison = request.getSession();
 		session.removeAttribute("loginUserInfo");
+		session.removeAttribute("lan");
 		//session.invalidate();
 	%>
 	<jsp:forward page="/index.jsp"></jsp:forward>

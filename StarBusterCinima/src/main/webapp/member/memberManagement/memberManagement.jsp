@@ -54,14 +54,18 @@
 	border-radius:50%;
 }
 .col-sm-8{
+	margin-left:55px;
+	padding-top:130px;
 	width: 65%;
 	height:100%;
 /* 	margin: 50px 0px 0px 50px; */
 /*  	border: 2px solid #21BABA; */
  	color: white;
 }
-
-#FilmWall{width:100%;margin-left:55px;padding-top:130px;}
+.box{
+margin-top:50px
+}
+#FilmWall{width:100%;}
 
 </style>
 </head>
@@ -73,7 +77,7 @@
 
 	<div class="box">
 	
-		<div id="boxTitle" style="color: white; font-size: 250%; text-align: center;">會員資料專區</div>
+		<div id="boxTitle" style="color: white; font-size: 250%; text-align: center;">會員專區</div>
 
 		<div class="row">
 			<div  class="col-sm-2">
@@ -185,11 +189,11 @@
 			</div>
 			
 			
-			
-			<div class="col-sm-8">
+			<div >
+			<div class="col-sm-8" >
 
 
-				<div class="FilmWallBox">
+				<div class="FilmWallBox" style="background-color:black">
 					<!-- 輪播     -->
 					<div id="FilmWall">
 				<!-- 		<div class="item"><img src="/StarBusterCinima/adImages/type=電影,position=首頁輪播,sequence=5" class="img-rounded" style=""/></div> -->
@@ -197,12 +201,10 @@
 					<!-- 輪播     -->
 				</div>
 
-
-
-
-
-
 			</div>
+			</div>
+			
+			
 		</div>
 
 

@@ -60,6 +60,9 @@
 /*  	border: 2px solid #21BABA; */
  	color: white;
 }
+.box{
+margin-top:50px
+}
 </style>
 </head>
 <body>
@@ -70,7 +73,7 @@
 
 	<div class="box">
 	
-		<div id="boxTitle" style="color: white; font-size: 250%; text-align: center;">會員資料專區</div>
+		<div id="boxTitle" style="color: white; font-size: 250%; text-align: center;">會員專區</div>
 
 		<div class="row">
 			<div  class="col-sm-2">
