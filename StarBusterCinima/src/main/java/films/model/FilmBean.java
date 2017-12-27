@@ -22,19 +22,17 @@ public class FilmBean {
 	private String lengthOfFilm;
 	private String genre;
 	private String filmLevel;
-//	@DateTimeFormat(pattern="yyyy-MM-dd")  
 	private Date udate;
-//	@DateTimeFormat(pattern="yyyy-MM-dd") 
 	private Date ddate;
 	private int weight;
-//	private String director;
-//	private String actor;
-//	private String trailer;
+	private String director;
+	private String actor;
+	private String trailer;
 //	private String language;
-//	private String shortIntro;
-//	private String longIntro;
-//	private String posterLarge;
-//	private byte[] yosterMedium;
+	private String shortIntro;
+	private String longIntro;
+	private String posterMedium;
+	private String posterLarge;
 //	private float scoreImdb;
 //	private int scoreRt;
 //	private int scoreMember;
@@ -57,18 +55,18 @@ public class FilmBean {
 	public void setEngName(String engName) {
 		this.engName = engName;
 	}
-//	public String getShortIntro() {
-//		return shortIntro;
-//	}
-//	public void setShortIntro(String shortIntro) {
-//		this.shortIntro = shortIntro;
-//	}
-//	public String getLongIntro() {
-//		return longIntro;
-//	}
-//	public void setLongIntro(String longIntro) {
-//		this.longIntro = longIntro;
-//	}
+	public String getShortIntro() {
+		return shortIntro;
+	}
+	public void setShortIntro(String shortIntro) {
+		this.shortIntro = shortIntro;
+	}
+	public String getLongIntro() {
+		return longIntro;
+	}
+	public void setLongIntro(String longIntro) {
+		this.longIntro = longIntro;
+	}
 	public String getLengthOfFilm() {
 		return lengthOfFilm;
 	}
@@ -87,24 +85,24 @@ public class FilmBean {
 	public void setFilmLevel(String filmLevel) {
 		this.filmLevel = filmLevel;
 	}
-//	public String getDirector() {
-//		return director;
-//	}
-//	public void setDirector(String director) {
-//		this.director = director;
-//	}
-//	public String getActor() {
-//		return actor;
-//	}
-//	public void setActor(String actor) {
-//		this.actor = actor;
-//	}
-//	public String getPosterLarge() {
-//		return posterLarge;
-//	}
-//	public void setPosterLarge(String posterLarge) {
-//		this.posterLarge = posterLarge;
-//	}
+	public String getDirector() {
+		return director;
+	}
+	public void setDirector(String director) {
+		this.director = director;
+	}
+	public String getActor() {
+		return actor;
+	}
+	public void setActor(String actor) {
+		this.actor = actor;
+	}
+	public String getPosterLarge() {
+		return posterLarge;
+	}
+	public void setPosterLarge(String posterLarge) {
+		this.posterLarge = posterLarge;
+	}
 //	public byte[] getYosterMedium() {
 //		return yosterMedium;
 //	}
@@ -159,11 +157,26 @@ public class FilmBean {
 	public void setWeight(int weight) {
 		this.weight = weight;
 	}
+	public String getTrailer() {
+		return trailer;
+	}
+	public void setTrailer(String trailer) {
+		this.trailer = trailer;
+	}
+	
+	public String getPosterMedium() {
+		return posterMedium;
+	}
+	public void setPosterMedium(String posterMedium) {
+		this.posterMedium = posterMedium;
+	}
 	@Override
 	public String toString() {
 		return "FilmBean [filmId=" + filmId + ", filmName=" + filmName + ", engName=" + engName + ", lengthOfFilm="
 				+ lengthOfFilm + ", genre=" + genre + ", filmLevel=" + filmLevel + ", udate=" + udate + ", ddate="
-				+ ddate + ", weight=" + weight + "]";
+				+ ddate + ", weight=" + weight + ", director=" + director + ", actor=" + actor + ", trailer=" + trailer
+				+ ", shortIntro=" + shortIntro + ", longIntro=" + longIntro + ", posterMedium=" + posterMedium
+				+ ", posterLarge=" + posterLarge + "]";
 	}
 	
 	
