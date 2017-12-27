@@ -34,7 +34,7 @@ public class LoginController {
 	public String method(String email, String password,String changeLanguage, String remember, Model model, HttpServletRequest request,
 			HttpServletResponse response, @SessionAttribute(name="requestURI",required=false) String requestURI) throws IOException {
 		if(changeLanguage!="") {//判斷是否有選
-			System.out.println(changeLanguage);
+//			System.out.println(changeLanguage);
 			model.addAttribute("lan","controller.language_"+changeLanguage);
 		}else {
 			Locale locale = LocaleContextHolder.getLocale();
@@ -98,18 +98,18 @@ public class LoginController {
 				model.addAttribute("loginUserInfo", result);
 				if (requestURI != null) {
 					/// StarBusterCinima/shopping/index.jsp(!=0) or /StarBusterCinima/ (==0)
-					String servletPath = requestURI.substring(request.getContextPath().length());
-					System.out.println(servletPath);
-					if (requestURI.length() == 0) {
+//					String servletPath = requestURI.substring(request.getContextPath().length());
+//					System.out.println(servletPath);
+//					if (requestURI.length() == 0) {
 
 						return "login.success";
-					} else {
-						if (requestURI.contains("shopping")) {
-							return "shopping.success";
-						} else if (requestURI.contains("film")) {
-							return "fileView的邏輯名稱";
-						}
-					}
+//					} else {
+//						if (requestURI.contains("shopping")) {
+//							return "shopping.success";
+//						} else if (requestURI.contains("film")) {
+//							return "fileView的邏輯名稱";
+//						}
+//					}
 				}
 				return "login.success";
 			} else {
