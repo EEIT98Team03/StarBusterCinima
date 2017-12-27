@@ -115,7 +115,9 @@
 .primary-font{
 	color:black;
 }
-
+.box{
+margin-top:50px
+}
 </style>
 </head>
 <body>
@@ -127,7 +129,7 @@
 	<div class="box">
 
 		<div id="boxTitle"
-			style="color: white; font-size: 250%; text-align: center;">會員資料專區</div>
+			style="color: white; font-size: 250%; text-align: center;">會員專區</div>
 		<!-- row -->
 		<div class="row">
 			<!-- col-sm-2 begin -->

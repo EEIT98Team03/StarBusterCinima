@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="css/test.css">
+<!-- <link rel="stylesheet" type="text/css" href="css/test.css"> -->
 <title>StatBusterCinima::Login::</title>
 <link rel="shortcut icon" type="image/png" href="/StarBusterCinima/images/logo.ico"/>
 <link rel="stylesheet" href="/StarBusterCinima/css/bootstrap.min.css">
@@ -162,18 +162,25 @@ video {
 										checked='checked'
 									</c:if>  value="true"> Remember Me
 									</label>
-
+									<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+									<span>導覽列語系:</span>
+									<span>
+										<select name="changeLanguage" style="color:black">
+											<option value="">請選擇</option>		
+											<option value="zh_TW">中文</option>		
+											<option value="en_US">英文</option>	
+										</select>
+									</span>
 								</div>
 								<div id="html_element"></div>
-								<p>&nbsp;</p>
 								<span>${errors.login}</span> 
-								
 								<c:if test="${not empty errors.resendEmailMember}">
 								<a href="/StarBusterCinima/members/resendEmail=${errors.resendEmailMember}">重發認證信件</a>
 								</c:if>
 								<input class="btn btn-lg btn-success btn-block" type="submit" value="Login">
 								<div >
-								<a href="/StarBusterCinima/member/register.jsp"><span>註冊會員</span></a><span id="">忘記密碼</span>
+								<div style="float:right"><a href="/StarBusterCinima/member/register.jsp">
+								<span>註冊會員</span></a><span>&nbsp;&nbsp;</span><a href="#"><span id="">忘記密碼</span></a></div>
 								</div>
 							</fieldset>
 						</form>

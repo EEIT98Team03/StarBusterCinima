@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
@@ -101,6 +102,12 @@ color:white;
 
 
 </style>
+
+<c:if test="${empty sessionScope.lan}">
+  <c:set var="lan" value="controller.language_en_US"/>
+</c:if>
+
+<fmt:bundle basename="${lan}">
 </head>
 	<body>
 	<div class="outdiv">
@@ -109,22 +116,23 @@ color:white;
 	
 	
 		<div class="col-md-1 navicol">
-			<div class="ehdiv navidiv">影城介紹</div>
+			<div class="ehdiv navidiv"><fmt:message key="navcolumn1" /></div>
 		</div>
+		
 		<div class="col-md-1 navicol" >
-			<div class="ehdiv navidiv">熱門強檔</div>
+			<div class="ehdiv navidiv"><fmt:message key="navcolumn2" /></div>
 		</div>
 		<div class="col-md-1 navicol">
-			<div class="ehdiv navidiv">立即訂票</div>
+			<div class="ehdiv navidiv"><fmt:message key="navcolumn3" /></div>
 		</div>
 		<div class="col-md-3 navicolcenter" >
 				<a href="/StarBusterCinima/index.jsp"><img class="naviLogo" src="/StarBusterCinima/images/SB01.png"></a>
 		</div>
 		<div class="col-md-1 navicol">
-			<div class="ehdiv navidiv">周邊精品</div>
+			<div class="ehdiv navidiv"><fmt:message key="navcolumn4" /></div>
 		</div>
 		<div class="col-md-1 navicol">
-			<div class="ehdiv navidiv">精彩活動</div>
+			<div class="ehdiv navidiv"><fmt:message key="navcolumn5" /></div>
 		</div>
 		
 		
@@ -133,7 +141,7 @@ color:white;
 		
 		        <c:if test="${empty loginUserInfo}">
 					<div class="col-md-1 navicol">
-						<div class="ehdiv navidiv"><a class="loginButton" href='<c:url value="/member/login.jsp"/>'>用戶登入</a></div>
+						<div class="ehdiv navidiv"><a class="loginButton" href='<c:url value="/member/login.jsp"/>'><fmt:message key="navcolumn6" /></a></div>
 					</div>
 		        </c:if>
 
@@ -159,8 +167,8 @@ color:white;
 						<div class="dropdown" style="display:block;padding-top:10px;padding-bottom:3px">
 							<span style="color: white"><strong id="userName" style="margin: 0px auto; color: white">${loginUserInfo.name}</strong></span>
 							<div class="dropdown-content" style="margin-left: -12px;">
-								<a style="text-decoration:none;color:white;" class="dropdown-toggle btn-lg" href="/StarBusterCinima/member/memberManagement/memberManagement.jsp">會員中心</a>
-								<a style="text-decoration:none;color:white;" class="dropdown-toggle btn-lg" href='<c:url value="/member/logout.jsp"/>'>用戶登出</a>
+								<a style="text-decoration:none;color:white;" class="dropdown-toggle btn-lg" href="/StarBusterCinima/member/memberManagement/memberManagement.jsp"><fmt:message key="navcolumn7" /></a>
+								<a style="text-decoration:none;color:white;" class="dropdown-toggle btn-lg" href='<c:url value="/member/logout.jsp"/>'><fmt:message key="navcolumn8" /></a>
 							</div>
 						</div>
 						
@@ -182,6 +190,7 @@ color:white;
 	</div>
 	</div>
 	<div style="height:200px ;border:1px dotted red;"></div>
+</fmt:bundle>	
 <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>			
 <script>
 $(document).ready(function(){
