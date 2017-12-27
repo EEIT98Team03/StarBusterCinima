@@ -8,38 +8,42 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.context.annotation.RequestScope;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.nimbusds.oauth2.sdk.Request;
 
 import booking.model.QuickBookingService;
 import films.model.FilmBean;
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 import spring.PrimitiveNumberEditor;
 
-
+@ResponseBody
 @Controller
 @RequestMapping(value="/booking/controller/quickBooking.controller")
 public class QuickBookingController {
 
-//	@InitBinder
-//	public void initialize(WebDataBinder webDataBinder) {
-//		webDataBinder.registerCustomEditor(int.class,new PrimitiveNumberEditor(java.lang.Integer.class, true));
-//	}
+	
 	
 	@Autowired
 	QuickBookingService quickBookingService;
 	
-	@RequestMapping(method=RequestMethod.GET)
+	@RequestMapping(method=RequestMethod.GET,produces = "text/html;charset=UTF-8")
 	public String method( Model model ) {
-		System.out.println("test quick booking");
+//		System.out.println("test quick booking");
 		List<FilmBean> result = quickBookingService.selectAllfilms();
-		String jsonString = JSONValue.toJSONString(result);
-//		System.out.println(jsonString);
-		model.addAttribute("jsonFilmsData",result);
-		return "quickBooking";
+
+		Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create(); 
+//		Gson gson = new Gson();
+		String str = gson.toJson(result);
+		
+//		System.out.println(str);
+		return str;
+		
 	}
 }
-//net.sf.json.JSONObject jo =JSONObject.fromObject((Object)result); 
-//JSONObject jsonObject = JSONObject.fromObject(new FilmBean());

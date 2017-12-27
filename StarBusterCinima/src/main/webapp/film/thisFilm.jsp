@@ -2,15 +2,13 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ page import="films.model.FilmBean"%> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 
 <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js'></script>
 <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.2.4/assets/owl.carousel.min.css"></link>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.2.4/assets/owl.theme.default.min.css"></link>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.2.4/owl.carousel.min.js"></script>
 <!--   <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script> -->
 <!--   <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script> -->
 <!--   <script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script> -->
@@ -20,7 +18,7 @@
 @import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
 
 *{
-/*       border: 1px dotted red;              */
+/*      border: 1px dotted red;           */
 	margin: 0;
     padding: 0;
 	font-family: 'Noto Sans TC';
@@ -47,8 +45,8 @@ body{
 	background-color: #3C3C3C;
 /* 	opacity:0.6; */
 	top:5px;
-	width: 65.5%;
-	left:17.2%;
+	width: 64%;
+	left:18%;
 	height: 150px;
  	position: fixed; 
 	z-index: 999;
@@ -127,7 +125,8 @@ height: 100%;
 	width: 100%;
     height: 100%;
     object-fit:cover;
-    filter: blur(60px);
+    filter: blur(30px);
+    -webkit-filter: blur(30px);
 }
 /* 
 .underTheToptrailer{ 
@@ -158,6 +157,7 @@ height: 100%;
 	height: 100%;
 	width:330px;
 	float: left;
+	overflow: hidden;
 }
 .filmPic img{
   	width: 100%;
@@ -188,7 +188,7 @@ height: 100%;
     height: 50px;
     position: absolute;
     left: 30px;
-    bottom: 285px;
+    bottom: 155px;
 }
 
 .filmGenreLength {
@@ -198,7 +198,7 @@ height: 100%;
     margin-top: 10px;
     position: absolute;
     left: 30px;
-    bottom: 210px;
+    bottom: 60px;
 }
 
 .filmDirectorActor {
@@ -206,8 +206,8 @@ height: 100%;
     height: 50px;
     margin-top: 10px;
     position: absolute;
+    bottom: 0px;
     left: 30px;
-    bottom: 150px;
 }
 
 .filmName{
@@ -241,26 +241,6 @@ height: 100%;
 	border-radius: 2px;
 }
 
-/* ----------訂票----------- */
-
-.chooseDate{
-	float: left;
-	position: absolute;
-	width: 46%;
-	height: 115px;
-	bottom: 0px;
-	left: 30px;
-/* 	border:1px solid yellow; */
-}
-.chooseTime{
-	float: left;
-	position: absolute;
-	width: 46%;
-	height: 115px;
-	left:54%;
-	bottom: 0px;
-/* 	border:1px solid pink; */
-}
 
 .filmIntroContain{
 	width: 64%;
@@ -268,53 +248,13 @@ height: 100%;
 	margin:0 auto;
 	position: relative;
 	top:-310px;
-/*	border:1px solid blue;*/
 	background-color:#4F4F4F;
 	border-top:6px solid #20B7B7;
 /* 	opacity: 0.4; */
 	
 }
 
-/* -------輪播牆-------- */
 
-.owl-controls{
-	display: none;
-}
-.owl-item, .active{
-	width:500px;
-	
-}
-.owl-stage{
-/* 	position:absolute; */
-	height: 100%;
-}
-
-.item{
-	height: 82px;
-	width:82px;
-	background-color: #5B5B5B;
-	border-radius: 5px;
-	margin-right:20px;
-	text-align: center;
-	
-}
-
-.eee{
-color:#20B7B7;
-/* 	border:1px solid pink; */
-	clear:left;
-/*  	position: absolute;  */
-	font-size: 19px;
-	padding-top:16px;
-/* 	margin: 0 auto; */
-
-}
-.mmdd{
-/* color:#20B7B7; */
-	clear:left;
-/* 	position: absolute;  */
-	font-size: 13px;
-}
 
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -357,33 +297,20 @@ color:#20B7B7;
 	</div>
 	
 <div style="display: none">
-<input type="text" class="filmBean" id="filmId" name='${sessionScope.filmBean.filmId}' style="display: none" >
-<input type="text" class="filmBean" id="filmName" name='${sessionScope.filmBean.filmName}' style="display: none" >
-<input type="text" class="filmBean" id="engName" name='${sessionScope.filmBean.engName}' style="display: none" >
-<input type="text" class="filmBean" id="lengthOfFilm" name='${sessionScope.filmBean.lengthOfFilm}' style="display: none" >
-<input type="text" class="filmBean" id="genre" name='${sessionScope.filmBean.genre}' style="display: none" >
-<input type="text" class="filmBean" id="filmLevel" name='${sessionScope.filmBean.filmLevel}' style="display: none" >
-<input type="text" class="filmBean" id="udate}" name='${sessionScope.filmBean.udate}' style="display: none" >
-<input type="text" class="filmBean" id="ddate" name='${sessionScope.filmBean.ddate}' style="display: none" >
-<input type="text" class="filmBean" id="weight" name='${sessionScope.filmBean.weight}' style="display: none" >
-<input type="text" class="filmBean" id="director" name='${sessionScope.filmBean.director}' style="display: none" >
-<input type="text" class="filmBean" id="actor" name='${sessionScope.filmBean.actor}' style="display: none" >
-<input type="text" class="filmBean" id="trailer" name='${sessionScope.filmBean.trailer}' style="display: none" >
-<input type="text" class="filmBean" id="shortIntro" name='${sessionScope.filmBean.shortIntro}' style="display: none" >
-<input type="text" class="filmBean" id="longIntro" name='${sessionScope.filmBean.longIntro}' style="display: none" >
-<input type="text" class="filmBean" id="posterLarge" name='${sessionScope.filmBean.posterLarge}' style="display: none" >
+<input type="text" class="filmBean" id="filmBean" name="${filmBean.posterLarge}" style="display: none" >
 </div>
 
-<!-- <div class="video-out" style="hight:200px"> -->
-<!-- <div class="video-container"> -->
-<!-- 	<iframe width="560" height="315" src="https://www.youtube.com/embed/o7U3EDp6wyw?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe> -->
-<!-- <img src="https://img.youtube.com/vi/Ex9091HAqBE/0.jpg"> -->
-<!-- </div> -->
-<!-- </div> -->
+
+
+
+
+
+
+
 
 <div class="toptrailer">
-<!-- 	<img src="../images/film/1102.jpg"> -->
-	<img src="../images/film/1107.jpg">
+<!-- 	<img src="/StarBusterCinima/images/film/1107.jpg" /> -->
+
 </div>
 
 
@@ -391,75 +318,72 @@ color:#20B7B7;
 
 
 <div class="thisFilmInfo">
-	<div class="filmPic">
-<!-- 		<img src="../images/film/1102.jpg"> -->
-		<img src="../images/film/1107.jpg">
-	</div>
+	<div class="filmPic"></div>
 	
 	<div class="filmText">
-	
 		<div class="filmNameEng">
-			<div class="filmName">11testSTAR WARS：最後的絕地武士</div>
-			<div class="filmEng">11testStar Wars: The Last Jedi</div>
+			<div class="filmName"> ${filmBean.filmName} </div>
+			<div class="filmEng"> ${filmBean.engName} </div>
 		</div>
-		
 		<div class="filmGenreLength">
-			<div class="filmGenre">11test動作 冒險 奇幻 科幻</div>
-			<div class="filmLength">11test152</div>
+			<div class="filmGenre"> ${filmBean.genre} </div>
+			<div class="filmLength"> ${filmBean.lengthOfFilm} </div>
 		</div>
-		
 		<div class="filmDirectorActor">
-			<div class="filmDirector">11test萊恩強森</div>
-			<div class="filmActor">11test約翰波耶加 黛西蕾德莉 亞當崔佛  奧斯卡伊薩克露琵塔尼詠歐 多姆納爾格里森</div>
+			<div class="filmDirector"> ${filmBean.director} </div>
+			<div class="filmActor"> ${filmBean.actor} </div>
 		</div>
-		
-		<div class="chooseDate">
-			<p>請選擇日期</p>
-			<div id="dateWall">
-				<div class="item itemDate">
-					<div class="eee">星期一</div>
-					<div class="mmdd">12/25</div>
-				</div>
-				<div class="item itemDate">2</div>
-				<div class="item itemDate">3</div>
-				<div class="item itemDate">4</div>
-				<div class="item itemDate">5</div>
-				<div class="item itemDate">6</div>
-
-
-			</div>
-		</div>
-		<div class="chooseTime">
-			<p>請選擇時間</p>
-			<div id="timeWall">
-				<div class="item itemTime">1</div>
-				<div class="item itemTime">2</div>
-				<div class="item itemTime">3</div>
-				<div class="item itemTime">4</div>
-				<div class="item itemTime">5</div>
-				<div class="item itemTime">6</div>
-			</div>
-		</div>
-		
-<!-- 		<div class="bookingButton"></div> -->
+		<div class="bookingButton"></div>
 	</div>
 </div>
 <div class="filmIntroContain">
+	<input type="button" class="classtest" value="11111111" style="color:white"/>
 	
 </div>
 
+	<c:out value="test"/>
+	<jsp:useBean id="filmBean" class="films.model.FilmBean" scope="session" />
+	<h3 style="border:1px solid pink;color:white">123</h3>
+	<h3 style="border:1px solid pink;color:white"><jsp:getProperty name='filmBean' property='filmName' /></h3>
+
+
+
+
+
+
 <script type="text/javascript">
 $(document).ready(function(){
+// 		var picurl = $('#filmBean').attr('name');
 	
-// 	alert($('#filmBean').attr('name'));
-// 	var arr = $('.filmBean').attr('name');
-// 	alert("test");
-// 	alert($('#filmId').attr('name'));
-// 	alert($('#filmName').attr('name'));
-// 	var test = $('#filmBean').attr('name');
-// 	var str= JSON.stringify(test);
-// 	var arr = JSON.parse(str);
-// 	alert(arr[2]);
+// 	$('.classtest').click(function(){
+// 		alert("111111");
+// 		var filmPic = $('<img>').attr('src',"/StarBusterCinima/images/SB01.png");
+// 		console.log(picurl+"111");
+// 		console.log(filmPic);
+		
+		
+		
+// 	})
+	
+	
+	
+	var picurl = $('#filmBean').attr('name');
+	var filmPic = $('<img>').attr('src',"/StarBusterCinima/images/SB01.png");
+// 	console.log(picurl+"111");
+// 	console.log(filmPic);
+	
+	
+	$('.toptrailer').append("123");
+	$('.filmPic').append("123");
+	
+	
+	 
+// 	alert("get data-> "+$('#filmBean').attr('name'));
+// 	console.log($('#filmBean').attr('name'));
+	
+	
+	
+	
 	
 	// 	navi的滑鼠移上去會有藍色底條
 	$('.navicol>div').hover(function() {
@@ -476,46 +400,35 @@ $(document).ready(function(){
 	
 	
 // 	$.ajax({
-// 		url: '/StarBusterCinima/films/controller/thisFilm.controller',
 // 		type: "GET",
+// 		url: '/StarBusterCinima/films/controller/thisFilm.controller',
 // 		dataType: 'json',
-
+	
 // 	    success: function(jdata){
 // 	   		console.log("success"); 
 // 	   		console.log("123"+jdata);
-// 	    },error:function(){
+// 	    },error:function(jdata){
 // 	    	console.log("error");
-// 	    },complete:function(){
-// 	    	console.log("complate");
-// 	    	console.log(jdata);
+// 	    },complete:function(jdata){
+// 	    	alert("complate");
+// 	    	alert("123"+jdata);
+// 	    	var a = JSON.stringify(jdata);
+// 	    	alert("a= "+a);
+// 	    	console.log("111"+a);
+// 	    	var b = JSON.parse(a);
+// 	    	console.log("222"+b);
+// 	    	alert("b= "+b.readyState);
+// 	    	location.reload();
 // 	    }
+// 	}).done(function(datas){
+// //     	alert("123"+jdata);
+//     	var a = JSON.stringify(datas);
+//     	alert("a= "+a);
+//     	var b = JSON.parse(a);
+// //     	alert("b= "+b.filmName);
+		
 // 	});
-$('#dateWall').owlCarousel({//FilmWall
-		items : 4,
-		loop : false,
-		autoplay : false,
-		autoplayTimeout : 0,
-		autoplayHoverPause : true,
-		autoHeight:true,
-		margin:-5
-// 	    navigation : true,
-// 	    navigationText:["<",">"]
-// 	    rewindNav : true,
-// 	    scrollPerPage : false
-});
-$('#timeWall').owlCarousel({//FilmWall
-		items : 4,
-		loop : false,
-		autoplay : false,
-		autoplayTimeout : 0,
-		autoplayHoverPause : true,
-		autoHeight:true,
-		margin:-5
-// 	    navigation : true,
-// 	    navigationText:["<",">"]
-// 	    rewindNav : true,
-// 	    scrollPerPage : false
-});
+
 
 
 });
