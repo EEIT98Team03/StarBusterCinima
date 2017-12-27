@@ -1,7 +1,5 @@
 package gift.model;
 
-import java.sql.Timestamp;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,21 +9,25 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "GiftItem")
 public class GiftItemBean {
+	@Override
+	public String toString() {
+		return "GiftItemBean [itemId=" + itemId + ", itemName=" + itemName + ", itemNameHidden=" + itemNameHidden
+				+ ", unitPrice=" + unitPrice + ", spec=" + spec + "]";
+	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int itemId;
-	public GiftItemBean(int itemId, String itemCategoryId, String itemCategoryName, String itemName, int unitPrice,
-			String spec, String itemPhoto, int isAvailable, Timestamp createdTime) {
+	public GiftItemBean(int itemId, String itemCategoryId, String itemCategoryName, String itemName, String itemNameHidden, int unitPrice,
+			String spec, String itemPhoto) {
 		super();
 		this.itemId = itemId;
 		this.itemCategoryId = itemCategoryId;
 		this.itemCategoryName = itemCategoryName;
 		this.itemName = itemName;
+		this.itemNameHidden = itemNameHidden;
 		this.unitPrice = unitPrice;
 		this.spec = spec;
 		this.itemPhoto = itemPhoto;
-		this.isAvailable = isAvailable;
-		this.createdTime = createdTime;
 	}
 	public GiftItemBean() {
 		super();
@@ -33,11 +35,16 @@ public class GiftItemBean {
 	private String itemCategoryId;
 	private String itemCategoryName;
 	private String itemName;
+	private String itemNameHidden;
+	public String getItemNameHidden() {
+		return itemNameHidden;
+	}
+	public void setItemNameHidden(String itemNameHidden) {
+		this.itemNameHidden = itemNameHidden;
+	}
 	private int unitPrice;
 	private String spec;
 	private String itemPhoto;
-	private int isAvailable;
-	private java.sql.Timestamp createdTime;
 	
 	public int getItemId() {
 		return itemId;
@@ -80,18 +87,6 @@ public class GiftItemBean {
 	}
 	public void setItemPhoto(String itemPhoto) {
 		this.itemPhoto = itemPhoto;
-	}
-	public int getIsAvailable() {
-		return isAvailable;
-	}
-	public void setIsAvailable(int isAvailable) {
-		this.isAvailable = isAvailable;
-	}
-	public java.sql.Timestamp getCreatedTime() {
-		return createdTime;
-	}
-	public void setCreatedTime(java.sql.Timestamp createdTime) {
-		this.createdTime = createdTime;
 	}
 	
 }

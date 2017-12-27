@@ -4,61 +4,142 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title></title>
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
-	integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
-	crossorigin="anonymous">
-<style>
-.white {
-	color: #000;
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="css/test.css">
+<title>StatBusterCinima::Login::</title>
+<link rel="shortcut icon" type="image/png" href="/StarBusterCinima/images/logo.ico"/>
+<link rel="stylesheet" href="/StarBusterCinima/css/bootstrap.min.css">
+<script
+	src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+<style type="text/css">
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+body{ 
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  background:black;
+}
+video { 
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    bottom: 0%;
+    min-width: 100vw;
+    max-height: 685px;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100vw;
+    height: 685px;
+    z-index: -100;
+    transform: translateX(0%) translateY(0%);
+ 	  background: url('#') no-repeat;
+  	background-size: cover;
+  	transition: 1s opacity;
+    overflow: hidden;
+}
+.logo{
+  position: absolute;
+  width: 200px;
+  margin: -12px 0px 0px -12px;
+  padding: 0px
+}
+.headText{
+  font-family: Agenda-Light, Agenda Light, Agenda, Arial Narrow, sans-serif;
+  font-weight:100; 
+  margin: 15% auto 0 5%;
+  color: white;
+}
+.headText h1:before{
+    font-family: FontAwesome;
+    content: "\f18c";
+    color: green;
+    margin: 5px;
+}
+.headText h1:after{
+    font-family: FontAwesome;
+    content: "\f18c";
+    color: green;
+    margin: 5px;
+}
+
+#polina { 
+  font-family: Agenda-Light, Agenda Light, Agenda, Arial Narrow, sans-serif;
+  font-weight:100; 
+  background: rgba(0,0,0,0.7);
+  color: white;
+  padding: 2%;
+  width: 31%;
+  margin: 3% 5% 5% auto;
+  float: right;
+}
+.btn-facebook{
+	background-color: #3b5998;
+	color: #fff;
+}
+.btn-facebook:hover{
 	background-color: #fff;
+	color: #3b5998;
+}
+.btn-google{
+	background-color: #c23321;
+	color: #fff;
+}
+.btn-google:hover{
+	background-color: #fff;
+	color: #c23321;
 }
 
-.btn-facebook {
-	color: #ffffff;
-	-webkit-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-	background-color: #2b4b90;
-	*background-color: #133783;
-	background-image: -moz-linear-gradient(top, #3b5998, #133783);
-	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#3b5998),
-		to(#133783));
-	background-image: -webkit-linear-gradient(top, #3b5998, #133783);
-	background-image: -o-linear-gradient(top, #3b5998, #133783);
-	background-image: linear-gradient(to bottom, #3b5998, #133783);
-	background-repeat: repeat-x;
-	border-color: #133783 #133783 #091b40;
-	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff3b5998',
-		endColorstr='#ff133783', GradientType=0);
-	filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+@media screen and (max-width: 500px) { 
+  #polina{
+    width:90%;
+    margin-top: -50% !important;
+  } 
+  video{
+    display: none;
+  }
+}
+@media screen and (max-device-width: 800px) {
+  #bgvid { display: none; }
 }
 
-.btn-facebook:hover, .btn-facebook:focus, .btn-facebook:active,
-	.btn-facebook.active, .btn-facebook.disabled, .btn-facebook[disabled] {
-	color: #ffffff;
-	background-color: #133783 !important;
-	*background-color: #102e6d !important;
+.video iframe{
+  position: absolute;
+  background: #000;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -99;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
 }
-
-.btn-facebook:active, .btn-facebook.active {
-	background-color: #0d2456\9 !important;
+.container-fluid{
+	margin-top:150px;
 }
-
-#robot {
-	margin: 10px
+.panel panel-primary{
+	opacity:0.8
 }
 </style>
-<script src='https://www.google.com/recaptcha/api.js'></script>
-
 </head>
 <body>
-	<div class="container">
+  <div class="logo text-center">
+   <a href="/StarBusterCinima/index.jsp"><img src="/StarBusterCinima/images/SB02.png" style="height: 200px;margin-left:70px;margin-right:100px" /></a>
+  </div>
+<div class="container-fluid">
+
+  <div class="container-fluid video">
+	<div class="video">
+<!-- 		<iframe src="http://localhost:8080/StarBusterCinima/adImages/imageId=16" frameborder="0" allowfullscreen></iframe> -->
+		<iframe src="https://www.youtube.com/embed/JlGkuFI-lj0?ecver=1&controls=0&showinfo=0&rel=0&autoplay=1&loop=1&mute=1" frameborder="0" allowfullscreen></iframe>
+ 	 	<!-- 注意 Youtube embed 連結是置放在 src=" 和 ? 之間。? 之後的程式碼是控制像是自動播放，迴圈，和靜音設定：autoplay=1, loop=1, mute=1 -->
+	</div>
+  </div>
+
+  <div class="container">
 		<div class="row">
-			<div class="col-md-4 col-md-offset-4">
-				<div class="panel panel-default">
+			<div id="innerbox" class="col-md-4 col-md-offset-4">
+				<div class="panel panel-primary">
 					<div class="panel-heading">
 						<h3 class="panel-title">Login via site</h3>
 					</div>
@@ -68,143 +149,76 @@
 							<fieldset>
 								<div class="form-group">
 									<input class="form-control" placeholder="yourmail@example.com"
-										id="email" name="email" type="email"><span id="span1">${errors.email}</span>
+										id="email" name="email" type="email" value="${sessionScope.user}"><span id="span1">${errors.email}</span>
 								</div>
 								<div class="form-group">
 									<input class="form-control" placeholder="Password"
-										id="password" name="password" type="password" value=""><span
+										id="password" name="password" type="password" value="${sessionScope.password}"><span
 										id="span2">${errors.password}</span>
 								</div>
 								<div class="checkbox">
 									<label> <input name="remember" type="checkbox"
-										value="Remember Me"> Remember Me
+									<c:if test='${sessionScope.rememberMe==true}'>
+										checked='checked'
+									</c:if>  value="true"> Remember Me
 									</label>
 
 								</div>
-								<span>${errors.login}</span> <input
-									class="btn btn-lg btn-success btn-block" type="submit"
-									value="Login">
-								<div id="robot" class="g-recaptcha"
-									data-sitekey="6LfPNTsUAAAAAOFNAzpgtyOiDXMH7U_PThGoQt74"
-									data-theme="dark"></div>
+								<div id="html_element"></div>
+								<p>&nbsp;</p>
+								<span>${errors.login}</span> 
+								
+								<c:if test="${not empty errors.resendEmailMember}">
+								<a href="/StarBusterCinima/members/resendEmail=${errors.resendEmailMember}">重發認證信件</a>
+								</c:if>
+								<input class="btn btn-lg btn-success btn-block" type="submit" value="Login">
+								<div >
+								<a href="/StarBusterCinima/member/register.jsp"><span>註冊會員</span></a><span id="">忘記密碼</span>
+								</div>
 							</fieldset>
 						</form>
-						<hr />
-						<!--  
-                        <h4 style="text-align:center;">OR</h4>
-                        <input class="btn btn-lg btn-facebook btn-block" type="submit" value="Login via facebook">
-                        -->
-						<!-- facebook -->
-						<fb:login-button scope="public_profile,email"
-							onlogin="checkLoginState();"></fb:login-button>
-						<input class="btn btn-lg btn-facebook btn-block" type="submit"
-							value="Logout via facebook" onclick="UserInfo()">
-						<div id="status"></div>
-						<script>
-							window.fbAsyncInit = function() {
-								FB.init({
-									appId : '324829661330267',
-									xfbml : true,
-									version : 'v2.0'
-								});
-							};
-
-							(function(d, s, id) {
-								var js, fjs = d.getElementsByTagName(s)[0];
-								if (d.getElementById(id)) {
-									return;
-								}
-								js = d.createElement(s);
-								js.id = id;
-								js.src = "//connect.facebook.net/en_US/sdk.js";
-								fjs.parentNode.insertBefore(js, fjs);
-							}(document, 'script', 'facebook-jssdk'));
-
-							function statusChangeCallback(response) {
-								console.log('statusChangeCallback');
-								console.log(response);
-								// The response object is returned with a status field that lets the
-								// app know the current login status of the person.
-								// Full docs on the response object can be found in the documentation
-								// for FB.getLoginStatus().
-								if (response.status === 'connected') {
-									// Logged into your app and Facebook.
-									testAPI();
-								} else if (response.status === 'not_authorized') {
-									// The person is logged into Facebook, but not your app.
-									document.getElementById('status').innerHTML = 'Please log '
-											+ 'into this app.';
-								} else {
-									// The person is not logged into Facebook, so we're not sure if
-									// they are logged into this app or not.
-									document.getElementById('status').innerHTML = 'Please log '
-											+ 'into Facebook.';
-								}
-							}
-
-							// This function is called when someone finishes with the Login
-							// Button.  See the onlogin handler attached to it in the sample
-							// code below.
-							function checkLoginState() {
-								FB.getLoginStatus(function(response) {
-									statusChangeCallback(response);
-								});
-							}
-
-							// Here we run a very simple test of the Graph API after login is
-							// successful.  See statusChangeCallback() for when this call is made.
-							function testAPI() {
-								console
-										.log('Welcome!  Fetching your information.... ');
-								FB
-										.api(
-												'/me',
-												function(response) {
-													console
-															.log('Successful login for: '
-																	+ response.name);
-													document
-															.getElementById('status').innerHTML = 'Thanks for logging in, '
-															+ response.name
-															+ '!';
-												});
-							}
-							function logout() {
-								FB.logout(function(response) {
-									console.log('Successful logout for: '
-											+ response.name);
-								});
-							}
-							function UserInfo() {
-								FB
-										.api(
-												'/me',
-												{
-													fields : 'id,first_name,last_name,gender,email,birthday'
-												}, function(response) {
-													console.log(JSON.stringify(
-															response, null,
-															'\t'));
-												});
-							}
-						</script>
-						<!-- facebook -->
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-		crossorigin="anonymous"></script>
-	<script
+  
+  
+</div>
+
+	
+
+</body>
+<!-- g-recaptcha -->	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
 		integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
 		crossorigin="anonymous"></script>
-	<script
-		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
-		integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
-		crossorigin="anonymous"></script>
+<script>
+	$(document).ready(function() {
+		$("form").submit(function() {
+			var response = grecaptcha.getResponse();
+			if (response.length == 0) {
+				alert('Please check the Captcha');
+				return false;
+			}
+		});
+	});
+</script>
+<script type="text/javascript">
+	var onloadCallback = function() {
+		grecaptcha.render('html_element', {
+			'sitekey' : '6LfPNTsUAAAAAOFNAzpgtyOiDXMH7U_PThGoQt74'
+		});
+	};
+</script>
+<script
+	src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+	async defer>
+	
+</script>
+<!-- g-recaptcha -->
 	<script>
 		//$('selectors').css('樣式名稱','樣式值')
 		// 	$(document).ready(function(){
@@ -231,5 +245,5 @@
 			$('#span2').text("");
 		}
 	</script>
-</body>
+
 </html>

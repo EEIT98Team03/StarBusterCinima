@@ -1,6 +1,5 @@
 package gift.model.dao;
 
-import java.sql.Timestamp;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -11,7 +10,6 @@ import org.springframework.stereotype.Repository;
 
 import gift.model.GiftItemBean;
 import gift.model.GiftIttemDAO;
-import gift.tool.StringGenerator;
 
 @Repository
 public class GiftItemHibernateDAO implements GiftIttemDAO {
@@ -20,37 +18,6 @@ public class GiftItemHibernateDAO implements GiftIttemDAO {
 
 	public Session session() {
 		return sessionFactory.getCurrentSession();
-	}
-
-	public static void main(String[] args) {
-
-		String itemName = "a";
-		String itemCategoryId = StringGenerator.getRandomString(16, true, false);
-		String itemCategoryName = "b";
-		int unitPrice = 0;
-		String spec = "c";
-		String itemPhoto = "d";
-		int isAvailable = 1;
-		Timestamp createdTime = StringGenerator.getCurrentTime();
-
-		GiftItemBean bean = new GiftItemBean();
-		
-		bean.setItemName(itemName);
-		bean.setItemCategoryId(itemCategoryId);
-		bean.setItemCategoryName(itemCategoryName);
-		bean.setUnitPrice(unitPrice);
-		bean.setSpec(spec);
-		bean.setItemPhoto(itemPhoto);
-		bean.setIsAvailable(isAvailable);
-		bean.setCreatedTime(createdTime);
-		
-		
-		
-		GiftItemHibernateDAO dao = new GiftItemHibernateDAO();
-		dao.session().beginTransaction();
-		System.out.println(dao.insert(bean));
-		dao.session().getTransaction().commit();
-		
 	}
 
 	@Override
@@ -71,6 +38,17 @@ public class GiftItemHibernateDAO implements GiftIttemDAO {
 	public List<GiftItemBean> select() {
 		Query<GiftItemBean> query = this.session().createQuery("from GiftItemBean", GiftItemBean.class);
 		return query.getResultList();
+	}
+
+	@Override
+	public List<GiftItemBean> select(String itemNameHidden) {
+		Query<GiftItemBean> query = this.session().createQuery("from GiftItemBean where itemNameHidden = :itemNameHidden", GiftItemBean.class);
+		query.setParameter("itemNameHidden", itemNameHidden);
+		List<GiftItemBean> result = query.list();
+		if (result != null && result.size() != 0) {
+			return result;
+		}
+		return null;
 	}
 
 }

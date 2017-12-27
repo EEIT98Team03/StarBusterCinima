@@ -18,18 +18,25 @@ import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 
 import films.model.FilmBean;
-import films.model.FilmSectionBean;
-import films.model.FilmService;
 import gift.model.GiftItemBean;
+import gift.model.OrderHistoryBriefBean;
+import gift.model.OrderHistoryDetailBean;
+import gift.model.PotentialItemListBean;
+
+import ad.model.AdRepositoryBean;
+import ad.model.AdRepositoryDataNoImageBean;
+import adminstrator.model.AdministratorBean;
 import member.model.MemberBean;
+import member.model.QuestionRecordBean;
+import smart.model.QuestionRepositoryBean;
+import smart.model.RobotResponseRecordBean;
 
 @Configuration
-@ComponentScan(basePackages = { "member.model", "gift.model", "booking.model", "vote.model", "films.model"})
+@ComponentScan(basePackages = { "member.model", "gift.model","smart.model","ad.model","adminstrator.model", "booking.model", "vote.model"})
 @EnableTransactionManagement
 public class SpringJavaConfigurationAbstractContextLoaderListenerInitializer extends AbstractContextLoaderInitializer {
 	@Bean
 	public DataSource dataSource() {
-
 		try {
 			Context ctx = new InitialContext();
 			return (DataSource) ctx.lookup("java:comp/env/jdbc/sqlserver");
@@ -42,11 +49,14 @@ public class SpringJavaConfigurationAbstractContextLoaderListenerInitializer ext
 	@Bean
 	public SessionFactory sessionFactory() {
 		LocalSessionFactoryBuilder builder = new LocalSessionFactoryBuilder(dataSource());
-		builder.setProperty("hibernate.dialect", "org.hibernate.dialect.SQLServerDialect")
+		builder.setProperty("hibernate.dialect", "org.hibernate.dialect.SQLServerDialect");
 //		.setProperty("hibernate.current_session_context_class", "thread")
 //		.setProperty("hibernate.show_sql", "true")
-		;
-		builder.addAnnotatedClasses(MemberBean.class, GiftItemBean.class, FilmBean.class, FilmSectionBean.class );//加入要受hibernate管理的Bean
+
+
+		//加入要受hibernate管理的Bean
+		builder.addAnnotatedClasses(MemberBean.class, FilmBean.class,QuestionRepositoryBean.class,QuestionRecordBean.class,RobotResponseRecordBean.class,AdRepositoryBean.class,AdRepositoryDataNoImageBean.class,AdministratorBean.class,GiftItemBean.class, OrderHistoryBriefBean.class, OrderHistoryDetailBean.class, PotentialItemListBean.class);//加入要受hibernate管理的Bean
+
 		return builder.buildSessionFactory();
 	}
 	@Bean
