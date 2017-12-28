@@ -158,7 +158,7 @@ color:white;
 						<div class="ehdiv navidiv  aa" style="">
 						
 						
-					<img src='/StarBusterCinima/image/member/${loginUserInfo.memberId}' style="height:85px; width:100px;margin-bottom: 0px; margin-left: 0px; border-radius: 50%;">
+					<img src='/StarBusterCinima/image/member/${loginUserInfo.memberId}' style="height:75px; width:90px;margin-bottom: 0px; margin-left: 0px; border-radius: 50%;">
 					<br />
 							
 						</div>

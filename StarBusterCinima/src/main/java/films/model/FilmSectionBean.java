@@ -1,35 +1,45 @@
 package films.model;
 
+import java.sql.Date;
 import java.sql.Timestamp;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "FilmSection")
 public class FilmSectionBean {
 
-	private String FilmSectionID;
-	private Timestamp FilmSectionTime;
-	private String FilmID;
-
-	@Override
-	public String toString() {
-		return "FilmSectionBean [FilmSectionID=" + FilmSectionID + ", FilmSectionTime=" + FilmSectionTime + ", FilmID="
-				+ FilmID + "]";
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int filmSectionId;
+	private Timestamp filmSectionTime;
+	private int filmId;
+	public int getFilmSectionId() {
+		return filmSectionId;
 	}
-	public String getFilmSectionID() {
-		return FilmSectionID;
-	}
-	public void setFilmSectionID(String filmSectionID) {
-		FilmSectionID = filmSectionID;
+	public void setFilmSectionId(int filmSectionId) {
+		this.filmSectionId = filmSectionId;
 	}
 	public Timestamp getFilmSectionTime() {
-		return FilmSectionTime;
+		return filmSectionTime;
 	}
 	public void setFilmSectionTime(Timestamp filmSectionTime) {
-		FilmSectionTime = filmSectionTime;
+		this.filmSectionTime = filmSectionTime;
 	}
-	public String getFilmID() {
-		return FilmID;
+	public int getFilmId() {
+		return filmId;
 	}
-	public void setFilmID(String filmID) {
-		FilmID = filmID;
+	public void setFilmId(int filmId) {
+		this.filmId = filmId;
+	}
+	@Override
+	public String toString() {
+		return "FilmSectionBean [filmSectionId=" + filmSectionId + ", filmSectionTime=" + filmSectionTime + ", filmId="
+				+ filmId + "]";
 	}
 	
 }
