@@ -58,13 +58,15 @@
 		★★手機：${beanBrief.receiverPhone}<br />
 		★★地址：${beanBrief.receiverAddressArea}${beanBrief.receiverAddressMainPart}
 		<hr />
-		訂單明細（${listBeanDetail.size()}）<br />
-		<c:forEach var="order" items="${listBeanDetail}" varStatus="idx">
-			${idx.index + 1}>>${order.itemName}<br />
-			<div style="margin-left: 40px;">數量：${order.itemQquantity}<br /></div>
-			<div style="margin-left: 40px;">售價：$${order.unitPrice}<br /></div>
-			<div style="margin-left: 40px;">小計：$${order.sumTotal}<br /></div>
-		</c:forEach>
+		<div style="padding: 16px; background-color: #D2FF78; color: black; border: 1px dashed white;">
+			訂單明細（${listBeanDetail.size()}）<br />
+			<c:forEach var="order" items="${listBeanDetail}" varStatus="idx">
+				${idx.index + 1}>>${order.itemName}<br />
+				<div style="margin-left: 40px;">數量：${order.itemQquantity}<br /></div>
+				<div style="margin-left: 40px;">售價：$${order.unitPrice}<br /></div>
+				<div style="margin-left: 40px;">小計：$${order.sumTotal}<br /></div>
+			</c:forEach>
+		</div>
 	</div>
 	<div class="container" style="width: 900px; margin: 16px auto;">
 		<button id="loadAllOrders" class="btn btn-primary" style="width: 160px;">看所有訂單</button>

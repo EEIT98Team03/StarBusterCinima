@@ -35,7 +35,7 @@ public class MemberSeeOrder extends HttpServlet {
 		HttpSession session = request.getSession(false);
 		if (session != null) {
 			if (loginUserName == null || loginUserName.isEmpty()) {
-				loginUserName = (String) session.getAttribute("loginUserName");
+				loginUserName = (String) session.getAttribute("userName");
 			}
 			if (loginEmail == null || loginEmail.isEmpty()) {
 				loginEmail = (String) session.getAttribute("loginEmail");

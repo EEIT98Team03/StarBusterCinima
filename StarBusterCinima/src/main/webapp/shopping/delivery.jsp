@@ -47,8 +47,9 @@
 				<h5>購物車>>購物明細 >>選擇運送方式</h5>
 			</div>
 			<div style="margin-left: 60px; color: black">
+				<hr />
 				<div class="card">
-					<div class="card-body">
+					<div class="card-body" style="width: 360px; float: left;">
 						<p class="card-text" style="color: blue;">取貨時間：即日起 至
 							${getItemDeadline} 止<br />取貨代碼：${goodsCode}</p>
 						<label class="btn btn-primary active">
@@ -56,10 +57,7 @@
 							autocomplete="off" checked>現場付款取貨
 						</label>
 					</div>
-				</div>
-				<hr />
-				<div class="card">
-					<div class="card-body">
+					<div class="card-body" style="width: 360px; float: right;">
 						<p class="card-text" style="color: green;">24小時內送達，免運費<br />最晚到貨時間：${deliveryDeadline}</p>
 						<label class="btn btn-success"> <input
 							id="radioHomeDelivery" type="radio" name="options" id="option2"
