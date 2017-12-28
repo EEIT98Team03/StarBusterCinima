@@ -247,7 +247,7 @@ $(function(){
 			
 		})
 		$('#FilmWall').owlCarousel({
-			items :length+1,
+			items :5,
 			loop : true,
 			margin :0,
 			autoplay : true,

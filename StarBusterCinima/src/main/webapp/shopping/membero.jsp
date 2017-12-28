@@ -50,7 +50,7 @@
 		</div>
 	</div>
 	<div class="container" style="margin-top: 16px; margin-left: 0 auto;">
-		<button id="buttonRecentOrderList" class="btn btn-success" style="width: 360px; margin-left: 16px;">列出最近三個月訂單</button>
+		<button id="buttonRecentOrderList" class="btn btn-success" style="width: 360px; margin-left: 16px; margin-bottom: 20px;">列出最近三個月訂單</button>
 	</div>
 	<div id="divOrderHistory" style="width: 480px; font-size: 1.3em; margin-left: 410px; float: left;">
 		<c:choose>
@@ -77,7 +77,7 @@
 		<div id="dialog-message" title="訂單詳情">
 			<c:choose>
 				<c:when test="${beanDetailList != null}">
-					<div id="divOrderDetail" style="width: 360px; margin-left: 2px; padding: 2px;">
+					<div id="divOrderDetail" style="width: 420px; margin-left: 2px; padding: 16px; background-color: #D2FF78; color: black; border: 1px dashed green;">
 						訂購時間：${purchasedTime}<br />
 						此訂單共有 ${beanDetailList.size()} 項商品<br />
 						<c:forEach var="order" items="${beanDetailList}" varStatus="idx">
