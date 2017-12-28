@@ -28,6 +28,7 @@
 	font-family: 'Noto Sans TC';
 	font-weight: 300;
 	color:white;
+/* 	color:white; */
 }
 
 body{
