@@ -14,7 +14,7 @@
 @import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
 
 *{
-/*         border: 1px dotted red;         */
+         border: 1px dotted red;         
 	margin: 0;
     padding: 0;
 	font-family: 'Noto Sans TC';

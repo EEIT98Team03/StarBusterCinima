@@ -27,6 +27,7 @@ import gift.model.PotentialItemListBean;
 import ad.model.AdRepositoryBean;
 import ad.model.AdRepositoryDataNoImageBean;
 import adminstrator.model.AdministratorBean;
+import booking.model.TicketOrderBean;
 import member.model.MemberBean;
 import member.model.QuestionRecordBean;
 import smart.model.QuestionRepositoryBean;
@@ -56,7 +57,7 @@ public class SpringJavaConfigurationAbstractContextLoaderListenerInitializer ext
 
 
 		//加入要受hibernate管理的Bean
-		builder.addAnnotatedClasses(MemberBean.class, FilmBean.class,QuestionRepositoryBean.class,QuestionRecordBean.class,RobotResponseRecordBean.class,AdRepositoryBean.class,AdRepositoryDataNoImageBean.class,AdministratorBean.class,GiftItemBean.class, OrderHistoryBriefBean.class, OrderHistoryDetailBean.class, PotentialItemListBean.class, FilmSectionBean.class);//加入要受hibernate管理的Bean
+		builder.addAnnotatedClasses(MemberBean.class, FilmBean.class,QuestionRepositoryBean.class,QuestionRecordBean.class,RobotResponseRecordBean.class,AdRepositoryBean.class,AdRepositoryDataNoImageBean.class,AdministratorBean.class,GiftItemBean.class, OrderHistoryBriefBean.class, OrderHistoryDetailBean.class, PotentialItemListBean.class, FilmSectionBean.class, TicketOrderBean.class);//加入要受hibernate管理的Bean
 
 		return builder.buildSessionFactory();
 	}

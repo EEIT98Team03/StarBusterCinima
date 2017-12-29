@@ -9,7 +9,7 @@
 @import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
 
 *{
-/*         border: 1px dotted red;         */
+/*          border: 1px dotted red;          */
 	margin: 0;
     padding: 0;
 	font-family: 'Noto Sans TC';
@@ -26,6 +26,8 @@ body{
 	top:0px;
 /* 	overflow: hidden; */
 	position: fixed;
+	height: 155px;
+	background-color: #3C3C3C;
 	
 }
 .navi{
@@ -33,8 +35,8 @@ body{
 	background-color: #3C3C3C;
 /* 	opacity:0.6; */
 	top:5px;
-	width: 64%;
-	left:18%;
+	width: 65.5%;
+	left:17.2%;
 	height: 150px;
  	position: fixed; 
 	z-index: 999;

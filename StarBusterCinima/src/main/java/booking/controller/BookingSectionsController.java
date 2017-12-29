@@ -24,7 +24,7 @@ public class BookingSectionsController {
 	@RequestMapping(method = RequestMethod.GET, value = { "/{selectedDate}" }, produces = "text/html;charset=UTF-8")
 	public String method(@PathVariable String selectedDate, Model model) {
 		 selectedDate = selectedDate.replace(" ", "")+")";
-		 System.out.println(selectedDate);
+//		 System.out.println(selectedDate);
 		 
 		//如果傳進來的是日期
 //		if (param.indexOf("日") > 0 && "filmname"!=param) {

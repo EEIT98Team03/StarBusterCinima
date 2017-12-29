@@ -813,7 +813,7 @@ $(document).ready(function(){
 		$('.mmdd').css('color','white');
 		$('.eee').css('color','#20B7B7');
 		$(this).parent().css({'background-color':'#20B7B7','color':'white'}).children().css({'color':'white'})
-		var selectedDate = $(this).parent().attr('id')
+		var selectedDate = $(this).parent().attr('id');
 // 		alert(selectedDate);
 // 		alert($(this).parent().css('border','1px solid red'));
 	
@@ -869,56 +869,6 @@ $(document).ready(function(){
 			$('#ticketOrderDate').val(Today.getFullYear()+ " 年 " + (Today.getMonth()+1) + " 月 " + Today.getDate() + " 日");	
 			
 		});
-		
-		
-		
-		
-		
-		
-		
-		
-		
-// 	$(function hello (){
-// 		//動態顯示該場次的時間
-// 		alert("hello")
-// 		for(var i=0; i<eachtime.length;i++){
-// 			var divs = $('<div>').attr({'class':'item itemTime','id':eachtime[i]})
-// 			.append($('<div>').attr('class','eachtime').text(eachtime[i]))
-// 			$('#timeWall').append(divs);
-// 		}//end of 動態顯示該場次的時間
-// 	});
-		
-		
-		
-		
-		
-// 	$(function(){
-// 		//動態顯示該場次的時間
-		
-// 		for(var i=0; i<eachtime.length;i++){
-// //				var divEachTime = $('<div>').attr('class','eachtime').text(eachtime[i]);
-// //				var divItem = $('<div>').attr('class','item itemTime').append(divEachTime);
-// //				var divs = divItem.append(divEachTime);
-
-// 			var divs = $('<div>').attr({'class':'item itemTime','id':eachtime[i]})
-// 			.append($('<div>').attr('class','eachtime').text(eachtime[i]))
-// 			$('#timeWall').append(divs);
-
-// //				var divs = $('<div>').attr({'class':'item itemDate','id':datesResult[i]})
-// //				.append($('<div>').attr({'class':'eee'}).text(themmdd[1]))
-// //				.append($('<div>').attr({'class':'mmdd'}).text(themmdd[0]));
-// //			$('#timeWall').append(divs);
-			
-			
-// 		}//end of 動態顯示該場次的時間
-	
-// 	});
-	
-	
-	
-	
-	
-	
 	
 	});
 // 	<div id="dateWall">
@@ -942,97 +892,6 @@ $(document).ready(function(){
 
 
 
-	/////動態場次
-/*
-
-	//選中電影 把select的name換成選中的option的value
-	$('#selectAllFilms').change(function(){
-// 		alert("選中: "+ $('#selectAllFilms').val() ); //測試被選中的電影
-// 		alert($('#selectAllFilms').attr('name'));    //測試該select的name屬性值預設為空
-		
-		var changeName = $('#selectAllFilms');//選擇select
-		changeName.attr('name',$("#selectAllFilms").val());//把select的name換成選中的option的value
-		console.log($('#selectAllFilms').attr('name'));//測試是否更換成功
-		$("#selectDate").find("option").not(":first").remove();//清空
-		$("#selectTimes").find("option").not(":first").remove();//清空
-		//將選中的電影名稱給後端 並傳回日期
-		$.ajax({
-			 url: '/StarBusterCinima/booking/controller/quickBookingSections.controller/'+$('#selectAllFilms').attr('name'),
-			 type: "GET",
-			 dataType: "json",
-			 success: function(Jdata) {
-				 eachSection = jQuery.makeArray(Jdata);
-				 for(var i=0 ; i<eachSection.length ; i++){
-//	 	 				alert(eachSection[i]);
-						$('#selectDate').append(' <option> '+ eachSection[i] +' </option> ');
-					}
-			 },
-			 error: function() {
-			 	console.log("ajax process fail.");
-			 }
-		});//end of 將選中的電影名稱給後端
-		
-		
-// 		//得到場次日期塞進去第二個select
-// 		$.ajax({
-// 			 url: '/StarBusterCinima/booking/controller/quickBookingSections.controller/filmname',
-// 			 type: "GET",
-// 			 dataType: "json",
-// 			 success: function(Jdata) {
-// 				console.log(Jdata);
-// 			    eachSection = jQuery.makeArray(Jdata);
-// // 				alert(eachSection);
-// // 				alert(eachSection.length);
-// 				for(var i=0 ; i<eachSection.length ; i++){
-// // 	 				alert(eachSection[i]);
-// 	 				$('#selectDate').append(' <option> '+ eachSection[i] +' </option> ');
-// 				}
-// 			 },
-// 			 error: function() {
-// 			   console.log("json parse error");
-// 			 }
-// 		});//End of 得到場次日期
-	});//End of選中第一個select
-	
-	
-	
-	
-	//得到場次時間&塞進去第二個select
-	$('#selectDate').change(function(){
-// 		alert('haha');
-// 		alert("選中: "+ $('#selectDate').val() ); //測試被選中的日期
-// 		alert($('#selectDate').attr('name'));    //測試該select的name屬性值預設為空
-		
-		var changeName = $('#selectDate');//選擇select
-		changeName.attr('name',$("#selectDate").val());//把select的name換成選中的option的value
-		console.log($('#selectDate').attr('name'));//測試是否更換成功
-		
-		$("#selectTimes").find("option").not(":first").remove();//清空
-		
-		//將選中的日期給後端
-		$.ajax({
-			 url: '/StarBusterCinima/booking/controller/quickBookingSections.controller/'+$('#selectDate').attr('name'),
-			 type: "GET",
-			 dataType: "json",
-			 success: function(Jdata) {
-// 			 	console.log("times process success.")
-				eachTime = jQuery.makeArray(Jdata);
-// 				alert(eachTime);
-// 				alert(eachTime.length);
-// 				alert(eachTime[0])
-					for(var i=0 ; i<eachTime.length ; i++){
-//	 	 				alert(eachSection[i]);
-		 				$('#selectTimes').append(' <option class="class_times"> '+ eachTime[i] +' </option> ');
-					}
-				
-			 },
-			 
-			 error: function() {
-			 	console.log("ajax process fail.");
-			 }
-		});//end of 將選中的電影名稱給後端
-	
-	*/
 	
 	
 	
@@ -1158,7 +1017,7 @@ $(document).ready(
 												.data('seatId',this.settings.id).appendTo($cart);
 // 										$('#seatNumber').val((this.settings.row + 1)+'排'+ this.settings.label+ '號');
 										var cartItemInput = $('div[id^="cart-item-"]').text();
-										$('#seatNumber').val(cartItemInput+",");
+										$('#seatNumber').val(cartItemInput);
 										$counter.text(sc.find('selected').length + 1);
 										$total.text(recalculateTotal(sc)+ price);
 		

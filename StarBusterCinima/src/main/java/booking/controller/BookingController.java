@@ -34,13 +34,8 @@ public class BookingController {
 	@RequestMapping(method=RequestMethod.GET)
 	public String method(TicketOrderBean bean,Model model) {
 //		System.out.println(bean);
-		String number;
+//		String number;
 //		String ticketOrderID= bean.getTicketOrderID();
-		
-		
-
-		
-		
 		TicketOrderBean result = service.insertOrder(bean);
 		
 		
