@@ -59,7 +59,7 @@
 										 <input type="text" class="form-control" id="inserttext">
 									</div>
 									<br>
-									<button type="button" class="btn btn-default" id="sentinsertvote">原始按钮</button>
+									<button type="button" class="btn btn-default" id="sentinsertvote">新增</button>
 								</form>
 							</div>
 						</th>
@@ -70,7 +70,7 @@
 						<td>
 							<button type="button" class="btn btn-primary"
 								data-toggle="collapse" data-target="#demo1"
-								style="margin-bottom: 10px;">
+								style="margin-bottom: 10px;" id="deletefilm">
 								<span class="glyphicon glyphicon-trash"></span>  刪除許願池電影
 							</button>
 							<div id="demo1" class="collapse">
@@ -79,7 +79,8 @@
 										<span class="input-group-addon"></span>
 										<select class="VoteSelection01" class="input-group-addon" value="電影名稱" ">										
 										</select>
-									</div>							
+									</div>		
+									<br>			
 									<button type="button" class="btn btn-default" id="sentdeletevote">刪除</button>
 								</form>
 							</div>
@@ -90,7 +91,7 @@
 
 							<button type="button" class="btn btn-primary"
 								data-toggle="collapse" data-target="#demo2"
-								style="margin-bottom: 10px;">
+								style="margin-bottom: 10px;" id="updateGoal">
 							<span class="glyphicon glyphicon-pencil"></span>	修改達標票數 
 
 							</button>
@@ -108,7 +109,7 @@
 											class="form-control">
 									</div>
 									<br>
-									<button type="button" class="btn btn-default">原始按钮</button>
+									<button type="button" class="btn btn-default" id="doupdateGoal">送出</button>
 								</form>
 							</div>
 
@@ -137,7 +138,7 @@
 										
 									</div>
 									<br>
-									<button type="button" class="btn btn-default">Go</button>
+									<button type="button" class="btn btn-default" id="doVoteALot">Go</button>
 								</form>
 							</div>
 						</td>
@@ -149,9 +150,8 @@
 
 
 	<script>
-	
-	$(function(){
-		
+	//-------------------------------------------------新增電影到許願池-------------------------------------------------//
+	$(function(){		
 		$('#insertvoteitem').click(function(){
 			console.log("aaaa")
 			$.ajax({ //get film data				
@@ -161,20 +161,22 @@
 				success: function(data) { 
 					//turn data into array
 					r = jQuery.parseJSON(data);	
-					
-					for(var i=0 ; i< r.length ; i++){		
-// 						console.log(r[i][0])
-				   		$('.VoteSelection01:eq(0)').append($("<option></option>").attr("value",r[i][0]).text(r[i][1]));
-					}				
+					console.log($('.VoteSelection01:eq(0)').length)
+					console.log(r.length)
+					if(r.length>$('.VoteSelection01:eq(0)>option').length){
+						for(var i=0 ; i< r.length ; i++){		
+//	 						console.log(r[i][0])
+					   		$('.VoteSelection01:eq(0)').append($("<option></option>").attr("value",r[i][0]).text(r[i][1]));
+						}	
+					}
+							
 				},
 				error: function() { 
 			  	 	console.log("json parse error"); 
 				} 
 			});//end ajax#
 		});			
-	});
-		
-	
+	});	
 	$('#sentinsertvote').click(function(){	
 		console.log("sentinsertvote start")	
 		$.ajax({ //get film data						
@@ -184,24 +186,73 @@
 			data:{"FilmID" : $('select :selected').val(),"VoteGoal":"100"},
 			success: function(data) { 
 				//turn json data into array				
-				console.log("sentinsertvote success")
+				$('select :selected').remove();
+				console.log($('select :selected').val())
 			},
 			error: function() { 
 		  	 	console.log("parse error"); 
 			} 
 		});//end ajax#
 	});
-
-
+	//-------------------------------------------------刪除許願池電影-------------------------------------------------//
+	
+	$('#deletefilm').click(function(){
+		console.log("deletefilmfromwishpool start")
+		$.ajax({ //get film data						
+			url: "vote.controller/selectall",
+			type: "GET", 
+			dataType: "text",			
+			success: function(data) { 
+				//turn json data into array				 
+				r = jQuery.parseJSON(data);
+				console.log($('.VoteSelection01:eq(1)').length)
+				console.log(r.length)
+				
+				if(r.length>$('.VoteSelection01:eq(1)>option').length){
+					for(var i=0 ; i< r.length ; i++){
+				   		$('.VoteSelection01:eq(1)').append($("<option></option>").attr("value",r[i][0]).text(r[i][1]));
+					}
+				}						
+			},
+			error: function() { 
+		  	 	console.log("parse error"); 
+			} 
+		});//end ajax#
+	});
 	$('#sentdeletevote').click(function(){
-		alert("asdf")
+		console.log("delete start")
 		$.ajax({ //get film data						
 			url: "votemgmt.controller/DeleteFilmInWishPool",
 			type: "GET", 
 			dataType: "text", 
-			data:{"FilmID" : /*$('select :selected').val()*/ "102"},
+			data:{"FilmID" : $('select :selected').val()},
 			success: function(data) { 
-				//turn json data into array			
+				console.log("delete success"); 
+				$('select :selected').remove();
+				console.log($('select :selected').val())
+			},
+			error: function() { 
+		  	 	console.log("parse error"); 
+			} 
+		});//end ajax#
+	});
+	//-------------------------------------------------修改電影目標票數-------------------------------------------------//
+	
+	$('#updateGoal').click(function(){
+		console.log("updateGoal start")
+		$.ajax({ //get film data						
+			url: "vote.controller/selectall",
+			type: "GET", 
+			dataType: "text",			
+			success: function(data) { 
+				//turn json data into array		
+				console.log(data); 
+				r = jQuery.parseJSON(data);	
+				
+				for(var i=0 ; i< r.length ; i++){		
+
+			   		$('.VoteSelection01:eq(2)').append($("<option></option>").attr("value",r[i][0]).text(r[i][1]));
+				}				
 			},
 			error: function() { 
 		  	 	console.log("parse error"); 
@@ -209,9 +260,27 @@
 		});//end ajax#
 	});
 	
-	$('#VoteALot').click(function(){
-		
-		$.ajax({ //get film data						
+	$('#doupdateGoal').click(function(){
+		console.log("doupdateGoal start")
+		$.ajax({ 					
+			url: "votemgmt.controller/UpdateVoteGoal",
+			type: "GET", 
+			data:{"FilmID" : $('select :selected').val(),"VoteGoal":200},
+			dataType: "text",			
+			success: function() { 				
+				
+			},
+			error: function() { 
+		  	 	console.log("parse error"); 
+			} 
+		});//end ajax#
+	});
+	
+	
+	//-------------------------------------------------批量投票-------------------------------------------------//
+	
+	$('#VoteALot').click(function(){		
+		$.ajax({ //get member data						
 			url: "votemgmt.controller/VoteALot",
 			type: "GET", 
 			dataType: "text", 			
@@ -220,8 +289,12 @@
 				r = jQuery.parseJSON(data);
 				for(var i = 0; i<r.length;i++){
 					console.log(r[i].memberId)
-					$('#MemberData').append("<input type='checkbox'>   "+r[i].name +"   </input>");
+					console.log(r[i].name)
+					var temp = $('#MemberData');
+		
+					$('#MemberData').append($('<input type="checkbox"/>').val(r[i].memberId));
 					
+					$('#MemberData').append($("<label></lebel>").text(r[i].name));
 				}
 			},
 			error: function() { 
@@ -243,14 +316,37 @@
 			error: function() { 
 		  	 	console.log("parse error"); 
 			} 
-		});//end ajax#
+		});//end ajax#	
+	});		
+
+	$('#doVoteALot').on("click",function(){
+		console.log("doVoteALot start");
+		var memberId=new Array();
+		$( "input:checked" ).each(function () {
+			memberId.push(parseInt($(this).val()));		    
+		});
+		console.log(memberId);
+		console.log(memberId.length);
+		console.log();
 		
-		
-		
-		
-		
-		
+		console.log($( "input:checked" ).val());	
+		$.ajax({ 				
+			url: "votemgmt.controller/DoVoteALot",
+			type: "GET", 
+			data:{"FilmID" : 100,"memberId":memberId} ,
+			dataType: "text", 			
+			success: function(data) { 
+				console.log("doVoteALot success");		
+
+			},
+			error: function() { 
+		  	 	console.log("parse error"); 
+			} 
+		});//end ajax#			
 	});
+	
+	
+	
 	
 	
 	

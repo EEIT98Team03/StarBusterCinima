@@ -166,6 +166,7 @@ body{
 						<li><a href="/StarBusterCinima/chat/robotKnowledge.jsp">智識庫管理</a></li>
 						<li><a href="/StarBusterCinima/chat/robotChart.jsp">查看統計報表</a></li>
 						<li><a href="/StarBusterCinima/chat/robotAdManage.jsp">廣告管理</a></li>
+						<li><a href="/StarBusterCinima/chat/filmsection.jsp">電影場次管理</a></li>
 					</ul>
 				</div>
 				<!--/.nav-collapse -->
@@ -230,12 +231,6 @@ body{
                         <div>
                             <textarea id="answer" class="form-control" rows="10" placeholder="設定回答訊息" ></textarea>
                         </div>
-							
-							
-						
-							
-							
-							
 					</div>
 					
 					<div class="modal-footer">
@@ -363,7 +358,6 @@ body{
 						loadDatas();
 					})
 			})
-
 		})
 		var jsonValue;
 		$('.table>tbody').on('click','>tr>td>button:nth-child(1)',function(){
@@ -379,10 +373,7 @@ body{
 		$('.modal-body>h3').text('會員:'+name);
 		$('.modal-body>h5').text('時間:'+convertDate);
 		$('.modal-body>h4').text('問題:'+questionContext);
-		
-		
-		
-		
+
 			$('#update').click(function(even){
 				even.stopImmediatePropagation();
 				var type=$('#type');
@@ -440,13 +431,9 @@ body{
 				})
 				
 				}
-				
-				
 			})
 		})
 	})
 	</script>
-	
-
 </body>
 </html>

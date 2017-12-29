@@ -6,7 +6,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<<<<<<< HEAD
 <title>WishPool</title>
 <script src="https://code.jquery.com/jquery-2.0.0.min.js"></script>
 <link rel="stylesheet"
@@ -20,126 +19,119 @@
   <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">  
  
- 
  <style >
- 
- 
+
 /*====================header&footer====================*/
-*{
-	border:1px solid  red;
-	font-family: Microsoft JhengHei;
-=======
-<title>vote</title>
-<style>
-div {
-	color: white;
-	border-style: solid;
-	border-width: 1px;
-	margin: 10px auto;
-	padding: 10px;
-	width: 70%
->>>>>>> branch 'master' of https://github.com/EEIT98Team03/StarBusterCinima.git
-}
-#SBLogo {
-	height: 120px;
-	position: fixed;
-	top: 0px;
-	right: 0px;
-	left: 0px;
-	background-color: black;
-	z-index: 999;
-	margin: auto;
-	text-align: center;
-}
+/* * { */
+/* 	border: 1px solid red; */
+/* 	font-family: Microsoft JhengHei; */
+/* } */
+
+
+/* #SBLogo { */
+/* 	height: 120px; */
+/* 	position: fixed; */
+/* 	top: 0px; */
+/* 	right: 0px; */
+/* 	left: 0px; */
+/* 	background-color: black; */
+/* 	z-index: 999; */
+/* 	margin: auto; */
+/* 	text-align: center; */
+/* } */
 /*====================header&footer====================*/
 /*====================FilmRate====================*/
 #chart2 {
-	width: 700px;	
+	width: 700px;
 	margin-top: 20px;
 	margin-left: 30px;
-	
-	
 }
+
 #chart1 {
-	width:850px;	
-	margin-right:20px;
+	width: 850px;
+	margin-right: 20px;
 }
-#chart3{
-width: 700px;	
-margin-top:10px;
+
+#chart3 {
+	width: 700px;
+	margin-top: 10px;
 	margin-bottom: 20px;
 	margin-left: 30px;
 }
-#frate{
-/* 	overflow:auto; */
-	text-align:left;	
-	width:850px;
-	height:auto;
+
+#frate {
+	/* 	overflow:auto; */
+	text-align: left;
+	width: 850px;
+	height: auto;
 	font-family: Microsoft JhengHei;
-	font-size:8px;
+	font-size: 8px;
 	float: right;
-	margin-right:20px;
+	margin-right: 20px;
 }
-h2{
+
+h2 {
 	font-family: Microsoft JhengHei;
 	font-weight: 300;
 }
-#no1{
-	float:left;
-	margin:auto;
+
+#no1 {
+	float: left;
+	margin: auto;
 }
-#fdata{
+
+#fdata {
 	background-color: #000;;
-	width:300px;
-	height:500px;
-	display:none;
+	width: 300px;
+	height: 500px;
+	display: none;
 	font-size: 10px;
 }
 /* img { */
-/*     -webkit-filter: blur(5px); Safari */
-/*     filter: blur(5px); */
+  
 /* } */
 /*====================FilmRate====================*/
 /*====================Voteitem====================*/
-#Vote1 {		
+#Vote1 {
 	text-align: center;
-	border-radius:20px;
+	border-radius: 20px;
 	padding: 10px;
-	height:800px;
-	top:140px;
-	position: absolute;	
-	left:5%;
-	width:90%;
+	height: 800px;
+	top: 140px;
+	position: absolute;
+	left: 5%;
+	width: 90%;
 }
+
 #dovote {
-	padding-left: 20px ;
-	bottom: 0px ;
-	width:30%;
-/*     margin-right: 50px; */
-/*     margin-top: 30px; */
-margin: auto;
+	padding-left: 20px;
+	bottom: 0px;
+	width: 30%;
+	/*     margin-right: 50px; */
+	/*     margin-top: 30px; */
+	margin: auto;
 }
-#bc{
+
+#bc {
 	display: none;
 	margin: 10px;
 	width: :30%;
 }
 
 /*====================FilmWall====================*/
-#FilmWall{
-	width:90%;	
+#FilmWall {
+	width: 90%;
 	padding: 20px;
-	margin:auto;
+	margin: auto;
 	overflow: hidden;
 }
+
 .item {
-	margin:10px auto;
+	margin: 10px auto;
 }
 /*====================FilmWall====================*/
-
-.balabala{
+.balabala {
 	text-align: left;
-	
 }
 /*====================Voteitem====================*/
 /*====================Else====================*/
@@ -148,22 +140,17 @@ li {
 	color: #888888;
 }
 
-
-#analysis{
-	
+#analysis {
 	overflow: hidden;
 }
 /*====================Else====================*/
- 
- 
- </style>
+</style>
  
 </head>
 <body data-spy="scroll" data-target=".navbar-example">
-<img id="Logo" src="../wishpool/img/modohiyaku.gif" style="width:100%; margin:auto; -webkit-filter: blur(5px); Safari
-    filter: blur(5px);" > 
+<img id="Logo" src="../images/SB10.gif"  style="filter: blur(5px);width:100%;height:100%"> 
 	<div id="SBLogo">
-		<!-- 		<img id="Logo" src="../wishpool/img/eee.jpg" > -->
+		
 	</div>
 	<div id="Vote1" class="jumbotron" class="navbar-example">
 		<!--------------------------------------	main menu	-------------------------------------->
@@ -181,7 +168,9 @@ li {
 			<li class="active"><a href="#analysis" data-toggle="tab"> 分析
 			</a></li>
 			<!--------------------------------------	↑tab2 end#  -------------------------------------->
-			<li ><a href="#votearea" data-toggle="tab">集氣  <span class="glyphicon glyphicon-hand-up"></span> </a></li>
+			<li><a href="#votearea" data-toggle="tab">集氣 <span
+					class="glyphicon glyphicon-hand-up"></span>
+			</a></li>
 
 			<!--------------------------------------	↑tab3 end#  -------------------------------------->
 			<li><a href="#speakloud" data-toggle="tab"> 大聲說 <span
@@ -201,26 +190,29 @@ li {
 			</div>
 			<!--------------------------------------	menu01 end#   -------------------------------------->
 			<div class="tab-pane fade in active" id="analysis">
-			<div id="chart2" class="pull-left"></div>
-				
+				<div id="chart2" class="pull-left"></div>
+
 				<div id="frate" class="page-header">
-					<table class="table table-hover"><tbody id="frtable"><thead ></thead></tbody></table>
+					<table class="table table-hover">
+						<tbody id="frtable">
+						<thead></thead>
+						</tbody>
+					</table>
 				</div>
-				<div id="chart3" class="pull-left"></div>		
-				<div id="chart1" class="pull-right"></div>		
+				<div id="chart3" class="pull-left"></div>
+				<div id="chart1" class="pull-right"></div>
 				<div id="no1"></div>
-			
-						</div>
+
+			</div>
 			<!--------------------------------------	↑tab1 item end#  -------------------------------------->
 			<div class="tab-pane fade" id="votearea">
 				<div id="FilmWall">
-<!-- 					<div class="item"></div> -->
-<!-- 					<div class="item"></div> -->
-<!-- 					<div class="item"></div> -->
-<!-- 					<div class="item"></div> -->
-<!-- 					<div class="item"></div> -->
+					<div class="item"></div>
+					<div class="item"></div>
+					<div class="item"></div>
+					<div class="item"></div>
 				</div>
-				<div id="dovote" >
+				<div id="dovote">
 					<h2>投票</h2>
 					<select name="FilmName" id="FID"></select>
 					<p></p>
@@ -260,8 +252,12 @@ li {
 									<p calss="balabala" class="pull-left">
 										kirito <span class="glyphicon glyphicon-volume-up"> : </span>
 										Star Buster Stream!!!!!
-										<button class="btn btn-primary btn-sm">99 <span class="glyphicon glyphicon-thumbs-down"></span></button>
-										<button class="btn btn-primary btn-sm">0 <span class="glyphicon glyphicon-thumbs-up"></span></button>
+										<button class="btn btn-primary btn-sm">
+											99 <span class="glyphicon glyphicon-thumbs-down"></span>
+										</button>
+										<button class="btn btn-primary btn-sm">
+											0 <span class="glyphicon glyphicon-thumbs-up"></span>
+										</button>
 									</p>
 								</td>
 							</tr>
@@ -276,22 +272,21 @@ li {
 						</tbody>
 					</table>
 				</div>
-			
-					<div class="input-group">
-						<input type="text" class="form-control"> <span
-							class="input-group-btn">
-							<button class="btn btn-default" type="button">balabala~
-							</button>
-						</span>
-					</div>
-					<!-- /input-group -->
-		
+
+				<div class="input-group">
+					<input type="text" class="form-control"> <span
+						class="input-group-btn">
+						<button class="btn btn-default" type="button">balabala~</button>
+					</span>
+				</div>
+				<!-- /input-group -->
 			</div>
 			<!--------------------------------------	↑tab3 item end#  -------------------------------------->
 			<!--------------------------------------	↑item in  menu end#  -------------------------------------->
 		</div>
-		<script>
-		function drawchart(Fi, bc ,chartname,method,goal,hi,wi ,ti) {//make ballot count chart
+	</div>
+	<script>
+		function drawchart(Fi,bc,chartname,method,goal,hi,wi,ti) {//make ballot count chart
 			var bs = 0;
 			var chart1 
 			var chart2 
@@ -338,7 +333,7 @@ li {
 								}						
 							},
 								xAxis: {categories: Fname,labels: {style: {fontSize:'15px'}},tickInterval: 1},							    				
-								series : [ {colorByPoint : true,data : [{name:Fi[0]+" 票數: "+bc[0],y:bc[0]},{name:Fi[1],y:bc[1]},{name:Fi[2],y:bc[2]},{name:Fi[3],y:bc[3]},
+								series : [ {colorByPoint : true,data : [{name:Fi[0]+" 票數: "+bc[0],y:bc[0]},{name:Fi[1]+" 票數: "+bc[0],y:bc[1]},{name:Fi[2]+" 票數: "+bc[0],y:bc[2]},{name:Fi[3],y:bc[3]},
 									{name:Fi[4],y:bc[4]},{name:Fi[5],y:bc[5]},{name:Fi[6],y:bc[6]},{name:Fi[7],y:bc[7]},{name:Fi[8],y:bc[8]},
 									]}]					    
 						});			
@@ -421,18 +416,15 @@ li {
 									error: function() { 
 							  	 		console.log("json parse error");
 									},
-									complete: function(){
-											//put massage in 
-// 										console.log("12313213213515");
+									complete: function(){	
+										//drawchart(Fname, bc ,"chart1" , "column" ,goal,300,400 ,"目前票數/達標票數");
+										console.log(Age);
+										console.log(Sex);
+										drawchart(["男","女"], [12,23], "chart2", "pie", Sex, 300 ,200);
+										drawchart(["20~40","40~60","60~"], [1,2,3], "chart3", "line",10, 300 ,200);
 									}
 								});	
-								
 
-
-
-								
-								drawchart(["男","女"], Sex, "chart2", "pie", Sex, 300 ,200);
-								drawchart(["20~40","40~60","60~"], Age, "chart3", "line",10, 300 ,200);
 							});
 						
 						
@@ -450,7 +442,7 @@ li {
 							$("thead").append($("<h2></h2>").text(" 總投票人數 : "+bs).attr("class","glyphicon glyphicon-tower"));						
 							//put Film Rate into #frate table
 							for(var i =0 ;i<10;i++){
-								if(i<5){
+								if(i<5&&Fid[i]!=null){
 									$('#frtable').append($("<tr></tr>").append("<td></td><td></td>"));
 									
 									$("tr:eq("+ i +")>td:eq(0)").append(  
@@ -472,7 +464,7 @@ li {
 							for(var j = 0 ; j<3 ;j++){
 								
 								$("tr:eq("+ j +")>td:eq(0)>span>span").attr("class","glyphicon glyphicon-fire");
-								$("tr:eq("+ j +")>td:eq(0)>span>").attr("style","color: rgb(250, 106, 64);font-size: 10px");
+								$("tr:eq("+ j +")>td:eq(0)>span>").attr("style","color: rgb(250, 106, 64);font-size: 12px");
 							}
 							
 						//-----------------------------------------------------------------------------------------------------	
@@ -480,7 +472,7 @@ li {
 							//feed FilmWall images
 							for(var i = 0; i <5;i++){
 								$('#FilmWall').append("<div id = 'item'></div>");
-						 		$('.item:eq('+ i +')').append($("<img src="+ Fl[i] + ">"));				
+						 		$('.item:eq('+ i +')').append($("<img src="+ "../images/aa123.gif" + ">"));				
 							}
 							fw(5);
 						//-----------------------------------------------------------------------------------------------------	
@@ -515,7 +507,7 @@ li {
 					$.ajax({ //get film data						
 						url: "vote.controller/VoteAMovie", 
 						type: 'POST', 
-						data:{"FilmID" : $('select :selected').val()} ,
+						data:{"FilmID" : $('select :selected').val(),"MemberID":74} ,
 						dataType: "text", 
 						success: function(data) { 
 							//turn json data into array							

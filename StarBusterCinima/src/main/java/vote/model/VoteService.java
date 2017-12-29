@@ -1,7 +1,5 @@
 package vote.model;
 
-import java.sql.Date;
-import java.text.SimpleDateFormat;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -15,13 +13,13 @@ public class VoteService {
 	@Autowired
 	VoteDAO voteDAO;
 
-	public VoteBean VoteAMovie(int filmID) {// add selected film's bollotcount once and return the bean after changed.
+	public VoteBean VoteAMovie(int filmID,int MemberID) {// add selected film's bollotcount once and return the bean after changed.
 		
 		VoteBean bean = voteDAO.select(filmID);
 		
 		java.util.Date utilDate = new java.util.Date();
 		java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
-		VotingDetailBean beeeean = new VotingDetailBean(filmID, 74, sqlDate);		
+		VotingDetailBean beeeean = new VotingDetailBean(filmID, MemberID, sqlDate);		
 
 		if (bean != null) {
 

@@ -18,10 +18,9 @@ public class VotemgmtService {
 	
 	public List <Object[]> loaddata(){		
 		List <Object[]> list =  voteDAO.SelectFilmNotInWishPool();	
-		System.out.println("qq");
+		
 		for (int i = 0; i < list.size(); i++) {
-			System.out.println("Element " + i + " :  " + list.get(i)[0] + list.get(i)[1]);
-			System.out.println("qq");
+			System.out.println("Element " + i + " :  " + list.get(i)[0] + list.get(i)[1]);			
 		}
 		return list;		
 	}
@@ -33,7 +32,7 @@ public class VotemgmtService {
 		return false;		
 	}
 	
-	public List<String[]> SelectFilmInWishPool() {		
+	public List<Object[]> SelectFilmInWishPool() {		
 		
 		return voteDAO.SelectAllFilmIdAndNameInWishpool();
 	}
@@ -42,14 +41,16 @@ public class VotemgmtService {
 		return voteDAO.insert(FilmID, VoteGoal);
 	}
 	
-	public List<MemberBean> SelectMemberData() {
-		
+	public List<MemberBean> SelectMemberData() {		
 		
 		List<MemberBean> bean = voteDAO.SelectMemberData2();	
-		
-		
-		
 		return bean;		
+	}
+	
+	public void UpdateVoteGoal(int FilmID,int VoteGoal) {
+		
+		voteDAO.updateVoteGoal(voteDAO.select(FilmID), FilmID, VoteGoal);	
+				
 	}
 	
 	

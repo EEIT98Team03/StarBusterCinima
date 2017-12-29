@@ -21,16 +21,17 @@ import ad.model.AdRepositoryBean;
 import ad.model.AdRepositoryDataNoImageBean;
 import adminstrator.model.AdministratorBean;
 import films.model.FilmBean;
+import films.model.FilmSectionBean;
+import gift.model.GiftItemBean;
 import member.model.MemberBean;
-import vote.model.VoteBean;
-import vote.model.VotingDetailBean;
 import member.model.QuestionRecordBean;
 import smart.model.QuestionRepositoryBean;
 import smart.model.RobotResponseRecordBean;
-
+import vote.model.VoteBean;
+import vote.model.VotingDetailBean;
 
 @Configuration
-@ComponentScan(basePackages = { "member.model", "gift.model","smart.model","ad.model","adminstrator.model", "booking.model","VotingDetailBean", "vote.model"})
+@ComponentScan(basePackages = { "member.model", "gift.model","smart.model","ad.model","adminstrator.model", "booking.model", "vote.model","films.model"})
 @EnableTransactionManagement
 public class SpringJavaConfigurationAbstractContextLoaderListenerInitializer extends AbstractContextLoaderInitializer {
 	@Bean
@@ -49,10 +50,11 @@ public class SpringJavaConfigurationAbstractContextLoaderListenerInitializer ext
 		LocalSessionFactoryBuilder builder = new LocalSessionFactoryBuilder(dataSource());
 		builder.setProperty("hibernate.dialect", "org.hibernate.dialect.SQLServerDialect");
 //		.setProperty("hibernate.current_session_context_class", "thread")
-//		.setProperty("hibernate.show_sql", "true")		
-		builder.addAnnotatedClasses(MemberBean.class, FilmBean.class ,VoteBean.class,VotingDetailBean.class);//加入要受hibernate管理的Bean
+//		.setProperty("hibernate.show_sql", "true")
+
+
 		//加入要受hibernate管理的Bean
-		builder.addAnnotatedClasses(MemberBean.class, FilmBean.class,QuestionRepositoryBean.class,QuestionRecordBean.class,RobotResponseRecordBean.class,AdRepositoryBean.class,AdRepositoryDataNoImageBean.class,AdministratorBean.class);//加入要受hibernate管理的Bean
+		builder.addAnnotatedClasses(MemberBean.class, FilmBean.class,QuestionRepositoryBean.class,QuestionRecordBean.class,RobotResponseRecordBean.class,AdRepositoryBean.class,AdRepositoryDataNoImageBean.class,AdministratorBean.class,GiftItemBean.class,VoteBean.class,VotingDetailBean.class,FilmSectionBean.class);//加入要受hibernate管理的Bean
 
 		return builder.buildSessionFactory();
 	}

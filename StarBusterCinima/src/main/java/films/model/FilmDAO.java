@@ -1,5 +1,6 @@
 package films.model;
 
+import java.sql.Timestamp;
 import java.util.List;
 public interface FilmDAO {
 
@@ -14,6 +15,11 @@ public interface FilmDAO {
 	FilmBean insert(FilmBean bean);
 	boolean updateposter(byte[] img,int FilmID);
 	boolean delete(int memberId);
+	List<Object[]> SelectFilmSectionAndFilm();
+	boolean InsertFilmSection(FilmSectionBean bean);
+	boolean DeleteFilmSection(int filmsectionId);
+	FilmSectionBean SelectFilmSection(int filmsectionId);
+	boolean UpdateFilmSection(int filmsectionId,Timestamp filmsectiontime);
 	
 	FilmBean update(
 			String filmId,

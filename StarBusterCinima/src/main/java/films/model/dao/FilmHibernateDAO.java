@@ -1,32 +1,33 @@
 package films.model.dao;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import films.model.FilmBean;
 import films.model.FilmDAO;
+import films.model.FilmSectionBean;
+
 @Component
 public class FilmHibernateDAO implements FilmDAO {
 
 	@Autowired
 	SessionFactory sessionFactory;
+
 	public Session session() {
 		return sessionFactory.getCurrentSession();
 	}
-	
-
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
 	}
-
-
 
 	@Override
 	public FilmBean selectById(String filmId) {
@@ -34,15 +35,11 @@ public class FilmHibernateDAO implements FilmDAO {
 		return null;
 	}
 
-
-
 	@Override
 	public FilmBean selectByFilmName(String filmName) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-
 
 	@Override
 	public FilmBean selectByEngName(String engName) {
@@ -50,15 +47,11 @@ public class FilmHibernateDAO implements FilmDAO {
 		return null;
 	}
 
-
-
 	@Override
 	public List<FilmBean> selectAll() {
-		// TODO Auto-generated method stub
-		return null;
+		Query<FilmBean> query = this.session().createQuery("from FilmBean", FilmBean.class);
+		return query.getResultList();
 	}
-
-
 
 	@Override
 	public List<FilmBean> selectMovieByGenre(String genre) {
@@ -66,15 +59,11 @@ public class FilmHibernateDAO implements FilmDAO {
 		return null;
 	}
 
-
-
 	@Override
 	public List<FilmBean> selectMovieByDirector(String director) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-
 
 	@Override
 	public List<FilmBean> selectMovieByActor(String actor) {
@@ -82,15 +71,11 @@ public class FilmHibernateDAO implements FilmDAO {
 		return null;
 	}
 
-
-
 	@Override
 	public List<FilmBean> selectMovieByScore(int score) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-
 
 	@Override
 	public FilmBean insert(FilmBean bean) {
@@ -98,15 +83,11 @@ public class FilmHibernateDAO implements FilmDAO {
 		return null;
 	}
 
-
-
 	@Override
 	public boolean delete(int memberId) {
 		// TODO Auto-generated method stub
 		return false;
 	}
-
-
 
 	@Override
 	public FilmBean update(String filmId, String filmName, String engName, String shortIntro, String longIntro,
@@ -117,16 +98,81 @@ public class FilmHibernateDAO implements FilmDAO {
 		return null;
 	}
 
-
-
 	@Override
 	public boolean updateposter(byte[] img, int filmId) {
-		FilmBean bean =  this.session().get(FilmBean.class,filmId);
+		FilmBean bean = this.session().get(FilmBean.class, filmId);
 		bean.setPosterMedium(img);
 		this.session().update(bean);
-		
+
 		return false;
 	}
 
+	@Override
+	public List<Object[]> SelectFilmSectionAndFilm() {
+		// sql=select FilmSection.filmid ,
+		// FilmSection.filmsectionid,filmsectiontime,Film.filmname,
+		// Film.lengthofFilm from FilmSection join Film on FilmSection.filmid =
+		// Film.filmid
+		String Hql = "select fs.FilmID,fs.FilmSectionTime,fs.sectionroom ,f.filmName ,f.lengthOfFilm ,fs.FilmSectionID from FilmSectionBean  as fs join FilmBean as f on fs.FilmID = f.filmId";
+
+		Query<Object[]> query = this.session().createQuery(Hql);
+		List<Object[]> list = query.getResultList();
+
+		return list;
+
+	}
+
+	@Override
+	public boolean InsertFilmSection(FilmSectionBean bean) {
+
+		System.out.println(bean);
+		this.session().save(bean);
+		return false;
+	}
+
+	@Override
+	public boolean DeleteFilmSection(int filmsectionId) {
+
+		FilmSectionBean bean = new FilmSectionBean();
+		bean = this.SelectFilmSection(filmsectionId);
+		System.out.println(bean);
+		if (bean != null) {
+			this.session().delete(bean);
+			System.out.println("delete Success");
+			return true;
+		}
+
+		return false;
+	}
+
+	@Override
+	public FilmSectionBean SelectFilmSection(int filmsectionId) {
+		// String Hql = "From FilmSectionBean as fs where fs.FilmSectionID = :id";
+		// Query query = this.session().createQuery(Hql);
+		// query.setParameter("id",filmsectionId);
+		// FilmSectionBean temp = query.get();
+		//
+		//
+		// System.out.println(temp);
+		//
+		//
+		// FilmSectionBean bean = new FilmSectionBean();
+		// bean.setFilmSectionID(temp.get(1).FilmSectionID);
+
+		// bean.setFilmID(t);
+
+		return this.session().get(FilmSectionBean.class, filmsectionId);
+	}
+
+	@Override
+	public boolean UpdateFilmSection(int filmsectionId, Timestamp filmsectiontime) {
+		System.out.println(filmsectionId);
+		FilmSectionBean bean = this.SelectFilmSection(filmsectionId);
+		System.out.println(bean);
+		bean.setFilmSectionTime(filmsectiontime);
+
+		this.session().update(bean);
+		return false;
+	}
 
 }

@@ -32,12 +32,12 @@ public class VoteController {
 	}
 
 	@RequestMapping(value="VoteAMovie",method = { RequestMethod.POST })
-	public VoteBean method2(Model model, int FilmID) {
+	public VoteBean method2(Model model, int FilmID ,int MemberID) {
 
 		VoteBean bean = new VoteBean();
 		bean.setFilmID(FilmID);
 
-		VoteBean result = voteService.VoteAMovie(FilmID);
+		VoteBean result = voteService.VoteAMovie(FilmID,MemberID);
 		if(result!=null) {			
 			
 //			System.out.println(result);			

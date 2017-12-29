@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.google.gson.Gson;
 
 import member.model.MemberBean;
+import vote.model.VoteBean;
+import vote.model.VoteService;
 import vote.model.VotemgmtService;
 
 @Controller
@@ -21,9 +23,10 @@ import vote.model.VotemgmtService;
 public class VotemgmtController {
 	@Autowired
 	VotemgmtService votemgmtservice;
+	VoteService voteService;
 	
 	@RequestMapping(value = "LoadData1",method = { RequestMethod.GET },produces = "text/html;charset=UTF-8")
-	public String method1(Model model) {
+	public String LoadData1(Model model) {
 		List<Object[]> list = votemgmtservice.loaddata();	
 		
 		Gson J = new Gson();		
@@ -32,31 +35,25 @@ public class VotemgmtController {
 	}
 	
 	@RequestMapping(value = "SelectAllFilmIdAndNameInWishpool",method = { RequestMethod.GET })
-	public List<String[]> method2(Model model ,@RequestParam("FilmID") int FilmID) {
-		
-		
+	public List<Object[]> SelectAllFilmIdAndNameInWishpool(Model model ,@RequestParam("FilmID") int FilmID) {		
 		return votemgmtservice.SelectFilmInWishPool();
 	}
 	
-	
-	
-	
 	@RequestMapping(value = "DeleteFilmInWishPool",method = { RequestMethod.GET })
-	public Boolean method3(Model model ,@RequestParam("FilmID") int FilmID) {
-		
+	public Boolean DeleteFilmInWishPool(Model model ,@RequestParam("FilmID") int FilmID) {		
 		votemgmtservice.DeleteFilmInWishPool(FilmID);		
 		return false;
 	}
 	
 	@RequestMapping(value = "InsertFilmIntoWishPool",method = { RequestMethod.GET })
-	public Boolean method4(Model model ,@RequestParam("FilmID")int FilmID,int VoteGoal) {
+	public Boolean InsertFilmIntoWishPool(Model model ,@RequestParam("FilmID")int FilmID,int VoteGoal) {
 		
 		votemgmtservice.InsertFilmIntoWishPool(FilmID, VoteGoal);		
 		return false;
 	}
 	
 	@RequestMapping(value = "VoteALot",method = { RequestMethod.GET },produces = "text/html;charset=UTF-8")
-	public String method5(Model model ) {
+	public String VoteALot(Model model ) {
 		
 		List<MemberBean> bean = votemgmtservice.SelectMemberData();
 		Gson J = new Gson();		
@@ -65,8 +62,17 @@ public class VotemgmtController {
 		return jbl;
 	}
 	
+	@RequestMapping(value = "DoVoteALot",method = { RequestMethod.GET },produces = "text/html;charset=UTF-8")
+	public void DoVoteALot(Model model ,@RequestParam("FilmID")int filmID,@RequestParam("memberId")List<Integer> memberId) {
+		VoteBean bean = null;
+//		for(int i =0 ;i<memberID.length;i++) {
+			System.out.println(filmID);
+//			 bean = voteService.VoteAMovie(filmID,memberID[i]);
+//		}	
+	}
 	
-	
-	
-
+	@RequestMapping(value = "UpdateVoteGoal",method = { RequestMethod.GET },produces = "text/html;charset=UTF-8")
+	public void UpdateVoteGoal(Model model ,@RequestParam("FilmID")int filmID,@RequestParam("VoteGoal")int VoteGoal) {
+		votemgmtservice.UpdateVoteGoal(filmID, VoteGoal);
+	}
 }

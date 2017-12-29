@@ -57,7 +57,5 @@ public class SpringJavaMvcConfigurationAbstractAnnotationConfigDispatcherServlet
 	protected String[] getServletMappings() {
 		return new String[] { "/" };
 	}
-	
-
 
 }
