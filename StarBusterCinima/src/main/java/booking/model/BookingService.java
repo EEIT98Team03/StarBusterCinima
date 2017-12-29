@@ -123,9 +123,9 @@ public class BookingService {
 	}
 	
 	public String processSeatNum(String str) {
-		
 		str = str.replace("號", "號,");
-		str = str.replace(",,", "");
+		str = str.substring(0,str.length()-1);
+		System.out.println(str);
 		
 		return str;
 	}
