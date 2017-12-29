@@ -579,9 +579,11 @@ input, textarea, select, button {
 		<div class="col-md-1 navicol">
 			<div class="ehdiv navidiv">影城介紹</div>
 		</div>
-		<div class="col-md-1 navicol" >
-			<div class="ehdiv navidiv">熱門強檔</div>
-		</div>
+		<a href="/StarBusterCinima/film/hotFilms.jsp">
+			<div class="col-md-1 navicol" >
+				<div class="ehdiv navidiv">熱門強檔</div>
+			</div>
+		</a>
 		<div class="col-md-1 navicol">
 			<div class="ehdiv navidiv">立即訂票</div>
 		</div>
@@ -756,15 +758,28 @@ input, textarea, select, button {
 </div>
 
 <div class="mynote" style="display: none">
-	<div class="datesResult"> ${datesResult} 
-		<div class="selectedDate" ></div>
+	<div class="datesResult"> ${datesResult} </div>
+	
+<!-- 		<div class="selectedDate" ></div> -->
 <%-- 		<c:set var="lengthCount"  value="${datesResult}"/> --%>
 <%--    		<p class="datesLength">${fn:length(lengthCount)}</p> --%>
-	</div>
+	
 </div>
 <div class="aa">123</div>
 <script type="text/javascript">
 $(document).ready(function(){
+	var unavailableSeats  
+		=[ '1_2', '1_3', '1_4' ];
+	var theSeats
+		=[
+		'oooo_oooooooooo_oooo',
+		'oooo_oooooooooo_oooo',
+		'oooo_oooooooooo_oooo',
+		'oooo_oooooooooo_oooo',
+		'oooo_oooooooooo_oooo',
+		'_ooo_oooooooooo_ooo_',
+		'__oo_oooooooooo_oo__'
+		];
 	
 	//動態載入顯示該電影兩張圖
 	var picurlMedium = $('#posterMedium').attr('name');
@@ -806,6 +821,7 @@ $(document).ready(function(){
 		
 	//點擊日期將該id塞入變數
 	$('.itemDate').on('click','div', function(event){
+		
 // 		$('.eachtime:eq(2)').text("123");
 // 		$("#timeWall").find("div").remove()
 		
@@ -814,11 +830,13 @@ $(document).ready(function(){
 		$('.eee').css('color','#20B7B7');
 		$(this).parent().css({'background-color':'#20B7B7','color':'white'}).children().css({'color':'white'})
 		var selectedDate = $(this).parent().attr('id');
+// 		var selectedDate = $(this).parent().css('background-color','red');
 // 		alert(selectedDate);
 // 		alert($(this).parent().css('border','1px solid red'));
 	
+		//放進表單
 		$('#filmSectionDate').val(selectedDate);		
-
+// 		alert(selectedDate);
 		//得到場次日期後 動態產生時間
 		$.ajax({
 			 url: '/StarBusterCinima/booking/controller/bookingSections.controller/'+selectedDate,
@@ -828,6 +846,8 @@ $(document).ready(function(){
 			 dataType: "json",
 // 			 data:{"selectedDate":$('#selectedDate').attr('id')},
 			 success: function(Jdata) {
+// 			 	alert(selectedDate);
+
 // 				alert(Jdata);
 			    var eachtime = jQuery.makeArray(Jdata);
 
@@ -851,18 +871,35 @@ $(document).ready(function(){
 // 			   alert("json parse error");
 			 }
 		});//End of 得到場次日期後 動態產生時間
-	
+	});
 	
 		
-		
-		$('.itemTime').on('click','div', function(event){
+		//點擊時間
+		$('.itemTime').on('click','div', function(){
 // 			alert($(this).parent().find('.eachtime').text())
-			
-			
+
+// 			alert(selectedDate);
+			$.ajax({
+			 url: '/StarBusterCinima/booking/controller/bookingSections.controller/'+$('#filmSectionDate').val(),
+			 type: "GET",
+			 dataType: "json",
+// 			 data:{"selectedDate":$('#selectedDate').attr('id')},
+			 success: function(Jdata) {
+// 				alert(Jdata);
+			    var eachtime = jQuery.makeArray(Jdata);
+
+				for(var i=0; i<eachtime.length;i++){
+					//塞進去
+					$('.eachtime:eq('+i+')').text(eachtime[i]);
+				}
+			 },error: function() {
+			 }
+		});//End of 得到場次日期後 動態產生時間
 			
 // 			$('.seatContain').
 			var putfilmId = '<c:out value="${bookingFilmBean.filmId}"/>';
 // 			alert(putfilmId)
+// 			alert($(this).parent().find('.eachtime').text());
 			$('#filmSectionTime').val($(this).parent().find('.eachtime').text());	
 			$('#filmId').val(putfilmId);	
 			var Today=new Date();
@@ -870,48 +907,8 @@ $(document).ready(function(){
 			
 		});
 	
-	});
-// 	<div id="dateWall">
-// 		<div class="item itemDate">
-// 			<div class="eee">星期一</div>
-// 			<div class="mmdd">12/25</div>
-// 		</div>
-// 	</div>
-// 	$('<div>').attr({'class':'eee'})
-	
-	
-
-
-
-
-
-
-
-
-
-
-
 
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-// 	---------------------------------------------------------------------------------------
-// 	alert($('#filmBean').attr('name'));
-// 	var arr = $('.filmBean').attr('name');
-// 	alert("test");
-// 	alert($('#filmId').attr('name'));
-// 	alert($('#filmName').attr('name'));
-// 	var test = $('#filmBean').attr('name');
-// 	var str= JSON.stringify(test);
-// 	var arr = JSON.parse(str);
-// 	alert(arr[2]);
 	
 	// 	navi的滑鼠移上去會有藍色底條
 	$('.navicol>div').hover(function() {
@@ -926,24 +923,20 @@ $(document).ready(function(){
 	
 	
 	
-	//一開始就載入
-// 	$.ajax({
-// // 		url: '/StarBusterCinima/booking/controller/sectionsGet.controller',
-// 		url: '/StarBusterCinima/booking/controller/throwIdtoSections.controller',
-// 		type: "GET",
-// 		dataType: 'json',
-
-// 	    success: function(jdata){
-// // 	   		alert("success"); 
-// // 	   		alert("123"+jdata);
-// 	    },error:function(){
-// // 	    	alert("error");
-// 	    },complete:function(){
-// // 	    	alert("complate :"+jdata);
-// // 	    	alert(jdata);
-// 	    }
-// 	});
-$('#dateWall').owlCarousel({
+	$('#dateWall').owlCarousel({
+			items : 4,
+			loop : false,
+			autoplay : false,
+			autoplayTimeout : 0,
+			autoplayHoverPause : true,
+			autoHeight:true,
+			margin:-5
+	// 	    navigation : true,
+	// 	    navigationText:["<",">"]
+	// 	    rewindNav : true,
+	// 	    scrollPerPage : false
+	});
+	$('#timeWall').owlCarousel({
 		items : 4,
 		loop : false,
 		autoplay : false,
@@ -951,24 +944,11 @@ $('#dateWall').owlCarousel({
 		autoplayHoverPause : true,
 		autoHeight:true,
 		margin:-5
-// 	    navigation : true,
-// 	    navigationText:["<",">"]
-// 	    rewindNav : true,
-// 	    scrollPerPage : false
-});
-$('#timeWall').owlCarousel({
-	items : 4,
-	loop : false,
-	autoplay : false,
-	autoplayTimeout : 0,
-	autoplayHoverPause : true,
-	autoHeight:true,
-	margin:-5
-//	    navigation : true,
-//	    navigationText:["<",">"]
-//	    rewindNav : true,
-//	    scrollPerPage : false
-});
+	//	    navigation : true,
+	//	    navigationText:["<",">"]
+	//	    rewindNav : true,
+	//	    scrollPerPage : false
+	});
 
 // -----------------------座位表-------------------------------
 
@@ -979,22 +959,30 @@ $(document).ready(
 		
 		
 		function() {
+// 			var theSeats;
+			
+// 			var unavailableSeats = [ '1_2', '1_3', '1_4' ];
+			
 			var $cart = $('#selected-seats'), //座位區
 			$counter = $('#counter'), //票數
 			$total = $('#total'); //總計金額
 		
 			var sc = $('#seat-map').seatCharts(
 					{
-								map: [ 
-									'oooo_oooooooooo_oooo',
-									'oooo_oooooooooo_oooo',
-									'oooo_oooooooooo_oooo',
-									'oooo_oooooooooo_oooo',
-									'oooo_oooooooooo_oooo',
-									'_ooo_oooooooooo_ooo_',
-									'__oo_oooooooooo_oo__'
-								],
-								naming : {
+								map: 
+									theSeats
+									
+// 									[ 
+// 									'oooo_oooooooooo_oooo',
+// 									'oooo_oooooooooo_oooo',
+// 									'oooo_oooooooooo_oooo',
+// 									'oooo_oooooooooo_oooo',
+// 									'oooo_oooooooooo_oooo',
+// 									'_ooo_oooooooooo_ooo_',
+// 									'__oo_oooooooooo_oo__'
+// 									]
+					
+								,naming : {
 									top : true,
 									getLabel : function (character, row, column) {
 										return column;
@@ -1045,9 +1033,27 @@ $(document).ready(
 								}
 							});
 			//已售出的座位
-			sc.get([ '1_2', '4_4' ]).status('unavailable');
-		
+			
+			sc.get(unavailableSeats).status('unavailable');
+// 			sc.get([ '1_2', '4_4' ]).status('unavailable');
+
 		});
+		
+// 		setInterval(function() {
+// 			$.ajax({
+// 				type     : 'get',
+// 				url      : '/bookings/get/100',
+// 				dataType : 'json',
+// 				success  : function(response) {
+// 					//iterate through all bookings for our event 
+// 					$.each(response.bookings, function(index, booking) {
+// 						//find seat by id and set its status to unavailable
+// 						sc.status(booking.seat_id, 'unavailable');
+// 					});
+// 				}
+// 			});
+// 		}, 10000); //every 10 seconds
+		
 			//計算總金額
 			function recalculateTotal(sc) {
 				var total = 0;
@@ -1058,7 +1064,7 @@ $(document).ready(
 				return total;
 			}
 
-});
+});//Onload
 
 
 </script>

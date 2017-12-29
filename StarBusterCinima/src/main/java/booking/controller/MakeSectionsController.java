@@ -54,8 +54,9 @@ public class MakeSectionsController {
 			
 			List<String> datesResult = quickBookingService.toDates(filmBean.getFilmName());
 			
-			System.out.println("filmBean -> "+filmBean);
-			System.out.println("datesResult -> "+datesResult);
+//			System.out.println("filmBean -> "+filmBean);
+//			System.out.println("datesResult -> "+datesResult);
+//			request.getSession().setAttribute("datesResult", datesResult);
 			request.getSession().setAttribute("datesResult", datesResult);
 			
 			
@@ -72,24 +73,24 @@ public class MakeSectionsController {
 	
 	
 	
-	@RequestMapping(method = RequestMethod.GET, produces = "application/json",value="produceTime")
-	public String produceTime( String paramDate, Model model ,HttpServletRequest request) {
+//	@RequestMapping(method = RequestMethod.GET, produces = "application/json",value="produceTime")
+//	public String produceTime( String paramDate, Model model ,HttpServletRequest request) {
 
-			System.out.println("AAA"+paramDate);
-			String s = "1111111";
+//			System.out.println("AAA"+paramDate);
+//			String s = "1111111";
 //			if (param.indexOf("日") > 0 && "filmname"!=param) {
 //	//		System.out.println("傳來的是日期  param是= "+param);
 //			
 //			//比對傳進來的日期 送出符合日期的時間
 //			List<String> timesResult = quickBookingService.toTimes(param);
-			Gson gson = new Gson();
+//			Gson gson = new Gson();
 //			String str = gson.toJson(timesResult);
-			String str = gson.toJson(s);
+//			String str = gson.toJson(s);
 	//		System.out.println("傳進日期後回傳時間="+str);
-			return str;
+//			return str;
 //			return "123";
 	
-	}
+//	}
 	
 	
 	

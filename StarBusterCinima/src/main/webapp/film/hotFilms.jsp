@@ -138,8 +138,8 @@ margin-top: 10px;
 /*  	border: 1px dotted green;   */
 	position:absolute;
 /*  	margin-top:200px;  */
- 	width: 64%; 
- 	left:18%; 
+	width: 65.5%;
+	left:17.2%;
 	height:auto;
  	overflow: hidden; 
  	text-align: center; 
@@ -227,38 +227,38 @@ width: auto;
 
 </style>
 </head>
-	<body>
-	<div class="outdiv">
-	<div id="" class="navi">
-	<div class="container-fluid">
-	
-	
-		<div class="col-md-1 navicol">
-			<div class="ehdiv navidiv">影城介紹</div>
-		</div>
-		<div class="col-md-1 navicol" >
-			<div class="ehdiv navidiv">熱門強檔</div>
-		</div>
-		<div class="col-md-1 navicol">
-			<div class="ehdiv navidiv">立即訂票</div>
-		</div>
-		<div class="col-md-3 navicolcenter" >
-				<img class="naviLogo" src="../images/SB01.png">
-		</div>
-		<div class="col-md-1 navicol">
-			<div class="ehdiv navidiv">周邊精品</div>
-		</div>
-		<div class="col-md-1 navicol">
-			<div class="ehdiv navidiv">精彩活動</div>
-		</div>
-		<div class="col-md-1 navicol">
-			<div class="ehdiv navidiv">用戶登入</div>
-		</div>
-	
-	</div>
-	
-	</div>
-	</div>
+<body>
+<jsp:include page="${pageScope.request.contextPath}/fragement/top.jsp"></jsp:include>
+<!-- 	<div class="outdiv"> -->
+<!-- 		<div id="" class="navi"> -->
+<!-- 			<div class="container-fluid"> -->
+			
+			
+<!-- 				<div class="col-md-1 navicol"> -->
+<!-- 					<div class="ehdiv navidiv">影城介紹</div> -->
+<!-- 				</div> -->
+<!-- 				<div class="col-md-1 navicol" > -->
+<!-- 					<div class="ehdiv navidiv">熱門強檔</div> -->
+<!-- 				</div> -->
+<!-- 				<div class="col-md-1 navicol"> -->
+<!-- 					<div class="ehdiv navidiv">立即訂票</div> -->
+<!-- 				</div> -->
+<!-- 				<div class="col-md-3 navicolcenter" > -->
+<!-- 						<img class="naviLogo" src="../images/SB01.png"> -->
+<!-- 				</div> -->
+<!-- 				<div class="col-md-1 navicol"> -->
+<!-- 					<div class="ehdiv navidiv">周邊精品</div> -->
+<!-- 				</div> -->
+<!-- 				<div class="col-md-1 navicol"> -->
+<!-- 					<div class="ehdiv navidiv">精彩活動</div> -->
+<!-- 				</div> -->
+<!-- 				<div class="col-md-1 navicol"> -->
+<!-- 					<div class="ehdiv navidiv">用戶登入</div> -->
+<!-- 				</div> -->
+			
+<!-- 			</div> -->
+<!-- 		</div> -->
+<!-- 	</div> -->
 	
 	<div id="box">
 		<div class="hotFilmsTitle">

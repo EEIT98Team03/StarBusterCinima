@@ -89,13 +89,14 @@ public class QuickBookingService {
 	public List<String> toTimes(String filmName) {
 		//日期->時間
 		
-//		System.out.println(sectionsResult);
+//		System.out.println("toTimes--> "+filmName);
 		SimpleDateFormat sdfTime = new SimpleDateFormat("HH:mm");
 		List<String> timesResult = new ArrayList<String>();
 		
 		SimpleDateFormat dsfchoose = new SimpleDateFormat("yyyy-M-d HH:mm:ss");
-		String newParam = filmName.substring(0, 3);
-		newParam = newParam.replace('月', '-');
+		String newParam = filmName.substring(0, 4);
+//		System.out.println(newParam);
+		newParam = newParam.replace('月', '-').replace('日', ' ');
 		newParam = "2018-"+newParam+" 00:00:00.0";
 		
 //System.out.println("處理filmName字串為日期字串newParam: "+newParam);

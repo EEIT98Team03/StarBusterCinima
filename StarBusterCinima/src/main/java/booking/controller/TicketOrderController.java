@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import booking.model.BookingService;
 import booking.model.TicketOrderBean;
+import member.model.MemberBean;
 
 //@ResponseBody
 @Controller
@@ -27,6 +28,7 @@ public class TicketOrderController {
 	
 	@Autowired
 	TicketOrderBean ticketOrderBean;
+	
 	
 	@RequestMapping(method=RequestMethod.GET, produces = "text/html;charset=UTF-8")
 	public String method(String filmId,
@@ -40,18 +42,23 @@ public class TicketOrderController {
 			Model model,
 			HttpServletRequest request) 
 	{
-//		System.out.println( filmId
-//				+" / "+ ticketOrderDate
-//				+" / "+ filmSectionDate
-//				+" / "+ filmSectionTime
-//				+" / "+ ticketCount
-//				+" / "+ seatNumber
-//				+" / "+ ticketOrderPrice );
+		System.out.println( filmId
+				+" / "+ ticketOrderDate
+				+" / "+ filmSectionDate
+				+" / "+ filmSectionTime
+				+" / "+ ticketCount
+				+" / "+ seatNumber
+				+" / "+ ticketOrderPrice );
 		
 		
 		ticketOrderBean.setTicketOrderDate(bookingService.toTimeStamp(ticketOrderDate));
+//		System.out.println(bookingService.toTimeStamp(ticketOrderDate));
 		String filmsectiontime = filmSectionDate+"."+filmSectionTime;
 		ticketOrderBean.setFilmsectiontime(bookingService.orderFilmsectiontime(filmsectiontime));
+//		System.out.println(bookingService.orderFilmsectiontime(filmsectiontime));
+		
+		
+		
 		if(ticketCount!=null) {
 			ticketOrderBean.setTicketCount(Integer.parseInt(ticketCount));
 		}
@@ -60,9 +67,38 @@ public class TicketOrderController {
 			ticketOrderBean.setTicketOrderPrice(Integer.parseInt(ticketOrderPrice));
 		}
 		
-		
+//		System.out.println(request.getSession().getAttribute("loginUserInfo"));
 //		ticketOrderBean.setMemberId(memberId);
-		request.getSession().getAttribute("");
+		
+		MemberBean memberBean = (MemberBean) request.getSession().getAttribute("loginUserInfo");
+		ticketOrderBean.setMemberId(memberBean.getMemberId());
+		
+		
+//		long no = 0;
+//		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+//		String nowdate = sdf.format(new Date());
+//		no = Long.parseLong(nowdate)*100;
+//		no=no+memberBean.getMemberId();
+//		System.out.println("no="+no);
+		
+		
+		long no = 0;
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+		SimpleDateFormat sdf2 = new SimpleDateFormat("HHmmss");
+		String nowdate = sdf.format(new Date());
+		String nowsec = sdf2.format(new Date());
+		no = Long.parseLong(nowdate)*100;
+		long no2 = Long.parseLong(nowsec);
+		String str1 = Long.toString(no);
+		String str2 = Long.toString(no2);
+		int i = (int)(Math.random()*100)+1;
+//		no=no+memberBean.getMemberId()+Long.parseLong(nowsec);
+//		no=no+230000000+no2;
+		String ticketCode = str2+memberBean.getMemberId()+str1+i;
+		ticketOrderBean.setTicketCode(ticketCode);
+//		System.out.println("no="+no);
+		
+		
 		
 		System.out.println("bean: "+ticketOrderBean);
 		
@@ -70,7 +106,7 @@ public class TicketOrderController {
 		if(ticketOrderBean!=null) {
 		
 		
-			return "booking.success";
+			return "booking.check";
 		}
 		return "/StarBusterCinima/booking/booking.jsp";
 		

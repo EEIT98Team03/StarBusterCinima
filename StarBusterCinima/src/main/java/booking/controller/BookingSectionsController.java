@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import booking.model.QuickBookingService;
 
@@ -32,6 +33,8 @@ public class BookingSectionsController {
 			
 			//比對傳進來的日期 送出符合日期的時間
 			List<String> timesResult = quickBookingService.toTimes(selectedDate);
+//			System.out.println(timesResult);
+//			Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create(); 
 			Gson gson = new Gson();
 			String str = gson.toJson(timesResult);
 //			System.out.println("傳進日期後回傳時間="+str);

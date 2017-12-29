@@ -96,6 +96,7 @@ public class LoginController {
 			String identityStatus = result.getIdentityStatus();
 			if (identityStatus.equals("formal")) {
 				model.addAttribute("loginUserInfo", result);
+//				System.out.println(result);
 				if (requestURI != null) {
 					/// StarBusterCinima/shopping/index.jsp(!=0) or /StarBusterCinima/ (==0)
 //					String servletPath = requestURI.substring(request.getContextPath().length());

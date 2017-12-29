@@ -125,8 +125,8 @@ height: 100%;
 	width: 100%;
     height: 100%;
     object-fit:cover;
-    filter: blur(30px);
-    -webkit-filter: blur(30px);
+    filter: blur(60px);
+/*     -webkit-filter: blur(30px); */
 }
 /* 
 .underTheToptrailer{ 
@@ -264,37 +264,38 @@ height: 100%;
 
 
 <body>
-<div class="outdiv">
-	<div id="" class="navi">
-	<div class="container-fluid">
+<jsp:include page="${pageScope.request.contextPath}/fragement/top.jsp"></jsp:include>
+<!-- <div class="outdiv"> -->
+<!-- 	<div id="" class="navi"> -->
+<!-- 	<div class="container-fluid"> -->
 	
 	
-		<div class="col-md-1 navicol">
-			<div class="ehdiv navidiv">影城介紹</div>
-		</div>
-		<div class="col-md-1 navicol" >
-			<div class="ehdiv navidiv">熱門強檔</div>
-		</div>
-		<div class="col-md-1 navicol">
-			<div class="ehdiv navidiv">立即訂票</div>
-		</div>
-		<div class="col-md-3 navicolcenter" >
-				<img class="naviLogo" src="/StarBusterCinima/images/SB01.png">
-		</div>
-		<div class="col-md-1 navicol">
-			<div class="ehdiv navidiv">周邊精品</div>
-		</div>
-		<div class="col-md-1 navicol">
-			<div class="ehdiv navidiv">精彩活動</div>
-		</div>
-		<div class="col-md-1 navicol">
-			<div class="ehdiv navidiv">用戶登入</div>
-		</div>
+<!-- 		<div class="col-md-1 navicol"> -->
+<!-- 			<div class="ehdiv navidiv">影城介紹</div> -->
+<!-- 		</div> -->
+<!-- 		<div class="col-md-1 navicol" > -->
+<!-- 			<div class="ehdiv navidiv">熱門強檔</div> -->
+<!-- 		</div> -->
+<!-- 		<div class="col-md-1 navicol"> -->
+<!-- 			<div class="ehdiv navidiv">立即訂票</div> -->
+<!-- 		</div> -->
+<!-- 		<div class="col-md-3 navicolcenter" > -->
+<!-- 				<img class="naviLogo" src="/StarBusterCinima/images/SB01.png"> -->
+<!-- 		</div> -->
+<!-- 		<div class="col-md-1 navicol"> -->
+<!-- 			<div class="ehdiv navidiv">周邊精品</div> -->
+<!-- 		</div> -->
+<!-- 		<div class="col-md-1 navicol"> -->
+<!-- 			<div class="ehdiv navidiv">精彩活動</div> -->
+<!-- 		</div> -->
+<!-- 		<div class="col-md-1 navicol"> -->
+<!-- 			<div class="ehdiv navidiv">用戶登入</div> -->
+<!-- 		</div> -->
 	
-	</div>
+<!-- 	</div> -->
 	
-	</div>
-	</div>
+<!-- 	</div> -->
+<!-- 	</div> -->
 	
 <div style="display: none">
 <input type="text" class="filmBean" id="filmId" name="${filmBean.filmId}" style="display: none" >
@@ -446,7 +447,10 @@ $(document).ready(function(){
 		
 // 	});
 
-$('.filmText').on('click','div', function(event){
+
+
+$(".bookingButton").click(function(){
+// $('.filmText').on('click','div', function(event){
 // 		alert("click")	;
 	
 		$.ajax({

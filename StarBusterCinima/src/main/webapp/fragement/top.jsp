@@ -121,9 +121,12 @@ color:white;
 			<div class="ehdiv navidiv"><fmt:message key="navcolumn1" /></div>
 		</div>
 		
-		<div class="col-md-1 navicol" >
-			<div class="ehdiv navidiv"><fmt:message key="navcolumn2" /></div>
-		</div>
+		<a href="/StarBusterCinima/film/hotFilms.jsp">
+			<div class="col-md-1 navicol" >
+				<div class="ehdiv navidiv"><fmt:message key="navcolumn2" /></div>
+			</div>
+		</a>
+		
 		<div class="col-md-1 navicol">
 			<div class="ehdiv navidiv"><fmt:message key="navcolumn3" /></div>
 		</div>
@@ -191,7 +194,7 @@ color:white;
 	
 	</div>
 	</div>
-	<div style="height:200px ;border:1px dotted red;"></div>
+<!-- 	<div style="height:200px ;"></div> -->
 </fmt:bundle>	
 <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>			
 <script>

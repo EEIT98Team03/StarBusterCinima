@@ -27,6 +27,16 @@ public class TicketOrderBean {
 	private int ticketState;
 	private int filmId;
 	private int memberId;
+	private String ticketCode;
+	
+	
+	
+	public String getTicketCode() {
+		return ticketCode;
+	}
+	public void setTicketCode(String ticketCode) {
+		this.ticketCode = ticketCode;
+	}
 	public int getTicketOrderId() {
 		return ticketOrderId;
 	}
@@ -89,74 +99,7 @@ public class TicketOrderBean {
 		return "TicketOrderBean [ticketOrderId=" + ticketOrderId + ", ticketOrderDate=" + ticketOrderDate
 				+ ", filmsectiontime=" + filmsectiontime + ", ticketCount=" + ticketCount + ", seatNum=" + seatNum
 				+ ", ticketOrderPrice=" + ticketOrderPrice + ", ticketState=" + ticketState + ", filmId=" + filmId
-				+ ", memberId=" + memberId + "]";
+				+ ", memberId=" + memberId + ", ticketCode=" + ticketCode + "]";
 	}
 
-	
-	
-	
-//	public int getTicketorderid() {
-//		return ticketorderid;
-//	}
-//	public void setTicketorderid(int ticketorderid) {
-//		this.ticketorderid = ticketorderid;
-//	}
-//	public Timestamp getTicketorderdate() {
-//		return ticketorderdate;
-//	}
-//	public void setTicketorderdate(Timestamp ticketorderdate) {
-//		this.ticketorderdate = ticketorderdate;
-//	}
-//	public Timestamp getDatetime() {
-//		return datetime;
-//	}
-//	public void setDatetime(Timestamp datetime) {
-//		this.datetime = datetime;
-//	}
-//	public int getTicketcount() {
-//		return ticketcount;
-//	}
-//	public void setTicketcount(int ticketcount) {
-//		this.ticketcount = ticketcount;
-//	}
-//	public String getSeatnum() {
-//		return seatnum;
-//	}
-//	public void setSeatnum(String seatnum) {
-//		this.seatnum = seatnum;
-//	}
-//	public int getTicketorderamount() {
-//		return ticketorderamount;
-//	}
-//	public void setTicketorderamount(int ticketorderamount) {
-//		this.ticketorderamount = ticketorderamount;
-//	}
-//	public int getTicketstate() {
-//		return ticketstate;
-//	}
-//	public void setTicketstate(int ticketstate) {
-//		this.ticketstate = ticketstate;
-//	}
-//	public int getFilmid() {
-//		return filmid;
-//	}
-//	public void setFilmid(int filmid) {
-//		this.filmid = filmid;
-//	}
-//	public int getMemberid() {
-//		return memberid;
-//	}
-//	public void setMemberid(int memberid) {
-//		this.memberid = memberid;
-//	}
-//	@Override
-//	public String toString() {
-//		return "TicketOrderBean [ticketorderid=" + ticketorderid + ", ticketorderdate=" + ticketorderdate
-//				+ ", datetime=" + datetime + ", ticketcount=" + ticketcount + ", seatnum=" + seatnum
-//				+ ", ticketorderamount=" + ticketorderamount + ", ticketstate=" + ticketstate + ", filmid=" + filmid
-//				+ ", memberid=" + memberid + "]";
-//	}
-
-	
-	
 }

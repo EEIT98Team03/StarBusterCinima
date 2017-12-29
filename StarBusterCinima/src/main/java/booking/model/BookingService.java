@@ -43,22 +43,42 @@ public class BookingService {
 	public Timestamp toTimeStamp(String str) {
 //		TimeZone timezone = TimeZone.getTimeZone("GMT+8");
 		
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		str = str.trim().replace(" ", "").replace("年", "-").replace("月", "-").replace("日", "");
+//		System.out.println("str=" +str);
 		Date udate = null;
-		Timestamp timeStamp =null;
-		if(udate!=null) {
-			try {
-				udate = sdf.parse(str.trim().replace(" ", ""));
-			} catch (ParseException e) {
-				e.printStackTrace();
-			}
-			timeStamp = new Timestamp(udate.getTime());
+		try {
+			udate = sdf.parse(str);
+		} catch (ParseException e1) {
+			e1.printStackTrace();
 		}
+//		System.out.println("1  ="+udate);
+//		System.out.println(udate.getClass().getName());
+		Timestamp timeStamp = new Timestamp(udate.getTime());
+//		System.out.println("2  ="+timeStamp);
+		
+//		SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd");
+
+		
+		
+		return timeStamp;
+		
+//		Date udate = null;
+//		Timestamp timeStamp =null;
+//		if(udate!=null) {
+//			try {
+//				udate = sdf.parse(str);
+//				timeStamp = new Timestamp(udate.getTime());
+//				System.out.println(timeStamp);
+//			} catch (ParseException e) {
+//				e.printStackTrace();
+//			}
+//		}
 //		System.out.println(date.getClass().getName());
 //		SimpleDateFormat sdf = new SimpleDateFormat("");
 //		ticketOrderBean.setTicketOrderDate(newTicketOrderDate);
 		
-		return timeStamp ;
+//		return null ;
 	}
 	
 	
@@ -66,33 +86,46 @@ public class BookingService {
 	public Timestamp orderFilmsectiontime(String str) {
 		SimpleDateFormat sdfParse = new SimpleDateFormat("M月d日,EEE.hh:mm?yyyy");
 //		SimpleDateFormat sdfParse = new SimpleDateFormat("yyyy-MM-dd hh:mm");
-		sdfParse.setTimeZone(TimeZone.getTimeZone("GMT+8"));
-
+//		sdfParse.setTimeZone(TimeZone.getTimeZone("GMT+8"));
+		
 //		str = "1991-10-10 10:10";
-//		System.out.println("test "+str);
+		System.out.println("test "+str);
 		
 //		1月7日,星期日.01:40?2018
-		
-		
 		Date udate =null;
-		if(udate !=null) {
-			try {
-				str = str+"-2018";
-				str = str.replace('(',',').replace('-','?').trim();
-				udate = sdfParse.parse(str);
-			} catch (ParseException e) {
-				e.printStackTrace();
-			}
-			Timestamp timeStamp = new Timestamp(udate.getTime());
-			
-			return timeStamp;
+		str = str+"-2018";
+		str = str.replace('(',',').replace('-','?').trim();
+		try {
+			udate = sdfParse.parse(str);
+			System.out.println("udate==>"+udate);
+		} catch (ParseException e1) {
+			e1.printStackTrace();
 		}
-		return null;
+		
+		Timestamp timeStamp = new Timestamp(udate.getTime());
+		System.out.println(timeStamp);
+		
+		
+		
+//		if(udate !=null) {
+//			try {
+//				str = str+"-2018";
+//				str = str.replace('(',',').replace('-','?').trim();
+//				udate = sdfParse.parse(str);
+//			} catch (ParseException e) {
+//				e.printStackTrace();
+//			}
+//			Timestamp timeStamp = new Timestamp(udate.getTime());
+//			
+//			return timeStamp;
+//		}
+		return timeStamp;
 	}
 	
 	public String processSeatNum(String str) {
 		
 		str = str.replace("號", "號,");
+		str = str.replace(",,", "");
 		
 		return str;
 	}
