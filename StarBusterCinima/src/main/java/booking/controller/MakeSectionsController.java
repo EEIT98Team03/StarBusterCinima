@@ -41,7 +41,11 @@ public class MakeSectionsController {
 	
 	@RequestMapping(method = RequestMethod.GET, produces = "application/json",value="produceDate")
 	public String method( String paramFilmId, Model model ,HttpServletRequest request) {
-		System.out.println("MakeSectionsController GET : "+paramFilmId);
+		
+		//點擊訂票鈕之後接這裡
+		
+		
+		System.out.println("(MakeSectionsController) get the film's id -> : "+paramFilmId);
 //		System.out.println("123");
 		String str="";
 		if(paramFilmId!=null && paramFilmId!="") {

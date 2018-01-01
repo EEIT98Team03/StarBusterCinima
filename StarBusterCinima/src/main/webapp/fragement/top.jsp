@@ -17,7 +17,7 @@
 }
 body{
 	
-	background-color: #3C3C3C;
+	background-color: #191919;
 }
 .outdiv{
 	width:100%;
@@ -27,12 +27,12 @@ body{
 /* 	overflow: hidden; */
 	position: fixed;
 	height: 155px;
-	background-color: #3C3C3C;
+	background-color: #191919;
 	
 }
 .navi{
 /* 	border-top: 5px solid #9D9D9D; */
-	background-color: #3C3C3C;
+	background-color: #191919;
 /* 	opacity:0.6; */
 	top:5px;
 	width: 65.5%;
@@ -79,7 +79,7 @@ margin-top: 10px;
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #3C3C3C;
+  background-color: #191919;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   padding: 12px 16px;
@@ -205,7 +205,7 @@ $(document).ready(function(){
 	// alert("blah");
 	});
 	$('.navicol>div').mouseleave(function() {
-		$(this).parent().css({'border-bottom':'6px solid #3C3C3C'});
+		$(this).parent().css({'border-bottom':'6px solid #191919'});
 	// alert("blah");
 	});
 

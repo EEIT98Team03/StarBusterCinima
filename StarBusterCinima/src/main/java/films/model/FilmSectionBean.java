@@ -66,6 +66,10 @@ public class FilmSectionBean {
 				+ ", sectionroom=" + sectionroom + "]";
 	}
 	
-	
+	public static void main(String[] args) {
+		String a = ",1_1,1_2";
+		String b = "1_1,1_2";
+		System.out.println(a.substring(0, 1).equals(","));
+	}
 	
 }

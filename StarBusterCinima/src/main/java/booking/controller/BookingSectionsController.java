@@ -24,20 +24,17 @@ public class BookingSectionsController {
 	
 	@RequestMapping(method = RequestMethod.GET, value = { "/{selectedDate}" }, produces = "text/html;charset=UTF-8")
 	public String method(@PathVariable String selectedDate, Model model) {
-		 selectedDate = selectedDate.replace(" ", "")+")";
-//		 System.out.println(selectedDate);
-		 
-		//如果傳進來的是日期
-//		if (param.indexOf("日") > 0 && "filmname"!=param) {
-//			System.out.println("傳來的是日期  param是= "+param);
-			
+		
+
+//			System.out.println("(BookingSectionsController)"+selectedDate);
+		
 			//比對傳進來的日期 送出符合日期的時間
 			List<String> timesResult = quickBookingService.toTimes(selectedDate);
-//			System.out.println(timesResult);
+//			System.out.println("(BookingSectionsController)"+timesResult);
 //			Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create(); 
 			Gson gson = new Gson();
 			String str = gson.toJson(timesResult);
-//			System.out.println("傳進日期後回傳時間="+str);
+			System.out.println("(BookingSectionsController)"+"傳進日期後回傳時間="+str);
 			return str;
 //		}
 //		return "controllerError";

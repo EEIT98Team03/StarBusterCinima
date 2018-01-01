@@ -57,8 +57,8 @@ public class thisFilmController {
 //				request.setAttribute("filmBean", result);
 //				Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create(); 
 //				String str = gson.toJson(list);
-				System.out.println("controller thisFilm->>  "+result);
-				return "thisFilm";
+				System.out.println("(thisFilmController) controller thisFilm->>  "+result);
+				return "thisfilm";
 			}
 			
 			return null;
