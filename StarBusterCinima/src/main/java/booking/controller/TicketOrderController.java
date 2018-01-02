@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import booking.model.BookingService;
 import booking.model.TicketOrderBean;
 import member.model.MemberBean;
@@ -30,8 +33,9 @@ public class TicketOrderController {
 	TicketOrderBean ticketOrderBean;
 	
 	
-	@RequestMapping(method=RequestMethod.GET, produces = "text/html;charset=UTF-8")
-	public String method(String filmId,
+	@RequestMapping(method=RequestMethod.POST, produces = "text/html;charset=UTF-8", value="productOrder")
+	public String method(
+			String filmId,
 			String ticketOrderDate,
 			String filmSectionDate,
 			String filmSectionTime,
@@ -42,22 +46,19 @@ public class TicketOrderController {
 			Model model,
 			HttpServletRequest request) 
 	{
-		System.out.println( filmId
-				+" / "+ ticketOrderDate
-				+" / "+ filmSectionDate
-				+" / "+ filmSectionTime
-				+" / "+ ticketCount
-				+" / "+ seatNumber
-				+" / "+ ticketOrderPrice );
-		
-		
+//		System.out.println( filmId
+//				+" / "+ ticketOrderDate
+//				+" / "+ filmSectionDate
+//				+" / "+ filmSectionTime
+//				+" / "+ ticketCount
+//				+" / "+ seatNumber
+//				+" / "+ ticketOrderPrice );
 		ticketOrderBean.setTicketOrderDate(bookingService.toTimeStamp(ticketOrderDate));
-//		System.out.println(bookingService.toTimeStamp(ticketOrderDate));
-		String filmsectiontime = filmSectionDate+"."+filmSectionTime;
-		ticketOrderBean.setFilmsectiontime(bookingService.orderFilmsectiontime(filmsectiontime));
-//		System.out.println(bookingService.orderFilmsectiontime(filmsectiontime));
-		
-		
+//		String filmsectiontime = filmSectionDate+"."+filmSectionTime;
+		ticketOrderBean.setFilmsectiontime(bookingService.orderFilmsectiontime(filmSectionDate,filmSectionTime));
+//		String filmsectiontime = filmSectionDate+"."+filmSectionTime;
+//		ticketOrderBean.setFilmsectiontime(bookingService.orderFilmsectiontime(filmsectiontime));
+		ticketOrderBean.setFilmId(Integer.parseInt(filmId));
 		
 		if(ticketCount!=null) {
 			ticketOrderBean.setTicketCount(Integer.parseInt(ticketCount));
@@ -66,49 +67,77 @@ public class TicketOrderController {
 		if(ticketCount!=null) {
 			ticketOrderBean.setTicketOrderPrice(Integer.parseInt(ticketOrderPrice));
 		}
-		
-//		System.out.println(request.getSession().getAttribute("loginUserInfo"));
-//		ticketOrderBean.setMemberId(memberId);
-		
 		MemberBean memberBean = (MemberBean) request.getSession().getAttribute("loginUserInfo");
 		ticketOrderBean.setMemberId(memberBean.getMemberId());
+		ticketOrderBean.setTicketCode(bookingService.gettingTicketCode(memberBean.getMemberId()));
 		
 		
-//		long no = 0;
-//		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
-//		String nowdate = sdf.format(new Date());
-//		no = Long.parseLong(nowdate)*100;
-//		no=no+memberBean.getMemberId();
-//		System.out.println("no="+no);
+//		Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").setPrettyPrinting().disableHtmlEscaping().create(); 
+//		Gson gson = new Gson();
+//		String ticketOrderBeanJson = gson.toJson(ticketOrderBean);
 		
-		
-		long no = 0;
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
-		SimpleDateFormat sdf2 = new SimpleDateFormat("HHmmss");
-		String nowdate = sdf.format(new Date());
-		String nowsec = sdf2.format(new Date());
-		no = Long.parseLong(nowdate)*100;
-		long no2 = Long.parseLong(nowsec);
-		String str1 = Long.toString(no);
-		String str2 = Long.toString(no2);
-		int i = (int)(Math.random()*100)+1;
-//		no=no+memberBean.getMemberId()+Long.parseLong(nowsec);
-//		no=no+230000000+no2;
-		String ticketCode = str2+memberBean.getMemberId()+str1+i;
-		ticketOrderBean.setTicketCode(ticketCode);
-//		System.out.println("no="+no);
+		String filmName = bookingService.selectNameById(Integer.parseInt(filmId));
 		
 		
 		
-		System.out.println("bean: "+ticketOrderBean);
-		
-		
+		request.getSession().setAttribute("TicketOrderControllerFilmName", filmName);
+//		request.getSession().setAttribute("ticketOrderBeanJson", ticketOrderBeanJson);
+		request.getSession().setAttribute("ticketOrderBean", ticketOrderBean);
+//		System.out.println("bean: "+ticketOrderBean);
 		if(ticketOrderBean!=null) {
-		
-		
 			return "booking.check";
 		}
 		return "/StarBusterCinima/booking/booking.jsp";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	@RequestMapping(method=RequestMethod.POST, produces = "text/html;charset=UTF-8", value="orderCheckOk")
+	public String bookingCheck(
+			String ticketOrderDate,
+			String filmsectiontime,
+			String ticketCount,
+			String seatNum,
+			String ticketOrderPrice,
+			String ticketState,
+			String filmId,
+			String memberId,
+			String ticketCode,
+			Model model,
+			HttpServletRequest request)
+	{
 		
+		//從這裡確認訂單後insert及update至DB
+		
+		System.out.println("orderCheckOk check");
+//		System.out.println(ticketOrderDate+" / "+filmsectiontime+" / "+ticketCount+" / "+seatNum+" / "+ticketOrderPrice+" / "+ticketState+" / "+filmId+" / "+memberId+" / "+ticketCode);
+		
+		TicketOrderBean ticketOrderBean = (TicketOrderBean) request.getSession().getAttribute("ticketOrderBean");
+//		System.out.println("訂票最後的controller"+ticketOrderBean);
+		
+		
+		
+		System.out.println("座位修改前"+ticketOrderBean.getSeatNum());
+		ticketOrderBean.setSeatNum(ticketOrderBean.getSeatNum().replace("排", "_").replace("號", ""));
+		System.out.println("座位修改後"+ticketOrderBean.getSeatNum());		
+		
+		
+		TicketOrderBean theKey = bookingService.insertOrder(ticketOrderBean);
+//		System.out.println("insertOrderSuccess. the key is: "+theKey+"  the bean is: "+ticketOrderBean);
+		
+		int filmSectionId = bookingService.makeSectionId(Integer.parseInt(filmId), ticketOrderBean.getFilmsectiontime());
+		
+		bookingService.updateUnavailableSeats(filmSectionId, ticketOrderBean.getSeatNum());
+		
+		System.out.println("(bookingCheck) filmSectionId = "+filmSectionId);
+		
+		return "booking.fail";
 	}
 }

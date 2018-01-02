@@ -28,7 +28,7 @@
 
 body{
 	
-	background-color: #3C3C3C;
+	background-color: #191919;
 }
 .outdiv{
 	width:100%;
@@ -124,8 +124,8 @@ height: 100%;
 .toptrailer img{
 	width: 100%;
     height: 100%;
-    object-fit:cover;
-    filter: blur(60px);
+    object-fit:unset;
+    filter: blur(35px);
 /*     -webkit-filter: blur(30px); */
 }
 /* 
@@ -232,13 +232,14 @@ height: 100%;
 
 .bookingButton{
 	float: right;
-	width: 150px;
-	height: 100px;
+	width: 15%;
+	height: 15%;
 	background-color: #20B7B7;
 	position: absolute;
 	bottom:0px;
 	right: 0px;
 	border-radius: 2px;
+	cursor: pointer;
 }
 
 
@@ -248,7 +249,7 @@ height: 100%;
 	margin:0 auto;
 	position: relative;
 	top:-310px;
-	background-color:#4F4F4F;
+	background-color:#272727;
 	border-top:6px solid #20B7B7;
 /* 	opacity: 0.4; */
 	
@@ -342,10 +343,10 @@ height: 100%;
 <!-- 		<a href="/StarBusterCinima/booking/booking.jsp" > -->
 <!-- 		<a href="" > -->
 			<div class="bookingButton">
-				<form action="/StarBusterCinima/booking/controller/makeSections.controller">
-					<input type="text" name="paramFilmId" value="333">
-					<input type="submit">
-				</form>
+<!-- 				<form action="/StarBusterCinima/booking/controller/makeSections.controller"> -->
+<!-- 					<input type="text" name="paramFilmId" value="333"> -->
+<!-- 					<input type="submit"> -->
+<!-- 				</form> -->
 			</div>
 <!-- 		</a> -->
 		
@@ -383,7 +384,7 @@ $(document).ready(function(){
 		
 // 	})
 	
-	
+// 	alert("!!!");
 	
 	var picurlMedium = $('#posterMedium').attr('name');
 	var filmPicMedium = $('<img>').attr('src',picurlMedium);
@@ -409,7 +410,7 @@ $(document).ready(function(){
 	// alert("blah");
 	});
 	$('.navicol>div').mouseleave(function() {
-		$(this).parent().css({'border-bottom':'6px solid #3C3C3C'});
+		$(this).parent().css({'border-bottom':'6px solid #191919'});
 	// alert("blah");
 	});
 	
