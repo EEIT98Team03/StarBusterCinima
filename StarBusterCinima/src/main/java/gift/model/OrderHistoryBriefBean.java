@@ -1,7 +1,5 @@
 package gift.model;
 
-import java.sql.Timestamp;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,48 +9,24 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "OrderHistoryBrief")
 public class OrderHistoryBriefBean {
-	@Override
-	public String toString() {
-		return "OrderHistoryBriefBean [orderId=" + orderId + ", memberId=" + memberId + ", totalAmountOriginal="
-				+ totalAmountOriginal + ", discount=" + discount + ", totalAmountFinal=" + totalAmountFinal
-				+ ", payMethod=" + payMethod + ", receiverName=" + receiverName + ", receiverAddressArea="
-				+ receiverAddressArea + ", receiverAddressZipCode=" + receiverAddressZipCode
-				+ ", receiverAddressMainPart=" + receiverAddressMainPart + ", receiverPhone=" + receiverPhone
-				+ ", orderStatus=" + orderStatus + ", purchasedTime=" + purchasedTime + "]";
-	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int orderId;
-	public OrderHistoryBriefBean(int orderId, int memberId, int totalAmountOriginal, int discount,
-			int totalAmountFinal, String payMethod, String receiverName, String receiverAddressArea,
-			int receiverAddressZipCode, String receiverAddressMainPart, String receiverPhone, String orderStatus,
-			Timestamp purchasedTime) {
-		super();
-		this.orderId = orderId;
-		this.memberId = memberId;
-		this.totalAmountOriginal = totalAmountOriginal;
-		this.discount = discount;
-		this.totalAmountFinal = totalAmountFinal;
-		this.payMethod = payMethod;
-		this.receiverName = receiverName;
-		this.receiverAddressArea = receiverAddressArea;
-		this.receiverAddressZipCode = receiverAddressZipCode;
-		this.receiverAddressMainPart = receiverAddressMainPart;
-		this.receiverPhone = receiverPhone;
-		this.orderStatus = orderStatus;
-		this.purchasedTime = purchasedTime;
+	@Override
+	public String toString() {
+		return "OrderHistoryBriefBean [orderId=" + orderId + ", memberEmail=" + memberEmail + ", totalAmountOriginal="
+				+ totalAmountOriginal + ", discount=" + discount + ", totalAmountFinal=" + totalAmountFinal
+				+ ", payMethod=" + payMethod + ", receiverName=" + receiverName + ", receiverAddressArea="
+				+ receiverAddressArea + ", receiverAddressMainPart=" + receiverAddressMainPart + ", receiverPhone="
+				+ receiverPhone + ", orderStatus=" + orderStatus + ", purchasedTime=" + purchasedTime + "]";
 	}
-	public OrderHistoryBriefBean() {
-		super();
-	}
-	private int memberId;
+	private String memberEmail;
 	private int totalAmountOriginal;
 	private int discount;
 	private int totalAmountFinal;
 	private String payMethod;
 	private String receiverName;
 	private String receiverAddressArea;
-	private int receiverAddressZipCode;
 	private String receiverAddressMainPart;
 	private String receiverPhone;
 	private String orderStatus;
@@ -99,12 +73,6 @@ public class OrderHistoryBriefBean {
 	public void setReceiverAddressArea(String receiverAddressArea) {
 		this.receiverAddressArea = receiverAddressArea;
 	}
-	public int getReceiverAddressZipCode() {
-		return receiverAddressZipCode;
-	}
-	public void setReceiverAddressZipCode(int receiverAddressZipCode) {
-		this.receiverAddressZipCode = receiverAddressZipCode;
-	}
 	public String getReceiverAddressMainPart() {
 		return receiverAddressMainPart;
 	}
@@ -129,10 +97,10 @@ public class OrderHistoryBriefBean {
 	public void setPurchasedTime(java.sql.Timestamp purchasedTime) {
 		this.purchasedTime = purchasedTime;
 	}
-	public int getMemberId() {
-		return memberId;
+	public String getMemberEmail() {
+		return memberEmail;
 	}
-	public void setMemberId(int memberId) {
-		this.memberId = memberId;
+	public void setMemberEmail(String memberEmail) {
+		this.memberEmail = memberEmail;
 	}
 }
