@@ -1,21 +1,19 @@
 package films.model;
 
 import java.sql.Date;
-import java.util.Arrays;
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
 @Entity
 @Table(name = "FILM")
 public class FilmBean {
-	@Id
+	@Id		
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="filmId")
 	private int filmId;
 	private String filmName;
 	private String engName;
@@ -170,6 +168,7 @@ public class FilmBean {
 	public void setPosterMedium(String posterMedium) {
 		this.posterMedium = posterMedium;
 	}
+
 	@Override
 	public String toString() {
 		return "FilmBean [filmId=" + filmId + ", filmName=" + filmName + ", engName=" + engName + ", lengthOfFilm="

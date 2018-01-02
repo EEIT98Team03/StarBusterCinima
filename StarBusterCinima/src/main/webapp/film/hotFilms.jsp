@@ -25,7 +25,7 @@
 }
 body{
 	
-	background-color: #3C3C3C;
+	background-color: #272727;
 }
 
 a:link {
@@ -73,7 +73,7 @@ a {
 }
 .navi{
 /* 	border-top: 5px solid #9D9D9D; */
-	background-color: #3C3C3C;
+	background-color: #272727;
 /* 	opacity:0.6; */
 	top:5px;
 	width: 64%;
@@ -138,8 +138,8 @@ margin-top: 10px;
 /*  	border: 1px dotted green;   */
 	position:absolute;
 /*  	margin-top:200px;  */
- 	width: 64%; 
- 	left:18%; 
+	width: 65.5%;
+	left:17.2%;
 	height:auto;
  	overflow: hidden; 
  	text-align: center; 
@@ -147,7 +147,7 @@ margin-top: 10px;
 
 .hotFilmsTitle{
 	color:white;
-	margin-top:250px; 
+	margin-top:230px; 
 /*  	border-top: 1px solid #20B7B7;   */
  	border-bottom: 1px solid #20B7B7;  
 	margin-left:15px; 
@@ -168,7 +168,8 @@ margin-top: 10px;
 	font-weight: 400;
 	
     color: #f5f5f5;
-    background-color: #3c3c3c;
+    background-color: #272727;
+    background-color: #191919;
     border-color: rgba(255, 255, 255, 0); 
     border-radius: 0;
 /*     border-bottom: 5px solid #20B7B7; */
@@ -192,7 +193,7 @@ margin-top: 10px;
 }
 
 .filmPoster{
-	height: 400px;
+	height: auto;
 }
 .filmPoster img{
     width: 100%;
@@ -203,9 +204,10 @@ margin-top: 10px;
 
 .filmInfo{
 /* margin-top:0px; */
-/*  height: 130px; */
+position:relative;
+    height: 130px; 
 	padding:10px;
- 	background: #4F4F4F;
+ 	background: #272727;
  	text-align: left;
 }
 
@@ -216,6 +218,10 @@ font-size: 18px;
 /* infoUdate */
 /* infoGenre */
 
+.infoUdate{
+	position:absolute;
+	bottom:10px;
+}
 
 .container{
 border:1px solid yellow;
@@ -227,38 +233,38 @@ width: auto;
 
 </style>
 </head>
-	<body>
-	<div class="outdiv">
-	<div id="" class="navi">
-	<div class="container-fluid">
-	
-	
-		<div class="col-md-1 navicol">
-			<div class="ehdiv navidiv">影城介紹</div>
-		</div>
-		<div class="col-md-1 navicol" >
-			<div class="ehdiv navidiv">熱門強檔</div>
-		</div>
-		<div class="col-md-1 navicol">
-			<div class="ehdiv navidiv">立即訂票</div>
-		</div>
-		<div class="col-md-3 navicolcenter" >
-				<img class="naviLogo" src="../images/SB01.png">
-		</div>
-		<div class="col-md-1 navicol">
-			<div class="ehdiv navidiv">周邊精品</div>
-		</div>
-		<div class="col-md-1 navicol">
-			<div class="ehdiv navidiv">精彩活動</div>
-		</div>
-		<div class="col-md-1 navicol">
-			<div class="ehdiv navidiv">用戶登入</div>
-		</div>
-	
-	</div>
-	
-	</div>
-	</div>
+<body>
+<jsp:include page="${pageScope.request.contextPath}/fragement/top.jsp"></jsp:include>
+<!-- 	<div class="outdiv"> -->
+<!-- 		<div id="" class="navi"> -->
+<!-- 			<div class="container-fluid"> -->
+			
+			
+<!-- 				<div class="col-md-1 navicol"> -->
+<!-- 					<div class="ehdiv navidiv">影城介紹</div> -->
+<!-- 				</div> -->
+<!-- 				<div class="col-md-1 navicol" > -->
+<!-- 					<div class="ehdiv navidiv">熱門強檔</div> -->
+<!-- 				</div> -->
+<!-- 				<div class="col-md-1 navicol"> -->
+<!-- 					<div class="ehdiv navidiv">立即訂票</div> -->
+<!-- 				</div> -->
+<!-- 				<div class="col-md-3 navicolcenter" > -->
+<!-- 						<img class="naviLogo" src="../images/SB01.png"> -->
+<!-- 				</div> -->
+<!-- 				<div class="col-md-1 navicol"> -->
+<!-- 					<div class="ehdiv navidiv">周邊精品</div> -->
+<!-- 				</div> -->
+<!-- 				<div class="col-md-1 navicol"> -->
+<!-- 					<div class="ehdiv navidiv">精彩活動</div> -->
+<!-- 				</div> -->
+<!-- 				<div class="col-md-1 navicol"> -->
+<!-- 					<div class="ehdiv navidiv">用戶登入</div> -->
+<!-- 				</div> -->
+			
+<!-- 			</div> -->
+<!-- 		</div> -->
+<!-- 	</div> -->
 	
 	<div id="box">
 		<div class="hotFilmsTitle">
@@ -273,33 +279,25 @@ width: auto;
 		</div>
 		
 		<div class="hotFilms" id="hotFilms">
-		
+<!-- 		
 			<div class="col-md-3 itemcol">
-<!-- 				<a href="http://localhost:8080/StarBusterCinima/film/thisFilm.jsp"> -->
-<!-- 				<a href="../film/thisFilm.jsp"> -->
 				<a href="/StarBusterCinima/film/thisFilm.jsp" >
-				
-				<div class="item" id="1107">
-					<div class="filmPoster">
-<!-- 				<a href="/StarBusterCinima/film/thisFilm.jsp"> -->
-<!-- 						<a href="http://tw.yahoo.com" >123</a> -->
-							<img src="../images/film/1107.jpg" id="1107" class="classfilmId">
-<!-- 				</a> -->
-						
+					<div class="item" id="1107">
+						<div class="filmPoster">
+								<img src="../images/film/1107.jpg" id="1107" class="classfilmId">
+						</div>
+						<div class="filmInfo">
+							<div class="infoNameCh">天劫：救贖之戰</div>
+							<div class="infoNameEn">Beyond Skyline</div>
+							<p style="margin-bottom: 30px;"></p>
+							<div class="infoUdate">2017-12-08</div>
+						</div>
 					</div>
-					<div class="filmInfo">
-						<div class="infoNameCh">天劫：救贖之戰</div>
-						<div class="infoNameEn">Beyond Skyline</div>
-						<p style="margin-bottom: 30px;"></p>
-						<div class="infoUdate">2017-12-08</div>
-					</div>
-				</div>
 				</a>
 			</div>
-		
+-->		
 		
 		</div>	
-
 	</div>		
 			
 
@@ -332,9 +330,10 @@ $(document).ready(function(){
 				var filmInfoTag = $('<div>').attr('class','filmInfo');
 					var nameChTag = $('<div>').attr('class','infoNameCh').text(eachFilm[i].filmName);
 					var nameEnTag = $('<div>').attr('class','infoNameEn').text(eachFilm[i].engName);
-					var pTag =      $('<p></p>').css('margin-bottom','30px');
 					var uDateTag =  $('<div>').attr('class','infoUdate').text(eachFilm[i].udate);
-				var newFilmInfoTag = filmInfoTag.append(nameChTag).append(nameEnTag).append(pTag).append(uDateTag)
+				var newFilmInfoTag = filmInfoTag.append(nameChTag).append(nameEnTag).append(uDateTag)
+// 					var pTag =      $('<p></p>').css('margin-bottom','30px');
+// 				var newFilmInfoTag = filmInfoTag.append(nameChTag).append(nameEnTag).append(pTag).append(uDateTag)
 	
 				var aurl = $('<a>').attr('href','/StarBusterCinima/film/thisFilm.jsp');
 				
@@ -415,7 +414,7 @@ $(document).ready(function(){
 	// alert("blah");
 	});
 	$('.navicol>div').mouseleave(function() {
-		$(this).parent().css({'border-bottom':'6px solid #3C3C3C'});
+		$(this).parent().css({'border-bottom':'6px solid #191919'});
 	// alert("blah");
 	});
 

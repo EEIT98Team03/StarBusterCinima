@@ -17,7 +17,7 @@
 }
 body{
 	
-	background-color: #3C3C3C;
+	background-color: #191919;
 }
 .outdiv{
 	width:100%;
@@ -27,12 +27,12 @@ body{
 /* 	overflow: hidden; */
 	position: fixed;
 	height: 155px;
-	background-color: #3C3C3C;
+	background-color: #191919;
 	
 }
 .navi{
 /* 	border-top: 5px solid #9D9D9D; */
-	background-color: #3C3C3C;
+	background-color: #191919;
 /* 	opacity:0.6; */
 	top:5px;
 	width: 65.5%;
@@ -79,7 +79,7 @@ margin-top: 10px;
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #3C3C3C;
+  background-color: #191919;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   padding: 12px 16px;
@@ -121,9 +121,12 @@ color:white;
 			<div class="ehdiv navidiv"><fmt:message key="navcolumn1" /></div>
 		</div>
 		
-		<div class="col-md-1 navicol" >
-			<div class="ehdiv navidiv"><fmt:message key="navcolumn2" /></div>
-		</div>
+		<a href="/StarBusterCinima/film/hotFilms.jsp">
+			<div class="col-md-1 navicol" >
+				<div class="ehdiv navidiv"><fmt:message key="navcolumn2" /></div>
+			</div>
+		</a>
+		
 		<div class="col-md-1 navicol">
 			<div class="ehdiv navidiv"><fmt:message key="navcolumn3" /></div>
 		</div>
@@ -191,21 +194,32 @@ color:white;
 	
 	</div>
 	</div>
-	<div style="height:200px ;border:1px dotted red;"></div>
+<!-- 	<div style="height:200px ;"></div> -->
 </fmt:bundle>	
 <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>			
 <script>
 $(document).ready(function(){
 // 	navi的滑鼠移上去會有藍色底條
 	$('.navicol>div').hover(function() {
+<<<<<<< HEAD
+		$(this).parent().append($("<div id='SBbar000'></div>").css({'border-bottom':'6px solid #20B7B7'}).css({'width':'0px'}));
+		$('#SBbar000').animate({width:"100%"},100);	
+		// alert("blah");
+	},function() {
+		$('#SBbar000').remove();
+		// alert("blah");
+		}		
+	);
+=======
 		$(this).parent().css({'border-bottom':'6px solid #20B7B7'});
 	// alert("blah");
 	});
 	$('.navicol>div').mouseleave(function() {
-		$(this).parent().css({'border-bottom':'6px solid #3C3C3C'});
+		$(this).parent().css({'border-bottom':'6px solid #191919'});
 	// alert("blah");
 	});
 
+>>>>>>> branch 'master' of https://github.com/EEIT98Team03/StarBusterCinima.git
 });
 </script>
 

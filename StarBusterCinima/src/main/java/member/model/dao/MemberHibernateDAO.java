@@ -151,4 +151,5 @@ public class MemberHibernateDAO implements MemberDAO {
 		return select;
 	}
 
+
 }

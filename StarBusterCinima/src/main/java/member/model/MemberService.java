@@ -27,10 +27,12 @@ public class MemberService {
 	// this.allMemberInfo = getMemberList();
 	// System.out.println(allMemberInfo);
 	// }
+
 	@Transactional(readOnly=true)
 	public MemberBean getMemberInfoById(int memberId) {
 		return memberDAO.select(memberId);
 	}
+
 	public MemberBean checkLogin(String userEmail, String userPassword) {// 登入驗證
 		if (userEmail != null && userEmail.trim().length() != 0) {
 			MemberBean bean = this.EmailExistsGetMemberBean(userEmail);

@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import org.springframework.web.bind.annotation.RequestMapping;
 @Entity
 @Table(name = "MEMBER")
 public class MemberBean {
