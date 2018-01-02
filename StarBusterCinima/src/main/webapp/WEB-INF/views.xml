@@ -2,32 +2,32 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-	
+
 	<bean id="login.error"
 		class="org.springframework.web.servlet.view.InternalResourceView">
 		<property name="url" value="/member/login.jsp"></property>
 	</bean>
-	
+
 	<bean id="login.success" class="org.springframework.web.servlet.view.RedirectView">
 		<property name="url" value="/index.jsp"></property>
 		<property name="contextRelative" value="true"></property>
 	</bean>
-	
+
 	<bean id="register.error" class="org.springframework.web.servlet.view.RedirectView">
 		<property name="url" value="/member/register.jsp"></property>
 		<property name="contextRelative" value="true"></property>
 	</bean>
-	
+
 	<bean id="register.success" class="org.springframework.web.servlet.view.RedirectView">
 		<property name="url" value="/member/registerSuccess.jsp"></property>
 		<property name="contextRelative" value="true"></property>
 	</bean>
-	
+
 	<bean id="identity.error"
 		class="org.springframework.web.servlet.view.InternalResourceView">
 		<property name="url" value="/member/login.jsp"></property>
 	</bean>
-	
+
 	<bean id="identity.success"
 		class="org.springframework.web.servlet.view.InternalResourceView">
 		<property name="url" value="/member/identityResult.jsp"></property>
@@ -38,55 +38,84 @@
 			value="/member/memberManagement/memberManagement.jsp"></property>
 		<property name="contextRelative" value="true"></property>
 	</bean>
+
 	<bean id="adminstrator.success" class="org.springframework.web.servlet.view.RedirectView">
 		<property name="contextRelative" value="true"></property>
 		<property name="url" value="/chat/robotManage.jsp"></property>
 	</bean>
+
 	<bean id="adminstrator.error"
 		class="org.springframework.web.servlet.view.InternalResourceView">
 		<property name="url" value="/adminstrator/adminLogin.jsp"></property>
 	</bean>
+
 	<bean id="insert.success"
 		class="org.springframework.web.servlet.view.InternalResourceView">
 		<property name="url" value="/film/insertSuccess.jsp"></property>
 	</bean>
-	
+
 	<bean id="vote.success"
 		class="org.springframework.web.servlet.view.InternalResourceView">
 		<property name="url" value="/wishpool/vote.jsp"></property>
 	</bean>
-
 	<bean id="start.booking"
 		class="org.springframework.web.servlet.view.InternalResourceView">
 		<property name="url" value="/booking/startbooking.jsp"></property>
 	</bean>
+
+
 	<bean id="booking"
 		class="org.springframework.web.servlet.view.InternalResourceView">
 		<property name="url" value="/booking/booking.jsp"></property>
+
+	</bean>
+	<bean id="quickBooking"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+
 	</bean>
 	<bean id="quickBooking"
 		class="org.springframework.web.servlet.view.InternalResourceView">
 		<property name="url" value="/quickBooking/quickBooking.jsp"></property>
 	</bean>
+
+	<bean id="thisFilm"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/film/thisFilm.jsp"></property>
+	</bean>
+
 	<bean id="shopping.success"
 		class="org.springframework.web.servlet.view.InternalResourceView">
-		<property name="url" value="/shopping/test_donot_delete.jsp"></property>
+		<property name="url" value="/shopping/index.jsp"></property>
 	</bean>
+
 	<bean id="order.brief"
 		class="org.springframework.web.servlet.view.InternalResourceView">
 		<property name="url" value="/shopping/listorder.jsp"></property>
 	</bean>
+
 	<bean id="cart.additem.success" class="org.springframework.web.servlet.view.RedirectView">
-		<property name="url" value="shopping/potter.jsp"></property>
+		<property name="contextRelative" value="true"></property>
+		<property name="url" value="/shopping/potter.jsp"></property>
 	</bean>
+
 	<bean id="cart.hibao.additem.success" class="org.springframework.web.servlet.view.RedirectView">
-		<property name="url" value="shopping/hibao.jsp"></property>
+		<property name="contextRelative" value="true"></property>
+		<property name="url" value="/shopping/hibao.jsp"></property>
 	</bean>
+
 	<bean id="cart.homepage.additem.success" class="org.springframework.web.servlet.view.RedirectView">
-		<property name="url" value="shopping/index.jsp"></property>
+		<property name="contextRelative" value="true"></property>
+		<property name="url" value="/shopping/index.jsp"></property>
 	</bean>
+
 	<bean id="list.order" class="org.springframework.web.servlet.view.RedirectView">
-		<property name="url" value="shopping/listorder.jsp"></property>
+		<property name="contextRelative" value="true"></property>
+		<property name="url" value="/shopping/listorder.jsp"></property>
+	</bean>
+
+	<bean id="booking.check"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/booking/bookingCheck.jsp"></property>
 	</bean>
 
 </beans>

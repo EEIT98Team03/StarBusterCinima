@@ -1,6 +1,5 @@
 package films.controller;
 
-import java.sql.Date;
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -92,7 +91,7 @@ public class FilmMgmtController {
 		String Seat2 = "'oooo_oooooooooo_oooo','oooo_oooooooooo_oooo','oooo_oooooooooo_oooo','oooo_oooooooooo_oooo','oooo_oooooooooo_oooo','_ooo_oooooooooo_ooo_','__oo_oooooooooo_oo__'";
 		FilmSectionBean bean = new FilmSectionBean();
 
-		bean.setFilmID(filmId);
+		bean.setFilmId(filmId);
 
 		
 

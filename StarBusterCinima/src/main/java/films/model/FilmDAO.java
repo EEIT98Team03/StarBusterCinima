@@ -4,7 +4,6 @@ import java.sql.Timestamp;
 import java.util.List;
 public interface FilmDAO {
 
-	FilmBean selectById(String filmId);
 	FilmBean selectByFilmName(String filmName);
 	FilmBean selectByEngName(String engName);
 	List<FilmBean> selectAll();
@@ -42,5 +41,9 @@ public interface FilmDAO {
 			int scoreMember,
 			String language
 			);
+
+	FilmBean selectById(int filmId);
+	boolean updateposter(String img, int filmId);
+
 	
 }

@@ -2,57 +2,43 @@ package films.model;
 
 import java.sql.Timestamp;
 
-import javax.persistence.Column;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
 @Entity
 @Table(name="FILMSECTION")
 public class FilmSectionBean {
-	
-	
-	@Id		
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="filmsectionid")
-	private int FilmSectionID;
-	@Column(name="filmsectiontime")
-	private Timestamp FilmSectionTime;
-	@Column(name="filmId")
-	private int FilmID;	
-	private String sectionroom;
-	private String roomSeats;
 
-	@Override
-	public String toString() {
-		return "FilmSectionBean [FilmSectionID=" + FilmSectionID + ", FilmSectionTime=" + FilmSectionTime + ", FilmID="
-				+ FilmID + ", sectionroom=" + sectionroom + ", roomSeats=" + roomSeats + "]";
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int filmSectionId;	
+	private int filmId; 
+	private Timestamp filmSectionTime ;
+	private String roomSeats ; 
+	private String unavailableSeats;
+	private String sectionroom ;
+	public int getFilmSectionId() {
+		return filmSectionId;
 	}
-	public int getFilmSectionID() {
-		return FilmSectionID;
+	public void setFilmSectionId(int filmSectionId) {
+		this.filmSectionId = filmSectionId;
 	}
-	public void setFilmSectionID(int filmSectionID) {
-		FilmSectionID = filmSectionID;
+	public int getFilmId() {
+		return filmId;
+	}
+	public void setFilmId(int filmId) {
+		this.filmId = filmId;
 	}
 	public Timestamp getFilmSectionTime() {
-		return FilmSectionTime;
+		return filmSectionTime;
 	}
 	public void setFilmSectionTime(Timestamp filmSectionTime) {
-		FilmSectionTime = filmSectionTime;
-	}
-	public int getFilmID() {
-		return FilmID;
-	}
-	public void setFilmID(int filmID) {
-		FilmID = filmID;
-	}
-	public String getSectionroom() {
-		return sectionroom;
-	}
-	public void setSectionroom(String sectionroom) {
-		this.sectionroom = sectionroom;
+		this.filmSectionTime = filmSectionTime;
 	}
 	public String getRoomSeats() {
 		return roomSeats;
@@ -60,5 +46,37 @@ public class FilmSectionBean {
 	public void setRoomSeats(String roomSeats) {
 		this.roomSeats = roomSeats;
 	}
+	public String getUnavailableSeats() {
+		return unavailableSeats;
+	}
+	public void setUnavailableSeats(String unavailableSeats) {
+		this.unavailableSeats = unavailableSeats;
+	}
+	public String getSectionroom() {
+		return sectionroom;
+	}
+	public void setSectionroom(String sectionroom) {
+		this.sectionroom = sectionroom;
+	}
 	
+	@Override
+	public String toString() {
+		return "FilmSectionBean [filmSectionId=" + filmSectionId + ", filmId=" + filmId + ", filmSectionTime="
+				+ filmSectionTime + ", roomSeats=" + roomSeats + ", unavailableSeats=" + unavailableSeats
+				+ ", sectionroom=" + sectionroom + "]";
+	}
+	
+	public FilmSectionBean(int filmSectionId, int filmId, Timestamp filmSectionTime, String roomSeats,
+			String unavailableSeats, String sectionroom) {
+		super();
+		this.filmSectionId = filmSectionId;
+		this.filmId = filmId;
+		this.filmSectionTime = filmSectionTime;
+		this.roomSeats = roomSeats;
+		this.unavailableSeats = unavailableSeats;
+		this.sectionroom = sectionroom;
+	}
+	public FilmSectionBean() {
+		super();	
+	}
 }

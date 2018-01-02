@@ -9,12 +9,16 @@ import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import films.model.FilmBean;
 import films.model.FilmDAO;
 import films.model.FilmSectionBean;
+import member.model.MemberBean;
 
-@Component
+
+@Repository
+
 public class FilmHibernateDAO implements FilmDAO {
 
 	@Autowired
@@ -24,16 +28,11 @@ public class FilmHibernateDAO implements FilmDAO {
 		return sessionFactory.getCurrentSession();
 	}
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
-
 	@Override
-	public FilmBean selectById(String filmId) {
-		// TODO Auto-generated method stub
-		return null;
+	public FilmBean selectById(int filmId) {
+		return this.session().get(FilmBean.class, filmId);
 	}
+
 
 	@Override
 	public FilmBean selectByFilmName(String filmName) {
@@ -99,7 +98,7 @@ public class FilmHibernateDAO implements FilmDAO {
 	}
 
 	@Override
-	public boolean updateposter(byte[] img, int filmId) {
+	public boolean updateposter(String img, int filmId) {
 		FilmBean bean = this.session().get(FilmBean.class, filmId);
 		bean.setPosterMedium(img);
 		this.session().update(bean);
@@ -172,6 +171,12 @@ public class FilmHibernateDAO implements FilmDAO {
 		bean.setFilmSectionTime(filmsectiontime);
 
 		this.session().update(bean);
+		return false;
+	}
+
+	@Override
+	public boolean updateposter(byte[] img, int FilmID) {
+		// TODO Auto-generated method stub
 		return false;
 	}
 

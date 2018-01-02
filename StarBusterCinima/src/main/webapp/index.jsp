@@ -14,6 +14,9 @@
 
 
 <style type="text/css">
+.item{
+	margin-top:100px;
+}
 .item image{
 margin:0px;
 padding:0px;
@@ -247,7 +250,7 @@ $(function(){
 			
 		})
 		$('#FilmWall').owlCarousel({
-			items :length+1,
+			items :5,
 			loop : true,
 			margin :0,
 			autoplay : true,
@@ -333,9 +336,31 @@ $(function(){
 		});
 	})
 	//首頁廣告牆 end
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 
 })
 //  輪播   
 </script>
+
 </html>

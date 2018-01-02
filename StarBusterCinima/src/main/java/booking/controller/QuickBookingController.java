@@ -2,35 +2,57 @@ package booking.controller;
 
 import java.util.List;
 
+
+import javax.servlet.http.HttpServletRequest;
+
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+
+import org.springframework.validation.BindingResult;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+
 import com.google.gson.Gson;
+
+import org.springframework.web.context.annotation.RequestScope;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.nimbusds.oauth2.sdk.Request;
 
 import booking.model.QuickBookingService;
 import films.model.FilmBean;
+
+
+
+import spring.PrimitiveNumberEditor;
+
 
 @ResponseBody
 @Controller
 @RequestMapping(value="/booking/controller/quickBooking.controller")
 public class QuickBookingController {
 
-//	@InitBinder
-//	public void initialize(WebDataBinder webDataBinder) {
-//		webDataBinder.registerCustomEditor(int.class,new PrimitiveNumberEditor(java.lang.Integer.class, true));
-//	}
+	
 	
 	@Autowired
 	QuickBookingService quickBookingService;
 	
 	@RequestMapping(method=RequestMethod.GET,produces = "text/html;charset=UTF-8")
-	public String method( Model model ) {
+
+
+	public String method( Model model,HttpServletRequest request ) {
 //		System.out.println("test quick booking");
+//		session.removeAttribute("filmBean");
+//		request.getSession().removeAttribute("filmBean");
 		List<FilmBean> result = quickBookingService.selectAllfilms();
+
 
 		Gson gson = new Gson();
 		String str = gson.toJson(result);
@@ -53,15 +75,6 @@ public class QuickBookingController {
 //		System.out.println(arrayString);
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 //		JSONObject jobj = new JSONObject();
 //		for(int i = 0; i<result.size();i++) {
 //			jobj.put("bean"+i, result.get(i));
@@ -78,11 +91,6 @@ public class QuickBookingController {
 //		System.out.println(jsonString);
 //		model.addAttribute("jsonFilmsData",jsonString);
 		
-		
-		
-//		return "quickBooking";
-//		return str;
+
 	}
 }
-//net.sf.json.JSONObject jo =JSONObject.fromObject((Object)result); 
-//JSONObject jsonObject = JSONObject.fromObject(new FilmBean());

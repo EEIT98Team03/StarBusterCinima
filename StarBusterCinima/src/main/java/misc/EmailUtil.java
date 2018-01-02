@@ -112,7 +112,7 @@ public class EmailUtil {
 			return "please input correct message";
 		}
 		long end = System.currentTimeMillis();
-
+		
 		return "Send Success Cost : " + String.valueOf((end - begin) / 1000 + "second");
 	}
 
