@@ -5,6 +5,16 @@
 		username="sa" password="passw0rd"
 		driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
 		url="jdbc:sqlserver://192.168.40.19:1433;database=StarBusterCinima"/>
-		
-		<!--192.168.40.19-->
 </Context>
+
+		
+<!-- 	<Resource name="jdbc/sqlserver" auth="Container" type="javax.sql.DataSource" -->
+<!-- 		maxTotal="100" maxIdle="30" maxWaitMillis="10000" -->
+<!-- 		username="starbuster01@dbserver098starbuster" password="exp55688!" -->
+<!-- 		driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver" -->
+<!-- 		url="jdbc:sqlserver://dbserver098starbuster.database.windows.net:1433;database=StarBusterCinima;"/> -->
+		<!-- Azure  -->
+		<!--192.168.40.19-->
+
+<!-- jdbc:sqlserver://dbserver098starbuster.database.windows.net:1433; -->
+<!-- database=StarBusterCinima;user=starbuster01@dbserver098starbuster;password=exp55688!; -->
