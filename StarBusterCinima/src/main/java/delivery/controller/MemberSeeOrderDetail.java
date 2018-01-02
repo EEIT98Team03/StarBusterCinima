@@ -1,7 +1,7 @@
 package delivery.controller;
 
 import java.io.IOException;
-import java.util.List;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,11 +16,10 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
 import gift.model.OrderHistoryBriefBean;
-import gift.tool.DataGenerator;
 
-@WebServlet("/ReadOrderHistory")
-public class MemberSeeOrder extends HttpServlet {
-	private static final long serialVersionUID = -5856572228609082279L;
+@WebServlet("/MemberSeeOrderDetail")
+public class MemberSeeOrderDetail extends HttpServlet {
+	private static final long serialVersionUID = 1923446014727285045L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
@@ -28,31 +27,25 @@ public class MemberSeeOrder extends HttpServlet {
 
 	@SuppressWarnings("unchecked")
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		java.util.Date threeMonthsAgo = DataGenerator.getCurrentTime(-91);
-		String loginUserName = request.getParameter("loginUserName");
+		int itemId = Integer.parseInt(request.getParameter("itemId"));
 		String loginEmail = request.getParameter("loginEmail");
-		
+		String pTime = request.getParameter("purchasedTime");
 		HttpSession session = request.getSession(false);
 		if (session != null) {
-			if (loginUserName == null || loginUserName.isEmpty()) {
-				loginUserName = (String) session.getAttribute("userName");
-			}
-			if (loginEmail == null || loginEmail.isEmpty()) {
-				loginEmail = (String) session.getAttribute("loginEmail");
-			}
-			
 			SessionFactory factory = new Configuration().configure().buildSessionFactory();
 			Session sessionFactory = factory.openSession();
 			Transaction tx = sessionFactory.beginTransaction();
-			List<OrderHistoryBriefBean> resultList = (List<OrderHistoryBriefBean>) sessionFactory.createQuery("from OrderHistoryBriefBean where memberEmail = :loginEmail and purchasedTime > :dateStart order by purchasedTime desc")
+			ArrayList<OrderHistoryBriefBean> resultList = (ArrayList<OrderHistoryBriefBean>) sessionFactory.createQuery("from OrderHistoryDetailBean where memberEmail = :loginEmail and itemId = :itemId")
 					.setParameter("loginEmail", loginEmail)
-					.setParameter("dateStart", threeMonthsAgo).getResultList();
+					.setParameter("itemId", itemId).getResultList();
+			if (resultList != null && resultList.size() > 0) {
+				session.setAttribute("beanDetailList", resultList);
+				session.setAttribute("purchasedTime", pTime);
+			}
 			tx.commit();
-			session.setAttribute("userName", loginUserName);
-			session.setAttribute("email", loginEmail);
-			session.setAttribute("beanBrief", resultList);
 		}
-		
+			
+		session.setAttribute("email", loginEmail);
 	}
 
 }
