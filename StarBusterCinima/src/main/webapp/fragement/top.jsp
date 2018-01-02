@@ -133,9 +133,11 @@ color:white;
 		<div class="col-md-3 navicolcenter" >
 				<a href="/StarBusterCinima/index.jsp"><img class="naviLogo" src="/StarBusterCinima/images/SB01.png"></a>
 		</div>
-		<div class="col-md-1 navicol">
-			<div class="ehdiv navidiv"><fmt:message key="navcolumn4" /></div>
-		</div>
+		<a href="/StarBusterCinima/shopping/index.jsp">
+			<div class="col-md-1 navicol">
+				<div class="ehdiv navidiv"><fmt:message key="navcolumn4" /></div>
+			</div>
+		</a>
 		<div class="col-md-1 navicol">
 			<div class="ehdiv navidiv"><fmt:message key="navcolumn5" /></div>
 		</div>
