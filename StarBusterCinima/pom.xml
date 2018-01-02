@@ -81,6 +81,21 @@
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
+		<!-- JSP 2.3.1 API -->
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>javax.servlet.jsp-api</artifactId>
+			<version>2.3.1</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- Servlet 3.1 API -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+			<scope>provided</scope>
+		</dependency>
 		<dependency>
 			<groupId>com.google.api-client</groupId>
 			<artifactId>google-api-client</artifactId>
@@ -97,7 +112,6 @@
 			<version>v1-rev136-1.23.0</version>
 		</dependency>
 
-		
 		<dependency>
 			<groupId>commons-beanutils</groupId>
 			<artifactId>commons-beanutils</artifactId>
@@ -105,18 +119,18 @@
 		</dependency>
 
 		<!-- HTTPS://MVNREPOSITORY.COM/ARTIFACT/NET.SF.EZMORPH/EZMORPH -->
-<!-- 		<DEPENDENCY> -->
-<!-- 			<GROUPID>NET.SF.EZMORPH</GROUPID> -->
-<!-- 			<ARTIFACTID>EZMORPH</ARTIFACTID> -->
-<!-- 			<VERSION>1.0.6</VERSION> -->
-<!-- 		</DEPENDENCY> -->
+		<!-- <DEPENDENCY> -->
+		<!-- <GROUPID>NET.SF.EZMORPH</GROUPID> -->
+		<!-- <ARTIFACTID>EZMORPH</ARTIFACTID> -->
+		<!-- <VERSION>1.0.6</VERSION> -->
+		<!-- </DEPENDENCY> -->
 
 		<!-- by linda -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>joda-time</groupId> -->
-<!-- 			<artifactId>joda-time</artifactId> -->
-<!-- 			<version>2.3</version> -->
-<!-- 		</dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>joda-time</groupId> -->
+		<!-- <artifactId>joda-time</artifactId> -->
+		<!-- <version>2.3</version> -->
+		<!-- </dependency> -->
 	</dependencies>
 
 	<build>

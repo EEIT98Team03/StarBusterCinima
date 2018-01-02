@@ -66,7 +66,6 @@ public class FilmSectionBean {
 				+ ", sectionroom=" + sectionroom + "]";
 	}
 	
-<<<<<<< HEAD
 	public FilmSectionBean(int filmSectionId, int filmId, Timestamp filmSectionTime, String roomSeats,
 			String unavailableSeats, String sectionroom) {
 		super();
@@ -80,12 +79,11 @@ public class FilmSectionBean {
 	public FilmSectionBean() {
 		super();	
 	}
-=======
+
 	public static void main(String[] args) {
 		String a = ",1_1,1_2";
 		String b = "1_1,1_2";
 		System.out.println(a.substring(0, 1).equals(","));
 	}
 	
->>>>>>> branch 'master' of https://github.com/EEIT98Team03/StarBusterCinima.git
 }
