@@ -52,7 +52,7 @@
 	<div class="container" style="margin-top: 16px; margin-left: 0 auto;">
 		<button id="buttonRecentOrderList" class="btn btn-success" style="width: 360px; margin-left: 16px; margin-bottom: 20px;">列出最近三個月訂單</button>
 	</div>
-	<div id="divOrderHistory" style="width: 480px; font-size: 1.3em; margin-left: 410px; float: left;">
+	<div id="divOrderHistory" style="width: 480px; font-size: 1.3em; margin-left: 320px; float: left;">
 		<c:choose>
 			<c:when test="${beanBrief != null && beanBrief.size() != 0}">
 				<c:forEach var="beanBrief" items="${beanBrief}" varStatus="idx">
