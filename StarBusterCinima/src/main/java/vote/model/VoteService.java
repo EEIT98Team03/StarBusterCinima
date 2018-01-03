@@ -28,7 +28,7 @@ public class VoteService {
 			if (MemberID == 79)
 				n=voteDAO.select(filmID).getVoteGoal();
 			// if ballotcount over the goal change status to elected
-			if (bean.getBallotCount() + n > bean.getVoteGoal())
+			if (bean.getBallotCount() + n >= bean.getVoteGoal())
 				voteDAO.updateVoteStatus(bean, "Elected");
 
 			bean.setBallotCount(bean.getBallotCount() + n);

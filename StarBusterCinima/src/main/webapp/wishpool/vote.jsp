@@ -7,39 +7,27 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>WishPool</title>
+
 <script src="https://code.jquery.com/jquery-2.0.0.min.js"></script>
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.2.4/assets/owl.carousel.min.css"></link>
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.2.4/assets/owl.theme.default.min.css"></link>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.2.4/owl.carousel.min.js"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.2.4/assets/owl.carousel.min.css"></link>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.2.4/assets/owl.theme.default.min.css"></link>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.2.4/owl.carousel.min.js"></script>
+
+
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <!-- <link rel="stylesheet" href="../css/wishpool/vote.css"></link> -->
   <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">  
- 
+
  <style >
 
-/*====================header&footer====================*/
+/*====================Test====================*/
 /* * { */
 /* 	border: 1px solid red; */
 /* 	font-family: Microsoft JhengHei; */
 /* } */
-
-
-/* #SBLogo { */
-/* 	height: 120px; */
-/* 	position: fixed; */
-/* 	top: 0px; */
-/* 	right: 0px; */
-/* 	left: 0px; */
-/* 	background-color: black; */
-/* 	z-index: 999; */
-/* 	margin: auto; */
-/* 	text-align: center; */
-/* } */
-/*====================header&footer====================*/
 /*====================FilmRate====================*/
 #chart2 {
 	width: 700px;
@@ -158,8 +146,8 @@ li {
 		<!--------------------------------------	main menu	-------------------------------------->
 		<ul id="myTab" class="nav nav-tabs">
 			<li class="dropdown"><a href="#" id="myTabDrop1"
-				class="dropdown-toggle" data-toggle="dropdown"> <span
-					class="glyphicon glyphicon-user"></span>      ${loginUserInfo.name}<b class="caret"></b>
+				class="dropdown-toggle" data-toggle="dropdown">
+				 <span class="glyphicon glyphicon-user"></span>  ${loginUserInfo.name}<b class="caret"></b>
 			</a>
 				<ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">
 					<li><a href="#tablist01" tabindex="0" data-toggle="tab"
@@ -204,10 +192,11 @@ li {
 			<!--------------------------------------	↑tab1 item end#  -------------------------------------->
 			<div class="tab-pane fade" id="votearea">
 				<div id="FilmWall">
-					<div class="item"></div>
-					<div class="item"></div>
-					<div class="item"></div>
-					<div class="item"></div>
+				<div class = "item"></div>
+				<div class = "item"></div>
+				<div class = "item"></div>
+				<div class = "item"></div>
+				<div class = "item"></div>
 				</div>
 					<a id="Mname">${loginUserInfo.memberId}</a>
 				<div id="dovote">
@@ -342,13 +331,20 @@ li {
 			}
 		};
 	</script>
+	
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.2.4/assets/owl.carousel.min.css"></link>	
+<link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.2.4/assets/owl.theme.default.min.css"></link>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.2.4/owl.carousel.min.js"></script>
+	
+	
 		<script>					
 		var max = 0,bs=0;//define
-		var Fid = [], bc = [], rate = [],Fname = [] ,Fimg = [] , goal=[],Sex=[],Age=[],
-		Fl=[];
+		var Fid = [], bc = [], rate = [],Fname = [] ,Fimg = [] , goal=[],Sex=[],Age=[],Fl=[];
 	//-----------------------------------------------------------------------------------------------------			
 		//Load&Distribution		
-		$(function() {			
+		$(function() {		
+			
 					//prepare data
 					$.get("vote.controller/selectall",function(data) //get vote data
 						{
@@ -448,6 +444,12 @@ li {
 							
 						//-----------------------------------------------------------------------------------------------------	
 
+			
+						
+							//feed FilmWall images
+							for(var i = 0; i <5;i++){								
+						 		$('.item:eq('+ i +')').append($("<img src="+ Fl[i] + "/>"));				
+							}
 						
 							$('#FilmWall').owlCarousel({//FilmWall Controll				
 								items : 5,
@@ -456,13 +458,7 @@ li {
 								autoplay : true,
 								autoplayTimeout : 1000,
 								autoplayHoverPause : true,					
-							});	
-						
-							//feed FilmWall images
-							for(var i = 0; i <5;i++){
-								$('#FilmWall').append("<div id = 'item'></div>");
-						 		$('.item:eq('+ i +')').append($("<img src="+ Fl[i] + ">"));				
-							}
+								});	
 							
 						//-----------------------------------------------------------------------------------------------------	
 							
@@ -472,51 +468,48 @@ li {
 // 							console.log("bs="+bs);
 // 							console.log("Fimg="+Fimg);
 // 							console.log("Fname="+window.Fname);					
-					});//end get#	
+					});//end get#
+	
+					$('#vote').click(//vote button click				
+							function() {
+
+								var r;
+								$.ajax({ //get film data						
+									url: "vote.controller/VoteAMovie", 
+									type: 'POST', 
+									data:{"FilmID" : $('select :selected').val()} ,
+									dataType: "text", 
+									success: function(data) { 
+										//turn json data into array							
+										r = jQuery.parseJSON(data);	 							
+									},
+									error: function() { 
+							  	 		console.log("json parse error");
+									},
+									complete: function(){
+											//put massage in status bar
+											var status = ["尚未開始","進行中","集氣成功"]
+											var i =0;
+											
+											if(r.VoteStatus == "during")
+												i=1;
+											else if(r.VoteStatus == "Elected")
+												i=2;
+											
+											$('.modal-body').text("電影名稱: "+$('select :selected').text()+"   |   目前得票 : " +r.BallotCount + "   |   狀態 : " + status[i]);
+											$('.alert alert-warning').removeAttr("display");								
+											setInterval(function(){location.reload()}, 2000);								
+									}
+								});	
+					});
+					
+					
+					
+
+
 		});//end onload# 	
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------	
 
-	
-	
-
-		
-		//-----------------------------------------------------------------------------------------------------	
-		$('#vote').click(//vote button click				
-				function() {
-// 					alert($('#Mname').val());
-					var r;
-					$.ajax({ //get film data						
-						url: "vote.controller/VoteAMovie", 
-						type: 'POST', 
-						data:{"FilmID" : $('select :selected').val()} ,
-						dataType: "text", 
-						success: function(data) { 
-							//turn json data into array							
-							r = jQuery.parseJSON(data);	 							
-						},
-						error: function() { 
-				  	 		console.log("json parse error");
-						},
-						complete: function(){
-								//put massage in status bar
-								var status = ["尚未開始","進行中","集氣成功"]
-								var i =0;
-								
-								if(r.VoteStatus == "nostart")
-									i=0;
-								else if(r.VoteStatus == "during")
-									i=1;
-								else if(r.VoteStatus == "Elected")
-									i=2;
-								
-								$('.modal-body').text("電影名稱: "+$('select :selected').text()+"   |   目前得票 : " +r.BallotCount + "   |   狀態 : " + status[i]);
-								$('.alert alert-warning').removeAttr("display");								
-								setInterval(function(){location.reload()}, 2000);								
-						}
-					});	
-		});
-		//-----------------------------------------------------------------------------------------------------	
-	
-		</script>
+</script>
 </body>
 </html>
