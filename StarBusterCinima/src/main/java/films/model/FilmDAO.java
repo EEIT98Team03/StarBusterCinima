@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 import java.util.List;
 public interface FilmDAO {
 
+	boolean insertFilm(FilmBean bean);
 	FilmBean selectByFilmName(String filmName);
 	FilmBean selectByEngName(String engName);
 	List<FilmBean> selectAll();
