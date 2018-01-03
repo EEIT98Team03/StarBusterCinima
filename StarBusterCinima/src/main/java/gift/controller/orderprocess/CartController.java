@@ -22,7 +22,7 @@ public class CartController {
 	GiftItemService giftItemService;
 
 	@SuppressWarnings("unchecked")
-	@RequestMapping(name = "/cart.controller", method = { RequestMethod.GET, RequestMethod.POST })
+	@RequestMapping(value = "/cart.controller", method = { RequestMethod.GET, RequestMethod.POST })
 	public String method(HttpSession session, Model model, String itemNameHidden) {
 		String email = (String) session.getAttribute("email");
 		GiftItemBean bean = new GiftItemBean();
