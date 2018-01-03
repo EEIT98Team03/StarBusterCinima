@@ -38,7 +38,7 @@
 }
 .memberInfoInnerTable{
 	color:white;
-	font-size:180%;
+	font-size:140%;
 }
 .memberInfoInnerTable td{
 	padding-top:10px;
@@ -55,7 +55,7 @@
 }
 .col-sm-8{
 	margin-left:55px;
-	padding-top:130px;
+	padding-top:85px;
 	width: 65%;
 	height:100%;
 /* 	margin: 50px 0px 0px 50px; */
@@ -82,7 +82,7 @@ margin-top:50px
 		<div class="row">
 			<div  class="col-sm-2">
 				<img src='/StarBusterCinima/image/member/${loginUserInfo.memberId}'>
-				<hr>
+				<hr style="border:0.5px solid white">
 				<table class="memberInfoInnerTable">
 					<tr>
 						<td><span>姓名:</span><span>${loginUserInfo.name}</span></td>
@@ -188,12 +188,11 @@ margin-top:50px
 				</table>
 			</div>
 			
-			
 			<div >
 			<div class="col-sm-8" >
-
-
+						
 				<div class="FilmWallBox" style="background-color:black">
+					<p style="color:white;margin:0px auto;padding:18px;font-size:18px">推薦電影</p>	
 					<!-- 輪播     -->
 					<div id="FilmWall">
 				<!-- 		<div class="item"><img src="/StarBusterCinima/adImages/type=電影,position=首頁輪播,sequence=5" class="img-rounded" style=""/></div> -->

@@ -18,7 +18,6 @@
 
 		<mapping class="gift.model.OrderHistoryBriefBean" />
 		<mapping class="gift.model.OrderHistoryDetailBean" />
-		<mapping class="gift.model.PotentialItemListBean" />
 		<mapping class="delivery.controller.OrderFinalCollector" />
 
 		<mapping class="member.model.QuestionRecordBean" />

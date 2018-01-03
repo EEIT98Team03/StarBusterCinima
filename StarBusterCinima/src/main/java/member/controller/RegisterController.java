@@ -62,7 +62,7 @@ public class RegisterController {
 //		}
 
 		// 讀取使用者資料
-		System.out.println("讀取register的資料" + bean);
+//		System.out.println("讀取register的資料" + bean);
 		// 進行資料型態轉換Spring
 		// 進行資料檢查
 		String autoEmailAddress = "";

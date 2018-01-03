@@ -8,14 +8,11 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import films.model.FilmBean;
 import films.model.FilmDAO;
 import films.model.FilmSectionBean;
-import member.model.MemberBean;
-
 
 @Repository
 
@@ -32,7 +29,6 @@ public class FilmHibernateDAO implements FilmDAO {
 	public FilmBean selectById(int filmId) {
 		return this.session().get(FilmBean.class, filmId);
 	}
-
 
 	@Override
 	public FilmBean selectByFilmName(String filmName) {
@@ -112,7 +108,7 @@ public class FilmHibernateDAO implements FilmDAO {
 		// FilmSection.filmsectionid,filmsectiontime,Film.filmname,
 		// Film.lengthofFilm from FilmSection join Film on FilmSection.filmid =
 		// Film.filmid
-		String Hql = "select fs.FilmID,fs.FilmSectionTime,fs.sectionroom ,f.filmName ,f.lengthOfFilm ,fs.FilmSectionID from FilmSectionBean  as fs join FilmBean as f on fs.FilmID = f.filmId";
+		String Hql = "select fs.filmId,fs.filmSectionTime,fs.sectionroom ,f.filmName ,f.lengthOfFilm ,fs.filmSectionId from FilmSectionBean  as fs join FilmBean as f on fs.filmId = f.filmId and f.upstatus = 'intheaters'";
 
 		Query<Object[]> query = this.session().createQuery(Hql);
 		List<Object[]> list = query.getResultList();
@@ -178,6 +174,42 @@ public class FilmHibernateDAO implements FilmDAO {
 	public boolean updateposter(byte[] img, int FilmID) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public boolean UptdteFilmstatus(int filmId) {
+		FilmBean bean = this.selectById(filmId);
+		bean.setUpstatus("intheaters");
+		this.session().update(bean);
+
+		return false;
+	}
+
+	public List<Object[]> SelectSectionCount() {
+		String Hql = "select fs.filmId,COUNT(fs.filmId) as fc from FilmSectionBean as fs  group by fs.filmId order by fc desc";
+		
+		//select Film.filmid,Film.filmname,b.fc from Film join (select fs.filmid,COUNT(fs.filmid) as fc from FilmSection as fs   group by fs.filmid )as b on Film.filmid =b.filmid order by fc desc
+		Query query = this.session().createQuery(Hql);
+		List<Object[]> list = query.getResultList();
+		
+		
+		
+		for(int i = 0;i<list.size();i++) {
+//			System.out.println(list.get(i)[0]  + " " +list.get(i)[1]);
+			System.out.println(this.selectById(Integer.parseInt(list.get(i)[0].toString())).getFilmName());	
+			list.get(i)[0] = this.selectById(Integer.parseInt(list.get(i)[0].toString())).getFilmName()+"-"+this.selectfilmLength(Integer.parseInt(list.get(i)[0].toString()));
+			System.out.println(list.get(i)[0] + ""+list.get(i)[1]+"");
+			
+		}
+
+		return list;
+
+	}
+
+	@Override
+	public int selectfilmLength(int filmId) {
+		
+		return Integer.parseInt(this.session().get(FilmBean.class,filmId).getLengthOfFilm());
 	}
 
 }

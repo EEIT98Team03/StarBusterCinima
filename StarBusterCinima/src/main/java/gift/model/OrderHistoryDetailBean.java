@@ -1,7 +1,5 @@
 package gift.model;
 
-import java.sql.Timestamp;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,14 +9,28 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "OrderHistoryDetail")
 public class OrderHistoryDetailBean {
+	@Override
+	public String toString() {
+		return "OrderHistoryDetailBean [orderId=" + orderId + ", memberEmail=" + memberEmail + ", itemId=" + itemId
+				+ ", itemName=" + itemName + ", itemHiddenName=" + itemHiddenName + ", unitPrice=" + unitPrice
+				+ ", itemQquantity=" + itemQquantity + ", sumTotal=" + sumTotal + "]";
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int orderId;
-	private int memberId;
-	private int itemCategoryId;
-	private String itemCategoryName;
+	private String memberEmail;
 	private int itemId;
 	private String itemName;
+	private String itemHiddenName;
+	public String getItemHiddenName() {
+		return itemHiddenName;
+	}
+
+	public void setItemHiddenName(String itemHiddenName) {
+		this.itemHiddenName = itemHiddenName;
+	}
+
 	private int unitPrice;
 	private int itemQquantity;
 	private int sumTotal;
@@ -31,28 +43,12 @@ public class OrderHistoryDetailBean {
 		this.orderId = orderId;
 	}
 
-	public int getMemberId() {
-		return memberId;
+	public String getMemberEmail() {
+		return memberEmail;
 	}
 
-	public void setMemberId(int memberId) {
-		this.memberId = memberId;
-	}
-
-	public int getItemCategoryId() {
-		return itemCategoryId;
-	}
-
-	public void setItemCategoryId(int itemCategoryId) {
-		this.itemCategoryId = itemCategoryId;
-	}
-
-	public String getItemCategoryName() {
-		return itemCategoryName;
-	}
-
-	public void setItemCategoryName(String itemCategoryName) {
-		this.itemCategoryName = itemCategoryName;
+	public void setMemberEmail(String memberEmail) {
+		this.memberEmail = memberEmail;
 	}
 
 	public int getItemId() {
@@ -97,19 +93,5 @@ public class OrderHistoryDetailBean {
 
 	public OrderHistoryDetailBean() {
 		super();
-	}
-
-	public OrderHistoryDetailBean(int orderId, int memberId, int itemCategoryId, String itemCategoryName,
-			int itemId, String itemName, int unitPrice, int itemQquantity, int sumTotal, Timestamp purchasedTime) {
-		super();
-		this.orderId = orderId;
-		this.memberId = memberId;
-		this.itemCategoryId = itemCategoryId;
-		this.itemCategoryName = itemCategoryName;
-		this.itemId = itemId;
-		this.itemName = itemName;
-		this.unitPrice = unitPrice;
-		this.itemQquantity = itemQquantity;
-		this.sumTotal = sumTotal;
 	}
 }

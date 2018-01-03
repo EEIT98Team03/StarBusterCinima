@@ -2,6 +2,9 @@ package vote.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,12 +35,14 @@ public class VoteController {
 	}
 
 	@RequestMapping(value="VoteAMovie",method = { RequestMethod.POST })
-	public VoteBean method2(Model model, int FilmID ,int MemberID) {
+	public VoteBean method2(Model model, int FilmID ,int MemberID,HttpServletRequest request) {
 
 		VoteBean bean = new VoteBean();
 		bean.setFilmID(FilmID);
+		System.out.println(MemberID);
+		
 
-		VoteBean result = voteService.VoteAMovie(FilmID,MemberID);
+		VoteBean result = voteService.VoteAMovie(FilmID,79);
 		if(result!=null) {			
 			
 //			System.out.println(result);			

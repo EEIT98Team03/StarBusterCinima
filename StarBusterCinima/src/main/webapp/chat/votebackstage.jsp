@@ -4,7 +4,18 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Vote Backstage</title>
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+	integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+	crossorigin="anonymous">
+	
+	
+<script
+	src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+<script
+	src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <link rel="stylesheet"
 	href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -15,15 +26,108 @@
 .VoteSelection01 {
 	width: 1200px;
 }
+#do{
+	margin-left:5%;
+	margin-top:10% ;
+	width:90%;
+}
+.menu {
+	width: 100%;
+	overflow: auto;
+	list-style-type: none;
+	margin-top: 30px;
+	color: white;
+}
+
+.menu li {
+	float: left;
+	width: 7em;
+	font-size: 20px;
+	text-align: center;
+}
+
+.menu a {
+	color: white;
+}
+.navbar-header span{
+color: white;
+}
+body {
+	margin: 0;
+	padding: 0;
+	font-family: "Lucida Grande", Helvetica, Arial, Verdana, sans-serif;
+	font-size: 14px;
+	background-image: url("/StarBusterCinima/images/adminBackground.jpg");
+	height:auto;
+	padding-top: 70px;
+
+}
+
+.affix {
+	padding: 0px;
+	-webkit-transition: padding 0.2s linear;
+	-moz-transition: padding 0.2s linear;
+	-o-transition: padding 0.2s linear;
+	transition: padding 0.2s linear;
+}
+
+.affix-top {
+	padding-top: 15px;
+	padding-bottom: 15px;
+	-webkit-transition: padding 0.5s linear;
+	-moz-transition: padding 0.5s linear;
+	-o-transition: padding 0.5s linear;
+	transition: padding 0.5s linear;
+}
 </style>
 </head>
 <body>
-	<div class="jumbotron" style="border-radius: 30px;">
+
+
+	<!-- Begin Navbar -->
+	<div id="nav">
+		<div class="navbar navbar-inverse navbar-fixed-top" data-spy="affix"
+			data-offset-top="100">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed"
+						data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+						aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span> <span
+							class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="/StarBusterCinima/adminstrator/adminLogout.jsp"><img style="width: 132px"
+						class="img-responsive logo" src="/StarBusterCinima/images/SB01.png" alt=""></a>
+				</div>
+
+				<div id="navbar" class="collapse navbar-collapse">
+					<ul class="menu">
+						<li class="active"><a href="#">攔截問答管理</a></li>
+						<li><a href="/StarBusterCinima/chat/robotKnowledge.jsp">智識庫管理</a></li>
+						<li><a href="/StarBusterCinima/chat/robotChart.jsp">查看統計報表</a></li>
+						<li><a href="/StarBusterCinima/chat/robotAdManage.jsp">廣告管理</a></li>
+						<li><a href="/StarBusterCinima/chat/filmsection.jsp">電影場次管理</a></li>
+						<li><a href="/StarBusterCinima/chat/votebackstage.jsp">活動管理</a></li>
+					</ul>
+				</div>
+				<!--/.nav-collapse -->
+			</div>
+			<!--/.contatiner -->
+		</div>
+	</div>
+	<!-- Begin Navbar -->
+	
+	
+	
+	
+	<div class="jumbotron" style="border-radius: 30px;" id="do">
+	
 		<div class="container">
 			<div class="dropdown">
 				<button type="button" class="btn dropdown-toggle" id="dropdownMenu1"
 					data-toggle="dropdown">
-					<span class="glyphicon glyphicon-user"></span> Admin ${adminname}<span
+					<span class="glyphicon glyphicon-user"></span> ${AdministratorInfo.name}<span
 						class="caret"></span>
 				</button>
 				<ul class="dropdown-menu" role="menu"

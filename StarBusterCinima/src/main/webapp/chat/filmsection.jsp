@@ -4,7 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+	integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+	crossorigin="anonymous">
 
 <script
 	src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -22,12 +25,38 @@
 <script src='../js/calendar/scheduler.min.js'></script>
 <title>FilmSection Backstage</title>
 <style >
+
+.menu {
+	width: 100%;
+	overflow: auto;
+	list-style-type: none;
+	margin-top: 30px;
+	color: white;
+}
+
+.menu li {
+	float: left;
+	width: 7em;
+	font-size: 20px;
+	text-align: center;
+}
+
+.menu a {
+	color: white;
+}
+.navbar-header span{
+color: white;
+}
+
+
 #out {
 	text-align: center;
 	width:90%;
 	border-radius: 30px;
 	margin: 10px auto;
+	margin-top:140px;
 	font-family: Microsoft JhengHei;
+	height: auto;
 }
 
 body {
@@ -35,6 +64,9 @@ body {
 	padding: 0;
 	font-family: "Lucida Grande", Helvetica, Arial, Verdana, sans-serif;
 	font-size: 14px;
+	background-image: url("/StarBusterCinima/images/adminBackground.jpg");
+	height:auto;
+
 }
 
 #calendar {
@@ -49,11 +81,14 @@ body {
 }
 #aaa {
 	text-align: center;	
-	float: right;
+	position: absolute;
+	bottom: 50%;	
+	width:20%;
+	left:65%; 
 }
 #d{
-	position: fixed;
-	bottom: 20%;
+	position: absolute;
+	bottom: 10%;
 	right: 200px;
 	width:30%;
 	text-align: left;
@@ -98,8 +133,7 @@ body {
 						ltemp = parseInt(r[i][4]);						
 						
 						
-						temp2[0] = parseInt(temp2[0]) + Math.round(ltemp/60);
-// 						temp2[1] = parseInt(temp2[1]) + Math.round((ltemp%60)/30-1)*30;					
+						temp2[0] = parseInt(temp2[0]) + Math.round(ltemp/60);					
 						
 						SectionData.end = temp[0] + '-' + temp[1] + '-'
 								+ temp[2] + 'T' + temp2[0] + ':' + temp2[1]
@@ -130,14 +164,14 @@ body {
 									agendaTwoDay : {
 										type : 'agenda',
 										duration : {
-											days : 2
+											days : 7
 										},										
-										listDay: { buttonText: 'list day' },
+										listDay: { buttonText: 'week' },
 										groupByResource : true
 									}								
 								},
 								resources : [ {id : 'a',title : ' A 廳 ',eventColor : '#B088FF'}, {id : 'b',title : ' B 廳 ',eventColor : '#20B7B7'}, {
-									id : 'c',title : ' C 廳 ',eventColor : '#33CCFF'}, {id : 'd',title : ' D 廳 ',eventColor : '#FFCC22'} ],
+									id : 'c',title : ' C 廳 ',eventColor : '#33CCFF'}, {id : 'd',title : ' D 廳 ',eventColor : '#FFAA33'} ],
 								events :SectionDataList,
 								select : function(start, end, jsEvent, view, resource) {
 									start1=start.format();
@@ -152,7 +186,7 @@ body {
 										SectionData.start = start1.split("T")[0] +" "+ start1.split("T")[1];									
 										temp2=start1.split("T")[1].split(":");
 										
-										temp2[0] = parseInt(temp2[0]) + 2;
+										temp2[0] = parseInt(temp2[0]) + Math.round(ltemp/60);	
 //	 									temp2[1] = parseInt(temp2[1]) + ((SectionData.lengthoffilm%60)/30)*30;
 										
 																	
@@ -177,7 +211,11 @@ body {
 										});//end ajax#										
 									}
 									else
-										alert(start.format(),resourceId);									
+										alert(start.format(),resourceId);
+									
+								
+									
+
 								},
 								dayClick : function(date, jsEvent, view, resource) {
 									console.log('dayClick', date.format(),
@@ -260,6 +298,8 @@ body {
 			//-----------------------------------------------------------------------------------------------//
 			$('#NewSection').on('click',function(){
 				
+				location.reload();
+				$('#istar').animate({left:'250px'});
 				
 			})
 			
@@ -268,13 +308,30 @@ body {
 					type: "GET", 		
 					dataType: "text", 			
 					success: function(data) {				
-						re = jQuery.parseJSON(data);
+						re = jQuery.parseJSON(data);						
 						for(var i = 0; i<re.length;i++){
-// 							lengthoffilm[i] = re[i].lengthOfFilm;
-							$('#SelectFilmName').append($("<option></option>").attr("value",re[i].filmId).text(re[i].filmName));
 							
-							$('#d').append($("<tr class='dd'></tr>").append($("<td></td>").text(re[i].filmName)));
-							$('.dd:eq('+ (i) +')').append($("<td></td>").text(re[i].lengthofFilm))
+							$('#SelectFilmName').append($("<option></option>").attr("value",re[i].filmId).text(re[i].filmName));
+						
+							
+
+						}	
+					},
+					error: function() { 
+				  	 	console.log("parse error"); 
+					} 
+				});//end ajax#
+				
+				$.ajax({ 				
+					url: "../film/filmMgmt.controller/SelectSectionCount",
+					type: "GET", 		
+					dataType: "text", 			
+					success: function(data) {				
+						re = jQuery.parseJSON(data);						
+						for(var i = 0; i<re.length;i++){
+							console.log(re[i]);
+							$('#d').append($("<tr class='dd'></tr>").append($("<td></td>").text(re[i][0].split("-")[0])).append($("<td></td>").text(re[i][0].split("-")[1] + "分鐘")).append($("<td></td>").text("-")));
+							$('.dd:eq('+(i)+')>td:eq(2)').text(re[i][1])
 						}	
 // 						console.log(re); 
 					},
@@ -282,20 +339,60 @@ body {
 				  	 	console.log("parse error"); 
 					} 
 				});//end ajax#
+				
+				
+				
+				
+				
+				
+				
 // 			console.log(lengthoffilm);
 		});
 	</script>
-	<div class="jumbotron" id="out">
-	<h2>電影場次管理</h2>		
-		<div id = "aaa" >
-			<select id="SelectFilmName" class="label label-primary"
-				class="SectionData"></select>
-				<button type="button" class="SectionData btn btn-default"
-				id="NewSection">提交</button>
-		</div>		
+	
+		<!-- Begin Navbar -->
+	<div id="nav">
+		<div class="navbar navbar-inverse navbar-fixed-top" data-spy="affix"
+			data-offset-top="100">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed"
+						data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+						aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span> <span
+							class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="/StarBusterCinima/adminstrator/adminLogout.jsp"><img style="width: 132px"
+						class="img-responsive logo" src="/StarBusterCinima/images/SB01.png" alt=""></a>
+				</div>
+
+				<div id="navbar" class="collapse navbar-collapse">
+					<ul class="menu">
+						<li class="active"><a href="#">攔截問答管理</a></li>
+						<li><a href="/StarBusterCinima/chat/robotKnowledge.jsp">智識庫管理</a></li>
+						<li><a href="/StarBusterCinima/chat/robotChart.jsp">查看統計報表</a></li>
+						<li><a href="/StarBusterCinima/chat/robotAdManage.jsp">廣告管理</a></li>
+						<li><a href="/StarBusterCinima/chat/filmsection.jsp">電影場次管理</a></li>
+						<li><a href="/StarBusterCinima/chat/votebackstage.jsp">活動管理</a></li>
+					</ul>
+				</div>
+				<!--/.nav-collapse -->
+			</div>
+			<!--/.contatiner -->
+		</div>
+	</div>
+	<!-- Begin Navbar -->
+	<div class="jumbotron" id="out">		
 		<div id='calendar' ></div>
 		
-
+		<div id = "aaa" >
+		<img src = "/StarBusterCinima/images/logo2.png" style="width:60% margin-bottom:100px;" id="istar"/>
+		<select id="SelectFilmName" class="label label-default"
+				class="SectionData"></select>
+				<button type="button" class="SectionData btn btn-default"
+				id="NewSection" style="margin: 0px;">提交</button>
+		</div>
 			<table class="table" id="d">
 				<caption>場次統計</caption>
 				<thead>
