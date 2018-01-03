@@ -97,7 +97,7 @@ h2 {
 	border-radius: 20px;
 	padding: 10px;
 	height: 800px;
-	top: 140px;
+	top: 160px;
 	position: absolute;
 	left: 5%;
 	width: 90%;
@@ -120,7 +120,7 @@ h2 {
 
 /*====================FilmWall====================*/
 #FilmWall {
-	width: 90%;
+	width: 80%;
 	padding: 20px;
 	margin: auto;
 	overflow: hidden;
@@ -147,8 +147,10 @@ li {
 </style>
  
 </head>
-<body data-spy="scroll" data-target=".navbar-example">
-<img id="Logo" src="../images/SB10.gif"  style="filter: blur(5px);width:100%;height:100%"> 
+<body >
+
+<jsp:include page="${pageScope.request.contextPath}/fragement/top.jsp"></jsp:include>
+
 	<div id="SBLogo">
 		
 	</div>
@@ -171,12 +173,7 @@ li {
 			<li><a href="#votearea" data-toggle="tab">集氣 <span
 					class="glyphicon glyphicon-hand-up"></span>
 			</a></li>
-
 			<!--------------------------------------	↑tab3 end#  -------------------------------------->
-			<li><a href="#speakloud" data-toggle="tab"> 大聲說 <span
-					class="glyphicon glyphicon-volume-up"></span>
-			</a></li>
-			<!--------------------------------------	↑tab4 end#  -------------------------------------->
 		</ul>
 		<!--------------------------------------	↑main menu end#  -------------------------------------->
 
@@ -212,6 +209,7 @@ li {
 					<div class="item"></div>
 					<div class="item"></div>
 				</div>
+					<span id="Mname">${loginUserInfo.memberId}</span>
 				<div id="dovote">
 					<h2>投票</h2>
 					<select name="FilmName" id="FID"></select>
@@ -221,7 +219,7 @@ li {
 						data-target="#myModal">
 
 					<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-						aria-labelledby="myModalLabel" aria-hidden="true">
+						aria-labelledby="myModalLabel" aria-hidden="true" style="top:200px;">
 						<div class="modal-dialog">
 							<div class="modal-content">
 								<div class="modal-header">
@@ -243,45 +241,6 @@ li {
 				</div>
 			</div>
 			<!--------------------------------------	↑tab2 item end#  -------------------------------------->
-			<div class="tab-pane fade" id="speakloud">
-				<div class="table-responsive">
-					<table class="table">
-						<tbody>
-							<tr>
-								<td>
-									<p calss="balabala" class="pull-left">
-										kirito <span class="glyphicon glyphicon-volume-up"> : </span>
-										Star Buster Stream!!!!!
-										<button class="btn btn-primary btn-sm">
-											99 <span class="glyphicon glyphicon-thumbs-down"></span>
-										</button>
-										<button class="btn btn-primary btn-sm">
-											0 <span class="glyphicon glyphicon-thumbs-up"></span>
-										</button>
-									</p>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<p calss="balabala" class="pull-left">
-										kirito <span class="glyphicon glyphicon-volume-up"> : </span>
-										Star Buster Stream!!!!!
-									</p>
-								</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-
-				<div class="input-group">
-					<input type="text" class="form-control"> <span
-						class="input-group-btn">
-						<button class="btn btn-default" type="button">balabala~</button>
-					</span>
-				</div>
-				<!-- /input-group -->
-			</div>
-			<!--------------------------------------	↑tab3 item end#  -------------------------------------->
 			<!--------------------------------------	↑item in  menu end#  -------------------------------------->
 		</div>
 	</div>
@@ -333,7 +292,7 @@ li {
 								}						
 							},
 								xAxis: {categories: Fname,labels: {style: {fontSize:'15px'}},tickInterval: 1},							    				
-								series : [ {colorByPoint : true,data : [{name:Fi[0]+" 票數: "+bc[0],y:bc[0]},{name:Fi[1]+" 票數: "+bc[0],y:bc[1]},{name:Fi[2]+" 票數: "+bc[0],y:bc[2]},{name:Fi[3],y:bc[3]},
+								series : [ {colorByPoint : true,data : [{name:Fi[0]+" 票數: "+bc[0],y:bc[0]},{name:Fi[1]+" 票數: "+bc[1],y:bc[1]},{name:Fi[2]+" 票數: "+bc[0],y:bc[2]},{name:Fi[3],y:bc[3]},
 									{name:Fi[4],y:bc[4]},{name:Fi[5],y:bc[5]},{name:Fi[6],y:bc[6]},{name:Fi[7],y:bc[7]},{name:Fi[8],y:bc[8]},
 									]}]					    
 						});			
@@ -344,7 +303,7 @@ li {
 						{
 							chart : {plotBorderWidth : null,plotShadow : false,type : method,height: parseInt(hi)},
 							credits : {enabled : false},
-							title : {text : ti},
+							title : {text : '投票年齡分布'},
 							tooltip : {pointFormat : '{series.name}:{point.percentage:.1f}'},
 							plotOptions : {
 								pie : {
@@ -353,9 +312,32 @@ li {
 									}
 								}						
 							},
-								xAxis: {categories: Fname,labels: {style: {fontSize:'15px'}},tickInterval: 1},							    				
-								series : [ {colorByPoint : true,name:"123",data : [{name:'年齡',data: Fi}
-									]}]					    
+							 legend: {
+							        layout: 'vertical',
+							        align: 'right',
+							        verticalAlign: 'middle'
+							    },
+
+								xAxis: {categories: Fi,labels: {style: {fontSize:'15px'}},tickInterval: 1},							    				
+								   series: [{
+								        name: '年齡區間',
+								        data: [10, 12, 22, 30, 5, 1]
+								    }],
+
+								    responsive: {
+								        rules: [{
+								            condition: {
+								                maxWidth: 500
+								            },
+								            chartOptions: {
+								                legend: {
+								                    layout: 'horizontal',
+								                    align: 'center',
+								                    verticalAlign: 'bottom'
+								                }
+								            }
+								        }]
+								    }
 						});			
 			}
 		};
@@ -363,8 +345,7 @@ li {
 		<script>					
 		var max = 0,bs=0;//define
 		var Fid = [], bc = [], rate = [],Fname = [] ,Fimg = [] , goal=[],Sex=[],Age=[],
-		Fl=["../wishpool/img/bbb.jpg","../wishpool/img/ccc.jpg","../wishpool/img/ddd.jpg","../wishpool/img/eee.jpg",
-			"../wishpool/img/fff.jpg","../wishpool/img/coco.jpg"];
+		Fl=[];
 	//-----------------------------------------------------------------------------------------------------			
 		//Load&Distribution		
 		$(function() {			
@@ -381,7 +362,8 @@ li {
 								Fname[i] = item[1];
 								bc[i] = item[2];
 								goal[i] = item[3];
-								bs = bs + item[2];								
+								bs = bs + item[2];
+								Fl[i]= item[4];
 								
 							});//end each#
 					   //-----------------------------------------------------------------------------------------------------		
@@ -392,7 +374,7 @@ li {
 						//-----------------------------------------------------------------------------------------------------	
 						
 							$('#frtable').on('click', 'tr>td', function() {	
-								
+								alert()
 								$('#chart2').animate({height:"300px"});	
 
 								$.ajax({ //get film data						
@@ -411,7 +393,7 @@ li {
 										Sex[0]=a[3];
 										Sex[1]=a[4];										
 										
-// 										alert(Age[0]+","+Age[1]+","+Age[2]+","+Sex[0]+","+Sex[0]);	
+										alert(Age[0]+","+Age[1]+","+Age[2]+","+Sex[0]+","+Sex[0]);	
 									},
 									error: function() { 
 							  	 		console.log("json parse error");
@@ -420,8 +402,8 @@ li {
 										//drawchart(Fname, bc ,"chart1" , "column" ,goal,300,400 ,"目前票數/達標票數");
 										console.log(Age);
 										console.log(Sex);
-										drawchart(["男","女"], [12,23], "chart2", "pie", Sex, 300 ,200);
-										drawchart(["20~40","40~60","60~"], [1,2,3], "chart3", "line",10, 300 ,200);
+										drawchart(["男","女"], [12,23], "chart2", "pie", Sex, 300 ,200,'');
+										drawchart(["10 - 20","20 - 30","30 - 40","40 - 50","50 - 60","60 -"], [1,2,3], "chart3", "line",10, 300 ,200);
 									}
 								});	
 
@@ -429,10 +411,10 @@ li {
 						
 						
 							$('#frtable').mouseleave( function() {								
-// 								$("#chart3").remove();
-// 								$('#chart2').animate({height:"650px"});
-// 								drawchart(Fname, bc ,"chart2" ,"pie" ,goal ,650 ,400);
-// 								$('#analysis').append("<div id='chart3'></div>")
+								$("#chart3").remove();
+								$('#chart2').animate({height:"650px"});
+								drawchart(Fname, bc ,"chart2" ,"pie" ,goal ,650 ,400);
+								$('#analysis').append("<div id='chart3'></div>")
 								
 							});
 						
@@ -469,12 +451,22 @@ li {
 							
 						//-----------------------------------------------------------------------------------------------------	
 
+						
+							$('#FilmWall').owlCarousel({//FilmWall Controll				
+								items : 5,
+								loop : true,
+								margin : 10,
+								autoplay : true,
+								autoplayTimeout : 1000,
+								autoplayHoverPause : true,					
+							});	
+						
 							//feed FilmWall images
 							for(var i = 0; i <5;i++){
 								$('#FilmWall').append("<div id = 'item'></div>");
-						 		$('.item:eq('+ i +')').append($("<img src="+ "../images/aa123.gif" + ">"));				
+						 		$('.item:eq('+ i +')').append($("<img src="+ Fl[i] + ">"));				
 							}
-							fw(5);
+							
 						//-----------------------------------------------------------------------------------------------------	
 							
 							//test
@@ -488,26 +480,18 @@ li {
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------	
 
 	
-		function fw(itemcount){
-			console.log(itemcount);
-			$('#FilmWall').owlCarousel({//FilmWall Controll
-				
-				items : parseInt(itemcount),
-				loop : true,
-				margin : 10,
-				autoplay : true,
-				autoplayTimeout : 1000,
-				autoplayHoverPause : true,					
-			});
-		}
+	
+
+		
 		//-----------------------------------------------------------------------------------------------------	
-		$('#vote').click(//vote button click
+		$('#vote').click(//vote button click				
 				function() {
+// 					alert($('#Mname').val());
 					var r;
 					$.ajax({ //get film data						
 						url: "vote.controller/VoteAMovie", 
 						type: 'POST', 
-						data:{"FilmID" : $('select :selected').val(),"MemberID":74} ,
+						data:{"FilmID" : $('select :selected').val(),"MemberID":79} ,
 						dataType: "text", 
 						success: function(data) { 
 							//turn json data into array							
@@ -530,15 +514,12 @@ li {
 								
 								$('.modal-body').text("電影名稱: "+$('select :selected').text()+"   |   目前得票 : " +r.BallotCount + "   |   狀態 : " + status[i]);
 								$('.alert alert-warning').removeAttr("display");								
-							//	setInterval(function(){location.reload();}, 3000);								
+								setInterval(function(){location.reload()}, 2000);								
 						}
 					});	
 		});
 		//-----------------------------------------------------------------------------------------------------	
-			$(function() {
-
-			
-			});
+	
 		</script>
 </body>
 </html>

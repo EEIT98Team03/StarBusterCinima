@@ -2,7 +2,7 @@ package films.model;
 
 import java.sql.Timestamp;
 
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,7 +17,9 @@ public class FilmSectionBean {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int filmSectionId;	
+	@Column(name="filmid")
 	private int filmId; 
+	@Column(name="filmsectiontime")
 	private Timestamp filmSectionTime ;
 	private String roomSeats ; 
 	private String unavailableSeats;
@@ -64,9 +66,8 @@ public class FilmSectionBean {
 		return "FilmSectionBean [filmSectionId=" + filmSectionId + ", filmId=" + filmId + ", filmSectionTime="
 				+ filmSectionTime + ", roomSeats=" + roomSeats + ", unavailableSeats=" + unavailableSeats
 				+ ", sectionroom=" + sectionroom + "]";
-	}
-	
-<<<<<<< HEAD
+	}	
+
 	public FilmSectionBean(int filmSectionId, int filmId, Timestamp filmSectionTime, String roomSeats,
 			String unavailableSeats, String sectionroom) {
 		super();
@@ -80,12 +81,11 @@ public class FilmSectionBean {
 	public FilmSectionBean() {
 		super();	
 	}
-=======
+
 	public static void main(String[] args) {
 		String a = ",1_1,1_2";
 		String b = "1_1,1_2";
 		System.out.println(a.substring(0, 1).equals(","));
 	}
-	
->>>>>>> branch 'master' of https://github.com/EEIT98Team03/StarBusterCinima.git
+
 }
