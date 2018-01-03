@@ -38,7 +38,7 @@
 }
 .memberInfoInnerTable{
 	color:white;
-	font-size:180%;
+	font-size:140%;
 }
 .memberInfoInnerTable td{
 	padding-top:10px;
@@ -135,7 +135,7 @@ margin-top:50px
 			<!-- col-sm-2 begin -->
 			<div class="col-sm-2">
 				<img src='/StarBusterCinima/image/member/${loginUserInfo.memberId}'>
-				<hr>
+				<hr style="border:0.5px solid white">
 				<table class="memberInfoInnerTable">
 					<tr>
 						<td><span>姓名:</span><span>${loginUserInfo.name}</span></td>

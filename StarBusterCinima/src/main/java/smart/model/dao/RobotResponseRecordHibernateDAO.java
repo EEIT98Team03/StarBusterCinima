@@ -64,7 +64,7 @@ public class RobotResponseRecordHibernateDAO implements RobotResponseRecordDAO {
 		List list1 = query.getResultList();
 		
 		map0_20.put("y",(list1.size()==0)?0:list1.get(0));
-		map0_20.put("indexLabel","0-20");
+		map0_20.put("indexLabel","7-20");
 		list.add(map0_20);
 		//21-30
 		Map<String, Object> map21_30 = new LinkedHashMap<String, Object>();

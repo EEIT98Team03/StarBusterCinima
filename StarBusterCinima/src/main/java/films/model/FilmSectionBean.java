@@ -66,7 +66,11 @@ public class FilmSectionBean {
 		return "FilmSectionBean [filmSectionId=" + filmSectionId + ", filmId=" + filmId + ", filmSectionTime="
 				+ filmSectionTime + ", roomSeats=" + roomSeats + ", unavailableSeats=" + unavailableSeats
 				+ ", sectionroom=" + sectionroom + "]";
+
 	}	
+
+
+
 
 	public FilmSectionBean(int filmSectionId, int filmId, Timestamp filmSectionTime, String roomSeats,
 			String unavailableSeats, String sectionroom) {
@@ -87,5 +91,4 @@ public class FilmSectionBean {
 		String b = "1_1,1_2";
 		System.out.println(a.substring(0, 1).equals(","));
 	}
-
 }

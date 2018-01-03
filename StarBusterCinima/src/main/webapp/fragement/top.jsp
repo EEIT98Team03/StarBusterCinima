@@ -133,18 +133,18 @@ color:white;
 		<div class="col-md-3 navicolcenter" >
 				<a href="/StarBusterCinima/index.jsp"><img class="naviLogo" src="/StarBusterCinima/images/SB01.png"></a>
 		</div>
-		<div class="col-md-1 navicol">
-			<div class="ehdiv navidiv"><fmt:message key="navcolumn4" /></div>
-		</div>
+		
+		<a href="/StarBusterCinima/shopping/index.jsp">
+			<div class="col-md-1 navicol">
+				<div class="ehdiv navidiv"><fmt:message key="navcolumn4" /></div>
+			</div>
+		</a>
 		
 		<a href="/StarBusterCinima/wishpool/vote.jsp">
-		<div class="col-md-1 navicol">		
-			<div class="ehdiv navidiv"><fmt:message key="navcolumn5" /></div>
-		</div>
-		
-		
-		
-		
+					<div class="col-md-1 navicol">
+				<div class="ehdiv navidiv"><fmt:message key="navcolumn5" /></div>
+			</div>
+		</a>
 		
 		        <c:if test="${empty loginUserInfo}">
 					<div class="col-md-1 navicol">
@@ -154,23 +154,14 @@ color:white;
 
 
 
-				<c:if test="${not empty loginUserInfo}">
+				<c:if test="${not empty loginUserInfo}">				
 				
-				
-					<div class="col-md-1 navicol">
-					
-					
-					
-					
-						<div class="ehdiv navidiv  aa" style="">
-						
+					<div class="col-md-1 navicol">					
+						<div class="ehdiv navidiv  aa" style="">						
 						
 					<img src='/StarBusterCinima/image/member/${loginUserInfo.memberId}' style="height:75px; width:90px;margin-bottom: 0px; margin-left: 0px; border-radius: 50%;">
 					<br />
-							
 						</div>
-						
-						
 						<div class="dropdown" style="display:block;padding-top:10px;padding-bottom:3px">
 							<span style="color: white"><strong id="userName" style="margin: 0px auto; color: white">${loginUserInfo.name}</strong></span>
 							<div class="dropdown-content" style="margin-left: -12px;">
@@ -178,46 +169,30 @@ color:white;
 								<a style="text-decoration:none;color:white;" class="dropdown-toggle btn-lg" href='<c:url value="/member/logout.jsp"/>'><fmt:message key="navcolumn8" /></a>
 							</div>
 						</div>
-						
-						
-						
-						
 					</div>
-					
-					
-					
-					
 				</c:if>
-				
-				
-				
-				
-			</div>
-	
+			</div>	
 	</div>
 	</div>
 <!-- 	<div style="height:200px ;"></div> -->
 </fmt:bundle>	
 <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>			
 <script>
-$(document).ready(function(){
-// 	navi的滑鼠移上去會有藍色底條
+$(document).ready(function(){// 	navi的滑鼠移上去會有藍色底條
+
 	$('.navicol>div').hover(function() {
-		$(this).parent().append($("<div id='SBbar000'></div>").css({'border-bottom':'6px solid #20B7B7'}).css({'width':'0px'}));
-		$('#SBbar000').animate({width:"100%"},100);	
+
 		// alert("blah");
-	},function() {
-		$('#SBbar000').remove();
-		// alert("blah");
-		}		
+	$(this).parent().css({'border-bottom':'6px solid #20B7B7'});
+		}	
+
 	);
-		$(this).parent().css({'border-bottom':'6px solid #20B7B7'});
 	// alert("blah");
-	});
 	$('.navicol>div').mouseleave(function() {
 		$(this).parent().css({'border-bottom':'6px solid #191919'});
 	// alert("blah");
 	});
+
 });
 </script>
 

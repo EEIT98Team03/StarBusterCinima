@@ -37,11 +37,11 @@ public class AdGetImageController {
 			is.read(size);
 			os.write(size);
 		} catch (IOException e) {
-			e.printStackTrace();
-			System.out.println("ad 讀出錯誤");
+//			e.printStackTrace();
+//			System.out.println("ad 讀出錯誤");
 		} catch (SQLException e) {
-			System.out.println("ad 資料庫讀取錯誤");
-			e.printStackTrace();
+//			System.out.println("ad 資料庫讀取錯誤");
+//			e.printStackTrace();
 		}
 	}
 
@@ -74,11 +74,11 @@ public class AdGetImageController {
 				is.read(size);
 				os.write(size);
 			} catch (IOException e) {
-				e.printStackTrace();
-				System.out.println("ad 讀出錯誤");
+//				e.printStackTrace();
+//				System.out.println("ad 讀出錯誤");
 			} catch (SQLException e) {
-				System.out.println("ad 資料庫讀取錯誤");
-				e.printStackTrace();
+//				System.out.println("ad 資料庫讀取錯誤");
+//				e.printStackTrace();
 			}
 
 			// }
