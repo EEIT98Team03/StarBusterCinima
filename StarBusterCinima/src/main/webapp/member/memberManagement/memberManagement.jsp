@@ -50,7 +50,7 @@
 .col-sm-2 img {
 	height: 250px;
 	width: 250px;
-	margin:35px 120px 10px 85px;
+	margin:-55px 120px 10px 85px;
 	border-radius:50%;
 }
 .col-sm-8{
@@ -63,10 +63,22 @@
  	color: white;
 }
 .box{
-margin-top:50px
+margin-top:150px
 }
 #FilmWall{width:100%;}
-
+.modal-content {
+    margin-top: 180px;
+    position: relative;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #999;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 6px;
+    outline: 0;
+    -webkit-box-shadow: 0 3px 9px rgba(0,0,0,.5);
+    box-shadow: 0 3px 9px rgba(0,0,0,.5);
+}
 </style>
 </head>
 <body>
@@ -103,27 +115,28 @@ margin-top:50px
 						<td><span>地址:</span><span>${loginUserInfo.address}</span></td>
 					</tr>
 					<tr>
-						<td><button type="button"  id="changeMemberInfoButton" class="btn btn-info btn-lg"  style="background-color:#21BABA;margin-top:50px">&nbsp;&nbsp;修改基本資料&nbsp;&nbsp;</button>
-							<button type="button" id="memberRobot" class="btn btn-info btn-lg"  style="background-color:#21BABA;margin-top:50px">使用機器人幫手</button>
+						<td><button type="button"  id="changeMemberInfoButton" class="btn btn-info btn-lg"  style="background-color:#21BABA;margin-top:50px;width: 40%">修改基本資料</button>
+							<button type="button" id="memberRobot" class="btn btn-info btn-lg"  style="background-color:#21BABA;margin-top:50px;width: 40%;text-align: center;">使用機器人幫手</button>
 <!-- 							<button type="button" id="memberRobot" class="btn btn-info btn-lg"  style="background-color:#21BABA;margin-top:10px">&nbsp;&nbsp;重新設置密碼&nbsp;&nbsp;</button> -->
 						
 						
 						<!-- Button trigger modal -->
-							<button type="button" id="" class="btn btn-info btn-lg"  style="background-color:#21BABA;margin-top:10px" data-toggle="modal"
-								data-target="#exampleModal">&nbsp;&nbsp;重新設置密碼&nbsp;&nbsp;</button> <!-- Modal -->
-
+							<button type="button" id="" class="btn btn-info btn-lg"  style="background-color:#21BABA;width: 40%;margin-top:10px" data-toggle="modal"
+								data-target="#exampleModal">重新設置密碼</button> <!-- Modal -->
+								
+							<button type="button" id="memberOrder" class="btn btn-info btn-lg"  style="background-color:#21BABA;margin-top:10px;width: 40%"> 查詢訂票記錄 </button>
 
 							<div class="modal fade" id="exampleModal" tabindex="-1"
 								role="dialog" aria-labelledby="exampleModalLabel"
 								aria-hidden="true">
 								<div class="modal-dialog" role="document">
-									<p>&nbsp;</p>
-									<p>&nbsp;</p>
-									<p>&nbsp;</p>
-									<p>&nbsp;</p>
-									<p>&nbsp;</p>
-									<p>&nbsp;</p>
-									<p>&nbsp;</p>
+<!-- 									<p>&nbsp;</p> -->
+<!-- 									<p>&nbsp;</p> -->
+<!-- 									<p>&nbsp;</p> -->
+<!-- 									<p>&nbsp;</p> -->
+<!-- 									<p>&nbsp;</p> -->
+<!-- 									<p>&nbsp;</p> -->
+<!-- 									<p>&nbsp;</p> -->
 									<div class="modal-content">
 										<div class="modal-header">
 											<h2 class="modal-title" id="exampleModalLabel"
@@ -151,6 +164,7 @@ margin-top:50px
 							
 							</td>
 					</tr>
+
 <!-- #21BABA -->
 
 
@@ -235,7 +249,9 @@ margin-top:50px
 			$('#memberRobot').click(function(){
 				location.href="http://localhost:8080/StarBusterCinima/member/memberManagement/memberRobot.jsp";
 			})
-		
+			$('#memberOrder').click(function(){
+				location.href="http://localhost:8080/StarBusterCinima/member/memberManagement/memberBookingOrderHistory.jsp";
+			})		
 		
 	var FilmWall = $('#FilmWall');
 	

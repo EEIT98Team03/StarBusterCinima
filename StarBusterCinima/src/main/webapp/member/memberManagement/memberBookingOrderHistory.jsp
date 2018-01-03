@@ -25,6 +25,9 @@
 *{
 /* 	border: 1px dotted pink; */
 }
+body{
+    overflow-y: hidden;
+    }
 html{
 height: 100%;
 }
@@ -33,7 +36,7 @@ height: 100%;
 	margin: 0px auto;
 	width: 95%;
 	height: 900px;
-	
+	margin-top:50px;
 /* 	border: 3px solid red; */
 }
 .row{
@@ -60,7 +63,7 @@ height: 100%;
 }
 .memberInfoInnerTable{
 	color:white;
-	font-size:180%;
+	font-size:140%;
 }
 .memberInfoInnerTable td{
 	padding-top:10px;
@@ -72,22 +75,20 @@ height: 100%;
 .col-sm-2 img {
 	height: 250px;
 	width: 250px;
-	margin:35px 120px 10px 85px;
+	margin:45px 120px 10px 85px;
 	border-radius:50%;
+/* 	margin-top: 120px; */
 }
 .col-sm-8{
 /* 	margin-left:55px; */
 /* 	padding-top:130px; */
 	width: 65%;
-	height:80%;
+	height:87%;
 	top:12%;
 	right: 4%;
 /* 	margin: 50px 0px 0px 50px; */
 /*   	border: 2px solid yellow;  */
  	color: white;
-}
-.box{
-margin-top:50px
 }
 
 
@@ -156,7 +157,19 @@ border-top:1px dotted #6d6d6d;
 /*       background:#095; */
 }
 #FilmWall{width:100%;}
-
+.modal-content {
+    margin-top: 180px;
+    position: relative;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #999;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 6px;
+    outline: 0;
+    -webkit-box-shadow: 0 3px 9px rgba(0,0,0,.5);
+    box-shadow: 0 3px 9px rgba(0,0,0,.5);
+}
 </style>
 </head>
 <body>
@@ -208,13 +221,13 @@ border-top:1px dotted #6d6d6d;
 								role="dialog" aria-labelledby="exampleModalLabel"
 								aria-hidden="true">
 								<div class="modal-dialog" role="document">
-									<p>&nbsp;</p>
-									<p>&nbsp;</p>
-									<p>&nbsp;</p>
-									<p>&nbsp;</p>
-									<p>&nbsp;</p>
-									<p>&nbsp;</p>
-									<p>&nbsp;</p>
+<!-- 									<p>&nbsp;</p> -->
+<!-- 									<p>&nbsp;</p> -->
+<!-- 									<p>&nbsp;</p> -->
+<!-- 									<p>&nbsp;</p> -->
+<!-- 									<p>&nbsp;</p> -->
+<!-- 									<p>&nbsp;</p> -->
+<!-- 									<p>&nbsp;</p> -->
 									<div class="modal-content">
 										<div class="modal-header">
 											<h2 class="modal-title" id="exampleModalLabel"
@@ -326,7 +339,7 @@ border-top:1px dotted #6d6d6d;
 	</div>
 
 
-	<jsp:include page="${pageScope.request.contextPath}/fragement/bot.jsp"></jsp:include>
+<%-- 	<jsp:include page="${pageScope.request.contextPath}/fragement/bot.jsp"></jsp:include> --%>
 </body>
 
 
@@ -347,7 +360,9 @@ border-top:1px dotted #6d6d6d;
 			$('#memberRobot').click(function(){
 				location.href="http://localhost:8080/StarBusterCinima/member/memberManagement/memberRobot.jsp";
 			})
-		
+			$('#memberOrder').click(function(){
+				location.href="http://localhost:8080/StarBusterCinima/member/memberManagement/memberBookingOrderHistory.jsp";
+			})
 		
 	var FilmWall = $('#FilmWall');
 	
@@ -460,7 +475,7 @@ $(document).ready(function(){
 		 dataType: "json",
 		 success: function(Jdata) {
 // 		    alert($.type(Jdata));
-		    alert(Jdata.length);
+// 		    alert(Jdata.length);
 
 
 			var eachOrder = jQuery.makeArray(Jdata);

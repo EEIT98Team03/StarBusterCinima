@@ -16,8 +16,10 @@ body{
 text-align:center;	
 }
 #innerbox2{
+	margin-top:150px;
 	margin: 180px auto;
 }
+
 </style>
 </head>
 <body>
