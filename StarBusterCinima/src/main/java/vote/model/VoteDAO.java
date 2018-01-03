@@ -21,6 +21,7 @@ public interface VoteDAO {
 	List<Object[]> SelectMemberData(int id);
 	// 選全部的MEMBER資料
 	List<MemberBean> SelectMemberData2();
+	int SelectGenderofMember() ;
 
 	// ---------------------------------------------------------INSERT---------------------------------------------------------//
 	// 把一個電影加到許願池

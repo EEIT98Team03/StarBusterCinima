@@ -29,13 +29,26 @@ public class VotemgmtController {
 	public String LoadData1(Model model) {
 		List<Object[]> list = votemgmtservice.loaddata();	
 		
+		for(int i = 0 ; i<list.size() ;i++) {
+			
+			System.out.println(list.get(i)[0]);
+		}
+		
 		Gson J = new Gson();		
 		String jbl = J.toJson(list);
 		return jbl;
 	}
 	
 	@RequestMapping(value = "SelectAllFilmIdAndNameInWishpool",method = { RequestMethod.GET })
-	public List<Object[]> SelectAllFilmIdAndNameInWishpool(Model model ,@RequestParam("FilmID") int FilmID) {		
+	public List<Object[]> SelectAllFilmIdAndNameInWishpool(Model model ,@RequestParam("FilmID") int FilmID) {	
+		
+List<Object[]> list = votemgmtservice.loaddata();	
+		
+		for(int i = 0 ; i<list.size() ;i++) {
+			
+			System.out.println(list.get(i)[0]);
+		}
+		
 		return votemgmtservice.SelectFilmInWishPool();
 	}
 	

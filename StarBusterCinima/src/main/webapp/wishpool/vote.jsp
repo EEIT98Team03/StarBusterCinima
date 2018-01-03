@@ -159,7 +159,7 @@ li {
 		<ul id="myTab" class="nav nav-tabs">
 			<li class="dropdown"><a href="#" id="myTabDrop1"
 				class="dropdown-toggle" data-toggle="dropdown"> <span
-					class="glyphicon glyphicon-user"></span>User<b class="caret"></b>
+					class="glyphicon glyphicon-user"></span>      ${loginUserInfo.name}<b class="caret"></b>
 			</a>
 				<ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">
 					<li><a href="#tablist01" tabindex="0" data-toggle="tab"
@@ -209,7 +209,7 @@ li {
 					<div class="item"></div>
 					<div class="item"></div>
 				</div>
-					<span id="Mname">${loginUserInfo.memberId}</span>
+					<a id="Mname">${loginUserInfo.memberId}</a>
 				<div id="dovote">
 					<h2>投票</h2>
 					<select name="FilmName" id="FID"></select>
@@ -374,13 +374,13 @@ li {
 						//-----------------------------------------------------------------------------------------------------	
 						
 							$('#frtable').on('click', 'tr>td', function() {	
-								alert()
+								alert(parseInt($(this).attr("id")))
 								$('#chart2').animate({height:"300px"});	
 
 								$.ajax({ //get film data						
 									url: "vote.controller/SelectMemberDataSelected", 
 									type: 'GET', 
-									data:{"id" : 100} ,
+									data:{"id" : parseInt($(this).attr("id"))} ,
 									dataType: "text", 
 									success: function(data) { 
 										//turn json data into array							
@@ -407,25 +407,22 @@ li {
 									}
 								});	
 
-							});
+							});						
 						
-						
-							$('#frtable').mouseleave( function() {								
+							$('thead').click( function() {								
 								$("#chart3").remove();
 								$('#chart2').animate({height:"650px"});
 								drawchart(Fname, bc ,"chart2" ,"pie" ,goal ,650 ,400);
 								$('#analysis').append("<div id='chart3'></div>")
 								
 							});
-						
-						
 							
 							//put total BallotCount into #frate
 							$("thead").append($("<h2></h2>").text(" 總投票人數 : "+bs).attr("class","glyphicon glyphicon-tower"));						
 							//put Film Rate into #frate table
 							for(var i =0 ;i<10;i++){
 								if(i<5&&Fid[i]!=null){
-									$('#frtable').append($("<tr></tr>").append("<td></td><td></td>"));
+									$('#frtable').append($("<tr></tr>").append("<td id=" + Fid[i] +"></td><td></td>"));
 									
 									$("tr:eq("+ i +")>td:eq(0)").append(  
 											$($("<span></span>").text("第 "+ (i + 1)+ " 名: "+ Fname[i] )).append($("<span></span>")));
@@ -491,7 +488,7 @@ li {
 					$.ajax({ //get film data						
 						url: "vote.controller/VoteAMovie", 
 						type: 'POST', 
-						data:{"FilmID" : $('select :selected').val(),"MemberID":79} ,
+						data:{"FilmID" : $('select :selected').val()} ,
 						dataType: "text", 
 						success: function(data) { 
 							//turn json data into array							

@@ -82,10 +82,13 @@ public class VoteHibernateDAO implements VoteDAO {
 
 	@Override
 	public List<Object[]> SelectMemberData(int id) {
-		String Hql = " select m.registration_date , m.gender from MemberBean as m where m.memberId = (select MemberID from VotingDetailBean as vd where vd.FilmID =:Fid)";
-		// select Member.gender , member.birthday from Member where memberId = ( select
-		// MemberID from VoteDetail where FilmID = 100 ) = (select MemberID form
-		// VotingDetailBean as vd where vd.FilmID =?)
+		String Hql = " select m.registration_date , m.gender from MemberBean as m where m.memberId = (select MemberID from VotingDetailBean as vd where vd.FilmID =:Fid group by MemberID)";
+//		 select Member.gender , member.birthday from Member where memberId = ( select
+//		 MemberID from VoteDetail where FilmID = 100 ) = (select MemberID form
+//		 VotingDetailBean as vd where vd.FilmID =?)
+		
+		
+		
 
 		Query<Object[]> query = this.session().createQuery(Hql);
 		query.setParameter("Fid", id);
@@ -116,6 +119,17 @@ public class VoteHibernateDAO implements VoteDAO {
 
 		return list;
 	}
+	
+	public boolean IsMemberVoted(int MemberID) {
+		if(this.session().get(VotingDetailBean.class, MemberID) == null)
+			return true;	
+		else
+			return false;
+		
+		
+	}
+	
+	
 
 	// ---------------------------------------------------------INSERT---------------------------------------------------------//
 
@@ -180,6 +194,16 @@ public class VoteHibernateDAO implements VoteDAO {
 			return true;
 		} else
 			return false;
+	}
+	
+	public int SelectGenderofMember() {
+		String Hql = "from MemberBean as m join on (select v.MemberID from VotingDetailBean as v where v.FilmID = 1110 group by v.MemberID) as t on m.memberId = t.MemberID";
+		Query query = this.session().createQuery(Hql);		
+		System.out.println(query.getResultList());
+		//select v.MemberID from VotingDetailBean as v where v.FilmID = 1110 group by v.MemberID
+		//select COUNT(gender) from Member  join (select MemberID from VoteDetail where FilmID = 1110 group by MemberID) as t on Member.memberId = t.MemberID where gender='man'
+		return 0;
+		
 	}
 
 }

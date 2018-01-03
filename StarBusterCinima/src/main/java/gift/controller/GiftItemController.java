@@ -22,6 +22,6 @@ public class GiftItemController {
 	public String method(Model model) {
 		List<GiftItemBean> allGiftItems = giftItemService.getGiftItem();
 		model.addAttribute("GiftItems", allGiftItems);
-		return "shopping.success";
+		return "shopping.s";
 	}
 }
