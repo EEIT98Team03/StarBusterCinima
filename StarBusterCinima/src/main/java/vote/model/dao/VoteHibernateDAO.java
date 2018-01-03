@@ -40,14 +40,14 @@ public class VoteHibernateDAO implements VoteDAO {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Object[]> selectall() {
-		String Hql = "select v.FilmID , f.filmName , v.BallotCount  , v.VoteGoal from  VoteBean as v INNER JOIN FilmBean as f on v.FilmID = f.filmId "
+		String Hql = "select v.FilmID , f.filmName , v.BallotCount , v.VoteGoal  , f.posterLarge from  VoteBean as v INNER JOIN FilmBean as f on v.FilmID = f.filmId "
 				+ "and v.VoteStatus != 'Elected'   order by v.BallotCount DESC";
 
 		Query<Object[]> query = this.session().createQuery(Hql);
 		List<Object[]> list = query.getResultList();
 
 		for (int i = 0; i < list.size(); i++) {
-			System.out.println("Element : " + i + list.get(i)[0] + list.get(i)[1] + list.get(i)[2]);
+			System.out.println("Element : " + i + list.get(i)[0] + list.get(i)[1] + list.get(i)[2] + list.get(i)[3] + list.get(i)[4]);
 		}
 		return list;
 	}

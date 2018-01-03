@@ -19,6 +19,9 @@ public interface FilmDAO {
 	boolean DeleteFilmSection(int filmsectionId);
 	FilmSectionBean SelectFilmSection(int filmsectionId);
 	boolean UpdateFilmSection(int filmsectionId,Timestamp filmsectiontime);
+	boolean UptdteFilmstatus(int filmId);
+	List<Object[]> SelectSectionCount();
+	
 	
 	FilmBean update(
 			String filmId,
@@ -43,6 +46,7 @@ public interface FilmDAO {
 			);
 
 	FilmBean selectById(int filmId);
+	int selectfilmLength(int filmId);
 	boolean updateposter(String img, int filmId);
 
 	

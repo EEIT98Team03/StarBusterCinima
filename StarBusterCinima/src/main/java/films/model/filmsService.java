@@ -46,4 +46,12 @@ public class filmsService {
 		return result;		
 	}
 	
+	public List<Object[]> SelectSectionCount(){
+		
+		
+		
+		return filmDAO.SelectSectionCount();
+		
+	}
+	
 }

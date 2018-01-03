@@ -128,4 +128,16 @@ public class FilmMgmtController {
 		filmsservice.UpdateFilmSection(filmsectionId, timestamp);
 		return false;
 	}
+	
+	
+	@RequestMapping(method = RequestMethod.GET, value = "SelectSectionCount", produces = "text/html;charset=UTF-8")
+	public String SelectSectionCount(Model model) throws ParseException {
+		
+		List<Object[]> list = filmsservice.SelectSectionCount();
+		
+		Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd-HH:mm:ss").create();
+		String str = gson.toJson(list);
+
+		return str;
+	}
 }

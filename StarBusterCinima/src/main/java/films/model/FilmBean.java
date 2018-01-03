@@ -31,6 +31,7 @@ public class FilmBean {
 	private String longIntro;
 	private String posterMedium;
 	private String posterLarge;
+	private String upstatus;
 //	private float scoreImdb;
 //	private int scoreRt;
 //	private int scoreMember;
@@ -176,6 +177,12 @@ public class FilmBean {
 				+ ddate + ", weight=" + weight + ", director=" + director + ", actor=" + actor + ", trailer=" + trailer
 				+ ", shortIntro=" + shortIntro + ", longIntro=" + longIntro + ", posterMedium=" + posterMedium
 				+ ", posterLarge=" + posterLarge + "]";
+	}
+	public String getUpstatus() {
+		return upstatus;
+	}
+	public void setUpstatus(String upstatus) {
+		this.upstatus = upstatus;
 	}
 	
 	

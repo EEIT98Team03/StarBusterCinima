@@ -148,23 +148,9 @@ color:white;
 			
 			
 			<div class="col-sm-1">
-			</div>
-			
-			
-		</div>
-		
-		
+			</div>			
+		</div>		
 	</div>
-
-
-
-
-
-
-
-
-
-
 <div id="container">
 	<div id="row1" class="row">
 			<div class="col-sm-1">
@@ -214,10 +200,6 @@ $(function(){
 	$('.moreDiv').mouseleave(function() {
 		$(this).parent().css({'border-bottom':'6px solid #3C3C3C'});
 	});
-	
-	
-	
-	
 	var FilmWall = $('#FilmWall');
 	
 	//記錄點擊首頁輪播牆點擊次數
@@ -227,8 +209,7 @@ $(function(){
 			'type':'post',
 			'url':'/StarBusterCinima/adManagements/ClickCount='+urlClickId
 		})
-	})
-	
+	})	
 	//首頁輪播牆 begin
 	$.ajax({
 		'type':'get',
@@ -244,8 +225,7 @@ $(function(){
 			$.ajax({
 				'type':'post',
 				'url':'/StarBusterCinima/adManagements/ViewCount='+value.id
-			})
-			
+			})			
 		})
 		$('#FilmWall').owlCarousel({
 			items :5,
@@ -258,11 +238,6 @@ $(function(){
 		});
 	})
 	//首頁輪播牆 end
-	
-	
-
-	
-	
 	//首頁新聞牆 begin
 // 	$.ajax({
 // 		'type':'get',
@@ -291,9 +266,7 @@ $(function(){
 // 			singleItem: true			
 // 		});
 // 	})
-	//首頁新聞牆 end
-	
-		
+	//首頁新聞牆 end		
 	var FilmWall2 = $('#FilmWall2');
 	
 	//記錄點擊首頁廣告牆點擊次數
@@ -314,14 +287,12 @@ $(function(){
 		$.each(datas,function(index,value){
 			var column=$('<div class="item"></div>').html('<a id='+value.id+' href='+value.url+' title='+value.title+' target="_blank"><img src="/StarBusterCinima/adImages/imageId='+value.id+'" class="img-rounded" style=""/></a>');
 			FilmWall2.append(column);
-			length=index;
-			
+			length=index;			
 			//瀏覽次數
 			$.ajax({
 				'type':'post',
 				'url':'/StarBusterCinima/adManagements/ViewCount='+value.id
-			})
-			
+			})			
 		})
 		$('#FilmWall2').owlCarousel({
 			items :1,
@@ -334,29 +305,6 @@ $(function(){
 		});
 	})
 	//首頁廣告牆 end
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
 })
 //  輪播   
 </script>
