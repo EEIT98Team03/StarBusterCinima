@@ -3,8 +3,12 @@ package member.model;
 import java.io.InputStream;
 import java.util.List;
 
-public interface MemberDAO {
+import booking.model.TicketOrderBean;
+import films.model.FilmSectionBean;
 
+public interface MemberDAO {
+	
+	List<TicketOrderBean> selectOrdersByMemberId(int memberId);
 	MemberBean select(int memberId);
 	MemberBean selectEmail(String email);
 	List<MemberBean> select();
@@ -14,5 +18,5 @@ public interface MemberDAO {
 	MemberBean updateChangePassword(int memberId,String password);
 	MemberBean resendEmail(MemberBean bean,String identityCode);
 	boolean delete(int memberId);
-	
+	List<Object[]> selectOrdersJoin(int memberId);
 }

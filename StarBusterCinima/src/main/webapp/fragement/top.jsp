@@ -201,7 +201,7 @@ color:white;
 $(document).ready(function(){
 // 	navi的滑鼠移上去會有藍色底條
 	$('.navicol>div').hover(function() {
-<<<<<<< HEAD
+// <<<<<<< HEAD
 		$(this).parent().append($("<div id='SBbar000'></div>").css({'border-bottom':'6px solid #20B7B7'}).css({'width':'0px'}));
 		$('#SBbar000').animate({width:"100%"},100);	
 		// alert("blah");
@@ -210,7 +210,7 @@ $(document).ready(function(){
 		// alert("blah");
 		}		
 	);
-=======
+// =======
 		$(this).parent().css({'border-bottom':'6px solid #20B7B7'});
 	// alert("blah");
 	});
@@ -219,7 +219,7 @@ $(document).ready(function(){
 	// alert("blah");
 	});
 
->>>>>>> branch 'master' of https://github.com/EEIT98Team03/StarBusterCinima.git
+// >>>>>>> branch 'master' of https://github.com/EEIT98Team03/StarBusterCinima.git
 });
 </script>
 

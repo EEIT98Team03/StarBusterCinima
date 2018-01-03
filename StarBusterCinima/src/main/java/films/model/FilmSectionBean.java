@@ -2,7 +2,7 @@ package films.model;
 
 import java.sql.Timestamp;
 
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,11 +13,13 @@ import javax.persistence.Table;
 @Entity
 @Table(name="FILMSECTION")
 public class FilmSectionBean {
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int filmSectionId;	
+	@Column(name="filmid")
 	private int filmId; 
+	@Column(name="filmsectiontime")
 	private Timestamp filmSectionTime ;
 	private String roomSeats ; 
 	private String unavailableSeats;

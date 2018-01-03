@@ -13,6 +13,8 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import booking.model.TicketOrderBean;
+import films.model.FilmSectionBean;
 import member.model.MemberBean;
 import member.model.MemberDAO;
 
@@ -24,6 +26,40 @@ public class MemberHibernateDAO implements MemberDAO {
 
 	public Session session() {
 		return sessionFactory.getCurrentSession();
+	}
+//	private String posterMedium;
+	
+//	private int ticketOrderId;
+//	private Timestamp ticketOrderDate;
+//	private Timestamp filmsectiontime;
+//	private int ticketCount;
+//	private String seatNum;
+//	private int ticketOrderPrice;
+//	private int ticketState;
+//	private int filmId;
+//	private int memberId;
+//	private String ticketCode;
+	@Override
+	public List<Object[]> selectOrdersJoin(int memberId) {
+//		 select ticketorderid, postermedium, [filmsectiontime], [ticketcount], [seatnum], [ticketorderprice], [ticketState] 
+//		from TicketOrder as t    left outer join    Film as f    on    t.filmid=f.filmid
+		String hqlStmt = "select f.posterMedium, t.filmsectiontime, t.ticketCount, t.seatNum, t.ticketOrderPrice, t.ticketState from TicketOrderBean as t JOIN FilmBean as f on t.filmId=f.filmId where t.memberId = ?";
+//		String hqlStmt = "select f.posterMedium,t.ticketOrderId,  t.filmsectiontime from TicketOrderBean as t JOIN FilmBean as f on t.filmId=f.filmId  where t.memberId = ?";
+//		System.out.println("11");
+		Query<Object[]> query = this.session().createQuery(hqlStmt);
+//		System.out.println("22");
+		
+		query.setParameter(0, memberId);
+		List<Object[]> result = query.getResultList();
+		
+		return result;
+	}
+
+	@Override
+	public List<TicketOrderBean> selectOrdersByMemberId(int memberId) {
+		Query<TicketOrderBean> query = this.session().createQuery("from TicketOrderBean where memberid =?", TicketOrderBean.class);
+		query.setParameter(0, memberId);
+		return query.getResultList();
 	}
 
 	@Override
@@ -150,6 +186,7 @@ public class MemberHibernateDAO implements MemberDAO {
 		}
 		return select;
 	}
+
 
 
 }

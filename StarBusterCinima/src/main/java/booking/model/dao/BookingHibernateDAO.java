@@ -37,7 +37,7 @@ public class BookingHibernateDAO implements BookingDAO {
 	@Override
 	public TicketOrderBean insert(TicketOrderBean bean) {
 		Serializable theKey = this.session().save(bean);
-		System.out.println("(BookingHibernateDAO) insertOrderSuccess. the key is: "+theKey+"  the bean is: "+bean);
+//		System.out.println("(BookingHibernateDAO) insertOrderSuccess. the key is: "+theKey+"  the bean is: "+bean);
 		return bean;
 	}
 
@@ -55,17 +55,20 @@ public class BookingHibernateDAO implements BookingDAO {
 		Query<FilmSectionBean> query = this.session().createQuery("from FilmSectionBean where filmSectionId=?", FilmSectionBean.class);
 		query.setParameter(0, sectionId);
 		String oldData = query.getResultList().get(0).getUnavailableSeats();
+//		if("null".equals(oldData.toLowerCase())) {
+//			oldData = "";
+//		}
 		String newData = oldData+","+selectedSeats;
 		if(newData.substring(0, 1).equals(",")) {
 			newData = newData.replaceFirst(",","");
 		}
-		System.out.println("測試"+newData.substring(0, 1)==",");
+//		System.out.println("測試"+newData.substring(0, 1)==",");
 		String hql = "UPDATE FilmSectionBean set unavailableSeats = :unavailableSeats"+" where filmSectionId = :filmSectionId";
 		Query update = this.session().createQuery(hql);
 		update.setParameter("unavailableSeats", newData);
 		update.setParameter("filmSectionId", sectionId);
 		int result = update.executeUpdate();
-		System.out.println("(BookingHibernateDAO > updateUnavailableSeats): " + result+">>>"+newData);
+//		System.out.println("(BookingHibernateDAO > updateUnavailableSeats): " + result+">>>"+newData);
 		
 		
 		return newData;
@@ -81,16 +84,25 @@ public class BookingHibernateDAO implements BookingDAO {
 		//select roomSeats,unavailableSeats from FilmSection where filmsectionid=?
 		Query<FilmSectionBean> query = this.session().createQuery("from FilmSectionBean where filmSectionId=?", FilmSectionBean.class);
 		query.setParameter(0, sectionId);
-		result.put("roomSeats", query.getResultList().get(0).getRoomSeats());
-		result.put("unavailableSeats", query.getResultList().get(0).getUnavailableSeats());
+//		System.out.println("TESTsectionId= "+sectionId );
+//		result.put("roomSeats", query.getResultList().get(0).getRoomSeats());
+		System.out.println("TTTEST sectionId "+sectionId);
+		System.out.println("TTTEST query.getResultList() "+query.getResultList());
+		
+//		if(query.getResultList().len) {
+			result.put("unavailableSeats", query.getResultList().get(0).getUnavailableSeats());
+//		}
 		return result;
 	}
 	
 	
 	@Override
 	public int makeSectionId(int filmId , Timestamp filmsectiontime) {
+//		System.out.println("BBB filmId "+filmId);
+//		System.out.println("BBB filmsectiontime "+filmsectiontime);
 		
-		String connUrl = "jdbc:sqlserver://localhost:1433;databaseName=StarBusterCinima";
+		
+		String connUrl = "jdbc:sqlserver://192.168.40.19:1433;database=StarBusterCinima";
 		String sql = "select * from FilmSection where filmid=? AND Convert(varchar, filmsectiontime,120) LIKE ? ";
 		Connection conn = null;
 		ResultSet rs = null;
@@ -113,6 +125,7 @@ public class BookingHibernateDAO implements BookingDAO {
 //				result.put("roomSeats", rs.getString("roomSeats"));
 //				result.put("unavailableSeats", rs.getString("unavailableSeats"));
 				filmSectionId = rs.getInt("filmSectionId");
+//				System.out.println("filmSectionIdXXX="+filmSectionId);
 			}
 			
 		} catch (SQLException e) {
@@ -134,7 +147,7 @@ public class BookingHibernateDAO implements BookingDAO {
 	            e.printStackTrace();
 	        }
 	    }
-		System.out.println("(BookingHibernateDAO)"+filmSectionId);
+//		System.out.println("(BookingHibernateDAO)"+filmSectionId);
 		return filmSectionId;
 	}
 

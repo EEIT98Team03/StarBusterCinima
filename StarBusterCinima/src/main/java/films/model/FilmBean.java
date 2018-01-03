@@ -29,6 +29,7 @@ public class FilmBean {
 //	private String language;
 	private String shortIntro;
 	private String longIntro;
+	@Column(name="postermedium")
 	private String posterMedium;
 	private String posterLarge;
 //	private float scoreImdb;

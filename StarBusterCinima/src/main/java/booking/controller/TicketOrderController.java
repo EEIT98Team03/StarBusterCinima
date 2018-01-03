@@ -116,7 +116,7 @@ public class TicketOrderController {
 		
 		//從這裡確認訂單後insert及update至DB
 		
-		System.out.println("orderCheckOk check");
+//		System.out.println("orderCheckOk check");
 //		System.out.println(ticketOrderDate+" / "+filmsectiontime+" / "+ticketCount+" / "+seatNum+" / "+ticketOrderPrice+" / "+ticketState+" / "+filmId+" / "+memberId+" / "+ticketCode);
 		
 		TicketOrderBean ticketOrderBean = (TicketOrderBean) request.getSession().getAttribute("ticketOrderBean");
@@ -124,9 +124,9 @@ public class TicketOrderController {
 		
 		
 		
-		System.out.println("座位修改前"+ticketOrderBean.getSeatNum());
+//		System.out.println("座位修改前"+ticketOrderBean.getSeatNum());
 		ticketOrderBean.setSeatNum(ticketOrderBean.getSeatNum().replace("排", "_").replace("號", ""));
-		System.out.println("座位修改後"+ticketOrderBean.getSeatNum());		
+//		System.out.println("座位修改後"+ticketOrderBean.getSeatNum());		
 		
 		
 		TicketOrderBean theKey = bookingService.insertOrder(ticketOrderBean);

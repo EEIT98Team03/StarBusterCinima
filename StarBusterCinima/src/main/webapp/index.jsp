@@ -208,7 +208,7 @@ color:white;
 $(function(){
 	
 	//more  jquery
-	$('.moreDiv').formal(function() {
+	$('.moreDiv').hover(function() {
 		$(this).parent().css({'border-bottom':'6px solid #20B7B7'});
 	alert("blah");
 	});
