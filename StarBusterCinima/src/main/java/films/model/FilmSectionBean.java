@@ -13,7 +13,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="FILMSECTION")
 public class FilmSectionBean {
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int filmSectionId;	

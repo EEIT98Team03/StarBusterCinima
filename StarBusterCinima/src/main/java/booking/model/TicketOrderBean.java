@@ -2,6 +2,7 @@ package booking.model;
 
 import java.sql.Timestamp;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,15 +19,26 @@ public class TicketOrderBean {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="ticketorderid")
 	private int ticketOrderId;
+	
+	@Column(name="ticketorderdate")
 	private Timestamp ticketOrderDate;
+	@Column(name="filmsectiontime")
 	private Timestamp filmsectiontime;
+	@Column(name="ticketcount")
 	private int ticketCount;
+	@Column(name="seatnum")
 	private String seatNum;
+	@Column(name="ticketorderprice")
 	private int ticketOrderPrice;
+	@Column(name="ticketState")
 	private int ticketState;
+	@Column(name="filmid")
 	private int filmId;
+	@Column(name="memberid")
 	private int memberId;
+	@Column(name="ticketCode")
 	private String ticketCode;
 	
 	

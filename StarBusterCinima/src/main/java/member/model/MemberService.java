@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import booking.model.TicketOrderBean;
+import films.model.FilmSectionBean;
 import misc.CipherUtils;
 import misc.EmailUtil;
 
@@ -27,6 +29,17 @@ public class MemberService {
 	// this.allMemberInfo = getMemberList();
 	// System.out.println(allMemberInfo);
 	// }
+	
+	@Transactional(readOnly=true)
+	public List<Object[]> selectOrdersJoin(int memberId) {
+		return memberDAO.selectOrdersJoin(memberId);
+	}
+	
+	@Transactional(readOnly=true)
+	public List<TicketOrderBean> selectOrdersByMemberId(int memberId){
+		return memberDAO.selectOrdersByMemberId(memberId);
+	}
+	
 
 	@Transactional(readOnly=true)
 	public MemberBean getMemberInfoById(int memberId) {
