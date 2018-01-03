@@ -259,7 +259,7 @@ body {
 		$('#insertvoteitem').click(function(){
 			console.log("aaaa")
 			$.ajax({ //get film data				
-				url: "votemgmt.controller/LoadData1",
+				url: "../wishpool/votemgmt.controller/LoadData1",
 				type: "GET", 
 				dataType: "text", 
 				success: function(data) { 
@@ -284,7 +284,7 @@ body {
 	$('#sentinsertvote').click(function(){	
 		console.log("sentinsertvote start")	
 		$.ajax({ //get film data						
-			url: "votemgmt.controller/InsertFilmIntoWishPool",
+			url: "../wishpool/votemgmt.controller/InsertFilmIntoWishPool",
 			type: "GET", 
 			dataType: "text", 
 			data:{"FilmID" : $('select :selected').val(),"VoteGoal":"100"},
@@ -303,7 +303,7 @@ body {
 	$('#deletefilm').click(function(){
 		console.log("deletefilmfromwishpool start")
 		$.ajax({ //get film data						
-			url: "vote.controller/selectall",
+			url: "../wishpool/vote.controller/selectall",
 			type: "GET", 
 			dataType: "text",			
 			success: function(data) { 
@@ -326,7 +326,7 @@ body {
 	$('#sentdeletevote').click(function(){
 		console.log("delete start")
 		$.ajax({ //get film data						
-			url: "votemgmt.controller/DeleteFilmInWishPool",
+			url: "../wishpool/votemgmt.controller/DeleteFilmInWishPool",
 			type: "GET", 
 			dataType: "text", 
 			data:{"FilmID" : $('select :selected').val()},
@@ -345,7 +345,7 @@ body {
 	$('#updateGoal').click(function(){
 		console.log("updateGoal start")
 		$.ajax({ //get film data						
-			url: "vote.controller/selectall",
+			url: "../wishpool/vote.controller/selectall",
 			type: "GET", 
 			dataType: "text",			
 			success: function(data) { 
@@ -367,7 +367,7 @@ body {
 	$('#doupdateGoal').click(function(){
 		console.log("doupdateGoal start")
 		$.ajax({ 					
-			url: "votemgmt.controller/UpdateVoteGoal",
+			url: "../wishpool/votemgmt.controller/UpdateVoteGoal",
 			type: "GET", 
 			data:{"FilmID" : $('select :selected').val(),"VoteGoal":200},
 			dataType: "text",			
@@ -385,7 +385,7 @@ body {
 	
 	$('#VoteALot').click(function(){		
 		$.ajax({ //get member data						
-			url: "votemgmt.controller/VoteALot",
+			url: "../wishpool/votemgmt.controller/VoteALot",
 			type: "GET", 
 			dataType: "text", 			
 			success: function(data) { 
@@ -406,7 +406,7 @@ body {
 			} 
 		});//end ajax#
 		$.ajax({ //get film data						
-			url: "vote.controller/selectall",
+			url: "../wishpool/vote.controller/selectall",
 			type: "GET", 
 			dataType: "text", 			
 			success: function(data) { 
@@ -435,7 +435,7 @@ body {
 		
 		console.log($( "input:checked" ).val());	
 		$.ajax({ 				
-			url: "votemgmt.controller/DoVoteALot",
+			url: "../wishpool/votemgmt.controller/DoVoteALot",
 			type: "GET", 
 			data:{"FilmID" : 100,"memberId":memberId} ,
 			dataType: "text", 			

@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
 
+import member.model.MemberBean;
 import vote.model.VoteBean;
 import vote.model.VoteService;
+import vote.model.VotemgmtService;
 
 @Controller
 @RequestMapping("/wishpool/vote.controller")
@@ -24,7 +26,7 @@ import vote.model.VoteService;
 public class VoteController {
 	@Autowired
 	VoteService voteService;
-
+	VotemgmtService votemgmtservice;
 	@RequestMapping(value="selectall",method = {RequestMethod.GET},produces = "text/html;charset=UTF-8")
 	public String method1(Model model) {
 
@@ -35,14 +37,14 @@ public class VoteController {
 	}
 
 	@RequestMapping(value="VoteAMovie",method = { RequestMethod.POST })
-	public VoteBean method2(Model model, int FilmID ,int MemberID,HttpServletRequest request) {
+	public VoteBean method2(Model model, int FilmID ,HttpServletRequest request) {
 
 		VoteBean bean = new VoteBean();
-		bean.setFilmID(FilmID);
-		System.out.println(MemberID);
+		bean.setFilmID(FilmID);	
 		
+		MemberBean bean2 = (MemberBean)request.getSession().getAttribute("loginUserInfo");		
 
-		VoteBean result = voteService.VoteAMovie(FilmID,79);
+		VoteBean result = voteService.VoteAMovie(FilmID,bean2.getMemberId());
 		if(result!=null) {			
 			
 //			System.out.println(result);			

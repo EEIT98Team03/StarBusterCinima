@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import booking.model.QuickBookingService;
 import films.model.FilmBean;
 import films.model.FilmSectionBean;
 import films.model.filmsService;
@@ -30,7 +31,7 @@ public class FilmMgmtController {
 
 	@Autowired
 	filmsService filmsservice;
-
+	QuickBookingService quickBookingService;
 	// @InitBinder
 	// public void initialize(WebDataBinder webDataBinder) {
 	// webDataBinder.registerCustomEditor(java.sql.Date.class, "udate",
@@ -91,9 +92,7 @@ public class FilmMgmtController {
 		String Seat2 = "'oooo_oooooooooo_oooo','oooo_oooooooooo_oooo','oooo_oooooooooo_oooo','oooo_oooooooooo_oooo','oooo_oooooooooo_oooo','_ooo_oooooooooo_ooo_','__oo_oooooooooo_oo__'";
 		FilmSectionBean bean = new FilmSectionBean();
 
-		bean.setFilmId(filmId);
-
-		
+		bean.setFilmId(filmId);		
 
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		java.util.Date parsedDate = dateFormat.parse(filmsectiontime);
@@ -138,6 +137,19 @@ public class FilmMgmtController {
 		Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd-HH:mm:ss").create();
 		String str = gson.toJson(list);
 
+		return str;
+	}
+	
+	@RequestMapping(value = "s1", method = { RequestMethod.GET }, produces = "text/html;charset=UTF-8")
+	public String s1(Model model) {
+		
+		System.out.println("a");
+		List<FilmBean> result = quickBookingService.selectAllfilms();
+
+		Gson gson = new Gson();
+		String str = gson.toJson(result);
+		
+//		System.out.println(str);
 		return str;
 	}
 }

@@ -304,7 +304,7 @@ body {
 			})
 			
 			$.ajax({ 				
-					url: "../booking/controller/quickBooking.controller",
+					url: "../film/filmMgmt.controller/s1",
 					type: "GET", 		
 					dataType: "text", 			
 					success: function(data) {				
