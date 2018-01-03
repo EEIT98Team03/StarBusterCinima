@@ -28,14 +28,14 @@ public class CartController {
 		GiftItemBean bean = new GiftItemBean();
 		LinkedList<String> itemNameHiddenList = (LinkedList<String>) session.getAttribute("itemNameHiddenList");
 		if (itemNameHidden != null && !itemNameHidden.isEmpty()) {
-			if (itemNameHidden=="none") {
+			if (itemNameHidden == "none") {
 				bean = null;
 				session.setAttribute("email", "");
 				return "cart.hibao.additem.success";
 			} else {
 				bean = giftItemService.getGiftItem(itemNameHidden);
 			}
-			
+
 		}
 		if (bean != null) {
 			bean = (GiftItemBean) bean;
@@ -51,12 +51,12 @@ public class CartController {
 				cartSet = new HashSet<GiftItemBean>();
 				cartSet.add(bean);
 			}
-			
+
 			session.setAttribute("email", email);
 			session.setAttribute("itemNameHiddenList", itemNameHiddenList);
 			session.setAttribute("cartSet", cartSet);
 			session.setAttribute("cartSetSize", cartSet.size());
-			
+
 		}
 		if (itemNameHidden != null && !itemNameHidden.isEmpty()) {
 			if (itemNameHidden.contains("harry")) {
@@ -70,6 +70,5 @@ public class CartController {
 		return "cart.homepage.additem.success";
 
 	}
-	
-	
+
 }

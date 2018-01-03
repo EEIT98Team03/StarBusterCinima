@@ -245,16 +245,84 @@ height: 100%;
 
 .filmIntroContain{
 	width: 64%;
-	height: 450px;
+	height: auto;
+/* 	height: 450px; */
 	margin:0 auto;
 	position: relative;
 	top:-310px;
 	background-color:#272727;
 	border-top:6px solid #20B7B7;
 /* 	opacity: 0.4; */
+    padding-bottom: 50px;
 	
 }
 
+.glyphicon-film{
+	margin-top:22px;
+	margin-left:19px;
+	color: white; 
+	font-size: 25px;
+	text-shadow:none;
+	position:relative;
+}
+
+.glyphicon-film span{
+    /* margin-top: 22px; */
+    /* margin-left: 13px; */
+    color: white;
+    font-size: 20px;
+    text-shadow: none;
+    position: absolute;
+    width: 102px;
+    margin-left: 6px;
+    line-height: 120%;
+}
+
+h2{
+	margin-left: 7%;
+    margin-top: 4%;
+    margin-bottom:2.5%;
+	color:#20B7B7;
+}
+
+
+.filmIntroContain div{
+margin-left: 7%;
+margin-right: 7%;
+margin-bottom: 2%;
+/* border:1px dotted pink; */
+height:auto;
+font-size: 15px;
+/* margin:20px; */
+}
+
+.trailer{
+position:relative;
+
+/* padding-bottom:56.25%; */
+
+padding-top:30px;height:0;overflow:hidden;
+text-align: center;
+}
+
+
+.video-container iframe,
+
+.video-container object,
+
+.video-container embed{
+
+position:absolute;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100%;
+
+}
 
 
 </style>
@@ -343,6 +411,7 @@ height: 100%;
 <!-- 		<a href="/StarBusterCinima/booking/booking.jsp" > -->
 <!-- 		<a href="" > -->
 			<div class="bookingButton">
+				<span class="glyphicon glyphicon-film"><span>訂票去</span></span>
 <!-- 				<form action="/StarBusterCinima/booking/controller/makeSections.controller"> -->
 <!-- 					<input type="text" name="paramFilmId" value="333"> -->
 <!-- 					<input type="submit"> -->
@@ -357,7 +426,10 @@ height: 100%;
 
 <div class="filmIntroContain">
 <!-- 	<input type="button" class="classtest" value="11111111" style="color:white"/> -->
-	
+	<H2>劇情簡介</H2>
+	<div class="shortIntro">${filmBean.shortIntro}</div>
+	<div class="longtIntro">${filmBean.longIntro}</div>
+	<div class="trailer">${filmBean.trailer}</div>
 </div>
 
 <%-- 	<c:out value="test"/> --%>
@@ -367,11 +439,15 @@ height: 100%;
 
 
 
-
+location.reload()
 
 
 <script type="text/javascript">
 $(document).ready(function(){
+	
+// 		location.reload();
+// 		location.reload()
+// 		clearInterval(location.reload())
 // 		var picurl = $('#filmBean').attr('name');
 	
 // 	$('.classtest').click(function(){

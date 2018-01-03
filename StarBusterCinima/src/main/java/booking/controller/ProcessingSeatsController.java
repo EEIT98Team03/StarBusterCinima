@@ -34,15 +34,20 @@ public class ProcessingSeatsController {
 //		System.out.println("test: "+param);
 //		param.split(",");
 //		System.out.println(param.split(",")[0]);
-		
+		System.out.println("CCC param "+param);
+		System.out.println("CCC param.split(\",\")[0],param.split(\",\")[1] "+(param.split(",")[0])+"   --   "+(param.split(",")[1]));
 		Timestamp timestamp = bookingService.orderFilmsectiontime(param.split(",")[0],param.split(",")[1]);
 		int filmId = Integer.parseInt(param.split(",")[2]);
 		System.out.println("(ProcessingSeatsController)  ->"+timestamp);
 		
 //		System.out.println("timestamp.toString() =>"+timestamp.toString());
+		System.out.println("AAA"+filmId);
+		System.out.println("AAA"+timestamp);
 		
 		int filmSectionId = bookingService.makeSectionId(filmId, timestamp);
+		System.out.println("AAA"+filmSectionId);
 		Map<String,String> result = bookingService.pickSeats(filmSectionId);
+//		System.out.println("AAA"+result);
 //		result.put("roomSeats", rs.getString("roomSeats"));
 //		result.put("unavailableSeats", rs.getString("unavailableSeats"));
 		System.out.println("(ProcessingSeatsController)->"+result);

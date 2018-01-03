@@ -25,6 +25,9 @@
 *{
 /* 	border: 1px dotted pink; */
 }
+body{
+    overflow-y: hidden;
+    }
 html{
 height: 100%;
 }
@@ -33,7 +36,7 @@ height: 100%;
 	margin: 0px auto;
 	width: 95%;
 	height: 900px;
-	
+	margin-top:50px;
 /* 	border: 3px solid red; */
 }
 .row{
@@ -60,7 +63,7 @@ height: 100%;
 }
 .memberInfoInnerTable{
 	color:white;
-	font-size:180%;
+	font-size:140%;
 }
 .memberInfoInnerTable td{
 	padding-top:10px;
@@ -72,28 +75,26 @@ height: 100%;
 .col-sm-2 img {
 	height: 250px;
 	width: 250px;
-	margin:35px 120px 10px 85px;
+	margin:45px 120px 10px 85px;
 	border-radius:50%;
+/* 	margin-top: 120px; */
 }
 .col-sm-8{
 /* 	margin-left:55px; */
 /* 	padding-top:130px; */
 	width: 65%;
-	height:80%;
+	height:87%;
 	top:12%;
 	right: 4%;
 /* 	margin: 50px 0px 0px 50px; */
 /*   	border: 2px solid yellow;  */
  	color: white;
 }
-.box{
-margin-top:50px
-}
 
 
 .ordercol{
     position: relative;
-    border: 1px dotted black;
+    border: 1px dotted #6d6d6d;
     height: 480px;
     padding: 0;
     width: 500px;
@@ -103,7 +104,7 @@ margin-top:50px
 }
 .imgBox{
     padding: 0;
-    border: 1px dotted black;
+    border: 1px dotted #6d6d6d;
 }
 .infoBox{
     position: absolute;
@@ -133,7 +134,7 @@ height: 20.1%;
 /*       width:200px; */
 /*       height:150px; */
 /*       border:1px solid #000; */
-border-top:1px dotted black; 
+border-top:1px dotted #6d6d6d; 
 }
 .infoBox span{
     line-height: 35px;
@@ -156,7 +157,19 @@ border-top:1px dotted black;
 /*       background:#095; */
 }
 #FilmWall{width:100%;}
-
+.modal-content {
+    margin-top: 180px;
+    position: relative;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #999;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 6px;
+    outline: 0;
+    -webkit-box-shadow: 0 3px 9px rgba(0,0,0,.5);
+    box-shadow: 0 3px 9px rgba(0,0,0,.5);
+}
 </style>
 </head>
 <body>
@@ -208,13 +221,13 @@ border-top:1px dotted black;
 								role="dialog" aria-labelledby="exampleModalLabel"
 								aria-hidden="true">
 								<div class="modal-dialog" role="document">
-									<p>&nbsp;</p>
-									<p>&nbsp;</p>
-									<p>&nbsp;</p>
-									<p>&nbsp;</p>
-									<p>&nbsp;</p>
-									<p>&nbsp;</p>
-									<p>&nbsp;</p>
+<!-- 									<p>&nbsp;</p> -->
+<!-- 									<p>&nbsp;</p> -->
+<!-- 									<p>&nbsp;</p> -->
+<!-- 									<p>&nbsp;</p> -->
+<!-- 									<p>&nbsp;</p> -->
+<!-- 									<p>&nbsp;</p> -->
+<!-- 									<p>&nbsp;</p> -->
 									<div class="modal-content">
 										<div class="modal-header">
 											<h2 class="modal-title" id="exampleModalLabel"
@@ -282,13 +295,13 @@ border-top:1px dotted black;
 			
 			<div class="col-sm-8 myarea" >
 				<div class="container-fluid orderTable">
+				
+				<!-- 
 					<div class="col-md-6 ordercol">
 						<div class="col-md-8 imgBox">
 							<img src="/StarBusterCinima/images/film/102.jpg">
 						</div>
 						<div class="col-md-4 infoBox">
-<!-- 							<div class="orderInfo"><span>購票日期</span></div> -->
-<!-- 							<div class="orderInfo"><span>電影名稱</span></div> -->
 							<div class="orderInfo"><span>場次日期</span></div>
 							<div class="orderInfo"><span>張數</span></div>
 							<div class="orderInfo"><span>座位</span></div>
@@ -302,7 +315,6 @@ border-top:1px dotted black;
 							<img src="/StarBusterCinima/images/film/102.jpg">
 						</div>
 						<div class="col-md-4 infoBox">
-<!-- 							<div class="orderInfo"><span>購票日期</span></div> -->
 							<div class="orderInfo"><span>電影名稱</span></div>
 							<div class="orderInfo"><span>場次日期</span></div>
 							<div class="orderInfo"><span>張數</span></div>
@@ -312,38 +324,7 @@ border-top:1px dotted black;
 						
 						</div>
 					</div>
-					<div class="col-md-6 ordercol">
-						<div class="col-md-8 imgBox">
-							<img src="/StarBusterCinima/images/film/102.jpg">
-						</div>
-						<div class="col-md-4 infoBox">
-<!-- 							<div class="orderInfo"><span>購票日期</span></div> -->
-							<div class="orderInfo"><span>電影名稱</span></div>
-							<div class="orderInfo"><span>場次日期</span></div>
-							<div class="orderInfo"><span>張數</span></div>
-							<div class="orderInfo"><span>座位</span></div>
-							<div class="orderInfo"><span>金額</span></div>
-							<div class="orderInfo"><span>狀態</span></div>
-						
-						</div>
-					</div>
-					<div class="col-md-6 ordercol">
-						<div class="col-md-8 imgBox">
-							<img src="/StarBusterCinima/images/film/102.jpg">
-						</div>
-						<div class="col-md-4 infoBox">
-<!-- 							<div class="orderInfo"><span>購票日期</span></div> -->
-							<div class="orderInfo"><span>電影名稱</span></div>
-							<div class="orderInfo"><span>場次日期</span></div>
-							<div class="orderInfo"><span>張數</span></div>
-							<div class="orderInfo"><span>座位</span></div>
-							<div class="orderInfo"><span>金額</span></div>
-							<div class="orderInfo"><span>狀態</span></div>
-						
-						</div>
-					</div>
-					
-					
+					 -->
 					
 			
 			
@@ -355,14 +336,10 @@ border-top:1px dotted black;
 		</div>
 
 
-	
-
-
-
 	</div>
 
 
-	<jsp:include page="${pageScope.request.contextPath}/fragement/bot.jsp"></jsp:include>
+<%-- 	<jsp:include page="${pageScope.request.contextPath}/fragement/bot.jsp"></jsp:include> --%>
 </body>
 
 
@@ -383,7 +360,9 @@ border-top:1px dotted black;
 			$('#memberRobot').click(function(){
 				location.href="http://localhost:8080/StarBusterCinima/member/memberManagement/memberRobot.jsp";
 			})
-		
+			$('#memberOrder').click(function(){
+				location.href="http://localhost:8080/StarBusterCinima/member/memberManagement/memberBookingOrderHistory.jsp";
+			})
 		
 	var FilmWall = $('#FilmWall');
 	
@@ -470,12 +449,159 @@ border-top:1px dotted black;
 		
 		
 		
+// 				<div class="container-fluid orderTable">
+
+		
+// 					<div class="col-md-6 ordercol">
+// 						<div class="col-md-8 imgBox">
+// 							<img src="/StarBusterCinima/images/film/102.jpg">
+// 						</div>
+// 						<div class="col-md-4 infoBox">
+// 							<div class="orderInfo"><span>場次日期</span></div>
+// 							<div class="orderInfo"><span>張數</span></div>
+// 							<div class="orderInfo"><span>座位</span></div>
+// 							<div class="orderInfo"><span>金額</span></div>
+// 							<div class="orderInfo"><span>狀態</span></div>
+						
+// 						</div>
+// 					</div>
 		
 		
-		
-		
-		
-		
+$(document).ready(function(){			
+	
+	$.ajax({
+		 url: '<c:url value="/member/controller/memberbookingorder.controller" />',
+		 type: "GET",
+		 dataType: "json",
+		 success: function(Jdata) {
+// 		    alert($.type(Jdata));
+// 		    alert(Jdata.length);
+
+
+			var eachOrder = jQuery.makeArray(Jdata);
+			
+			for(var i=0 ; i<Jdata.length ; i++){
+				$('.orderTable').append(
+					$('<div>').attr('class','col-md-6 ordercol')
+					.append($('<div>').attr('class','col-md-8 imgBox'))
+					.append($('<div>').attr('class','col-md-4 infoBox')
+							.append($('<div>').attr('class','orderInfo').append($('<span>')))
+							.append($('<div>').attr('class','orderInfo').append($('<span>')))
+							.append($('<div>').attr('class','orderInfo').append($('<span>')))
+							.append($('<div>').attr('class','orderInfo').append($('<span>')))
+							.append($('<div>').attr('class','orderInfo').append($('<span>'))))
+				)
+			}
+			
+			
+			for(var i=0 ; i<Object.keys(Jdata).length ; i++){
+				for(var j=0;j<eachOrder[i].length;j++){
+					
+					
+					if(j==0){
+						$('.imgBox:eq('+i+')').append($('<img>').attr('src',eachOrder[i][j]));
+					}
+					if(j==1){
+						$('.infoBox:eq('+i+') span:eq('+(j-1)+')').append(eachOrder[i][j])
+					}
+					if(j==2){
+						$('.infoBox:eq('+i+') span:eq('+(j-1)+')').append(eachOrder[i][j]+"張")
+					}
+					if(j==3){
+						var num = eachOrder[i][j];
+						num= num.split("_").join("排").split(",").join("號,")+"號";
+						$('.infoBox:eq('+i+') span:eq('+(j-1)+')').append(num)
+					}
+					if(j==4){
+						$('.infoBox:eq('+i+') span:eq('+(j-1)+')').append("金額共 "+eachOrder[i][j]+" 元")
+					}
+					if(j==5){
+						if(eachOrder[i][j]==0){
+							$('.infoBox:eq('+i+') span:eq('+(j-1)+')').append("有效")
+						}else{
+							$('.infoBox:eq('+i+') span:eq('+(j-1)+')').append("已退票")
+						}
+					}
+					
+// 					alert(eachOrder[i][j]);
+					
+					
+//	 				<div class="container-fluid orderTable">
+					
+// 					<div class="col-md-6 ordercol">
+// 						<div class="col-md-8 imgBox">
+// 							<img src="/StarBusterCinima/images/film/102.jpg">
+// 						</div>
+// 						<div class="col-md-4 infoBox">
+// 							<div class="orderInfo"><span>場次日期</span></div>
+// 							<div class="orderInfo"><span>張數</span></div>
+// 							<div class="orderInfo"><span>座位</span></div>
+// 							<div class="orderInfo"><span>金額</span></div>
+// 							<div class="orderInfo"><span>狀態</span></div>
+						
+// 						</div>
+// 					</div>
+					
+				}
+			}	
+
+
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+
+				
+				
+// 				var filmPosterTag = $('<div>').attr('class','filmPoster');
+// 					var imgTag =    $('<img>').attr('src','../images/film/'+eachFilm[i].filmId+'.jpg');
+// 				var newFilmPosterTag = filmPosterTag.append(imgTag);
+					
+					
+// 				var filmInfoTag = $('<div>').attr('class','filmInfo');
+// 					var nameChTag = $('<div>').attr('class','infoNameCh').text(eachFilm[i].filmName);
+// 					var nameEnTag = $('<div>').attr('class','infoNameEn').text(eachFilm[i].engName);
+// 					var uDateTag =  $('<div>').attr('class','infoUdate').text(eachFilm[i].udate);
+// 				var newFilmInfoTag = filmInfoTag.append(nameChTag).append(nameEnTag).append(uDateTag)
+// //					var pTag =      $('<p></p>').css('margin-bottom','30px');
+// //				var newFilmInfoTag = filmInfoTag.append(nameChTag).append(nameEnTag).append(pTag).append(uDateTag)
+	
+// 				var aurl = $('<a>').attr('href','/StarBusterCinima/film/thisFilm.jsp');
+				
+// 				var itemTag = $('<div>').attr({'class':'item','id':eachFilm[i].filmId}).append(newFilmPosterTag).append(newFilmInfoTag);
+// 				var aurldone = aurl.append(itemTag);
+// 				var itemcolTag = $('<div>').attr('class','col-md-3 itemcol').append(aurldone);
+				
+// 				var newItemcolTag = itemcolTag.append(itemcolTag);
+				
+// 				$('#hotFilms').append(newItemcolTag);
+			
+			
+		 },
+		 
+		 error: function() {
+		   console.log("json parse error");
+		 }
+	});//End of ajax 一開始載入所有電影資料	
+	
+	
+	
+})
 		
 		
 		

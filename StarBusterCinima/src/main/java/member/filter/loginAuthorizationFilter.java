@@ -20,10 +20,10 @@ import javax.servlet.http.HttpSession;
 import member.model.MemberBean;
 
 @WebFilter(urlPatterns= {"/*"},initParams= {
-//		@WebInitParam(name = "mustLogin1", value = "/shopping/*"), 
-//		@WebInitParam(name = "mustLogin2", value = "/film/*"),
-		@WebInitParam(name = "mustLogin3", value = "/member/memberManagement/*") ,
+//		@WebInitParam(name = "mustLogin1", value = "/shopping/*"),
 		@WebInitParam(name = "mustLogin3", value = "/wishpool/*"),
+		@WebInitParam(name = "mustLogin2", value = "/film/*"),
+		@WebInitParam(name = "mustLogin3", value = "/member/memberManagement/*") 
 //		@WebInitParam(name = "mustLogin4", value = "/???/*")
 })
 public class loginAuthorizationFilter implements Filter {

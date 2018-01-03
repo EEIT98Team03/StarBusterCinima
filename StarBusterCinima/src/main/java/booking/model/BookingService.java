@@ -73,7 +73,8 @@ public class BookingService {
 	public Timestamp orderFilmsectiontime(String filmSectionDate,String filmSectionTime) {
 		//以場次日期+場次時間組合成Timestamp送回
 		String str = filmSectionDate+"."+filmSectionTime;
-		SimpleDateFormat sdfParse = new SimpleDateFormat("M月d日,EEE.hh:mm?yyyy");
+		System.out.println("DDD "+str);
+		SimpleDateFormat sdfParse = new SimpleDateFormat("M月d日,EEE.HH:mm?yyyy");
 //		SimpleDateFormat sdfParse = new SimpleDateFormat("yyyy-MM-dd hh:mm");
 //		sdfParse.setTimeZone(TimeZone.getTimeZone("GMT+8"));
 		
@@ -84,6 +85,7 @@ public class BookingService {
 		Date udate =null;
 		str = str+"-2018";
 		str = str.replace('(',',').replace('-','?').trim();
+		System.out.println("DDE "+str);
 		try {
 			udate = sdfParse.parse(str);
 //			System.out.println("(BookingService)udate==>"+udate);
@@ -139,6 +141,7 @@ public class BookingService {
 	@Transactional
 	public Map<String,String> pickSeats(int filmSectionId){
 		//用場次id找出該場次的座位圖和無效座位
+		System.out.println("TTTEST filmSectionId "+filmSectionId);
 		return bookingDAO.pickSeats(filmSectionId);
 	}
 	

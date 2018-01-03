@@ -573,11 +573,21 @@ input, textarea, select, button {
 }
 
 .displayInput{
-/*  	display: none;  */
+ 	display: none;  
 color:black;
 }
 
+.sectionParam{
+ 	display: none;  
+}
 
+li{
+list-style:disc inside;
+}
+.mynote{
+ 	display: none;  
+
+}
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
@@ -752,7 +762,16 @@ color:black;
 </div>
 
 <div class="bookingDescription">
-	<h2>這裡寫訂票說明</h2>
+	<h2 style="color:#20B7B7">訂票說明</h2>
+	<div>
+	<ol>
+	<li>網路預訂以電影播放日期為準，而非以刷卡日計算，每卡每日購買張數限制依影片類型、單日購票張數相關規定限制。</li>
+	<li>未滿２歲且不佔位之兒童無需購票可免費入場觀賞【普遍級】影片，每位兒童需由至少一位已購票之成人陪伴。</li>
+	<li>需佔位或２歲以上未滿１２歲之兒童；需購買優待票。</li>
+	<li>網路訂票每張票需加收 NT$20 手續費。</li>
+	<li>150分鐘以上之電影需加價 NT$10 。</li>
+	</ol>
+	</div>
 <input type="text" class="sectionParam" value="" >
 
 </div>
@@ -781,7 +800,16 @@ $(document).ready(function(){
 // 			"opacity":"0",
 // 			"heigh":"0"},0,function(){
 // 		})
-
+	var theSeats
+		=[
+		'oooo_oooooooooo_oooo',
+		'oooo_oooooooooo_oooo',
+		'oooo_oooooooooo_oooo',
+		'oooo_oooooooooo_oooo',
+		'oooo_oooooooooo_oooo',
+		'_ooo_oooooooooo_ooo_',
+		'__oo_oooooooooo_oo__'
+		];
 
 // 	alert(typeof(theSeats))
 	//動態載入顯示該電影兩張圖
@@ -900,7 +928,9 @@ $(document).ready(function(){
 						
 						var sc = $('#seat-map').seatCharts(
 								{
-											map:Jdata.roomSeats.split(",")
+											map:
+// 												Jdata.roomSeats.split(",")
+												theSeats
 								
 											,naming : {
 												top : true,
