@@ -322,13 +322,13 @@ margin-right: 10px;
 				<label class="control-label col-sm-3">上映狀態:<span class="text-danger">*</span></label>
 				<div class="col-md-5 col-sm-8">
 					<div class="radiospan">
-					    <input class="form-check-input" type="radio" name="upst" id="AA" value="${filmBean.upstatus}" >AA
+					    <input class="form-check-input" type="radio" name="upst" id="show" value="${filmBean.upstatus}" >上映中
 					</div>
 					<div class="radiospan">
-						<input class="form-check-input" type="radio" name="upst" id="BB" value="${filmBean.upstatus}" >BB
+						<input class="form-check-input" type="radio" name="upst" id="down" value="${filmBean.upstatus}" >已下檔
 					</div>
 					<div class="radiospan">
-						<input class="form-check-input" type="radio" name="upst" id="CC" value="${filmBean.upstatus}" >CC
+						<input class="form-check-input" type="radio" name="upst" id="yet" value="${filmBean.upstatus}" >未上映
 					</div>
 				</div>
 				</div>
@@ -344,6 +344,8 @@ margin-right: 10px;
 
 				<div class="form-group">
 					<div class="col-sm-12">
+						<input id="demo1"type="button" value="DEMO1" class="btn btn-primary">
+						<input id="demo2"type="button" value="DEMO2" class="btn btn-primary">
 						<input name="Submit" type="submit" value="送出" class="btn btn-primary">
 					</div>
 				</div>
@@ -355,18 +357,63 @@ margin-right: 10px;
 <script type="text/javascript">
 $(document).ready(function(){
 
-// 	alert("test");
-	$('#longIntro').keyup(function(){
-// 		alert($('#filmName').val())
+// 	$('#longIntro').keyup(function(){
+// 		$('#weight').val('1');
+// 		$('#posterMedium').val('/StarBusterCinima/images/film/'+$('#filmName').val()+'.jpg');
+// 		$('#posterLarge').val('/StarBusterCinima/images/film/'+$('#filmName').val()+'.jpg');
+// 	})
+	
+// 	$(':radio').click(function(){
+// 		$('#upstatus').val($(this).attr('id'));
+// 	})
+	
+	$('#demo1').click(function(){
+				
+		$('#filmId').val('0');
+		$('#filmName').val('天劫：救贖之戰');
+		$('#engName').val('Beyond Skyline');
+		$('#lengthOfFilm').val('101');
+		$('#genre').val('奇幻 科幻 懸疑 驚悚');
+		$('#filmLevel').val('輔15級');
+		$('#udate').val('2018-01-01');
+		$('#ddate').val('2018-02-02');
 		$('#weight').val('1');
+		$('#director').val('連恩歐當諾');
+		$('#actor').val('法蘭克·葛里洛 寶珍娜·諾娃柯維克 卡爾·穆爾維 伊科·烏艾斯 亞洋·魯辛');
+		$('#trailer').val(' <iframe width="100%" height="500px" src="https://www.youtube.com/embed/Y1TyWcEt0pM?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe> ');
+		$('#shortIntro').text("若干年前，牠們曾造訪地球並播種，現在牠們重回地球收成，而收成物就是人類！ 外星物種蹂躪地球，人類唯有誓死反撲。夜晚降臨，天空充滿奇怪的藍色光束。在短時間內，整個城市人口都被吸到一艘大型的外星艦艇。洛杉磯警探馬克（FRANK GRILLO），帶領一群倖存者逃亡，但仍無法躲避外星物種的追捕。");
+		$('#longIntro').text("《天劫：救贖之戰》導演-連恩歐當諾，曾擔任《天際浩劫》製片。當年《天際浩劫》在全球取得亮麗票房，但電影本身飽受觀眾議論，因此原本預計續集便擱置。但其實連恩歐當諾，相當喜歡電影中外星異種的設計概念，於是買下版權全新發想製作，團隊在募得三千萬美金決定拍攝，風格也與過往大相逕庭，改走R級暴力、血腥戰鬥，在首集基礎上加以創作，擴展到艦艇內秘密和外星物種繁衍計畫，希望將完整的劇情與概念重新表達給觀眾，讓科幻災難片晉升到不同層次。拍攝地點從多倫多的地鐵隧道，到印尼叢林和寮國雄偉寺廟，橫跨美加與亞洲，象徵地球的劫難不斷地蔓延，企圖拍出全新冒險視野。");
+		$('#upstatus').val('show');
+		
 		$('#posterMedium').val('/StarBusterCinima/images/film/'+$('#filmName').val()+'.jpg');
 		$('#posterLarge').val('/StarBusterCinima/images/film/'+$('#filmName').val()+'.jpg');
+		
 	})
 	
-	$(':radio').click(function(){
-// 		alert($(this).attr('id'));
-		$('#upstatus').val($(this).attr('id'));
+	
+	$('#demo2').click(function(){
+				
+		$('#filmId').val('0');
+		$('#filmName').val('東方快車謀殺案');
+		$('#engName').val('Murder on the Orient Express');
+		$('#lengthOfFilm').val('114');
+		$('#genre').val('動作 冒險 奇幻 科幻');
+		$('#filmLevel').val('輔12級');
+		$('#udate').val('2018-01-01');
+		$('#ddate').val('2018-02-02');
+		$('#weight').val('1');
+		$('#director').val('肯尼布萊納');
+		$('#actor').val('黛西蕾德莉 強尼戴普 茱蒂丹契 黛西蕾德莉');
+		$('#trailer').val(' <iframe width="100%" height="500px" src="https://www.youtube.com/embed/fNh1agY0UB4?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe> ');
+		$('#shortIntro').text("英國推理小說作家阿嘉莎克莉絲蒂的傑作將再被重拍，躍上大螢幕。英國才子肯尼斯布萊納執導並主演擁有小小灰色腦細胞的神探赫丘勒白羅，卡司還有茱蒂丹契、強尼戴普、蜜雪兒菲佛、潘妮洛普克魯茲、喬許蓋德、黛西蕾德莉。");
+		$('#longIntro').text("劇情描述一輛由伊斯坦堡開往歐洲的列車上，夾雜著不同階級、不同年齡層，來自世界各國的人；他們互不相識，卻必須要在一起生活三天。他們在同一個屋簷下睡覺、吃飯，躲也躲不開。三天之後，他們又將分道揚鑣，各奔東西，而且很可能永不再相見，但沒想到一場意外的大雪讓他們受困途中，最令人難以忍受的竟是車上發生了一起可怕的懸疑謀殺案。殺手看似逃之夭夭，但遺留下的線索卻又指向車上的每一位乘客，這樣的與世隔絕狀態讓這些素昧平生的乘客，全因這起案件讓大家的命運糾結在一起，而究竟誰是殺手？誰又是無辜的？一切都將由偵探白羅（肯尼斯布萊納 飾）抽絲剝繭地一一解開。");
+		$('#upstatus').val('show');
+		
+		$('#posterMedium').val('/StarBusterCinima/images/film/'+$('#filmName').val()+'.jpg');
+		$('#posterLarge').val('/StarBusterCinima/images/film/'+$('#filmName').val()+'.jpg');
+		
 	})
+	
 	
 });
 

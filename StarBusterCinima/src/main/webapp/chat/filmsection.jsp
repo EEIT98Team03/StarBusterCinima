@@ -130,7 +130,7 @@ body {
 								+ temp[2] + 'T' + temp[3];
 						
 						temp2 = temp[3].split(":")
-						ltemp = parseInt(r[i][4]);						
+						var ltemp = parseInt(r[i][4]);						
 						
 						
 						temp2[0] = parseInt(temp2[0]) + Math.round(ltemp/60);					
@@ -147,7 +147,7 @@ body {
 					$('#calendar').fullCalendar(
 							{
 								defaultView : 'agendaDay',
-								defaultDate : '2018-01-09',
+								defaultDate : today,
 								firstDay : 4,
 								minTime: '10:00:00',
 							    maxTime: '24:00:00',
