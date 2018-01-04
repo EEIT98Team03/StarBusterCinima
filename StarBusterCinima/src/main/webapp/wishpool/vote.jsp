@@ -95,8 +95,8 @@ h2 {
 	padding-left: 20px;
 	bottom: 0px;
 	width: 20%;
-	    margin-right: 50px;
-	    margin-top: 30px;
+	    margin-right: 15%;
+	    margin-top: 10%;
 /* 	margin: auto; */
 }
 
@@ -392,7 +392,7 @@ li {
 										Sex[0]=a[3];
 										Sex[1]=a[4];										
 										
-										alert(Age[0]+","+Age[1]+","+Age[2]+","+Sex[0]+","+Sex[0]);	
+// 										alert(Age[0]+","+Age[1]+","+Age[2]+","+Sex[0]+","+Sex[0]);	
 									},
 									error: function() { 
 							  	 		console.log("json parse error");

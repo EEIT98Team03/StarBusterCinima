@@ -68,23 +68,20 @@ public class VotemgmtController {
 		return false;
 	}
 
-	@RequestMapping(value = "VoteALot", method = { RequestMethod.GET }, produces = "text/html;charset=UTF-8")
-	public String VoteALot(Model model) {
+	@RequestMapping(value = "UpMovie", method = { RequestMethod.GET }, produces = "text/html;charset=UTF-8")
+	public String UpMovie(Model model) {
 
-		List<VoteBean> bean = votemgmtservice.UpMovie();
+		List<FilmBean> bean = votemgmtservice.UpMovie();
 		Gson J = new Gson();
 		String jbl = J.toJson(bean);
 
 		return jbl;
 	}
 
-	@RequestMapping(value = "UpMovie", method = { RequestMethod.GET }, produces = "text/html;charset=UTF-8")
-	public void DoVoteALot(Model model, @RequestParam("FilmID") int filmID) {
-		VoteBean bean = null;
-		// for(int i =0 ;i<memberID.length;i++) {
-		System.out.println(filmID);
-		// bean = voteService.VoteAMovie(filmID,memberID[i]);
-		// }
+	@RequestMapping(value = "doUpMovie", method = { RequestMethod.GET }, produces = "text/html;charset=UTF-8")
+	public void doUpMovie(Model model, @RequestParam("FilmID") int filmID) {
+		votemgmtservice.doUpMovie(filmID);
+
 	}
 
 	@RequestMapping(value = "UpdateVoteGoal", method = { RequestMethod.GET }, produces = "text/html;charset=UTF-8")

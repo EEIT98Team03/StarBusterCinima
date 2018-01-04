@@ -79,8 +79,4 @@ public class VoteService {
 //	}
 		return age;		
 	}
-	
-	
-	
-	
 }

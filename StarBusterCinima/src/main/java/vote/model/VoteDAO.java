@@ -1,6 +1,8 @@
 package vote.model;
 
 import java.util.List;
+
+import films.model.FilmBean;
 import member.model.MemberBean;
 
 public interface VoteDAO {
@@ -20,7 +22,7 @@ public interface VoteDAO {
 	// 給ID選MEMBER資料
 	List<Object[]> SelectMemberData(int id);
 	int SelectGenderofMember() ;
-
+	List<FilmBean> UpMovie();
 	// ---------------------------------------------------------INSERT---------------------------------------------------------//
 	// 把一個電影加到許願池
 	Boolean insert(int filmId, int VoteGoal);
@@ -37,13 +39,13 @@ public interface VoteDAO {
 	
 	VoteBean updateVoteGoal(VoteBean bean, int FilmID, int VoteGoal);
 	
-	boolean UpMovie(int FilmID);
+	boolean doUpMovie(int FilmID);
 
 	// ---------------------------------------------------------DELETE---------------------------------------------------------//
 
 	// 刪一個許願池的電影
 	boolean DeleteFilmInWishPool(int FilmID);
-	List<VoteBean> UpMovie();
+	
 	
 
 }

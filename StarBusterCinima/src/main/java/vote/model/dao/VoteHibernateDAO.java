@@ -100,23 +100,6 @@ public class VoteHibernateDAO implements VoteDAO {
 
 		return list;
 	}
-
-	
-	@Override
-	public List<VoteBean> UpMovie() {
-		String Hql = "from VoteBean as v where v.VoteStatus = 'Elected'";
-
-		Query<VoteBean> query = this.session().createQuery(Hql);
-
-		List<VoteBean> list = query.getResultList();
-
-		// for (int i = 0; i < list.size(); i++) {
-		// System.out.println("Element " + i + " : " + list.get(i)[0] + list.get(i)[1]);
-		// }
-
-		return list;
-	}
-	
 	public boolean IsMemberVoted(int MemberID) {
 		if(this.session().get(VotingDetailBean.class, MemberID) == null)
 			return true;	
@@ -202,10 +185,31 @@ public class VoteHibernateDAO implements VoteDAO {
 	}
 
 	@Override
-	public boolean UpMovie(int FilmID) {
+	public boolean doUpMovie(int FilmID) {
 		
+		FilmBean a = this.session().get(FilmBean.class,FilmID);
+		
+		a.setUpstatus("show");
+		
+		this.session().update(a);
 		
 		return false;
+	}
+
+	@Override
+	public List<FilmBean> UpMovie() {
+		String hql ="from FilmBean where filmId =(select v.FilmID from VoteBean as v where VoteStatus = 'Elected')";
+		 
+		Query<FilmBean> query = this.session().createQuery(hql);
+		 List<FilmBean> list = query.getResultList();
+		 
+			for (int i = 0; i < list.size(); i++) {
+				System.out.println("Element : " + i + list.get(i).getFilmId() + list.get(i).getFilmName());
+			}
+			
+			this.DeleteFilmInWishPool(list.get(0).getFilmId());
+		 
+		return list;
 	}
 
 }

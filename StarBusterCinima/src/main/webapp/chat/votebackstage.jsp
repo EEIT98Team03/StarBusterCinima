@@ -385,15 +385,16 @@ body {
 	
 	
 		$.ajax({ //get film data						
-			url: "../wishpool/votemgmt.controller/VoteALot",
+			url: "../wishpool/votemgmt.controller/UpMovie",
 			type: "GET", 
 			dataType: "text", 			
 			success: function(data) { 
 				//turn json data into array				
 				r = jQuery.parseJSON(data);
+				console.log(r);
 				for(var i = 0; i<r.length;i++){
 					console.log(r[i])
-					$('.VoteSelection01:eq(3)').append($("<option></option>").attr("value",r[i][0]).text(r[i][1]));
+					$('.VoteSelection01:eq(3)').append($("<option></option>").attr("value",r[i].filmId).text(r[i].filmName));
 				}
 			},
 			error: function() { 
@@ -403,7 +404,7 @@ body {
 	
 
 	$('#doVoteALot').on("click",function(){
-		console.log("doVoteALot start");
+		console.log("UpMovie start");
 		var memberId=new Array();
 		$( "input:checked" ).each(function () {
 			memberId.push(parseInt($(this).val()));		    
@@ -414,7 +415,7 @@ body {
 		
 		console.log($( "input:checked" ).val());	
 		$.ajax({ 				
-			url: "../wishpool/votemgmt.controller/DoVoteALot",
+			url: "../wishpool/votemgmt.controller/doUpMovie",
 			type: "GET", 
 			data:{"FilmID" : $('select :selected').val()} ,
 			dataType: "text", 			

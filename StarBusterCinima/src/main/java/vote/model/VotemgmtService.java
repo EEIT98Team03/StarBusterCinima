@@ -7,6 +7,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import films.model.FilmBean;
 import member.model.MemberBean;
 
 @Service
@@ -41,9 +42,9 @@ public class VotemgmtService {
 		return voteDAO.insert(FilmID, VoteGoal);
 	}
 	
-	public List<VoteBean> UpMovie() {		
+	public List<FilmBean> UpMovie() {		
 		
-		List<VoteBean> bean = voteDAO.UpMovie();	
+		List<FilmBean> bean = voteDAO.UpMovie();	
 		return bean;		
 	}
 	
@@ -53,9 +54,9 @@ public class VotemgmtService {
 				
 	}
 	
-	public boolean UpMovie(int FilmID) {
+	public boolean doUpMovie(int FilmID) {
 		
-		
+		voteDAO.doUpMovie(FilmID);
 		return false;		
 	}
 	
