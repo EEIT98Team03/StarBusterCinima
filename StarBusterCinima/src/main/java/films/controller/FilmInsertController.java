@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import films.model.FilmBean;
 import films.model.FilmModelService;
-import films.model.FilmService;
 
 @Controller
 @RequestMapping("/films/controller/filminsert.controller")
@@ -22,9 +21,9 @@ public class FilmInsertController {
 	@RequestMapping(method = RequestMethod.POST )
 	public String method(FilmBean bean, Model model ) throws IllegalStateException, IOException {
 	
-		System.out.println("(FilmInsertController ) 測試呼叫");
-		System.out.println(bean);
-		System.out.println(bean.getUpstatus());
+//		System.out.println("(FilmInsertController ) 測試呼叫");
+//		System.out.println(bean);
+//		System.out.println(bean.getUpstatus());
 		
 		boolean boo = filmModelService.insertFilm(bean);
 	
