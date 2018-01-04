@@ -37,7 +37,7 @@ color: white;
 a:visited {
 
 
-color: #20B7B7;
+color: white;
 
 text-decoration: none;
 

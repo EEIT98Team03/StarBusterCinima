@@ -138,15 +138,23 @@ border-top:1px dotted #6d6d6d;
 }
 .infoBox span{
     line-height: 35px;
-/* display:inline-block; */
-      position: absolute;
-      width:80%;
-      height:40%;
-      top:0;
-      right:0;
-      bottom:0;
-      left:0;
-      margin:auto;
+    /* display: inline-block; */
+    position: absolute;
+    width: 80%;
+    height: 40%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: -14px;
+    margin: auto;
+    /* background: #f60; */
+    /* position: relative; */
+    /* width: 100px; */
+    /* height: 50px; */
+    /* top: 50%; */
+    /* transform: translateY(-50%); */
+    /* background: #095; */
+    text-align: center;
 /*       background:#f60; */
       
 /*       position: relative; */
@@ -509,7 +517,7 @@ $(document).ready(function(){
 					}
 					if(j==3){
 						var num = eachOrder[i][j];
-						num= num.split("_").join("排").split(",").join("號,")+"號";
+// 						num= num.split("_").join("排").split(",").join("號,")+"號";
 						$('.infoBox:eq('+i+') span:eq('+(j-1)+')').append(num)
 					}
 					if(j==4){

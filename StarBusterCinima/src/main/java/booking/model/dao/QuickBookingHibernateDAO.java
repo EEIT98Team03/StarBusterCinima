@@ -25,7 +25,7 @@ public class QuickBookingHibernateDAO implements QuickBookingDAO {
 	
 	@Override
 	public List<FilmBean> selectFilms() {
-		Query<FilmBean> query = this.session().createQuery("from FilmBean", FilmBean.class);		
+		Query<FilmBean> query = this.session().createQuery("from FilmBean where upstatus = 'show' order by filmId DESC", FilmBean.class);		
 		return query.getResultList();
 	}
 	

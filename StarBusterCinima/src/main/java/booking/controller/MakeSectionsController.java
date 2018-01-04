@@ -56,7 +56,8 @@ public class MakeSectionsController {
 //			List<Timestamp> result = quickBookingService.selectFilmSectionTimeByFilmId(filmId);
 //			List<Timestamp> dates = quickBookingService.selectThisFilmsSections(filmBean.getFilmName());
 			
-			List<String> datesResult = quickBookingService.toDates(filmBean.getFilmName());
+			List<String> datesResult = quickBookingService.toDates(String.valueOf(filmBean.getFilmId()));
+			System.out.println("0104test: 日期controller"+datesResult);
 			
 //			System.out.println("filmBean -> "+filmBean);
 //			System.out.println("datesResult -> "+datesResult);

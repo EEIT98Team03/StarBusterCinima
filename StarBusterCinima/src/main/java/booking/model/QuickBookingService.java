@@ -50,16 +50,16 @@ public class QuickBookingService {
 	
 	
 	@Transactional
-	public List<Timestamp> selectThisFilmsSections(String filmName) {
+	public List<Timestamp> selectThisFilmsSections(String filmId) {
 		SimpleDateFormat sdfDate = new SimpleDateFormat("M-d.(EEE)");
-		
+		System.out.println("0104測試: "+filmId);
 		//用電影名稱找到電影ID
-		int filmidResult = quickBookingDAO.selectFilmidByFilmname(filmName);
+//		int filmidResult = quickBookingDAO.selectFilmidByFilmname(filmId);
 		List<Timestamp> sectionsResult = new ArrayList<Timestamp>();
 		
 		//用電影ID產生該電影所有場次的List
-		for(int i = 0;i<quickBookingDAO.selectFilmSectionTimeByFilmId(filmidResult).size();i++) {
-			sectionsResult.add(quickBookingDAO.selectFilmSectionTimeByFilmId(filmidResult).get(i).getFilmSectionTime());
+		for(int i = 0;i<quickBookingDAO.selectFilmSectionTimeByFilmId(Integer.parseInt(filmId)).size();i++) {
+			sectionsResult.add(quickBookingDAO.selectFilmSectionTimeByFilmId(Integer.parseInt(filmId)).get(i).getFilmSectionTime());
 		}
 		
 		return sectionsResult;
@@ -68,10 +68,11 @@ public class QuickBookingService {
 	
 	
 	@Transactional
-	public List<String> toDates(String filmName) {
+	public List<String> toDates(String filmId) {
 		//電影名稱->日期
+		System.out.println("datesResult"+filmId);
 		SimpleDateFormat sdfDate = new SimpleDateFormat("M-d.(EEE)");
-		sectionsResult = selectThisFilmsSections(filmName);
+		sectionsResult = selectThisFilmsSections(filmId);
 		List<String> datesResult = new ArrayList<String>();
 		
 		String temp="";

@@ -84,7 +84,7 @@ p{
 	text-align: center;
 }
 .divorderForm input[type="text"] , .divorderForm span{
-/*   	display: none;   */
+   	display: none;   
 color:black;
 }
 

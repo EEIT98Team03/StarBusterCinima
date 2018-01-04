@@ -612,9 +612,11 @@ list-style:disc inside;
 		<div class="col-md-1 navicol">
 			<div class="ehdiv navidiv">立即訂票</div>
 		</div>
-		<div class="col-md-3 navicolcenter" >
+		<a href="/StarBusterCinima/index.jsp">
+			<div class="col-md-3 navicolcenter" >
 				<img class="naviLogo" src="/StarBusterCinima/images/SB01.png">
 		</div>
+		</a>
 		<div class="col-md-1 navicol">
 			<div class="ehdiv navidiv">周邊精品</div>
 		</div>
@@ -622,7 +624,7 @@ list-style:disc inside;
 			<div class="ehdiv navidiv">精彩活動</div>
 		</div>
 		<div class="col-md-1 navicol">
-			<div class="ehdiv navidiv">用戶登入</div>
+			<div class="ehdiv navidiv"></div>
 		</div>
 	
 	</div>
@@ -889,6 +891,11 @@ $(document).ready(function(){
 		//點擊時間
 		$('.itemTime').on('click','div', function(){
 
+			
+			$('.item').css({'background-color':'#3c3c3c','color':'white'});
+			$('.mmdd').css('color','white');
+			$('.eee').css('color','#20B7B7');
+			$(this).parent().css({'background-color':'#20B7B7','color':'white'}).children().css({'color':'white'})
 // 			$('.seatCharts-container').slideDown(500)
 			
 			$('.seatCharts-container').animate({
