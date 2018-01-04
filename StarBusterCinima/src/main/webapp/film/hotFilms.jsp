@@ -30,14 +30,14 @@ body{
 
 a:link {
 
-
+color: white;
 
 }
 
 a:visited {
 
 
-color: white;
+color: #20B7B7;
 
 text-decoration: none;
 
@@ -53,7 +53,7 @@ text-decoration: none;
 }
 
 a:active{
-
+color: #20B7B7;
 }
 
 /*
@@ -323,7 +323,9 @@ $(document).ready(function(){
 			for(var i=0 ; i<Object.keys(Jdata).length ; i++){
 
 				var filmPosterTag = $('<div>').attr('class','filmPoster');
-					var imgTag =    $('<img>').attr('src','../images/film/'+eachFilm[i].filmId+'.jpg');
+
+					var imgTag =    $('<img>').attr('src','/StarBusterCinima/images/film/'+eachFilm[i].filmName+'.jpg');
+
 				var newFilmPosterTag = filmPosterTag.append(imgTag);
 					
 					
@@ -335,7 +337,7 @@ $(document).ready(function(){
 // 					var pTag =      $('<p></p>').css('margin-bottom','30px');
 // 				var newFilmInfoTag = filmInfoTag.append(nameChTag).append(nameEnTag).append(pTag).append(uDateTag)
 	
-				var aurl = $('<a>').attr('href','/StarBusterCinima/film/thisFilm.jsp');
+				var aurl = $('<a>').attr('href','<c:url value="/films/controller/thisFilm.controller"/>?filmId='+eachFilm[i].filmId);
 				
 				var itemTag = $('<div>').attr({'class':'item','id':eachFilm[i].filmId}).append(newFilmPosterTag).append(newFilmInfoTag);
 				var aurldone = aurl.append(itemTag);
@@ -362,51 +364,7 @@ $(document).ready(function(){
 // 		classfilmId
 	
 	
-	$('#hotFilms').on('click','a', function(event){
-// 		event.stopPropagation();
-// 		event.preventDefault();
-// 		event.stopImmediatePropagation();
-// 		alert($(this).closest('div[class="item"]').attr('id'));
-// 		alert($(this).parent('.item').attr('id')+"kerker");
-// 		alert($(this).find('.item').attr('id')+"kerker");
-// 		alert($(this).children('.item').attr('id'));
-		
-		//把選中的電影ID傳至後端並跳轉畫面
-		$.ajax({
-			 url: '/StarBusterCinima/films/controller/thisFilm.controller',
-// 			 url: '/StarBusterCinima/films/controller/thisFilm.controller'+$(this).parent('.item').attr('id'),
-// 			 url: '/StarBusterCinima/film/thisFilm.jsp',
-			 type: "GET",
-			 dataType: 'json',
-			 data: { 
-// 				 paramFilmId : $(this).find('.item').attr('id'),                            
-				 paramFilmId : $(this).children('.item').attr('id'),                            
-             },
-             complete: function(){
-            	console.log("complete") 
-             }
-		});
-
-		
-// 		window.location.href='/StarBusterCinima/film/thisFilm.jsp'
-
-
-// 		$.ajax({
-// 			 url: '/StarBusterCinima/booking/controller/quickBookingSections.controller/'+$('#selectAllFilms').attr('name'),
-// 			 type: "GET",
-// 			 success: function(Jdata) {
-// 			 	console.log("ajax process success.")
-// 			 },
-			 
-// 			 error: function() {
-// 			 	console.log("ajax process fail.");
-// 			 }
-// 		});//end of 將選中的電影名稱給後端
-
-
-
-
-	});
+	
 	
 // 	navi的滑鼠移上去會有藍色底條
 	$('.navicol>div').hover(function() {

@@ -364,6 +364,7 @@ body {
 						<li><a href="/StarBusterCinima/chat/robotAdManage.jsp">廣告管理</a></li>
 						<li><a href="/StarBusterCinima/chat/filmsection.jsp">電影場次管理</a></li>
 						<li><a href="/StarBusterCinima/chat/votebackstage.jsp">活動管理</a></li>
+						<li><a href="/StarBusterCinima/chat/insertFilm.jsp">電影新增</a></li>
 					</ul>
 				</div>
 				<!--/.nav-collapse -->

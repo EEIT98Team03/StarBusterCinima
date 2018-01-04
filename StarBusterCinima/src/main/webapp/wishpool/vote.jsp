@@ -233,6 +233,12 @@ li {
 			<!--------------------------------------	↑item in  menu end#  -------------------------------------->
 		</div>
 	</div>
+	
+	
+
+	
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.2.4/owl.carousel.min.js"></script>
 	<script>
 		function drawchart(Fi,bc,chartname,method,goal,hi,wi,ti) {//make ballot count chart
 			var bs = 0;

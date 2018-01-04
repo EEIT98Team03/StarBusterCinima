@@ -102,7 +102,8 @@ public class BookingHibernateDAO implements BookingDAO {
 //		System.out.println("BBB filmsectiontime "+filmsectiontime);
 		
 		
-		String connUrl = "jdbc:sqlserver://192.168.40.19:1433;database=StarBusterCinima";
+//		String connUrl = "jdbc:sqlserver://192.168.40.19:1433;database=StarBusterCinima";
+		String connUrl = "jdbc:sqlserver://localhost:1433;database=StarBusterCinima";
 		String sql = "select * from FilmSection where filmid=? AND Convert(varchar, filmsectiontime,120) LIKE ? ";
 		Connection conn = null;
 		ResultSet rs = null;

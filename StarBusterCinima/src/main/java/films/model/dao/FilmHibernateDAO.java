@@ -13,9 +13,9 @@ import org.springframework.stereotype.Repository;
 import films.model.FilmBean;
 import films.model.FilmDAO;
 import films.model.FilmSectionBean;
+import smart.model.RobotResponseRecordBean;
 
 @Repository
-
 public class FilmHibernateDAO implements FilmDAO {
 
 	@Autowired
@@ -24,6 +24,20 @@ public class FilmHibernateDAO implements FilmDAO {
 	public Session session() {
 		return sessionFactory.getCurrentSession();
 	}
+	
+	
+	
+	@Override
+	public boolean insertFilm(FilmBean bean) {
+		if (bean != null) {
+			this.session().save(bean);
+			return true;
+		}
+		return false;
+	}
+	
+	
+	
 
 	@Override
 	public FilmBean selectById(int filmId) {
