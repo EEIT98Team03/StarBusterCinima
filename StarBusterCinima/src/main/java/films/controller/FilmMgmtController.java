@@ -63,11 +63,11 @@ public class FilmMgmtController {
 	public String method(FilmBean bean, BindingResult bindingResult, Model model) {
 		// @RequestParam("FilmID") String posterLarge,
 		// @RequestParam("FilmID") byte[] posterMedium,
-		System.out.println("test");
+		//System.out.println("test");
 		// System.out.println(bean.getFilmId()+"test");
 		// System.out.println(filmName+"test");
-		System.out.println(bean.getEngName() + "test");
-		System.out.println(bean.getUdate() + "test");
+		//System.out.println(bean.getEngName() + "test");
+		//System.out.println(bean.getUdate() + "test");
 		// FilmBean insert(FilmBean bean)
 		return "insert.success";
 	}
@@ -119,7 +119,7 @@ public class FilmMgmtController {
 	
 	@RequestMapping(method = RequestMethod.GET, value = "UpdateSection", produces = "text/html;charset=UTF-8")
 	public boolean UpdateSection(Model model, @RequestParam("filmsectionId") int filmsectionId,@RequestParam("filmsectiontime") String filmsectiontime) throws ParseException {
-		System.out.println(filmsectiontime);
+		//System.out.println(filmsectiontime);
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		java.util.Date parsedDate = dateFormat.parse(filmsectiontime);
 		Timestamp timestamp = new java.sql.Timestamp(parsedDate.getTime());
@@ -143,7 +143,7 @@ public class FilmMgmtController {
 	@RequestMapping(value = "s1", method = { RequestMethod.GET }, produces = "text/html;charset=UTF-8")
 	public String s1(Model model) {
 		
-		System.out.println("a");
+		//System.out.println("a");
 		List<FilmBean> result = quickBookingService.selectAllfilms();
 
 		Gson gson = new Gson();
