@@ -141,7 +141,7 @@ public class VoteHibernateDAO implements VoteDAO {
 		bean.setFilmID(filmId);
 		bean.setBallotCount(0);
 		bean.setVoteGoal(VoteGoal);
-		bean.setVoteStatus("test");
+		bean.setVoteStatus("during");
 		System.out.println(bean.getFilmID());
 		this.session().save(bean);
 

@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
 
+import booking.model.QuickBookingService;
+import films.model.FilmBean;
 import member.model.MemberBean;
 import vote.model.VoteBean;
 import vote.model.VoteService;
@@ -24,68 +26,74 @@ public class VotemgmtController {
 	@Autowired
 	VotemgmtService votemgmtservice;
 	VoteService voteService;
-	
-	@RequestMapping(value = "LoadData1",method = { RequestMethod.GET },produces = "text/html;charset=UTF-8")
+	QuickBookingService quickBookingService;
+
+	@RequestMapping(value = "LoadData1", method = { RequestMethod.GET }, produces = "text/html;charset=UTF-8")
 	public String LoadData1(Model model) {
-		List<Object[]> list = votemgmtservice.loaddata();	
-		
-		for(int i = 0 ; i<list.size() ;i++) {
-			
+		List<Object[]> list = votemgmtservice.loaddata();
+
+		for (int i = 0; i < list.size(); i++) {
+
 			System.out.println(list.get(i)[0]);
 		}
-		
-		Gson J = new Gson();		
+
+		Gson J = new Gson();
 		String jbl = J.toJson(list);
 		return jbl;
 	}
-	
-	@RequestMapping(value = "SelectAllFilmIdAndNameInWishpool",method = { RequestMethod.GET })
-	public List<Object[]> SelectAllFilmIdAndNameInWishpool(Model model ,@RequestParam("FilmID") int FilmID) {	
-		
-List<Object[]> list = votemgmtservice.loaddata();	
-		
-		for(int i = 0 ; i<list.size() ;i++) {
-			
+
+	@RequestMapping(value = "SelectAllFilmIdAndNameInWishpool", method = { RequestMethod.GET })
+	public List<Object[]> SelectAllFilmIdAndNameInWishpool(Model model, @RequestParam("FilmID") int FilmID) {
+
+		List<Object[]> list = votemgmtservice.loaddata();
+
+		for (int i = 0; i < list.size(); i++) {
+
 			System.out.println(list.get(i)[0]);
 		}
-		
+
 		return votemgmtservice.SelectFilmInWishPool();
 	}
-	
-	@RequestMapping(value = "DeleteFilmInWishPool",method = { RequestMethod.GET })
-	public Boolean DeleteFilmInWishPool(Model model ,@RequestParam("FilmID") int FilmID) {		
-		votemgmtservice.DeleteFilmInWishPool(FilmID);		
+
+	@RequestMapping(value = "DeleteFilmInWishPool", method = { RequestMethod.GET })
+	public Boolean DeleteFilmInWishPool(Model model, @RequestParam("FilmID") int FilmID) {
+		votemgmtservice.DeleteFilmInWishPool(FilmID);
 		return false;
 	}
-	
-	@RequestMapping(value = "InsertFilmIntoWishPool",method = { RequestMethod.GET })
-	public Boolean InsertFilmIntoWishPool(Model model ,@RequestParam("FilmID")int FilmID,int VoteGoal) {
-		
-		votemgmtservice.InsertFilmIntoWishPool(FilmID, VoteGoal);		
+
+	@RequestMapping(value = "InsertFilmIntoWishPool", method = { RequestMethod.GET })
+	public Boolean InsertFilmIntoWishPool(Model model, @RequestParam("FilmID") int FilmID, int VoteGoal) {
+
+		votemgmtservice.InsertFilmIntoWishPool(FilmID, VoteGoal);
 		return false;
 	}
-	
-	@RequestMapping(value = "VoteALot",method = { RequestMethod.GET },produces = "text/html;charset=UTF-8")
-	public String VoteALot(Model model ) {
-		
+
+	@RequestMapping(value = "VoteALot", method = { RequestMethod.GET }, produces = "text/html;charset=UTF-8")
+	public String VoteALot(Model model) {
+
 		List<MemberBean> bean = votemgmtservice.SelectMemberData();
-		Gson J = new Gson();		
-		String jbl = J.toJson(bean);	
-		
+		Gson J = new Gson();
+		String jbl = J.toJson(bean);
+
 		return jbl;
 	}
-	
-	@RequestMapping(value = "DoVoteALot",method = { RequestMethod.GET },produces = "text/html;charset=UTF-8")
-	public void DoVoteALot(Model model ,@RequestParam("FilmID")int filmID,@RequestParam("memberId")List<Integer> memberId) {
+
+	@RequestMapping(value = "DoVoteALot", method = { RequestMethod.GET }, produces = "text/html;charset=UTF-8")
+	public void DoVoteALot(Model model, @RequestParam("FilmID") int filmID,
+			@RequestParam("memberId") List<Integer> memberId) {
 		VoteBean bean = null;
-//		for(int i =0 ;i<memberID.length;i++) {
-			System.out.println(filmID);
-//			 bean = voteService.VoteAMovie(filmID,memberID[i]);
-//		}	
+		// for(int i =0 ;i<memberID.length;i++) {
+		System.out.println(filmID);
+		// bean = voteService.VoteAMovie(filmID,memberID[i]);
+		// }
 	}
-	
-	@RequestMapping(value = "UpdateVoteGoal",method = { RequestMethod.GET },produces = "text/html;charset=UTF-8")
-	public void UpdateVoteGoal(Model model ,@RequestParam("FilmID")int filmID,@RequestParam("VoteGoal")int VoteGoal) {
+
+	@RequestMapping(value = "UpdateVoteGoal", method = { RequestMethod.GET }, produces = "text/html;charset=UTF-8")
+	public void UpdateVoteGoal(Model model, @RequestParam("FilmID") int filmID,
+			@RequestParam("VoteGoal") int VoteGoal) {
 		votemgmtservice.UpdateVoteGoal(filmID, VoteGoal);
 	}
+	
+
+
 }

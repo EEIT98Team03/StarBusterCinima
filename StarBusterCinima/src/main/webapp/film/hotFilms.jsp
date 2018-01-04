@@ -30,14 +30,14 @@ body{
 
 a:link {
 
-
+color: white;
 
 }
 
 a:visited {
 
 
-color: white;
+color: #20B7B7;
 
 text-decoration: none;
 
@@ -53,7 +53,7 @@ text-decoration: none;
 }
 
 a:active{
-
+color: #20B7B7;
 }
 
 /*
@@ -323,7 +323,11 @@ $(document).ready(function(){
 			for(var i=0 ; i<Object.keys(Jdata).length ; i++){
 
 				var filmPosterTag = $('<div>').attr('class','filmPoster');
+<<<<<<< HEAD
 					var imgTag =    $('<img>').attr('src','/StarBusterCinima/images/film/'+eachFilm[i].filmId+'.jpg');
+=======
+					var imgTag =    $('<img>').attr('src','/StarBusterCinima/images/film/'+eachFilm[i].filmName+'.jpg');
+>>>>>>> branch 'master' of https://github.com/EEIT98Team03/StarBusterCinima.git
 				var newFilmPosterTag = filmPosterTag.append(imgTag);
 					
 					
