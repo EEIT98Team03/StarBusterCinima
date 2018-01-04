@@ -41,7 +41,7 @@ public class VoteHibernateDAO implements VoteDAO {
 	@Override
 	public List<Object[]> selectall() {
 		String Hql = "select v.FilmID , f.filmName , v.BallotCount , v.VoteGoal  , f.posterLarge from  VoteBean as v INNER JOIN FilmBean as f on v.FilmID = f.filmId "
-				+ "and v.VoteStatus != 'Elected'   order by v.BallotCount DESC";
+				+ "and f.upstatus = 'down'  order by v.BallotCount DESC";
 
 		Query<Object[]> query = this.session().createQuery(Hql);
 		List<Object[]> list = query.getResultList();
@@ -121,9 +121,7 @@ public class VoteHibernateDAO implements VoteDAO {
 		if(this.session().get(VotingDetailBean.class, MemberID) == null)
 			return true;	
 		else
-			return false;
-		
-		
+			return false;		
 	}
 	
 	

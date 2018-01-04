@@ -132,7 +132,6 @@ body {
 						temp2 = temp[3].split(":")
 						var ltemp = parseInt(r[i][4]);						
 						
-						
 						temp2[0] = parseInt(temp2[0]) + Math.round(ltemp/60);					
 						
 						SectionData.end = temp[0] + '-' + temp[1] + '-'
@@ -141,7 +140,7 @@ body {
 						SectionData.resourceId = r[i][2].split(" ")[0].toLowerCase();
 						SectionData.title = r[i][3];
 						SectionDataList[i] = {id:SectionData.id,start:SectionData.start,end:SectionData.end,resourceId:SectionData.resourceId,title:SectionData.title};	
-//  						console.log(SectionData)
+ 						console.log(SectionData)
 					}
 					console.log(SectionDataList)
 					$('#calendar').fullCalendar(
@@ -212,10 +211,6 @@ body {
 									}
 									else
 										alert(start.format(),resourceId);
-									
-								
-									
-
 								},
 								dayClick : function(date, jsEvent, view, resource) {
 									console.log('dayClick', date.format(),
