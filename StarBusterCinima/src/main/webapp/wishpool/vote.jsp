@@ -15,14 +15,14 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.2.4/assets/owl.theme.default.min.css"></link>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.2.4/owl.carousel.min.js"></script>
 
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.2.4/assets/owl.carousel.min.css"></link>	
+<link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.2.4/assets/owl.theme.default.min.css"></link>
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <!-- <link rel="stylesheet" href="../css/wishpool/vote.css"></link> -->
   <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">  
 
  <style >
-
 /*====================Test====================*/
 /* * { */
 /* 	border: 1px solid red; */
@@ -94,10 +94,10 @@ h2 {
 #dovote {
 	padding-left: 20px;
 	bottom: 0px;
-	width: 30%;
-	/*     margin-right: 50px; */
-	/*     margin-top: 30px; */
-	margin: auto;
+	width: 20%;
+	    margin-right: 50px;
+	    margin-top: 30px;
+/* 	margin: auto; */
 }
 
 #bc {
@@ -167,12 +167,6 @@ li {
 
 		<!--------------------------------------	item in  menu   -------------------------------------->
 		<div id="myTabContent" class="tab-content">
-			<div class="tab-pane fade" id="tablist01">
-				<p>tablist01</p>
-			</div>
-			<div class="tab-pane fade" id="tablist02">
-				<p>tablist02</p>
-			</div>
 			<!--------------------------------------	menu01 end#   -------------------------------------->
 			<div class="tab-pane fade in active" id="analysis">
 				<div id="chart2" class="pull-left"></div>
@@ -197,9 +191,16 @@ li {
 				<div class = "item"></div>
 				<div class = "item"></div>
 				<div class = "item"></div>
+				</div>	
+				
+					
+				<div id="mov" class = "pull-left">
+					<iframe width="560" height="315"
+							src="https://www.youtube.com/embed/GVp4hXMqC6g?ecver=1"
+							frameborder="0" gesture="media" allow="encrypted-media"
+							allowfullscreen></iframe>
 				</div>
-					<a id="Mname">${loginUserInfo.memberId}</a>
-				<div id="dovote">
+				<div id="dovote" class="pull-right">				
 					<h2>投票</h2>
 					<select name="FilmName" id="FID"></select>
 					<p></p>
@@ -318,7 +319,6 @@ li {
 								        name: '年齡區間',
 								        data: [10, 12, 22, 30, 5, 1]
 								    }],
-
 								    responsive: {
 								        rules: [{
 								            condition: {
@@ -339,8 +339,7 @@ li {
 	</script>
 	
 	
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.2.4/assets/owl.carousel.min.css"></link>	
-<link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.2.4/assets/owl.theme.default.min.css"></link>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.2.4/owl.carousel.min.js"></script>
 	
 	

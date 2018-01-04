@@ -43,7 +43,9 @@ public class VoteController {
 		bean.setFilmID(FilmID);	
 		
 		MemberBean bean2 = (MemberBean)request.getSession().getAttribute("loginUserInfo");		
-
+		
+		System.out.println(FilmID   + "" +bean2.getMemberId());
+		
 		VoteBean result = voteService.VoteAMovie(FilmID,bean2.getMemberId());
 		if(result!=null) {			
 			

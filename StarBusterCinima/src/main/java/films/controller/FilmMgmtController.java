@@ -102,6 +102,7 @@ public class FilmMgmtController {
 			bean.setRoomSeats(Seat1);
 		else
 			bean.setRoomSeats(Seat2);
+		bean.setUnavailableSeats(" ");
 
 		bean.setSectionroom(sectionroom.toUpperCase());
 

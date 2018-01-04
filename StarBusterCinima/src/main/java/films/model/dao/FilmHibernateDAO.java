@@ -24,9 +24,6 @@ public class FilmHibernateDAO implements FilmDAO {
 	public Session session() {
 		return sessionFactory.getCurrentSession();
 	}
-	
-	
-	
 	@Override
 	public boolean insertFilm(FilmBean bean) {
 		if (bean != null) {
@@ -35,10 +32,6 @@ public class FilmHibernateDAO implements FilmDAO {
 		}
 		return false;
 	}
-	
-	
-	
-
 	@Override
 	public FilmBean selectById(int filmId) {
 		return this.session().get(FilmBean.class, filmId);
@@ -122,10 +115,15 @@ public class FilmHibernateDAO implements FilmDAO {
 		// FilmSection.filmsectionid,filmsectiontime,Film.filmname,
 		// Film.lengthofFilm from FilmSection join Film on FilmSection.filmid =
 		// Film.filmid
-		String Hql = "select fs.filmId,fs.filmSectionTime,fs.sectionroom ,f.filmName ,f.lengthOfFilm ,fs.filmSectionId from FilmSectionBean  as fs join FilmBean as f on fs.filmId = f.filmId and f.upstatus = 'intheaters'";
+		String Hql = "select fs.filmId,fs.filmSectionTime,fs.sectionroom ,f.filmName ,f.lengthOfFilm ,fs.filmSectionId from FilmSectionBean  as fs join FilmBean as f on fs.filmId = f.filmId and f.upstatus = 'show'";
 
 		Query<Object[]> query = this.session().createQuery(Hql);
+		
 		List<Object[]> list = query.getResultList();
+	
+//		for(int i = 0;i<list.size();i++) {
+//				System.out.println(list.get(i)[0]);
+//		}
 
 		return list;
 
