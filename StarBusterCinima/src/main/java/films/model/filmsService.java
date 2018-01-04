@@ -1,8 +1,6 @@
 package films.model;
 
-import java.sql.Date;
 import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -52,6 +50,13 @@ public class filmsService {
 		
 		return filmDAO.SelectSectionCount();
 		
+	}
+	
+	public List<FilmBean> selectAllfilms(){//搜尋所有電影		
+		
+		List<FilmBean> filmResult = filmDAO.selectAll();
+		System.out.println(filmResult);
+		return filmResult;
 	}
 	
 }

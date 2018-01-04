@@ -375,10 +375,8 @@ li {
 							console.log();
 						//-----------------------------------------------------------------------------------------------------	
 						
-							$('#frtable').on('click', 'tr>td', function() {	
-								alert(parseInt($(this).attr("id")))
+							$('#frtable').on('click', 'tr>td', function() {								
 								$('#chart2').animate({height:"300px"});	
-
 								$.ajax({ //get film data						
 									url: "vote.controller/SelectMemberDataSelected", 
 									type: 'GET', 
@@ -407,8 +405,7 @@ li {
 										drawchart(["男","女"], [12,23], "chart2", "pie", Sex, 300 ,200,'');
 										drawchart(["10 - 20","20 - 30","30 - 40","40 - 50","50 - 60","60 -"], [1,2,3], "chart3", "line",10, 300 ,200);
 									}
-								});	
-
+								});
 							});						
 						
 							$('thead').click( function() {								
@@ -451,7 +448,6 @@ li {
 						//-----------------------------------------------------------------------------------------------------	
 
 			
-						
 							//feed FilmWall images
 							for(var i = 0; i <5;i++){								
 						 		$('.item:eq('+ i +')').append($("<img src="+ Fl[i] + "/>"));				
@@ -494,25 +490,20 @@ li {
 									},
 									complete: function(){
 											//put massage in status bar
-											var status = ["尚未開始","進行中","集氣成功"]
+											var status = ["進行中","集氣成功"]
 											var i =0;
 											
 											if(r.VoteStatus == "during")
-												i=1;
+												i=0;
 											else if(r.VoteStatus == "Elected")
-												i=2;
+												i=1;
 											
 											$('.modal-body').text("電影名稱: "+$('select :selected').text()+"   |   目前得票 : " +r.BallotCount + "   |   狀態 : " + status[i]);
 											$('.alert alert-warning').removeAttr("display");								
-											setInterval(function(){location.reload()}, 2000);								
+											setInterval(function(){location.reload()},3000);								
 									}
 								});	
 					});
-					
-					
-					
-
-
 		});//end onload# 	
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------	
 

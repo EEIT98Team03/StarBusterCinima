@@ -103,15 +103,12 @@ public class VoteHibernateDAO implements VoteDAO {
 
 	
 	@Override
-	public List<MemberBean> SelectMemberData2() {
-		String Hql = "from MemberBean";
-		// select Member.gender , member.birthday from Member where memberId = ( select
-		// MemberID from VoteDetail where FilmID = 100 ) = (select MemberID form
-		// VotingDetailBean as vd where vd.FilmID =?)
+	public List<VoteBean> UpMovie() {
+		String Hql = "from VoteBean as v where v.VoteStatus = 'Elected'";
 
-		Query<MemberBean> query = this.session().createQuery(Hql);
+		Query<VoteBean> query = this.session().createQuery(Hql);
 
-		List<MemberBean> list = query.getResultList();
+		List<VoteBean> list = query.getResultList();
 
 		// for (int i = 0; i < list.size(); i++) {
 		// System.out.println("Element " + i + " : " + list.get(i)[0] + list.get(i)[1]);
@@ -197,13 +194,20 @@ public class VoteHibernateDAO implements VoteDAO {
 	}
 	
 	public int SelectGenderofMember() {
-		String Hql = "from MemberBean as m join on (select v.MemberID from VotingDetailBean as v where v.FilmID = 1110 group by v.MemberID) as t on m.memberId = t.MemberID";
-		Query query = this.session().createQuery(Hql);		
-		System.out.println(query.getResultList());
+//		String Hql = "from MemberBean as m join on (select v.MemberID from VotingDetailBean as v where v.FilmID = 1110 group by v.MemberID) as t on m.memberId = t.MemberID";
+//		Query query = this.session().createQuery(Hql);		
+//		System.out.println(query.getResultList());
 		//select v.MemberID from VotingDetailBean as v where v.FilmID = 1110 group by v.MemberID
 		//select COUNT(gender) from Member  join (select MemberID from VoteDetail where FilmID = 1110 group by MemberID) as t on Member.memberId = t.MemberID where gender='man'
 		return 0;
 		
+	}
+
+	@Override
+	public boolean UpMovie(int FilmID) {
+		
+		
+		return false;
 	}
 
 }

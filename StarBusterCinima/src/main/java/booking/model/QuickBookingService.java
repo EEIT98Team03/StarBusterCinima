@@ -30,7 +30,11 @@ public class QuickBookingService {
 	
 	@Transactional
 	public List<FilmBean> selectAllfilms(){//搜尋所有電影
+		
+		
+		
 		filmResult = quickBookingDAO.selectFilms();
+		System.out.println(filmResult);
 		return filmResult;
 	}
 	

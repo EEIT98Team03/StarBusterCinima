@@ -19,8 +19,6 @@ public interface VoteDAO {
 	List<Object[]> SelectAllFilmIdAndNameInWishpool();
 	// 給ID選MEMBER資料
 	List<Object[]> SelectMemberData(int id);
-	// 選全部的MEMBER資料
-	List<MemberBean> SelectMemberData2();
 	int SelectGenderofMember() ;
 
 	// ---------------------------------------------------------INSERT---------------------------------------------------------//
@@ -38,11 +36,14 @@ public interface VoteDAO {
 	VoteBean updateVoteStatus(VoteBean bean, String status);
 	
 	VoteBean updateVoteGoal(VoteBean bean, int FilmID, int VoteGoal);
+	
+	boolean UpMovie(int FilmID);
 
 	// ---------------------------------------------------------DELETE---------------------------------------------------------//
 
 	// 刪一個許願池的電影
 	boolean DeleteFilmInWishPool(int FilmID);
+	List<VoteBean> UpMovie();
 	
 
 }
