@@ -102,7 +102,9 @@ color:white;
 
 .aa{padding-top:20px;}
 
-
+div{
+cursor: pointer;
+}
 </style>
 
 <c:if test="${empty sessionScope.lan}">

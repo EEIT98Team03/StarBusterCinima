@@ -53,9 +53,10 @@ public class QuickBookingController {
 //		request.getSession().removeAttribute("filmBean");
 		List<FilmBean> result = quickBookingService.selectAllfilms();
 
-
-		Gson gson = new Gson();
+		Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
 		String str = gson.toJson(result);
+//		Gson gson = new Gson();
+//		String str = gson.toJson(result);
 		
 //		System.out.println(str);
 		return str;

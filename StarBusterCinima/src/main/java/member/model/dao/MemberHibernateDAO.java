@@ -43,8 +43,8 @@ public class MemberHibernateDAO implements MemberDAO {
 	public List<Object[]> selectOrdersJoin(int memberId) {
 //		 select ticketorderid, postermedium, [filmsectiontime], [ticketcount], [seatnum], [ticketorderprice], [ticketState] 
 //		from TicketOrder as t    left outer join    Film as f    on    t.filmid=f.filmid
-		String hqlStmt = "select f.posterMedium, t.filmsectiontime, t.ticketCount, t.seatNum, t.ticketOrderPrice, t.ticketState from TicketOrderBean as t JOIN FilmBean as f on t.filmId=f.filmId where t.memberId = ?";
-//		String hqlStmt = "select f.posterMedium,t.ticketOrderId,  t.filmsectiontime from TicketOrderBean as t JOIN FilmBean as f on t.filmId=f.filmId  where t.memberId = ?";
+//		String hqlStmt = "select f.posterMedium, t.filmsectiontime, t.ticketCount, t.seatNum, t.ticketOrderPrice, t.ticketState from TicketOrderBean as t JOIN FilmBean as f on t.filmId=f.filmId where t.memberId = ?";
+		String hqlStmt = "select f.posterMedium, t.filmsectiontime, t.ticketCount, t.ticketCode, t.ticketOrderPrice, t.ticketState from TicketOrderBean as t JOIN FilmBean as f on t.filmId=f.filmId where t.memberId = ?";
 //		System.out.println("11");
 		Query<Object[]> query = this.session().createQuery(hqlStmt);
 //		System.out.println("22");
