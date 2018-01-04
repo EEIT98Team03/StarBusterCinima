@@ -323,11 +323,9 @@ $(document).ready(function(){
 			for(var i=0 ; i<Object.keys(Jdata).length ; i++){
 
 				var filmPosterTag = $('<div>').attr('class','filmPoster');
-<<<<<<< HEAD
-					var imgTag =    $('<img>').attr('src','/StarBusterCinima/images/film/'+eachFilm[i].filmId+'.jpg');
-=======
+
 					var imgTag =    $('<img>').attr('src','/StarBusterCinima/images/film/'+eachFilm[i].filmName+'.jpg');
->>>>>>> branch 'master' of https://github.com/EEIT98Team03/StarBusterCinima.git
+
 				var newFilmPosterTag = filmPosterTag.append(imgTag);
 					
 					
