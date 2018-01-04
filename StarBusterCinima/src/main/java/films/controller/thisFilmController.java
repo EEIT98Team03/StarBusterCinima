@@ -45,23 +45,24 @@ public class thisFilmController {
 //	}
 	
 		@RequestMapping(method = RequestMethod.GET, produces = "text/html;charset=UTF-8")
-		public String method(String paramFilmId, Model model ,HttpServletRequest request) {
+		public String method(String filmId, Model model ,HttpServletRequest request) {
 			
-			System.out.println("controller: "+paramFilmId);
-			if(paramFilmId!=null) {
-				int filmId = Integer.parseInt(paramFilmId);
-				FilmBean result = filmService.selectById(filmId);
+			System.out.println("controller: "+filmId);
+			if(filmId!=null) {
+				int aa = Integer.parseInt(filmId);
+				FilmBean result = filmService.selectById(aa);
 //				request.getSession().removeAttribute("filmBean");
-//				model.addAttribute("filmBean", result);
-				request.getSession().setAttribute("filmBean", result);
+				model.addAttribute("filmBean", result);
+				//request.getSession().setAttribute("filmBean", result);
 //				request.setAttribute("filmBean", result);
 //				Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create(); 
 //				String str = gson.toJson(list);
 				System.out.println("(thisFilmController) controller thisFilm->>  "+result);
+				
 				return "thisfilm";
 			}
 			
-			return null;
+			return "thisfilm";
 		}
 
 	}

@@ -174,7 +174,7 @@
 				percentData = percentData.toString();
 				percentData = percentData.substring(0, 5) + "%";
 				$('#detailinfo1').html("<div style='margin-left: 36px;'>當月消費金額最多的前10位會員，合計貢獻當月總營收的 <span style='color: red;'>" + percentData) + "</span></div>";
-				$('#detailinfo2').html("<div style='float: left;'><table class='pure-table' style='font-size: 0.8em;'><thead><td style='min-width: 80px;'>排行</td><td style='min-width: 300px;'>會員(顯示部分Email）</td><td style='min-width: 160px;'>金額</td></thead><tbody><tr><td>1</td><td>hibackpacker</td><td>$152000</td></tr><tr><td>2</td><td>kengyuhotw</td><td>$125000</td></tr><tr><td>3</td><td>sarahchun1995</td><td>$109000</td></tr><tr><td>4</td><td>brianhuang0211</td><td>$99000</td></tr><tr><td>5</td><td>newjudyliang</td><td>$63000</td></tr><tr><td>6</td><td>meicheng19961108</td><td>$55000</td></tr><tr><td>7</td><td>candydesignc</td><td>$41000</td></tr><tr><td>8</td><td>louisasasak</td><td>$33000</td></tr><tr><td>9</td><td>pjlee</td><td>$32000</td></tr><tr><td>10</td><td>tkyeh2003</td><td>$31000</td></tr></tbody></table><div>當月總營收：$5492000</div></div>");
+				$('#detailinfo2').html("<div style='float: left;'><table class='pure-table' style='font-size: 0.8em;'><thead><td style='min-width: 80px;'>排行</td><td style='min-width: 300px;'>會員(顯示部分Email）</td><td style='min-width: 160px;'>金額</td></thead><tbody><tr><td>1</td><td>biea326hu</td><td>$152000</td></tr><tr><td>2</td><td>kengyuhotw</td><td>$125000</td></tr><tr><td>3</td><td>sarahchun1995</td><td>$109000</td></tr><tr><td>4</td><td>brianhuang0211</td><td>$99000</td></tr><tr><td>5</td><td>newjudyliang</td><td>$63000</td></tr><tr><td>6</td><td>meicheng19961108</td><td>$55000</td></tr><tr><td>7</td><td>candydesignc</td><td>$41000</td></tr><tr><td>8</td><td>louisasasak</td><td>$33000</td></tr><tr><td>9</td><td>pjlee</td><td>$32000</td></tr><tr><td>10</td><td>tkyeh2003</td><td>$31000</td></tr></tbody></table><div>當月總營收：$5492000</div></div>");
 				$('#detailinfo3').show();
 			});
 		});
@@ -183,7 +183,7 @@
 
 <script>
 $('#sendMemberEmail').click(function(){
-	$.get('/StarBusterCinima/SendEmailToMember?receiver=hibackpackertw@gmail.com', function(returnData){
+	$.get('/StarBusterCinima/SendEmailToMember?receiver=biea326hu@gmail.com', function(returnData){
 		alert('已成功寄發電郵');
 	});
 });
