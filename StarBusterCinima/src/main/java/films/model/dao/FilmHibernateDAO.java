@@ -212,4 +212,10 @@ public class FilmHibernateDAO implements FilmDAO {
 		return Integer.parseInt(this.session().get(FilmBean.class,filmId).getLengthOfFilm());
 	}
 
+	@Override
+	public List<FilmBean> selectFilms() {
+		Query<FilmBean> query = this.session().createQuery("from FilmBean", FilmBean.class);		
+		return query.getResultList();		
+	}
+
 }

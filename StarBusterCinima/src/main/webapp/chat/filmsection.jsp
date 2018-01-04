@@ -304,7 +304,7 @@ body {
 			})
 			
 			$.ajax({ 				
-					url: "../film/filmMgmt.controller/s1",
+					url: "../film/filmMgmt.controller/SelectMovieCanUp",
 					type: "GET", 		
 					dataType: "text", 			
 					success: function(data) {				
@@ -312,9 +312,6 @@ body {
 						for(var i = 0; i<re.length;i++){
 							
 							$('#SelectFilmName').append($("<option></option>").attr("value",re[i].filmId).text(re[i].filmName));
-						
-							
-
 						}	
 					},
 					error: function() { 
@@ -338,15 +335,7 @@ body {
 					error: function() { 
 				  	 	console.log("parse error"); 
 					} 
-				});//end ajax#
-				
-				
-				
-				
-				
-				
-				
-// 			console.log(lengthoffilm);
+				});//end ajax# 			
 		});
 	</script>
 	

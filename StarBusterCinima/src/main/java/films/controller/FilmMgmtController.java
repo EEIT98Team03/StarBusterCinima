@@ -30,8 +30,7 @@ import films.model.filmsService;
 public class FilmMgmtController {
 
 	@Autowired
-	filmsService filmsservice;
-	QuickBookingService quickBookingService;
+	filmsService filmsservice;	
 	// @InitBinder
 	// public void initialize(WebDataBinder webDataBinder) {
 	// webDataBinder.registerCustomEditor(java.sql.Date.class, "udate",
@@ -140,11 +139,11 @@ public class FilmMgmtController {
 		return str;
 	}
 	
-	@RequestMapping(value = "s1", method = { RequestMethod.GET }, produces = "text/html;charset=UTF-8")
-	public String s1(Model model) {
+	@RequestMapping(value = "SelectMovieCanUp", method = { RequestMethod.GET }, produces = "text/html;charset=UTF-8")
+	public String SelectMovieCanUp(Model model) {
 		
 		System.out.println("a");
-		List<FilmBean> result = quickBookingService.selectAllfilms();
+		List<FilmBean> result = filmsservice.selectAllfilms();
 
 		Gson gson = new Gson();
 		String str = gson.toJson(result);

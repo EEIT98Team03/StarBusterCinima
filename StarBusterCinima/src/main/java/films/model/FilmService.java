@@ -1,5 +1,7 @@
 package films.model;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,4 +22,10 @@ public class FilmService {
 	
 	}
 	
+	public List<FilmBean> selectAllfilms(){//搜尋所有電影		
+		
+		List<FilmBean> filmResult = filmDAO.selectAll();
+		System.out.println(filmResult);
+		return filmResult;
+	}
 }

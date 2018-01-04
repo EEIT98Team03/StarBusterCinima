@@ -41,16 +41,22 @@ public class VotemgmtService {
 		return voteDAO.insert(FilmID, VoteGoal);
 	}
 	
-	public List<MemberBean> SelectMemberData() {		
+	public List<VoteBean> UpMovie() {		
 		
-		List<MemberBean> bean = voteDAO.SelectMemberData2();	
+		List<VoteBean> bean = voteDAO.UpMovie();	
 		return bean;		
 	}
 	
 	public void UpdateVoteGoal(int FilmID,int VoteGoal) {
 		
-		voteDAO.updateVoteGoal(voteDAO.select(FilmID), FilmID, VoteGoal);	
+		voteDAO.updateVoteGoal(voteDAO.select(FilmID), FilmID, 200);	
 				
+	}
+	
+	public boolean UpMovie(int FilmID) {
+		
+		
+		return false;		
 	}
 	
 	

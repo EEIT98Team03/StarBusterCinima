@@ -21,7 +21,7 @@ public interface FilmDAO {
 	boolean UpdateFilmSection(int filmsectionId,Timestamp filmsectiontime);
 	boolean UptdteFilmstatus(int filmId);
 	List<Object[]> SelectSectionCount();
-	
+	List<FilmBean> selectFilms(); 
 	
 	FilmBean update(
 			String filmId,

@@ -71,16 +71,15 @@ public class VotemgmtController {
 	@RequestMapping(value = "VoteALot", method = { RequestMethod.GET }, produces = "text/html;charset=UTF-8")
 	public String VoteALot(Model model) {
 
-		List<MemberBean> bean = votemgmtservice.SelectMemberData();
+		List<VoteBean> bean = votemgmtservice.UpMovie();
 		Gson J = new Gson();
 		String jbl = J.toJson(bean);
 
 		return jbl;
 	}
 
-	@RequestMapping(value = "DoVoteALot", method = { RequestMethod.GET }, produces = "text/html;charset=UTF-8")
-	public void DoVoteALot(Model model, @RequestParam("FilmID") int filmID,
-			@RequestParam("memberId") List<Integer> memberId) {
+	@RequestMapping(value = "UpMovie", method = { RequestMethod.GET }, produces = "text/html;charset=UTF-8")
+	public void DoVoteALot(Model model, @RequestParam("FilmID") int filmID) {
 		VoteBean bean = null;
 		// for(int i =0 ;i<memberID.length;i++) {
 		System.out.println(filmID);

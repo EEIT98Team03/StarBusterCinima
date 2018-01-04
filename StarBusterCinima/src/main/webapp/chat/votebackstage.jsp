@@ -185,7 +185,7 @@ body {
 										</select>
 									</div>		
 									<br>			
-									<button type="button" class="btn btn-default" id="sentdeletevote">刪除</button>
+									<button type="button" class="btn btn-default" id="sentdeletevote">刪除</button><span class="al"></span>
 								</form>
 							</div>
 						</td>
@@ -213,7 +213,7 @@ body {
 											class="form-control">
 									</div>
 									<br>
-									<button type="button" class="btn btn-default" id="doupdateGoal">送出</button>
+									<button type="button" class="btn btn-default" id="doupdateGoal">送出</button><span class="al"></span>
 								</form>
 							</div>
 
@@ -225,7 +225,7 @@ body {
 							<button type="button" class="btn btn-primary"
 								data-toggle="collapse" data-target="#demo3"
 								style="margin-bottom: 10px;" id="VoteALot">
-							<span class="glyphicon glyphicon-open"></span>	許願池批量投票 
+							<span class="glyphicon glyphicon-open"></span>	許願池電影上架
 							</button>
 
 							<div id="demo3" class="collapse">
@@ -383,30 +383,9 @@ body {
 	
 	//-------------------------------------------------批量投票-------------------------------------------------//
 	
-	$('#VoteALot').click(function(){		
-		$.ajax({ //get member data						
-			url: "../wishpool/votemgmt.controller/VoteALot",
-			type: "GET", 
-			dataType: "text", 			
-			success: function(data) { 
-				//turn json data into array				
-				r = jQuery.parseJSON(data);
-				for(var i = 0; i<r.length;i++){
-					console.log(r[i].memberId)
-					console.log(r[i].name)
-					var temp = $('#MemberData');
-		
-					$('#MemberData').append($('<input type="checkbox"/>').val(r[i].memberId));
-					
-					$('#MemberData').append($("<label></lebel>").text(r[i].name));
-				}
-			},
-			error: function() { 
-		  	 	console.log("parse error"); 
-			} 
-		});//end ajax#
+	
 		$.ajax({ //get film data						
-			url: "../wishpool/vote.controller/selectall",
+			url: "../wishpool/votemgmt.controller/VoteALot",
 			type: "GET", 
 			dataType: "text", 			
 			success: function(data) { 
@@ -421,7 +400,7 @@ body {
 		  	 	console.log("parse error"); 
 			} 
 		});//end ajax#	
-	});		
+	
 
 	$('#doVoteALot').on("click",function(){
 		console.log("doVoteALot start");
@@ -437,23 +416,18 @@ body {
 		$.ajax({ 				
 			url: "../wishpool/votemgmt.controller/DoVoteALot",
 			type: "GET", 
-			data:{"FilmID" : 100,"memberId":memberId} ,
+			data:{"FilmID" : $('select :selected').val()} ,
 			dataType: "text", 			
 			success: function(data) { 
 				console.log("doVoteALot success");		
-
+				console.log($('select :selected').val());
+				$('.al').text("成功")
 			},
 			error: function() { 
 		  	 	console.log("parse error"); 
 			} 
 		});//end ajax#			
 	});
-	
-	
-	
-	
-	
-	
 	
 	</script>
 </body>
